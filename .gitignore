@@ -1,0 +1,28 @@
+# Lead lists and any files containing personal data
+leads/*
+!leads/.gitkeep
+!leads/README.md
+
+# Generated email drafts (contain personal data / lead content)
+drafts/*
+!drafts/.gitkeep
+!drafts/README.md
+
+# Common personal-data file formats, wherever they end up
+*.csv
+*.tsv
+*.xlsx
+*.vcf
+
+# Secrets / credentials
+.env
+.env.*
+*.key
+*credentials*.json
+
+# Python / Node cruft from scripts/
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+venv/
