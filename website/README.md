@@ -1,33 +1,53 @@
-# Recruitment agency website
+# Company website
 
-A single-page website for a Rawalpindi–Islamabad recruitment consultancy and
-licensed Overseas Employment Promoter (OEP). Everything lives in
-`index.html`: no build step, no dependencies. Open it in a browser to preview.
+A multi-page static website for a Rawalpindi–Islamabad manpower recruitment
+and HR consultancy. There's no build step: open `index.html` in a browser to
+preview.
 
-## Before launch, replace the placeholders
+## Pages
 
-1. **Business name.** "Margalla Global Recruitment" is a placeholder. Find and
-   replace it throughout `index.html` (title, meta tags, logo, footer, JSON-LD).
-2. **Contact details and licence number.** Edit the `SITE` object near the
-   bottom of `index.html`. Phone, WhatsApp, email, address, hours and the
-   BE&OE licence number update everywhere on the page from there.
-3. **Enquiry form.** With `formEndpoint` empty, the form hands the enquiry to
-   WhatsApp. To receive submissions by email, create a free form at
-   [Formspree](https://formspree.io) (or similar) and paste its URL into
-   `formEndpoint`.
-4. **Job listings.** The `JOBS` array holds sample openings. Replace them with
-   real, BE&OE-approved demands, then delete the "Sample listings" note.
+| File | Page |
+| --- | --- |
+| `index.html` | Home |
+| `recruitment.html` | Industries & roles: searchable directory of positions by category |
+| `countries.html` | Destination countries with flags, sectors, roles and visa routes |
+| `consultancy.html` | Corporate HR & business consultancy services |
+| `partnerships.html` | Partnership types and models (worldwide and in Pakistan) |
+| `about.html` | Company, mission, vision, values, ethical recruitment |
+| `contact.html` | Enquiry form (employer / job seeker / partner / consultancy) and FAQ |
+| `privacy.html`, `terms.html` | Legal pages. Have a lawyer review before launch |
+| `404.html` | Not-found page |
+
+## Where to edit things
+
+- **Company name, phone, WhatsApp, email, address, map link, hours, social
+  links, form endpoint:** `assets/js/config.js`. The header, footer and
+  contact blocks on every page read from it. The page `<title>` and meta tags
+  also contain the name, so find and replace it in the `.html` files too.
+- **Industries, job titles, countries:** `assets/js/data.js`. The directory,
+  country explorer, flag strips and counters all update from it.
+- **Styles:** `assets/css/site.css`. **Animations and behaviour:**
+  `assets/js/site.js`.
+- **Logo:** `assets/img/`. See `../brand/README.md` to regenerate the PNGs.
+- **Flags:** `assets/flags/` (flag-icons, MIT licence).
+
+## Forms
+
+With `formEndpoint` empty, the forms hand the enquiry over to WhatsApp. To
+receive submissions by email, create a form at [Formspree](https://formspree.io)
+(or similar) and paste its URL into `formEndpoint`.
+
+## Before launch
+
+1. Replace the placeholder name, contact details and map link in `config.js`.
+2. Replace `https://example.com` in `sitemap.xml` and `robots.txt` with the
+   live domain.
+3. Review the privacy policy and terms.
 
 ## Hosting
 
-`.github/workflows/deploy-website.yml` publishes the `website/` folder to
-GitHub Pages on every push that touches it.
-
-One-time setup: repository **Settings → Pages → Build and deployment → Source:
-GitHub Actions**. GitHub Pages on a private repository needs a paid GitHub
-plan; otherwise make the repository public or host on Netlify/Vercel/Cloudflare
-Pages by pointing them at the `website/` folder (no build command).
-
-Custom domain: add it under Settings → Pages, then create the DNS records your
-registrar needs (a `CNAME` record for `www` pointing to
-`<username>.github.io`).
+`.github/workflows/deploy-website.yml` publishes this folder to GitHub Pages.
+One-time setup: **Settings → Pages → Source: GitHub Actions**, and allow the
+deploying branch under **Settings → Environments → github-pages**. Netlify,
+Vercel or Cloudflare Pages also work: point them at the `website/` folder with
+no build command.

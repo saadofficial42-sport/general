@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact Us | Margalla Global</title>
+<meta name="description" content="Request manpower, register your CV, discuss a partnership or book a consultation with our Rawalpindi–Islamabad recruitment team.">
+<meta name="theme-color" content="#0A1B25">
+<meta property="og:title" content="Contact Us | Margalla Global">
+<meta property="og:image" content="assets/img/og-image.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo-mark-512.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="contact">
+<div id="site-header"></div>
+<main id="main">
+
+<section class="hero page-hero" aria-labelledby="page-h">
+  <canvas class="hero-canvas" data-scene="radar" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div style="max-width:620px">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
+      <h1 id="page-h" style="margin-top:22px"><span class="line"><span>Tell us who</span></span><span class="line"><span><em>you're looking for.</em></span></span></h1>
+      <p class="hero-lede">Employers, job seekers, partners and companies looking for consultancy: send us a message and we'll reply <strong>within one working day</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" data-deco aria-labelledby="form-h">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head reveal" style="margin-bottom:28px">
+        <span class="eyebrow">Reach us directly</span>
+        <h2 id="form-h" style="font-size:clamp(28px,3.4vw,40px)">Visit, call or message.</h2>
+      </div>
+      <div class="info">
+        <div class="info-row"><span data-icon="pin"></span><div><small>Office</small><a data-cfg="address" href="#" target="_blank" rel="noopener">Rawalpindi, Pakistan</a></div></div>
+        <div class="info-row"><span data-icon="phone"></span><div><small>Phone / WhatsApp</small><a data-cfg="phone" href="#">+92</a></div></div>
+        <div class="info-row"><span data-icon="mail"></span><div><small>Email</small><a data-cfg="email" href="#">info@</a></div></div>
+        <div class="info-row"><span data-icon="clock"></span><div><small>Office hours</small><span data-cfg="hours">Mon–Sat</span></div></div>
+      </div>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-solid" href="#" data-wa target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+    </div>
+
+    <form class="form reveal" data-enquiry novalidate aria-label="Enquiry form">
+      <div class="form-tabs" role="radiogroup" aria-label="I am">
+        <label><input type="radio" name="type" id="t-employer" value="Employer: hiring manpower" data-hash="employer" checked><span>I'm hiring</span></label>
+        <label><input type="radio" name="type" id="t-seeker" value="Job seeker" data-hash="jobseeker"><span>I want a job</span></label>
+        <label><input type="radio" name="type" id="t-partner" value="Partnership" data-hash="partner"><span>Partnership</span></label>
+        <label><input type="radio" name="type" id="t-consult" value="Consultancy" data-hash="consultancy"><span>Consultancy</span></label>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+92"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field" data-for="employer partner consultancy"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+        <div class="field" data-for="jobseeker"><label for="f-city">Your city</label><input id="f-city" name="city" autocomplete="address-level2"></div>
+      </div>
+      <div class="row" data-for="employer">
+        <div class="field"><label for="f-roles">Positions &amp; numbers</label><input id="f-roles" name="roles" placeholder="e.g. 30 welders, 10 HTV drivers"></div>
+        <div class="field"><label for="f-wcountry">Work location</label><select id="f-wcountry" name="work_location"><option>Pakistan</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Qatar</option><option>Oman</option><option>Türkiye</option><option>Romania</option><option>Portugal</option><option>Poland</option><option>Belarus</option><option>Kyrgyzstan</option><option>Other</option></select></div>
+      </div>
+      <div class="row" data-for="jobseeker">
+        <div class="field"><label for="f-trade">Trade / profession</label><input id="f-trade" name="trade" placeholder="e.g. Electrician"></div>
+        <div class="field"><label for="f-exp">Years of experience</label><select id="f-exp" name="experience"><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div>
+      </div>
+      <div class="row" data-for="jobseeker">
+        <div class="field"><label for="f-pref">Preferred country</label><select id="f-pref" name="preferred_country"><option>Any</option><option>Pakistan</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Qatar</option><option>Oman</option><option>Türkiye</option><option>Romania</option><option>Portugal</option><option>Poland</option><option>Belarus</option><option>Kyrgyzstan</option></select></div>
+        <div class="field"><label for="f-pass">Valid passport?</label><select id="f-pass" name="passport"><option>Yes</option><option>No</option><option>Applied for</option></select></div>
+      </div>
+      <div class="field" data-for="partner"><label for="f-ptype">Organisation type</label><select id="f-ptype" name="partner_type"><option>Employer abroad</option><option>Recruitment agency abroad</option><option>Company in Pakistan</option><option>Training institute</option><option>Service provider</option><option>Other</option></select></div>
+      <div class="field" data-for="consultancy"><label for="f-svc">Service of interest</label><select id="f-svc" name="service"><option>Workforce planning</option><option>Recruitment process outsourcing</option><option>Contract staffing &amp; outsourcing</option><option>HR policy &amp; compliance</option><option>Training &amp; skills development</option><option>Recruitment marketing</option><option>Not sure yet</option></select></div>
+      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Anything else we should know"></textarea></div>
+      <button class="btn btn-solid" type="submit" style="justify-self:start">Send enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="form-status" role="status"></p>
+      <small class="note">Job seekers: we never ask for payment through personal bank accounts or mobile wallets. By sending this form you agree to our <a href="privacy.html">privacy policy</a>.</small>
+    </form>
+  </div>
+</section>
+
+<section class="section tint" data-deco aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Questions</span>
+      <h2 id="faq-h">Frequently asked.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What kind of workers do you recruit?</summary><p>Mainly blue-collar and technical workers: construction trades, electricians and plumbers, welders, machine operators, drivers, warehouse staff, caregivers, cooks and hotel staff, security guards, cleaners, farm workers and general labour. See the full list on our <a href="recruitment.html">Industries &amp; Roles</a> page.</p></details>
+      <details><summary>Which countries do you recruit for?</summary><p>Saudi Arabia, UAE, Qatar, Oman, Türkiye, Romania, Portugal, Poland, Belarus and Kyrgyzstan, as well as employers inside Pakistan. We also consider requirements for other countries.</p></details>
+      <details><summary>How quickly can you supply workers?</summary><p>For roles inside Pakistan, shortlists are often ready within days. For overseas roles, timelines depend on trade testing, medicals and each country's visa and work-permit process. Gulf countries typically take a few weeks; European work permits usually take a few months. We give you a written timeline for every requirement.</p></details>
+      <details><summary>How are overseas placements handled legally?</summary><p>Every overseas deployment from Pakistan follows the emigration procedure required by the Government of Pakistan under the Emigration Ordinance 1979, including registration with the Protector of Emigrants. We explain each step to employers and workers before any commitment.</p></details>
+      <details><summary>I'm a job seeker. What documents do I need?</summary><p>A valid passport, CNIC, recent photographs, educational and trade certificates, experience letters and, for drivers, a valid driving licence. Some countries and employers need more. We'll tell you exactly what is required for each vacancy.</p></details>
+      <details><summary>Can employers witness trade tests?</summary><p>Yes. Your engineers or supervisors can attend tests in person in the Rawalpindi–Islamabad area, or we can record the tests on video and share scores and footage.</p></details>
+      <details><summary>Do you offer services to companies inside Pakistan?</summary><p>Yes. We supply workers to Pakistani companies on a direct-hire or contract basis and offer HR consultancy. See <a href="consultancy.html">Consultancy</a> and <a href="partnerships.html">Partnerships</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
