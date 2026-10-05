@@ -5,9 +5,9 @@ window.SITE = {
   name:     "RS Links",                        // short name shown in the logo (first word in accent colour)
   tagline:  "Consultants Pvt. Ltd.",
   legalName:"RS Links Consultants Pvt. Ltd.",
-  phone:    "+92 300 0000000",                 // PLACEHOLDER: add office/WhatsApp number
-  whatsapp: "920000000000",                    // digits only, country code first
-  email:    "info@example.com",
+  phone:    "+92 371 9051589",
+  whatsapp: "923719051589",                    // digits only, country code first
+  email:    "",                                // leave empty to hide email everywhere
   address:  "Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi",
   mapUrl:   "https://www.google.com/maps/search/?api=1&query=Satellite+Shopping+Centre+Sixth+Road+Rawalpindi",   // swap for your exact Google Maps pin link if you have one
   hours:    "Mon–Sat, 9:00 am – 6:00 pm PKT",

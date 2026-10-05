@@ -94,7 +94,7 @@
           '<div><h4>Contact</h4><ul>' +
             '<li>' + esc(S.address) + '</li>' +
             '<li><a data-cfg="phone" href="tel:' + esc(S.phone.replace(/[^+\d]/g, "")) + '">' + esc(S.phone) + '</a></li>' +
-            '<li><a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a></li>' +
+            (S.email ? '<li><a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a></li>' : '') +
             '<li>' + esc(S.hours) + '</li>' +
           '</ul></div>' +
         '</div>' +
@@ -184,7 +184,7 @@
         '<div class="facts"><div><small>Work authorisation</small><b>' + esc(c.permit) + '</b></div><div><small>Typical contract</small><b>' + esc(c.contract) + '</b></div><div><small>Language</small><b>' + esc(c.lang) + '</b></div></div>' +
         '<div style="display:grid;gap:10px"><h4>Sectors hiring</h4><div class="tags">' + c.sectors.map(function(s){ return "<span>" + esc(s) + "</span>"; }).join("") + '</div></div>' +
         '<div style="display:grid;gap:10px"><h4>Roles we recruit</h4><ul class="roles-list">' + c.roles.map(function(s){ return "<li>" + esc(s) + "</li>"; }).join("") + '</ul></div>' +
-        '<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-solid" href="contact.html#employer">Hire for ' + esc(c.name) + '</a><a class="btn btn-line" href="contact.html#jobseeker">Apply for jobs in ' + esc(c.name) + '</a></div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn btn-solid" href="contact.html#employer">Hire for ' + esc(c.name) + '</a><a class="btn btn-line" href="recruitment.html">Roles we recruit</a></div>' +
         '<p style="font-size:13px">Requirements differ by employer and change over time. We confirm the exact visa route, salary and conditions in writing for every vacancy.</p>';
       $$("canvas[data-scene='routes']").forEach(function(cv){ cv.dataset.highlight = c.code; });
       if(scroll && window.innerWidth < 820) panel.scrollIntoView({behavior:"smooth", block:"start"});

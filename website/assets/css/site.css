@@ -26,6 +26,7 @@
   --deco:61,187,138; --dot:200,225,218;
 }
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 img{max-width:100%;display:block}

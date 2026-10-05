@@ -13,7 +13,7 @@ fs.mkdirSync(OUT, { recursive: true });
 const CONTACT = {
   address1: 'Office No. 20, 3rd Floor, Satellite Shopping Centre',
   address2: 'Sixth Road, Rawalpindi, Pakistan',
-  phone: '',          // e.g. '+92 51 0000000'
+  phone: '+92 371 9051589  (Phone / WhatsApp)',
   whatsapp: '',       // e.g. '+92 300 0000000'
   email: '',          // e.g. 'info@rslinks.com.pk'
   web: ''             // e.g. 'www.rslinks.com.pk'
