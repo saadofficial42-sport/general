@@ -1,7 +1,7 @@
 # Brand assets
 
-The logo mark is `website/assets/img/logo-mark.svg`: a hex nut (industry,
-trades) holding two interlocking chain links, one green for the worker and one
+The logo mark is `website/assets/img/logo-seal.svg` (small icon: `logo-mark.svg`): a round stamp-style seal (trust,
+official) with "RS LINKS CONSULTANTS" on the ring and two interlocking chain links, one white for the worker and one
 amber for the employer: the "Links" in the name.
 
 Palette: petrol `#0A1B25` / `#123444`, green `#3DBB8A`, amber `#F0B545`.
@@ -21,3 +21,9 @@ render needs no network access.
 
 `concepts.mjs` renders three logo directions (The Link, The Seal, The Route)
 into `concepts/`, plus a side-by-side comparison sheet.
+
+## Letterhead
+
+`letterhead.mjs` renders the A4 letterhead to `letterhead/RS-Links-Letterhead.pdf`.
+Add phone, WhatsApp, email and website in the `CONTACT` block at the top and
+re-run it; empty values are left off the page.

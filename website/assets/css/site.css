@@ -78,9 +78,9 @@ main,footer{position:relative;z-index:1}
 .nav.scrolled,.nav.open{background:rgba(10,27,37,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--nav-h)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--hero-ink);min-width:0}
-.brand-mark{width:40px;height:40px;flex:none}
+.brand-mark{width:48px;height:48px;flex:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
 .brand-name{font:800 19px/1 var(--f-display);letter-spacing:-.01em;white-space:nowrap}
-.brand-name i{font-style:normal;color:var(--hero-accent)}
+.brand-name i{font-style:normal;color:#2FAE78}
 .brand-name small{display:block;font:500 9.5px/1.4 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hero-muted);margin-top:4px}
 .nav-links{display:flex;gap:4px}
 .nav-links a{display:block;white-space:nowrap;color:var(--hero-muted);text-decoration:none;font-weight:500;font-size:14.5px;padding:8px 11px;border-radius:999px;transition:color .2s,background .2s}
