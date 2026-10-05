@@ -16,3 +16,8 @@ This rewrites every PNG in `website/assets/img/` (horizontal logos for light
 and dark backgrounds, stacked logo, app icon, transparent mark, and the
 social-sharing image). Fonts are embedded in `fonts-inline.css` so the
 render needs no network access.
+
+## Logo options
+
+`concepts.mjs` renders three logo directions (The Link, The Seal, The Route)
+into `concepts/`, plus a side-by-side comparison sheet.
