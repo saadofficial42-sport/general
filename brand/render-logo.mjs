@@ -1,8 +1,10 @@
 import { chromium } from 'playwright';
 import fs from 'fs';
 
-const NAME = process.env.BRAND_NAME || 'Margalla Global';
-const TAG = process.env.BRAND_TAG || 'Recruitment & Consultancy';
+const NAME = process.env.BRAND_NAME || 'RS Links';
+// first word of the name is drawn in the accent colour
+const NAME_HTML = NAME.replace(/^(\S+)/, '<i>$1</i>');
+const TAG = process.env.BRAND_TAG || 'Consultants Pvt. Ltd.';
 const OUT = new URL('../website/assets/img/', import.meta.url).pathname;
 const mark = fs.readFileSync(OUT + 'logo-mark.svg', 'utf8');
 
@@ -12,6 +14,7 @@ const css = `*{margin:0;box-sizing:border-box}html,body{background:transparent}
 .lock svg{width:170px;height:170px;flex:none}
 .name{font:800 108px/0.95 "Bricolage Grotesque";letter-spacing:-.025em}
 .tag{font:500 27px/1 "IBM Plex Mono";letter-spacing:.2em;text-transform:uppercase;margin-top:18px}
+.name i{font-style:normal;color:#3DBB8A}.light .name i{color:#12704F}
 .dark{background:#0A1B25}.dark .name{color:#E8EFEC}.dark .tag{color:#93A9A7}
 .light .name{color:#0F2330}.light .tag{color:#12704F}
 .stack{display:inline-flex;flex-direction:column;align-items:center;gap:26px;padding:50px 60px;text-align:center}
@@ -28,15 +31,15 @@ const css = `*{margin:0;box-sizing:border-box}html,body{background:transparent}
 .og p b{color:#3DBB8A;font-weight:500}
 .og .hex{position:absolute;right:-80px;bottom:-90px;width:520px;opacity:.18}`;
 
-const lockup = (cls) => `<div class="lock ${cls}">${mark}<div><div class="name">${NAME}</div><div class="tag">${TAG}</div></div></div>`;
+const lockup = (cls) => `<div class="lock ${cls}">${mark}<div><div class="name">${NAME_HTML}</div><div class="tag">${TAG}</div></div></div>`;
 const pages = {
   'logo-horizontal-dark.png': lockup('dark'),
   'logo-horizontal.png': lockup('light'),
-  'logo-horizontal-white.png': `<div class="lock" style="--x:0">${mark}<div><div class="name" style="color:#fff">${NAME}</div><div class="tag" style="color:#CFE3DC">${TAG}</div></div></div>`,
-  'logo-stacked.png': `<div class="stack light">${mark}<div><div class="name">${NAME}</div><div class="tag">${TAG}</div></div></div>`,
+  'logo-horizontal-white.png': `<div class="lock" style="--x:0">${mark}<div><div class="name" style="color:#fff">${NAME_HTML}</div><div class="tag" style="color:#CFE3DC">${TAG}</div></div></div>`,
+  'logo-stacked.png': `<div class="stack light">${mark}<div><div class="name">${NAME_HTML}</div><div class="tag">${TAG}</div></div></div>`,
   'logo-mark-512.png': `<div class="markbox">${mark}</div>`,
   'logo-mark-transparent.png': `<div class="markonly">${mark}</div>`,
-  'og-image.png': `<div class="og"><div class="grid"></div><div class="hex">${mark}</div><div class="in">${lockup('')}<p>Blue-collar manpower for employers in <b>Pakistan, the Gulf, Europe and Central Asia</b>.</p></div></div>`
+  'og-image.png': `<div class="og"><div class="grid"></div><div class="hex">${mark}</div><div class="in">${lockup('')}<p>Manpower recruitment &amp; consultancy. Linking Pakistan's workforce with employers in <b>the Gulf, Europe and Central Asia</b>.</p></div></div>`
 };
 
 const b = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});

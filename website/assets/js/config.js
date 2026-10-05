@@ -2,9 +2,9 @@
    SITE SETTINGS — edit these once; every page updates from here.
    ========================================================================== */
 window.SITE = {
-  name:     "Margalla Global",                 // company name (placeholder until final name is confirmed)
-  tagline:  "Recruitment & Consultancy",
-  legalName:"Margalla Global Recruitment & Consultancy",
+  name:     "RS Links",                        // short name shown in the logo (first word in accent colour)
+  tagline:  "Consultants Pvt. Ltd.",
+  legalName:"RS Links Consultants Pvt. Ltd.",
   phone:    "+92 300 0000000",                 // shown on the site
   whatsapp: "920000000000",                    // digits only, country code first
   email:    "info@example.com",

@@ -13,7 +13,7 @@
   function flagSrc(code){ return "assets/flags/" + code + ".svg"; }
 
   /* ---------------- logo & icons ---------------- */
-  var LOGO = '<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 3 57.1 17.5v29L32 61 6.9 46.5v-29Z" fill="#123444" stroke="#3DBB8A" stroke-width="3" stroke-linejoin="round"/><path d="M19 42 32 29l13 13" fill="none" stroke="#3DBB8A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.5 51 32 43.5 39.5 51" fill="none" stroke="#3DBB8A" stroke-opacity=".55" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="19" r="5.2" fill="#F0B545"/></svg>';
+  var LOGO = '<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="rsl-clip"><rect x="22" y="32" width="20" height="14"/></clipPath></defs><path d="M32 3 57.1 17.5v29L32 61 6.9 46.5v-29Z" fill="#123444" stroke="#3DBB8A" stroke-width="3" stroke-linejoin="round"/><g transform="rotate(-45 32 32)" fill="none" stroke-width="5.6"><rect x="11" y="24.5" width="26" height="15" rx="7.5" stroke="#3DBB8A"/><rect x="27" y="24.5" width="26" height="15" rx="7.5" stroke="#F0B545"/><rect x="11" y="24.5" width="26" height="15" rx="7.5" stroke="#3DBB8A" clip-path="url(#rsl-clip)"/></g></svg>';
   var I = {
     crane:'<path d="M4 21h7M7.5 21V4M7.5 4 20 7M7.5 4 4 8h3.5M18 7v5"/><rect x="16" y="12" width="4" height="3"/>',
     bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
@@ -60,7 +60,7 @@
   var totalRoles = IND.reduce(function(n, c){ return n + c.roles.length; }, 0);
 
   /* ---------------- header / footer / chrome ---------------- */
-  function brandHTML(){ return LOGO + '<span class="brand-name">' + esc(S.name) + '<small>' + esc(S.tagline) + '</small></span>'; }
+  function brandHTML(){ return LOGO + '<span class="brand-name">' + esc(S.name).replace(/^(\S+)/, "<i>$1</i>") + '<small>' + esc(S.tagline) + '</small></span>'; }
   var header = $("#site-header");
   if(header){
     header.outerHTML =
@@ -85,7 +85,7 @@
       '<footer><canvas class="foot-canvas" data-scene="stars" aria-hidden="true"></canvas><div class="wrap">' +
         '<div class="foot">' +
           '<div><a class="brand" href="index.html">' + brandHTML() + '</a>' +
-            '<p style="max-width:40ch">A recruitment and HR consultancy in Rawalpindi–Islamabad supplying skilled, semi-skilled and general manpower to employers in Pakistan and abroad.</p>' +
+            '<p style="max-width:40ch">' + esc(S.legalName) + ' is a recruitment and HR consultancy in Rawalpindi–Islamabad supplying skilled, semi-skilled and general manpower to employers in Pakistan and abroad.</p>' +
             '<div class="foot-flags">' + CTRY.map(function(c){ return '<img src="' + flagSrc(c.code) + '" alt="' + esc(c.name) + '" title="' + esc(c.name) + '" loading="lazy">'; }).join("") + '</div>' +
             (socials ? '<div class="socials">' + socials + '</div>' : '') +
           '</div>' +

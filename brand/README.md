@@ -1,8 +1,8 @@
 # Brand assets
 
 The logo mark is `website/assets/img/logo-mark.svg`: a hex nut (industry,
-trades) holding a worker figure made of a head and two rising chevrons
-(growth, moving forward).
+trades) holding two interlocking chain links, one green for the worker and one
+amber for the employer: the "Links" in the name.
 
 Palette: petrol `#0A1B25` / `#123444`, green `#3DBB8A`, amber `#F0B545`.
 Type: Bricolage Grotesque ExtraBold (name), IBM Plex Mono (tagline).
