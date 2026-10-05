@@ -94,6 +94,7 @@
           '<div><h4>Contact</h4><ul>' +
             '<li>' + esc(S.address) + '</li>' +
             '<li><a data-cfg="phone" href="tel:' + esc(S.phone.replace(/[^+\d]/g, "")) + '">' + esc(S.phone) + '</a></li>' +
+            '<li><a class="mini-btn solid" href="contact.html#enquiry">' + icon("mail", 2) + 'Send a message</a></li>' +
             (S.email ? '<li><a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a></li>' : '') +
             '<li>' + esc(S.hours) + '</li>' +
           '</ul></div>' +
@@ -115,6 +116,16 @@
     }
   });
   $$("[data-wa]").forEach(function(a){ a.href = "https://wa.me/" + S.whatsapp; });
+  // "Send a message" + WhatsApp buttons beside every phone number in an info block
+  $$(".info-row a[data-cfg='phone']").forEach(function(a){
+    var box = document.createElement("div"); box.className = "phone-actions";
+    box.innerHTML = '<a class="mini-btn solid" href="' + (page === "contact" ? "#enquiry" : "contact.html#enquiry") + '">' + icon("mail", 2) + 'Send a message</a>' +
+      '<a class="mini-btn mini-wa" href="https://wa.me/' + esc(S.whatsapp) + '" target="_blank" rel="noopener">' + WA_SVG + 'WhatsApp</a>';
+    a.insertAdjacentElement("afterend", box);
+  });
+  // landing on the form: focus the first field so the visitor can start typing
+  function focusForm(){ var f = document.getElementById("enquiry"); if(f && location.hash === "#enquiry"){ var n = f.querySelector("input[name='name']"); if(n) setTimeout(function(){ n.focus({preventScroll:true}); }, 400); } }
+  window.addEventListener("hashchange", focusForm); focusForm();
   $$("[data-stat='roles']").forEach(function(el){ el.textContent = totalRoles; el.setAttribute("data-count", totalRoles); });
   $$("[data-stat='industries']").forEach(function(el){ el.textContent = IND.length; el.setAttribute("data-count", IND.length); });
   $$("[data-stat='countries']").forEach(function(el){ el.textContent = CTRY.length; el.setAttribute("data-count", CTRY.length); });
