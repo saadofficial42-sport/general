@@ -26,9 +26,10 @@ window.SITE = {
 
 window.NAV = [
   {href:"index.html",        label:"Home",         id:"home"},
-  {href:"recruitment.html",  label:"Industries & Roles", id:"recruitment"},
+  {href:"recruitment.html",  label:"Industries", id:"recruitment"},
   {href:"countries.html",    label:"Countries",    id:"countries"},
   {href:"consultancy.html",  label:"Consultancy",  id:"consultancy"},
+  {href:"visas.html",        label:"Visas & Study", id:"visas"},
   {href:"partnerships.html", label:"Partnerships", id:"partnerships"},
   {href:"about.html",        label:"About",        id:"about"},
   {href:"contact.html",      label:"Contact",      id:"contact"}

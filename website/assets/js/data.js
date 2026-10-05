@@ -1,44 +1,71 @@
 /* ==========================================================================
-   Content data: industries & positions, destination countries.
-   Add or remove roles/countries here and every page that lists them updates.
+   Content data: industries & positions, destination countries, visas.
+   Add or remove items here and every page that lists them updates.
    ========================================================================== */
 window.INDUSTRIES = [
   { id:"construction", icon:"crane", name:"Construction & Civil Works",
     blurb:"Crews for buildings, roads, bridges and mega-projects, from first pour to finishing.",
-    roles:["Mason","Steel fixer","Shuttering carpenter","Scaffolder","Tile & marble fixer","Plasterer","Painter","Gypsum & false-ceiling fixer","Concrete finisher","Block layer","Road construction worker","Excavator operator","Crane operator","Rigger","Site foreman","Land surveyor","Construction helper"] },
+    roles:["Mason","Block layer","Steel fixer","Shuttering carpenter","Finishing carpenter","Scaffolder","Tile & marble fixer","Plasterer","Painter","Gypsum & false-ceiling fixer","Concrete finisher","Waterproofing applicator","Glass & aluminium fixer","Curtain-wall installer","Road construction worker","Asphalt paver operator","Pipe layer","Excavator operator","Crane operator","Rigger","Site foreman","Land surveyor","Quantity surveyor assistant","Construction helper"] },
   { id:"mep", icon:"bolt", name:"MEP & Technical Trades",
     blurb:"Mechanical, electrical and plumbing technicians who keep buildings and plants running.",
-    roles:["Building electrician","Industrial electrician","Plumber","Pipe fitter","HVAC technician","AC & refrigeration technician","Duct fabricator & installer","Instrument technician","Fire-fighting systems technician","Lift & escalator technician","Maintenance technician","Generator technician"] },
+    roles:["Building electrician","Industrial electrician","Electrical foreman","Cable puller","Plumber","Pipe fitter","HVAC technician","AC & refrigeration technician","Chiller technician","Duct fabricator & installer","Instrument technician","Fire-fighting systems technician","Fire-alarm technician","Lift & escalator technician","Maintenance technician","Generator technician","Solar panel installer","BMS technician"] },
   { id:"welding", icon:"spark", name:"Welding & Fabrication",
     blurb:"Certified welders and fabricators for structural steel, pipelines, shipyards and workshops.",
-    roles:["TIG welder","MIG / MAG welder","Arc (SMAW) welder","6G pipe welder","Structural steel fabricator","Sheet-metal worker","Fitter-fabricator","Grinder","Steel erector","Boilermaker","Welding inspector"] },
+    roles:["TIG welder","MIG / MAG welder","Arc (SMAW) welder","Flux-core welder","6G pipe welder","Structural steel fabricator","Sheet-metal worker","Fitter-fabricator","Pipe fabricator","Grinder","Gas cutter","Steel erector","Boilermaker","Welding inspector"] },
+  { id:"oilgas", icon:"flame", name:"Oil, Gas & Energy",
+    blurb:"Field and plant crews for refineries, rigs, pipelines and power stations.",
+    roles:["Roustabout","Roughneck / floorhand","Derrickman","Mechanical fitter","Instrument fitter","Insulator","Painter & blaster","Scaffolder (offshore)","Pipeline welder","Plant operator","Power-plant technician","Lineman (overhead lines)","Cable jointer","HSE officer (site)"] },
   { id:"manufacturing", icon:"factory", name:"Manufacturing & Production",
-    blurb:"Line workers and operators for factories, food plants, textiles and packaging.",
-    roles:["Machine operator","CNC operator","Production worker","Assembly-line worker","Packing & labelling staff","Quality-control inspector","Textile machine operator","Sewing machine operator","Food-processing worker","Meat-processing worker","Printing press operator","Plastic injection operator"] },
+    blurb:"Line workers and operators for factories, food plants and packaging.",
+    roles:["Machine operator","CNC operator","Lathe / milling machinist","Production worker","Assembly-line worker","Packing & labelling staff","Quality-control inspector","Food-processing worker","Meat-processing worker","Dairy plant worker","Printing press operator","Plastic injection operator","Furniture maker","Wood-processing worker","Glass factory worker"] },
+  { id:"textile", icon:"needle", name:"Textile & Garments",
+    blurb:"Skilled hands for spinning, weaving, stitching and finishing lines.",
+    roles:["Sewing machine operator","Overlock operator","Cutting master","Pattern maker","Tailor","Embroidery machine operator","Knitting machine operator","Weaver","Spinning operator","Dyeing machine operator","Ironing & pressing staff","Garment quality checker","Upholsterer"] },
   { id:"logistics", icon:"truck", name:"Logistics, Transport & Warehousing",
     blurb:"Licensed drivers and warehouse teams that keep supply chains moving.",
-    roles:["Heavy transport (HTV) driver","Light vehicle (LTV) driver","Trailer / truck driver","Bus & coach driver","Delivery rider","Forklift operator","Reach-truck operator","Warehouse picker & packer","Loader / unloader","Storekeeper","Inventory clerk","Dispatcher"] },
+    roles:["Heavy transport (HTV) driver","Light vehicle (LTV) driver","Trailer / truck driver","Tanker driver","Bus & coach driver","Taxi / limousine driver","Delivery rider","Forklift operator","Reach-truck operator","Warehouse picker & packer","Loader / unloader","Storekeeper","Inventory clerk","Dispatcher","Fleet coordinator"] },
   { id:"healthcare", icon:"heart", name:"Healthcare & Caregiving",
     blurb:"Compassionate carers and support staff for hospitals, care homes and private homes.",
-    roles:["Caregiver","Elderly-care assistant","Home-care worker","Nursing assistant","Staff nurse","Patient-care attendant","Babysitter / nanny","Lab technician","Physiotherapy assistant","Pharmacy assistant","Hospital orderly","Medical-facility cleaner"] },
+    roles:["Caregiver","Elderly-care assistant","Home-care worker","Disability support worker","Nursing assistant","Staff nurse","ICU nurse","Midwife","Patient-care attendant","Lab technician","Radiology technician","Physiotherapy assistant","Pharmacy assistant","Dental assistant","Ambulance driver","Hospital orderly","Medical-facility cleaner"] },
+  { id:"domestic", icon:"home", name:"Domestic & Household Staff",
+    blurb:"Trusted, vetted staff for private homes and family residences.",
+    roles:["House driver","Housekeeper","Cook (household)","Nanny / babysitter","Butler","Gardener (household)","Watchman","Personal assistant","Family caregiver"] },
   { id:"hospitality", icon:"chef", name:"Hospitality & Food Service",
     blurb:"Kitchen, service and housekeeping teams for hotels, restaurants and catering.",
-    roles:["Cook","Chef de partie","Commis chef","Tandoor / pizza chef","Baker","Kitchen helper","Waiter / waitress","Barista","Steward","Housekeeping attendant","Room attendant","Laundry attendant","Hotel receptionist"] },
+    roles:["Cook","Chef de partie","Commis chef","Tandoor / pizza chef","Shawarma / grill cook","Baker","Pastry chef","Kitchen helper","Waiter / waitress","Barista","Steward","Housekeeping attendant","Room attendant","Laundry attendant","Hotel receptionist","Bellboy / porter","Catering assistant","Camp cook"] },
+  { id:"retail", icon:"bag", name:"Retail & Sales",
+    blurb:"Front-line staff for supermarkets, malls, showrooms and stores.",
+    roles:["Sales associate","Cashier","Merchandiser","Shelf stacker","Store supervisor","Butcher","Fishmonger","Bakery counter staff","Mobile & electronics salesman","Showroom salesman","Customer-service agent"] },
   { id:"facility", icon:"shield", name:"Facility Management & Security",
     blurb:"Guards, cleaners and site staff for offices, malls, hospitals and residential towers.",
-    roles:["Security guard","CCTV operator","Cleaner","Janitor","Office assistant","Gardener / landscaper","Pest-control technician","Pool attendant","Building caretaker","Car-park attendant"] },
+    roles:["Security guard","Armed security guard","CCTV operator","Cleaner","Janitor","Deep-cleaning technician","Office assistant","Gardener / landscaper","Pest-control technician","Pool attendant","Building caretaker","Car-park attendant","Handyman"] },
+  { id:"beauty", icon:"scissors", name:"Beauty & Personal Care",
+    blurb:"Barbers, stylists and therapists for salons, spas and hotels.",
+    roles:["Barber","Hair stylist","Beautician","Make-up artist","Nail technician","Spa therapist","Massage therapist","Salon receptionist"] },
   { id:"agriculture", icon:"leaf", name:"Agriculture & Farming",
     blurb:"Seasonal and permanent workers for farms, greenhouses, dairies and packhouses.",
-    roles:["Farm worker","Greenhouse worker","Fruit & vegetable picker","Dairy-farm worker","Poultry-farm worker","Tractor operator","Irrigation worker","Livestock handler","Packhouse worker","Nursery worker"] },
+    roles:["Farm worker","Greenhouse worker","Fruit & vegetable picker","Dairy-farm worker","Milking operator","Poultry-farm worker","Tractor operator","Harvester operator","Irrigation worker","Livestock handler","Shepherd / herder","Packhouse worker","Nursery worker","Fish-farm worker"] },
+  { id:"mining", icon:"pick", name:"Mining & Quarrying",
+    blurb:"Operators and labour for mines, quarries and crushing plants.",
+    roles:["Miner","Drill operator","Blaster helper","Dump-truck driver","Loader operator","Crusher plant operator","Quarry worker","Mine electrician","Mine mechanic"] },
+  { id:"marine", icon:"anchor", name:"Marine & Shipyard",
+    blurb:"Trades for shipyards, ports and offshore support vessels.",
+    roles:["Ship fitter","Marine welder","Marine electrician","Marine painter","Deckhand","Able seaman","Port crane operator","Stevedore","Fisherman"] },
+  { id:"aviation", icon:"plane", name:"Aviation & Airport Services",
+    blurb:"Ground teams that keep airports and cargo terminals moving.",
+    roles:["Ramp agent","Baggage handler","Cargo handler","Aircraft cleaner","Airport driver","Ground-support equipment mechanic","Passenger-service assistant"] },
   { id:"automotive", icon:"wrench", name:"Automotive & Heavy Equipment",
     blurb:"Mechanics and technicians for workshops, dealerships and equipment fleets.",
-    roles:["Auto mechanic","Diesel mechanic","Heavy-equipment mechanic","Auto electrician","Denter","Car painter","Tyre technician","Service advisor","Car washer & detailer"] },
+    roles:["Auto mechanic","Diesel mechanic","Heavy-equipment mechanic","Auto electrician","Auto AC technician","Denter","Car painter","Tyre technician","Service advisor","Car washer & detailer"] },
+  { id:"telecom", icon:"signal", name:"Telecom & IT Field Support",
+    blurb:"Hands-on technicians for networks, towers and office IT.",
+    roles:["Fibre-optic technician","Cable splicer","Tower rigger","Network cabling technician","CCTV & security-systems installer","IT support technician","Computer hardware technician"] },
   { id:"labour", icon:"boxes", name:"General Labour",
     blurb:"Reliable helpers for any site or operation that needs extra hands, fast.",
-    roles:["General labourer","Helper","Porter","Packer","Loader","Mover","Kitchen porter","Cleaning helper","Farm helper"] },
+    roles:["General labourer","Helper","Porter","Packer","Loader","Mover","Kitchen porter","Cleaning helper","Farm helper","Car washer"] },
   { id:"supervisory", icon:"clipboard", name:"Supervisory & Support Staff",
     blurb:"Team leads and office staff who manage blue-collar crews on the ground.",
-    roles:["Site supervisor","HSE / safety officer","QA / QC inspector","Site engineer","Camp boss","Timekeeper","Store supervisor","Admin assistant","Accountant"] }
+    roles:["Site supervisor","Foreman","HSE / safety officer","QA / QC inspector","Site engineer","Camp boss","Timekeeper","Store supervisor","Document controller","Admin assistant","Accountant","Data-entry operator"] }
 ];
 
 window.COUNTRIES = [
@@ -91,7 +118,76 @@ window.COUNTRIES = [
     sectors:["Construction","Garments & textiles","Mining","Healthcare"],
     roles:["Mason","Sewing operator","Electrician","Caregiver","Helper"],
     permit:"Work permit via employer", contract:"1 year, renewable", lang:"Kyrgyz, Russian",
-    note:"A close Central Asian neighbour with demand in construction, garments and services." }
+    note:"A close Central Asian neighbour with demand in construction, garments and services." },
+  { code:"uz", name:"Uzbekistan", region:"Europe & Central Asia", hub:"Tashkent · Samarkand · Bukhara", lon:69.3, lat:41.3,
+    sectors:["Construction","Textiles","Manufacturing","Hospitality","Agriculture"],
+    roles:["Mason","Steel fixer","Sewing machine operator","Machine operator","Cook"],
+    permit:"Work permit via employer", contract:"1 year, renewable", lang:"Uzbek, Russian",
+    note:"Central Asia's largest economy is building fast, with demand for construction crews, factory operators and hotel staff." }
 ];
 
 window.PAKISTAN = { code:"pk", name:"Pakistan", hub:"Rawalpindi · Islamabad", lon:73.1, lat:33.6 };
+
+/* Visit visas we help with. */
+window.VISIT_VISAS = [
+  { code:"ae", name:"United Arab Emirates", types:"Tourist · Family · Business" },
+  { code:"sa", name:"Saudi Arabia", types:"Tourist · Family · Business" },
+  { code:"tr", name:"Türkiye", types:"Tourist · Business" },
+  { code:"qa", name:"Qatar", types:"Tourist · Family" },
+  { code:"om", name:"Oman", types:"Tourist · Business" },
+  { code:"my", name:"Malaysia", types:"Tourist · Business" },
+  { code:"uz", name:"Uzbekistan", types:"Tourist · Business" },
+  { code:"kg", name:"Kyrgyzstan", types:"Tourist · Business" },
+  { code:"ro", name:"Schengen & EU", types:"Tourist · Business · Family", flags:["ro","pt","pl","gr"] }
+];
+
+/* Residency-by-investment destinations. Programmes and thresholds change, so
+   no figures are published here; current requirements are given at consultation. */
+window.RESIDENCY = [
+  { codes:["ae"], name:"United Arab Emirates", programme:"Golden Visa",
+    route:"Property, business or fund investment", term:"Long-term renewable residency (5–10 years)",
+    perks:["Live, work and study in the UAE","Sponsor spouse, children and parents","No local sponsor needed"] },
+  { codes:["tr"], name:"Türkiye", programme:"Residence & Citizenship by Investment",
+    route:"Real-estate purchase or capital investment", term:"Residence permit, with a route to citizenship",
+    perks:["Family included in the application","Property you can live in or rent out","Gateway between Europe and Asia"] },
+  { codes:["pt"], name:"Portugal", programme:"Golden Residence Permit",
+    route:"Investment funds, research, culture or job creation", term:"Residence permit with a path to permanent residency",
+    perks:["Visa-free travel in the Schengen Area","Minimal stay requirement","Family reunification"] },
+  { codes:["gr"], name:"Greece", programme:"Golden Visa",
+    route:"Real-estate or financial investment", term:"5-year renewable residence permit",
+    perks:["Schengen travel","Whole family covered","No minimum stay requirement"] },
+  { codes:["mt"], name:"Malta", programme:"Permanent Residence Programme",
+    route:"Property plus government contribution", term:"Permanent residency",
+    perks:["English-speaking EU country","Multi-generational family inclusion","Schengen travel"] },
+  { codes:["hu"], name:"Hungary", programme:"Guest Investor Programme",
+    route:"Real-estate fund or institutional investment", term:"10-year renewable residence permit",
+    perks:["Schengen travel","Family members included","Central European base"] },
+  { codes:["sa"], name:"Saudi Arabia", programme:"Premium Residency",
+    route:"Investor, entrepreneur, talent or property routes", term:"Limited or unlimited duration residency",
+    perks:["Own property and run a business","Sponsor family members","No Saudi sponsor required"] },
+  { codes:["om"], name:"Oman", programme:"Investor Residency",
+    route:"Property, company or bond investment", term:"5- or 10-year renewable residency",
+    perks:["Live and invest in Oman","Family residency","Business-friendly environment"] },
+  { codes:["my"], name:"Malaysia", programme:"Malaysia My Second Home (MM2H)",
+    route:"Fixed deposit and property purchase", term:"Long-term social visit pass",
+    perks:["Low cost of living","Bring dependants","Quality healthcare & schools"] },
+  { codes:["kn","dm","gd","ag","lc"], name:"Caribbean", programme:"Citizenship by Investment",
+    route:"Government fund donation or approved real estate", term:"Second citizenship and passport",
+    perks:["Fast processing compared with other routes","Wide visa-free travel","Family included"] }
+];
+
+/* Study-abroad destinations for the student consultancy. */
+window.STUDY = [
+  { code:"gb", name:"United Kingdom", levels:"Foundation · Bachelor's · Master's", note:"One-year master's degrees and a post-study Graduate Route." },
+  { code:"au", name:"Australia", levels:"Diploma · Bachelor's · Master's", note:"World-ranked universities with post-study work rights." },
+  { code:"ca", name:"Canada", levels:"College · Bachelor's · Master's", note:"Co-op programmes and post-graduation work permits." },
+  { code:"us", name:"United States", levels:"Bachelor's · Master's · PhD", note:"The widest choice of universities and funded research places." },
+  { code:"de", name:"Germany", levels:"Bachelor's · Master's", note:"Low or no tuition at public universities, strong in engineering." },
+  { code:"ie", name:"Ireland", levels:"Bachelor's · Master's", note:"English-speaking EU country with a stay-back option after study." },
+  { code:"my", name:"Malaysia", levels:"Foundation · Bachelor's · Master's", note:"Affordable fees and branch campuses of UK and Australian universities." },
+  { code:"tr", name:"Türkiye", levels:"Bachelor's · Master's · PhD", note:"Affordable fees and the government Türkiye Bursları scholarship." },
+  { code:"hu", name:"Hungary", levels:"Bachelor's · Master's · Medicine", note:"EU degrees and the Stipendium Hungaricum scholarship." },
+  { code:"cn", name:"China", levels:"MBBS · Engineering · Master's", note:"Large medical and engineering programmes with scholarships." },
+  { code:"kg", name:"Kyrgyzstan", levels:"MBBS / Medicine", note:"A popular, affordable choice for Pakistani medical students." },
+  { code:"uz", name:"Uzbekistan", levels:"MBBS / Medicine · Bachelor's", note:"Growing English-taught medical and business programmes." }
+];

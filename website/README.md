@@ -12,6 +12,7 @@ preview.
 | `recruitment.html` | Industries & roles: searchable directory of positions by category |
 | `countries.html` | Destination countries with flags, sectors, roles and visa routes |
 | `consultancy.html` | Corporate HR & business consultancy services |
+| `visas.html` | Visit visas, student consultancy (study abroad), residency by investment |
 | `partnerships.html` | Partnership types and models (worldwide and in Pakistan) |
 | `about.html` | Company, mission, vision, values, ethical recruitment |
 | `contact.html` | Enquiry form (employer / job seeker / partner / consultancy) and FAQ |

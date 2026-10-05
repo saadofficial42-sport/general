@@ -26,7 +26,7 @@
     <div style="max-width:620px">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
       <h1 id="page-h" style="margin-top:22px"><span class="line"><span>Tell us who</span></span><span class="line"><span><em>you're looking for.</em></span></span></h1>
-      <p class="hero-lede">Employers, partners and companies looking for consultancy: send us a message and we'll reply <strong>within one working day</strong>.</p>
+      <p class="hero-lede">Employers, partners, companies, students, travellers and investors: send us a message and we'll reply <strong>within one working day</strong>.</p>
     </div>
   </div>
 </section>
@@ -51,6 +51,7 @@
         <label><input type="radio" name="type" id="t-employer" value="Employer: hiring manpower" data-hash="employer" checked><span>I'm hiring</span></label>
         <label><input type="radio" name="type" id="t-partner" value="Partnership" data-hash="partner"><span>Partnership</span></label>
         <label><input type="radio" name="type" id="t-consult" value="Consultancy" data-hash="consultancy"><span>Consultancy</span></label>
+        <label><input type="radio" name="type" id="t-visa" value="Visa, study or residency" data-hash="visa"><span>Visa, study &amp; residency</span></label>
       </div>
       <div class="row">
         <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" required autocomplete="name"></div>
@@ -62,10 +63,14 @@
       </div>
       <div class="row" data-for="employer">
         <div class="field"><label for="f-roles">Positions &amp; numbers</label><input id="f-roles" name="roles" placeholder="e.g. 30 welders, 10 HTV drivers"></div>
-        <div class="field"><label for="f-wcountry">Work location</label><select id="f-wcountry" name="work_location"><option>Pakistan</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Qatar</option><option>Oman</option><option>Türkiye</option><option>Romania</option><option>Portugal</option><option>Poland</option><option>Belarus</option><option>Kyrgyzstan</option><option>Other</option></select></div>
+        <div class="field"><label for="f-wcountry">Work location</label><select id="f-wcountry" name="work_location"><option>Pakistan</option><option>Saudi Arabia</option><option>United Arab Emirates</option><option>Qatar</option><option>Oman</option><option>Türkiye</option><option>Romania</option><option>Portugal</option><option>Poland</option><option>Belarus</option><option>Kyrgyzstan</option><option>Uzbekistan</option><option>Other</option></select></div>
       </div>
       <div class="field" data-for="partner"><label for="f-ptype">Organisation type</label><select id="f-ptype" name="partner_type"><option>Employer abroad</option><option>Recruitment agency abroad</option><option>Company in Pakistan</option><option>Training institute</option><option>Service provider</option><option>Other</option></select></div>
-      <div class="field" data-for="consultancy"><label for="f-svc">Service of interest</label><select id="f-svc" name="service"><option>Workforce planning</option><option>Recruitment process outsourcing</option><option>Contract staffing &amp; outsourcing</option><option>HR policy &amp; compliance</option><option>Training &amp; skills development</option><option>Recruitment marketing</option><option>Not sure yet</option></select></div>
+      <div class="row" data-for="visa">
+        <div class="field"><label for="f-vsvc">I'm interested in</label><select id="f-vsvc" name="visa_service"><option>Visit visa</option><option>Study abroad (admission)</option><option>Residency by investment</option></select></div>
+        <div class="field"><label for="f-dest">Destination country</label><input id="f-dest" name="destination" placeholder="e.g. Türkiye, UK, UAE"></div>
+      </div>
+      <div class="field" data-for="consultancy"><label for="f-svc">Service of interest</label><select id="f-svc" name="service"><option>Workforce planning</option><option>Recruitment process outsourcing</option><option>Contract staffing &amp; outsourcing</option><option>HR policy &amp; compliance</option><option>Training &amp; skills development</option><option>Recruitment marketing</option><option>Visit visa services</option><option>Student consultancy</option><option>Residency by investment</option><option>Not sure yet</option></select></div>
       <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Anything else we should know"></textarea></div>
       <button class="btn btn-solid" type="submit" style="justify-self:start">Send enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <p class="form-status" role="status"></p>
@@ -82,11 +87,13 @@
     </div>
     <div class="faq">
       <details><summary>What kind of workers do you recruit?</summary><p>Mainly blue-collar and technical workers: construction trades, electricians and plumbers, welders, machine operators, drivers, warehouse staff, caregivers, cooks and hotel staff, security guards, cleaners, farm workers and general labour. See the full list on our <a href="recruitment.html">Industries &amp; Roles</a> page.</p></details>
-      <details><summary>Which countries do you recruit for?</summary><p>Saudi Arabia, UAE, Qatar, Oman, Türkiye, Romania, Portugal, Poland, Belarus and Kyrgyzstan, as well as employers inside Pakistan. We also consider requirements for other countries.</p></details>
+      <details><summary>Which countries do you recruit for?</summary><p>Saudi Arabia, UAE, Qatar, Oman, Türkiye, Romania, Portugal, Poland, Belarus, Kyrgyzstan and Uzbekistan, as well as employers inside Pakistan. We also consider requirements for other countries.</p></details>
       <details><summary>How quickly can you supply workers?</summary><p>For roles inside Pakistan, shortlists are often ready within days. For overseas roles, timelines depend on trade testing, medicals and each country's visa and work-permit process. Gulf countries typically take a few weeks; European work permits usually take a few months. We give you a written timeline for every requirement.</p></details>
       <details><summary>How are overseas placements handled legally?</summary><p>Every overseas deployment from Pakistan follows the emigration procedure required by the Government of Pakistan under the Emigration Ordinance 1979, including registration with the Protector of Emigrants. We explain each step to employers and workers before any commitment.</p></details>
       <details><summary>I'm a job seeker. What documents do I need?</summary><p>A valid passport, CNIC, recent photographs, educational and trade certificates, experience letters and, for drivers, a valid driving licence. Some countries and employers need more. We'll tell you exactly what is required for each vacancy.</p></details>
       <details><summary>Can employers witness trade tests?</summary><p>Yes. Your engineers or supervisors can attend tests in person in the Rawalpindi–Islamabad area, or we can record the tests on video and share scores and footage.</p></details>
+      <details><summary>Do you help with visit visas and study abroad?</summary><p>Yes. We prepare tourist, family and business visit visa applications, and help students secure admission at universities abroad and apply for student visas. See <a href="visas.html">Visas &amp; Study</a>.</p></details>
+      <details><summary>What is residency by investment?</summary><p>Some countries grant residency, or even citizenship, to people who make a qualifying investment such as buying property or investing in a business. We advise on programmes in the UAE, Türkiye, Portugal, Greece, Malta, Hungary, Saudi Arabia, Oman, Malaysia and the Caribbean. See <a href="visas.html#residency">Residency by investment</a>.</p></details>
       <details><summary>Do you offer services to companies inside Pakistan?</summary><p>Yes. We supply workers to Pakistani companies on a direct-hire or contract basis and offer HR consultancy. See <a href="consultancy.html">Consultancy</a> and <a href="partnerships.html">Partnerships</a>.</p></details>
     </div>
   </div>

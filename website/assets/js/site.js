@@ -44,6 +44,18 @@
     search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
     building:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4M8 7h2M14 7h2M8 11h2M14 11h2"/>',
     route:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/>',
+    flame:'<path d="M12 22a7 7 0 0 0 7-7c0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8a7 7 0 0 0 7 7z"/>',
+    needle:'<path d="M20 4 7 17M17 4h3v3M5 19l2-2M4 14c3 0 6 3 6 6"/>',
+    home:'<path d="M3 11 12 3l9 8M5 9.5V21h14V9.5M10 21v-6h4v6"/>',
+    bag:'<path d="M5 7h14l-1 14H6zM9 7a3 3 0 0 1 6 0"/>',
+    scissors:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+    pick:'<path d="M3 21 14 10M8 4c4-2 9-1 12 2-3-1-7-1-10 1M20 16c2-4 1-9-2-12 1 3 1 7-1 10"/>',
+    anchor:'<circle cx="12" cy="5" r="2"/><path d="M12 7v14M5 12H3a9 9 0 0 0 18 0h-2M8 10h8"/>',
+    plane:'<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+    signal:'<path d="M12 20v-6M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 14 0M2 9.5a15 15 0 0 1 20 0"/>',
+    passport:'<rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M9 17h6M8.5 10h7M12 6.5c1.2 1 1.2 6 0 7M12 6.5c-1.2 1-1.2 6 0 7"/>',
+    cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/>',
+    key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/>',
     star:'<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>'
   };
   function icon(n, sw){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.8) + '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (I[n] || "") + '</svg>'; }
@@ -157,7 +169,8 @@
   });
   // industry tiles (home)
   $$("[data-render='industry-tiles']").forEach(function(el){
-    el.innerHTML = IND.map(function(c){
+    var lim = parseInt(el.getAttribute("data-limit") || "0", 10) || IND.length;
+    el.innerHTML = IND.slice(0, lim).map(function(c){
       return '<a class="card ind-tile reveal" href="recruitment.html#' + c.id + '"><div class="ico">' + icon(c.icon) + '</div><h3>' + esc(c.name) + '</h3><p class="roles">' + esc(c.roles.slice(0, 4).join(", ")) + ' and more</p><span class="count">' + c.roles.length + ' roles</span></a>';
     }).join("");
   });
@@ -178,6 +191,27 @@
         '<div class="cc-body"><div class="tags">' + c.sectors.slice(0, compact ? 3 : 5).map(function(s){ return "<span>" + esc(s) + "</span>"; }).join("") + '</div></div></a>';
     }
   });
+  // visit visas, study destinations, residency programmes
+  function flagStack(codes, size){ return '<span class="flag-stack">' + codes.map(function(c){ return '<span class="flag" style="width:' + size + 'px;height:' + Math.round(size * .75) + 'px"><img src="' + flagSrc(c) + '" alt="" loading="lazy"></span>'; }).join("") + '</span>'; }
+  $$("[data-render='visit-visas']").forEach(function(el){
+    el.innerHTML = (window.VISIT_VISAS || []).map(function(v){
+      return '<div class="card mini-card reveal">' + flagStack(v.flags || [v.code], 44) + '<div><h3>' + esc(v.name) + '</h3><p>' + esc(v.types) + '</p></div></div>';
+    }).join("");
+  });
+  $$("[data-render='study']").forEach(function(el){
+    el.innerHTML = (window.STUDY || []).map(function(v){
+      return '<div class="card study-card reveal"><div class="sc-top">' + flagStack([v.code], 44) + '<div><h3>' + esc(v.name) + '</h3><span class="lvl">' + esc(v.levels) + '</span></div></div><p>' + esc(v.note) + '</p></div>';
+    }).join("");
+  });
+  $$("[data-render='residency']").forEach(function(el){
+    el.innerHTML = (window.RESIDENCY || []).map(function(r){
+      return '<article class="card rbi-card reveal"><div class="rbi-top">' + flagStack(r.codes, r.codes.length > 1 ? 30 : 52) + '<div><span class="prog">' + esc(r.programme) + '</span><h3>' + esc(r.name) + '</h3></div></div>' +
+        '<div class="facts two"><div><small>Investment route</small><b>' + esc(r.route) + '</b></div><div><small>What you get</small><b>' + esc(r.term) + '</b></div></div>' +
+        '<ul class="ticks">' + r.perks.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
+        '<a class="link-arrow" href="contact.html#visa">Ask about ' + esc(r.name) + ' ' + icon("arrow", 2) + '</a></article>';
+    }).join("");
+  });
+
   // countries explorer
   var explorer = $("[data-render='explorer']");
   if(explorer){
@@ -446,6 +480,49 @@
             if(W > 620){ ctx.fillStyle = "rgba(220,230,228," + b.life * .8 + ")"; ctx.font = "500 10px 'IBM Plex Mono', monospace"; ctx.fillText(b.label.toUpperCase(), b.x + 9, b.y + 3); }
           });
           ctx.fillStyle = "#F0B545"; ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 6.283); ctx.fill();
+        }
+      };
+    },
+    /* rotating wireframe globe with routes from Pakistan (visas & study) */
+    globe: function(cv, ctx){
+      var W, H, cx, cy, R, rot = -1.25, tilt = .35, P;
+      var D = [[-0.1,51.5],[-77,38.9],[-75.7,45.4],[149.1,-35.3],[13.4,52.5],[-6.3,53.3],[101.7,3.1],[116.4,39.9],[33.4,35.2],[19,47.5],[23.7,38],[14.5,35.9],[-62.7,17.3],[55.3,25.2],[46.7,24.7],[29,41],[69.3,41.3],[74.6,42.9],[-9.1,38.7]];
+      var arcs = D.map(function(d, i){ return {d:d, t:Math.random(), sp:.004 + Math.random() * .003}; });
+      function vec(lon, lat){ var a = lon * Math.PI / 180, b = lat * Math.PI / 180; return [Math.cos(b) * Math.sin(a), Math.sin(b), Math.cos(b) * Math.cos(a)]; }
+      function proj(v){
+        var c = Math.cos(rot), s = Math.sin(rot), x = v[0] * c + v[2] * s, z = -v[0] * s + v[2] * c, y = v[1];
+        var ct = Math.cos(tilt), st = Math.sin(tilt), y2 = y * ct - z * st, z2 = y * st + z * ct;
+        return {x:cx + R * x, y:cy - R * y2, z:z2};
+      }
+      function slerp(a, b, t){
+        var d = Math.max(-1, Math.min(1, a[0]*b[0] + a[1]*b[1] + a[2]*b[2])), om = Math.acos(d), so = Math.sin(om) || 1;
+        var k1 = Math.sin((1 - t) * om) / so, k2 = Math.sin(t * om) / so, lift = 1 + .18 * Math.sin(Math.PI * t);
+        return [(a[0]*k1 + b[0]*k2) * lift, (a[1]*k1 + b[1]*k2) * lift, (a[2]*k1 + b[2]*k2) * lift];
+      }
+      var O = vec(PK.lon, PK.lat);
+      return {
+        resize:function(w, h){ W = w; H = h; var wide = W > 960; R = Math.min(wide ? W * .24 : W * .42, H * .4); cx = wide ? W * .74 : W * .5; cy = wide ? H * .52 : H * .68; P = particles(Math.round(Math.min(60, W * H / 22000)), W, H); },
+        draw:function(mouse){
+          ctx.clearRect(0, 0, W, H); rot += .0016;
+          drawParticles(ctx, P, W, H, mouse, 90, "200,220,215");
+          var g = ctx.createRadialGradient(cx - R * .3, cy - R * .3, R * .1, cx, cy, R * 1.05);
+          g.addColorStop(0, "rgba(61,187,138,.16)"); g.addColorStop(1, "rgba(10,27,37,.0)");
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fill();
+          ctx.strokeStyle = "rgba(61,187,138,.35)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.stroke();
+          ctx.lineWidth = .8;
+          for(var lon = -180; lon < 180; lon += 20){ ctx.beginPath(); var pen = false; for(var lat = -90; lat <= 90; lat += 6){ var p = proj(vec(lon, lat)); if(p.z > 0){ if(pen) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y); pen = true; } else pen = false; } ctx.strokeStyle = "rgba(147,169,167,.16)"; ctx.stroke(); }
+          for(var la = -60; la <= 60; la += 20){ ctx.beginPath(); var pn = false; for(var lo = -180; lo <= 180; lo += 6){ var q = proj(vec(lo, la)); if(q.z > 0){ if(pn) ctx.lineTo(q.x, q.y); else ctx.moveTo(q.x, q.y); pn = true; } else pn = false; } ctx.strokeStyle = "rgba(147,169,167,.12)"; ctx.stroke(); }
+          var o = proj(O);
+          arcs.forEach(function(a){
+            var B = vec(a.d[0], a.d[1]), pb = proj(B);
+            ctx.beginPath(); var pen2 = false;
+            for(var i = 0; i <= 30; i++){ var pt = proj(slerp(O, B, i / 30)); if(pt.z > -.05){ if(pen2) ctx.lineTo(pt.x, pt.y); else ctx.moveTo(pt.x, pt.y); pen2 = true; } else pen2 = false; }
+            ctx.strokeStyle = "rgba(61,187,138,.25)"; ctx.stroke();
+            a.t += a.sp; if(a.t > 1.2) a.t = 0;
+            if(a.t <= 1){ var m = proj(slerp(O, B, a.t)); if(m.z > -.05){ ctx.fillStyle = "rgba(240,181,69,.95)"; ctx.beginPath(); ctx.arc(m.x, m.y, 2.6, 0, 6.283); ctx.fill(); } }
+            if(pb.z > 0){ ctx.fillStyle = "rgba(61,187,138,.9)"; ctx.beginPath(); ctx.arc(pb.x, pb.y, 2.4, 0, 6.283); ctx.fill(); }
+          });
+          if(o.z > 0){ ctx.fillStyle = "#F0B545"; ctx.beginPath(); ctx.arc(o.x, o.y, 4.5, 0, 6.283); ctx.fill(); ctx.fillStyle = "#E8EFEC"; ctx.font = "600 10px 'IBM Plex Mono', monospace"; ctx.fillText("PAKISTAN", o.x + 8, o.y - 6); }
         }
       };
     },
