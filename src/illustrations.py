@@ -192,3 +192,51 @@ def skyline(width, height, fill, seed_offset=0):
             parts.append(f'<rect x="{x + w/2 - 1.5}" y="{height-h-14}" width="3" height="14"/>')
         x += w + r.randint(2, 10)
     return f'<g fill="{fill}">{"".join(parts)}</g>'
+
+
+def mountains(width, height, far="#9FB7C9", near="#6E8BA3", snow="#FFFFFF"):
+    """Tian Shan-style snow-capped ridge, two layers."""
+    import random
+    r = random.Random(7)
+    def ridge(base_h, amp, n, fill, caps):
+        pts, x = [(0, height)], 0
+        peaks = []
+        step = width / n
+        for i in range(n + 1):
+            x = i * step
+            y = height - base_h - (amp * (0.55 + 0.45 * r.random()) if i % 2 else amp * 0.25 * r.random())
+            pts.append((x, y))
+            if i % 2:
+                peaks.append((x, y))
+        pts.append((width, height))
+        d = "M" + " L".join(f"{a:.1f},{b:.1f}" for a, b in pts) + "Z"
+        out = f'<path d="{d}" fill="{fill}"/>'
+        if caps:
+            for (px, py) in peaks:
+                out += (f'<path d="M{px - step*0.32:.1f},{py + amp*0.28:.1f} L{px:.1f},{py:.1f} L{px + step*0.32:.1f},{py + amp*0.28:.1f} '
+                        f'L{px + step*0.12:.1f},{py + amp*0.2:.1f} L{px:.1f},{py + amp*0.3:.1f} L{px - step*0.14:.1f},{py + amp*0.18:.1f}Z" fill="{snow}"/>')
+        return out
+    return ridge(height * .35, height * .6, 12, far, True) + ridge(height * .12, height * .4, 9, near, False)
+
+
+def yurt(x, base, w, fill="#F9F8F4", trim="#E53935"):
+    """Kyrgyz yurt silhouette with a decorative band and door."""
+    h = w * 0.62
+    return f"""<g>
+<path d="M{x} {base} L{x} {base - h*0.5} Q{x + w*0.5} {base - h*1.25} {x + w} {base - h*0.5} L{x + w} {base}Z" fill="{fill}"/>
+<path d="M{x} {base - h*0.5} Q{x + w*0.5} {base - h*1.25} {x + w} {base - h*0.5}" stroke="{trim}" stroke-width="{w*0.05:.1f}" fill="none"/>
+<rect x="{x}" y="{base - h*0.42}" width="{w}" height="{h*0.1:.1f}" fill="{trim}"/>
+<rect x="{x + w*0.4}" y="{base - h*0.3}" width="{w*0.2}" height="{h*0.3}" fill="#8A4B2A"/>
+<circle cx="{x + w*0.5}" cy="{base - h*0.93}" r="{w*0.06:.1f}" fill="{trim}"/></g>"""
+
+
+def girih_pattern(pid, color, opacity=0.14, size=80):
+    """<pattern> of 8-point Islamic stars for Silk Road backgrounds."""
+    c = size / 2
+    r1, r2 = size * 0.34, size * 0.16
+    import math as m
+    star = " ".join(f"{c + (r1 if i % 2 == 0 else r2*1.6) * m.cos(m.radians(i*22.5)):.1f},{c + (r1 if i % 2 == 0 else r2*1.6) * m.sin(m.radians(i*22.5)):.1f}" for i in range(16))
+    return (f'<pattern id="{pid}" width="{size}" height="{size}" patternUnits="userSpaceOnUse">'
+            f'<g fill="none" stroke="{color}" stroke-width="1.6" opacity="{opacity}">'
+            f'<polygon points="{star}"/><rect x="{c - r2}" y="{c - r2}" width="{2*r2}" height="{2*r2}" transform="rotate(45 {c} {c})"/>'
+            f'<path d="M0 0 L{size*0.16} {size*0.16} M{size} 0 L{size*0.84} {size*0.16} M0 {size} L{size*0.16} {size*0.84} M{size} {size} L{size*0.84} {size*0.84}"/></g></pattern>')

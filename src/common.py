@@ -201,6 +201,12 @@ ICONS = {
     "check": '<path d="M5 12l5 5 9-10"/>',
     "overtime": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/>',
     "visa": '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M6 17c1-2 5-2 6 0M14 9h4M14 13h4"/>',
+    "video": '<rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/>',
+    "idcard": '<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5 16c.6-1.6 5.4-1.6 6 0M14 10h5M14 14h4"/>',
+    "shield": '<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+    "camera": '<path d="M3 8h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="4"/>',
+    "family": '<circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2 21c0-4 3-6.5 6-6.5s6 2.5 6 6.5M13 21c.3-3 2-4.6 4-4.6s3.8 1.6 4 4.6"/>',
+    "scissors": '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1L20 20M8.1 15.9L20 4"/>',
     "megaphone": '<path d="M3 10v4h4l8 5V5L7 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
 }
 
@@ -253,9 +259,42 @@ def flag_uzbekistan(uid="uz"):
 {''.join(stars)}"""
 
 
+def flag_kyrgyzstan(uid="kg"):
+    """Kyrgyzstan flag (2023 law), 3:5 (viewBox 500x300). Red field; yellow
+    sun with 40 straight rays. Ray disc diameter = 3/5 flag height; sun disc
+    = 3/5 of ray disc; tunduk (red ring with two crossing sets of 4 laths)
+    diameter = 1/2 of ray disc."""
+    cx, cy = 250, 150
+    R = 300 * 3 / 5 / 2          # ray disc radius = 90
+    r = R * 3 / 5                # sun disc radius = 54
+    t = R / 2                    # tunduk radius = 45
+    rays = []
+    for i in range(40):
+        a = math.radians(i * 9 - 90)
+        da = math.radians(4.2)
+        p1 = (cx + r * 0.92 * math.cos(a - da), cy + r * 0.92 * math.sin(a - da))
+        p2 = (cx + R * math.cos(a), cy + R * math.sin(a))
+        p3 = (cx + r * 0.92 * math.cos(a + da), cy + r * 0.92 * math.sin(a + da))
+        rays.append(f"{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}")
+    tr = t - 4  # inner radius of ring stroke
+    laths = []
+    for d in (-24, -8, 8, 24):
+        x = math.sqrt(max(tr * tr - d * d, 0))
+        # horizontal set bowing toward the centre, vertical set the same, rotated
+        laths.append(f'<path d="M{cx - x:.2f} {cy + d} Q{cx} {cy + d * 0.35:.2f} {cx + x:.2f} {cy + d}"/>')
+        laths.append(f'<path d="M{cx + d} {cy - x:.2f} Q{cx + d * 0.35:.2f} {cy} {cx + d} {cy + x:.2f}"/>')
+    return f"""<rect width="500" height="300" fill="#E8112D"/>
+{''.join(f'<polygon fill="#FFEF00" points="{p}"/>' for p in rays)}
+<circle cx="{cx}" cy="{cy}" r="{r}" fill="#FFEF00"/>
+<clipPath id="{uid}tc"><circle cx="{cx}" cy="{cy}" r="{tr}"/></clipPath>
+<g clip-path="url(#{uid}tc)" stroke="#E8112D" stroke-width="5" fill="none">{''.join(laths)}</g>
+<circle cx="{cx}" cy="{cy}" r="{t - 4}" fill="none" stroke="#E8112D" stroke-width="8"/>"""
+
+
 FLAGS = {
     "pakistan": (flag_pakistan, 900, 600),
     "uzbekistan": (flag_uzbekistan, 500, 250),
+    "kyrgyzstan": (flag_kyrgyzstan, 500, 300),
 }
 
 
