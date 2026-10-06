@@ -1,0 +1,28 @@
+# Apache settings (used by cPanel / shared hosting; ignored by Netlify and others)
+
+# Show the site's own "page not found" page
+ErrorDocument 404 /404.html
+
+# Force HTTPS: remove the "#" from the three lines below AFTER SSL is installed
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Correct file types
+AddType image/svg+xml .svg
+AddType application/manifest+json .webmanifest
+
+# Compress text files
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+
+# Let browsers cache images and fonts; keep HTML fresh
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

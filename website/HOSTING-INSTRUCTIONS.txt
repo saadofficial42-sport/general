@@ -1,0 +1,74 @@
+RS LINKS CONSULTANTS PVT. LTD. — WEBSITE HOSTING INSTRUCTIONS
+================================================================
+
+WHAT THIS IS
+------------
+A complete, ready-to-publish static website (HTML, CSS, JavaScript, images).
+- No database, no PHP, no WordPress, nothing to install or build.
+- Works on any hosting: cPanel / shared hosting, Netlify, Cloudflare Pages,
+  Vercel, GitHub Pages, or any web server.
+- index.html is the home page.
+
+PAGES
+-----
+index.html          Home
+recruitment.html    Industries & job titles
+countries.html      Destination countries
+consultancy.html    Corporate consultancy services
+visas.html          Visit visas, study abroad, residency by investment
+partnerships.html   Partnerships
+about.html          About the company
+contact.html        Contact & enquiry form
+privacy.html        Privacy policy
+terms.html          Terms of use
+404.html            "Page not found" page
+
+HOW TO UPLOAD (cPanel / shared hosting)
+---------------------------------------
+1. Unzip the file on your computer.
+2. In cPanel, open File Manager and go to the  public_html  folder
+   (or the folder for this domain).
+3. Upload EVERYTHING from the unzipped folder into public_html, keeping the
+   folder structure exactly as it is (the "assets" folder must stay next to
+   index.html). Do not upload the outer folder itself, only its contents.
+4. Make sure there is no other index.html / index.php left in public_html
+   from the hosting company's default page.
+5. Turn on free SSL (HTTPS): cPanel > SSL/TLS Status > Run AutoSSL,
+   or Let's Encrypt, depending on the host.
+6. Optional: once HTTPS works, open the ".htaccess" file and remove the "#"
+   in front of the three "force HTTPS" lines so all visitors use https://.
+   (".htaccess" is a hidden file; enable "Show hidden files" in File Manager.)
+
+HOW TO UPLOAD (Netlify — easiest free option)
+---------------------------------------------
+1. Go to app.netlify.com/drop and drag the unzipped folder onto the page.
+2. Netlify > Domain management > Add a domain > enter the domain and follow
+   the DNS instructions it shows (or point the domain's nameservers to Netlify).
+   HTTPS is turned on automatically.
+
+AFTER IT IS LIVE — please do these
+----------------------------------
+1. In sitemap.xml and robots.txt, replace  https://example.com  with the real
+   domain (for example https://www.rslinks.com).
+2. Check these pages load correctly: Home, Countries, Contact.
+3. Test the WhatsApp button and the contact form (the form sends the enquiry
+   to WhatsApp +92 371 9051589).
+4. Optional: add the site to Google Search Console and submit sitemap.xml.
+
+COMPANY EMAIL (optional, recommended)
+-------------------------------------
+If you set up an email such as info@yourdomain.com, send it to us. It can be
+added to the whole website by changing one line in  assets/js/config.js
+  (email: "info@yourdomain.com").
+
+WHERE CONTENT IS EDITED
+-----------------------
+assets/js/config.js   Company name, phone, WhatsApp, address, hours, social links
+assets/js/data.js     Industries, job titles, countries, visa & study destinations
+assets/img/           Logo files (PNG and SVG)
+
+CONTACT
+-------
+RS Links Consultants Pvt. Ltd.
+Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi
+Phone / WhatsApp: +92 371 9051589
