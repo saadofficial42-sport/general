@@ -142,9 +142,28 @@ def ensure_logos():
     return {n: (paths[n].as_uri() if paths[n].exists() else None) for n in names}
 
 
+def _trimmed(variant):
+    """Copy of a logo with its transparent padding removed (cached)."""
+    from PIL import Image
+    src = LOGO / f"{variant}.png"
+    out = LOGO / ".cache" / f"{variant}.png"
+    if not src.exists():
+        return None
+    if not out.exists() or out.stat().st_mtime < src.stat().st_mtime:
+        out.parent.mkdir(exist_ok=True)
+        im = Image.open(src).convert("RGBA")
+        bb = im.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox()
+        im.crop(bb).save(out)
+    return out.as_uri()
+
+
 def logo_img(variant="logo-stacked", style=""):
-    logos = ensure_logos()
-    uri = logos.get(variant) or next((u for u in logos.values() if u), None)
+    """<img> of a logo variant (padding trimmed). Variants: logo-stacked,
+    logo-horizontal-light, logo-horizontal-dark (navy plate),
+    logo-horizontal-dark-transparent (white text, for dark backgrounds),
+    logo-badge."""
+    ensure_logos()
+    uri = _trimmed(variant) or _trimmed("logo-stacked")
     if uri:
         return f"<img src='{uri}' style='display:block;object-fit:contain;{style}'>"
     # Placeholder wordmark until the real logo files are added.

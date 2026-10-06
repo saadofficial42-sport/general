@@ -29,3 +29,4 @@ venv/
 
 # Ad generator scratch HTML
 output/.tmp/
+assets/logo/.cache/
