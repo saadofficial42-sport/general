@@ -23,6 +23,12 @@ account.
   drafts, and sending approved emails. Scripts are committed; the data they
   read/write (in `leads/` and `drafts/`) is not.
 
+- **`assets/`** — RS Links logos (`logo/`), photos (`photos/`) and fonts
+  (`fonts/`) for the recruitment ad generator.
+- **`demands/`** — Job demands (Urdu text / reference screenshots) to turn into ads.
+- **`src/`** — Ad generator (HTML → PNG via Playwright). See `src/README.md`.
+- **`output/`** — Rendered ad PNGs and `design-log.md`.
+
 ## Rules
 
 Outreach rules and constraints (tone, compliance, what's allowed/not) live in

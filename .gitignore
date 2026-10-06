@@ -26,3 +26,6 @@ __pycache__/
 node_modules/
 .venv/
 venv/
+
+# Ad generator scratch HTML
+output/.tmp/
