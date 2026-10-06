@@ -59,3 +59,8 @@ Source: three reference ads (screenshots in this folder). Content only; no layou
   the same 12 hours. Confirm the amount (10 lakh? 1 crore?).
 - "Ticket from Punjab": does this mean the flight departs from Punjab (e.g. Lahore), or the
   candidate pays for the ticket?
+
+## User corrections (2026-10-06)
+- Uzbekistan job 3 is titled **Tailors** (not hosiery workers); Kyrgyzstan is a separate tailors demand.
+- Uzbekistan salaries: **bike riders 400 USD**, **car drivers 450 USD**, **tailors 500 USD**.
+  (Replaces "10 lakh Uzbek som" for riders and "$400" for job 3.)

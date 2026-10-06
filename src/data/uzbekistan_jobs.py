@@ -1,5 +1,6 @@
 """Demand 2026-10-06 (split): Uzbekistan riders, car drivers, tailors (factory: packing, ironing, shifting goods).
 User instruction 2026-10-06: title this job "Tailors", not "Hosiery Workers".
+User correction 2026-10-06: salaries are riders 400 USD, car drivers 450 USD, tailors 500 USD.
 Facts: demands/2026-10-06-uzbekistan-combined/facts.md (sections A and B)."""
 from common import C
 
@@ -21,8 +22,8 @@ DATA = {
             {"art": "rider", "color": C["emerald2"], "title": "Bike Riders", "title_en_px": 30,
              "roles": "Scooter / motorcycle",
              "location": "Tashkent", "posts": ("50", "POSTS"),
-             "salary": {"label": "SALARY", "value": "10 LAKH SOM", "size": 34,
-                        "sub": "Uzbek som / month + bonus + overtime"},
+             "salary": {"label": "SALARY", "value": "$400", "size": 44,
+                        "sub": "USD per month + bonus + overtime"},
              "rows": [("clock", f"{B('Duty:')} 12 hours daily"),
                       ("home", f"{B('Accommodation:')} by company"),
                       ("food", f"{B('Food:')} 2 times a day by company")]},
@@ -36,7 +37,7 @@ DATA = {
             {"art": "tailor", "color": "#8A5A12", "title": "Tailors", "title_en_px": 30,
              "roles": "Packing · Ironing · Shifting goods",
              "location": "Tashkent &amp; Samarkand", "posts": ("50", "POSTS"),
-             "salary": {"label": "SALARY", "value": "$400", "size": 44, "sub": "US dollars"},
+             "salary": {"label": "SALARY", "value": "$500", "size": 44, "sub": "US dollars"},
              "rows": [("clock", f"{B('Duty:')} 10 hours + overtime"),
                       ("home", "Accommodation · Medical"),
                       ("bus", f"{B('Transport:')} by company")]},
@@ -69,8 +70,8 @@ DATA = {
             {"art": "rider", "color": C["emerald2"], "title": "بائیک رائیڈرز",
              "roles": "اسکوٹر / موٹر سائیکل",
              "location": "تاشقند", "posts": ("50", "آسامیاں"),
-             "salary": {"label": "تنخواہ", "value": "10 لاکھ", "size": 36, "rtl": True,
-                        "sub": "ازبک سوم ماہانہ + بونس + اوور ٹائم"},
+             "salary": {"label": "تنخواہ", "value": "400 USD", "size": 40,
+                        "sub": "ماہانہ + بونس + اوور ٹائم"},
              "rows": [("clock", f"{B('ڈیوٹی:')} {N(12)} گھنٹے روزانہ"),
                       ("home", f"{B('رہائش:')} کمپنی کی طرف سے"),
                       ("food", f"{B('کھانا:')} دن میں {N(2)} مرتبہ (کمپنی)")]},
@@ -84,7 +85,7 @@ DATA = {
             {"art": "tailor", "color": "#8A5A12", "title": "ٹیلرز",
              "roles": "پیکنگ، استری کرنا، سامان شفٹ کرنا",
              "location": "تاشقند اور ثمرقند", "posts": ("50", "آسامیاں"),
-             "salary": {"label": "تنخواہ", "value": "400", "size": 40, "sub": "ڈالر"},
+             "salary": {"label": "تنخواہ", "value": "500 USD", "size": 40, "sub": "ڈالر"},
              "rows": [("clock", f"{B('ڈیوٹی:')} {N(10)} گھنٹے + اوور ٹائم"),
                       ("home", "رہائش • میڈیکل"),
                       ("bus", f"{B('ٹرانسپورٹ:')} بذمہ کمپنی")]},
