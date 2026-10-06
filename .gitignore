@@ -30,3 +30,8 @@ venv/
 # Ad generator scratch HTML
 output/.tmp/
 assets/logo/.cache/
+
+# Third-party reference ads (content source only, not ours to redistribute)
+demands/**/*.jpg
+demands/**/*.jpeg
+demands/**/*.png

@@ -97,8 +97,12 @@ def overflow_report(html):
     with sync_playwright() as p:
         b = _launch(p)
         pg = b.new_page(viewport={"width": W, "height": H})
-        pg.set_content(html)
+        tmp = OUTPUT / ".tmp" / "_check.html"
+        tmp.parent.mkdir(parents=True, exist_ok=True)
+        tmp.write_text(html, encoding="utf-8")
+        pg.goto(tmp.as_uri())  # file:// so the local fonts load
         pg.evaluate("document.fonts.ready")
+        pg.wait_for_timeout(300)
         res = pg.evaluate("""() => [...document.querySelectorAll('[data-check]')]
             .filter(e => e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1)
             .map(e => e.dataset.check)""")

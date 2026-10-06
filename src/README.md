@@ -10,3 +10,11 @@
 
 Requires: `pip install playwright pillow`. Chromium is taken from
 `/opt/pw-browsers/chromium` when present; otherwise run `playwright install chromium`.
+
+## Styles
+- `style_corporate_grid.py` — corporate navy/gold grid; data: `data/uzbekistan_combined.py`.
+  Run: `cd src && python3 style_corporate_grid.py uzbekistan_combined`
+
+## Photos
+Drop real photos into `assets/photos/` named `rider`, `driver`, `factory`, `tailor`
+(`.jpg/.png/.webp`); they replace the illustrations automatically (cropped to circles).
