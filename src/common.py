@@ -207,6 +207,11 @@ ICONS = {
     "camera": '<path d="M3 8h4l2-3h6l2 3h4v12H3z"/><circle cx="12" cy="13" r="4"/>',
     "family": '<circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2 21c0-4 3-6.5 6-6.5s6 2.5 6 6.5M13 21c.3-3 2-4.6 4-4.6s3.8 1.6 4 4.6"/>',
     "scissors": '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1L20 20M8.1 15.9L20 4"/>',
+    "box": '<path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/>',
+    "iron": '<path d="M3 17h17v-3a6 6 0 0 0-6-6H8"/><path d="M3 17l2-6h9"/><path d="M8 8V6h7"/>',
+    "sock": '<path d="M8 2h7v10l-6 7a3 3 0 0 1-5-3l4-5z"/><path d="M8 6h7"/>',
+    "dolly": '<path d="M4 3h3l3 13h10"/><rect x="10" y="6" width="9" height="7" rx="1"/><circle cx="10" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>',
+    "gift": '<rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12"/><path d="M12 9c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z"/>',
     "megaphone": '<path d="M3 10v4h4l8 5V5L7 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
 }
 

@@ -240,3 +240,64 @@ def girih_pattern(pid, color, opacity=0.14, size=80):
             f'<g fill="none" stroke="{color}" stroke-width="1.6" opacity="{opacity}">'
             f'<polygon points="{star}"/><rect x="{c - r2}" y="{c - r2}" width="{2*r2}" height="{2*r2}" transform="rotate(45 {c} {c})"/>'
             f'<path d="M0 0 L{size*0.16} {size*0.16} M{size} 0 L{size*0.84} {size*0.16} M0 {size} L{size*0.16} {size*0.84} M{size} {size} L{size*0.84} {size*0.84}"/></g></pattern>')
+
+
+def _worker(x, base, s=1.0, shirt=None, pose="stand", flip=False, uid="w"):
+    """Factory worker in cap and polo. pose: 'iron', 'pack', 'carry'."""
+    shirt = shirt or C["navy"]
+    tf = f"translate({x} {base}) scale({-s if flip else s} {s})"
+    arms = {
+        "iron": f'<path d="M16 -118 Q34 -96 52 -84" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/><circle cx="54" cy="-82" r="7" fill="#E8EDF2"/>'
+                f'<path d="M-16 -118 Q-26 -96 -14 -84" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/><circle cx="-12" cy="-82" r="7" fill="#E8EDF2"/>',
+        "pack": f'<path d="M16 -118 Q30 -100 30 -86" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+                f'<path d="M-16 -118 Q-30 -100 -30 -86" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+                f'<circle cx="30" cy="-84" r="7" fill="#E8EDF2"/><circle cx="-30" cy="-84" r="7" fill="#E8EDF2"/>',
+        "carry": f'<path d="M14 -122 Q34 -112 36 -96" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+                 f'<path d="M-14 -122 Q-6 -104 4 -96" stroke="{shirt}" stroke-width="13" fill="none" stroke-linecap="round"/>',
+    }[pose]
+    legs = (f'<path d="M-10 -70 L-12 0 M10 -70 L12 0" stroke="#22303F" stroke-width="15" stroke-linecap="round"/>'
+            f'<path d="M-20 0 L-4 0 M4 0 L22 0" stroke="#111" stroke-width="7" stroke-linecap="round"/>') if pose == "carry" else ""
+    box = (f'<rect x="-6" y="-124" width="62" height="50" fill="#C8935A"/><rect x="-6" y="-124" width="62" height="9" fill="#B07B45"/>'
+           f'<rect x="20" y="-124" width="10" height="50" fill="#E2B988"/>'
+           f'<circle cx="38" cy="-98" r="7" fill="#E8EDF2"/><circle cx="4" cy="-96" r="7" fill="#E8EDF2"/>') if pose == "carry" else ""
+    return f"""<g transform="{tf}">{legs}
+<path d="M-26 -66 Q-30 -122 -16 -134 L16 -134 Q30 -122 26 -66Z" fill="{shirt}"/>
+<path d="M-8 -134 L0 -120 L8 -134" fill="#fff" opacity=".9"/>
+<rect x="-6" y="-146" width="12" height="13" fill="{SKIN_D}"/>
+<circle cx="0" cy="-160" r="17" fill="{SKIN}"/>
+<path d="M-18 -162 Q-17 -182 1 -182 Q19 -182 18 -164Z" fill="{shirt}"/><path d="M14 -166 L30 -163 L16 -159Z" fill="{shirt}"/>
+{arms}{box}</g>"""
+
+
+def factory_scene(w, h, ur=False):
+    """Factory floor with big windows onto Tashkent (TV Tower) and Samarkand
+    (Registan), three workers: ironing, packing, carrying goods; hosiery
+    stock shelves and boxes."""
+    floor_y = h * 0.86
+    win = (f'<rect x="{w*0.05}" y="{h*0.08}" width="{w*0.9}" height="{h*0.5}" rx="8" fill="#BFD9EE"/>'
+           f'<g clip-path="url(#fswin)">'
+           f'<rect x="0" y="0" width="{w}" height="{h}" fill="url(#fssky)"/>'
+           f'<g transform="translate(0 {h*0.58 - 70})" opacity=".55">{skyline(int(w), 70, "#7FA3C4", 9)}</g>'
+           f'{registan(w*0.12, h*0.58, 260, "#8FB0CC")}{tashkent_tv_tower(w*0.78, h*0.58, h*0.48, "#6E95BA")}</g>'
+           + "".join(f'<rect x="{w*0.05 + i*w*0.18 - 3}" y="{h*0.08}" width="6" height="{h*0.5}" fill="#E9EEF3"/>' for i in range(1, 5)))
+    shelves = "".join(
+        f'<rect x="{sx}" y="{h*0.36}" width="120" height="{floor_y - h*0.36}" fill="#9AAFC6"/>'
+        + "".join(f'<rect x="{sx+6}" y="{h*0.38 + k*34}" width="108" height="24" fill="{["#2E5E9E","#7FA6D6","#1E9E4A","#F0B443"][k%4]}" opacity=".9"/>' for k in range(int((floor_y - h*0.4)//34)))
+        for sx in ([w*0.03] if not ur else [w*0.97 - 120]))
+    tables = (f'<rect x="{w*0.24}" y="{floor_y-118}" width="{w*0.62}" height="14" rx="4" fill="#5C6B7A"/>'
+              f'<path d="M{w*0.27} {floor_y-104} L{w*0.27} {floor_y} M{w*0.83} {floor_y-104} L{w*0.83} {floor_y}" stroke="#5C6B7A" stroke-width="8"/>'
+              f'<rect x="{w*0.3}" y="{floor_y-132}" width="110" height="14" fill="{C["emerald"]}"/>'
+              f'<path d="M{w*0.3+70} {floor_y-118} L{w*0.3+118} {floor_y-118} Q{w*0.3+120} {floor_y-140} {w*0.3+104} {floor_y-146} L{w*0.3+84} {floor_y-146} Q{w*0.3+70} {floor_y-138} {w*0.3+70} {floor_y-118}Z" fill="#F4F6F8" stroke="{INK}" stroke-width="3"/>'
+              f'<rect x="{w*0.6+18}" y="{floor_y-176}" width="96" height="58" fill="#C8935A"/><rect x="{w*0.6+18}" y="{floor_y-176}" width="96" height="10" fill="#B07B45"/>'
+              f'<rect x="{w*0.6+60}" y="{floor_y-176}" width="12" height="58" fill="#E2B988"/>'
+              f'<rect x="{w*0.6+130}" y="{floor_y-140}" width="44" height="9" fill="#2E5E9E"/><rect x="{w*0.6+130}" y="{floor_y-131}" width="44" height="9" fill="#7FA6D6"/>')
+    behind = (_worker(w*0.33, floor_y - 40, 1.0, C["navy"], "iron") +
+              _worker(w*0.57, floor_y - 40, 1.0, C["green"], "pack"))
+    workers = _worker(w*0.93 if not ur else w*0.07, floor_y + 6, 0.95, "#1F4E8C", "carry", flip=ur)
+    stack = "".join(f'<rect x="{(w*0.12 if not ur else w*0.84)}" y="{floor_y - 44*(k+1)}" width="70" height="42" fill="#C8935A" stroke="#B07B45" stroke-width="2"/>' for k in range(3))
+    return f"""<defs><clipPath id="fswin"><rect x="{w*0.05}" y="{h*0.08}" width="{w*0.9}" height="{h*0.5}" rx="8"/></clipPath>
+<linearGradient id="fssky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9CC7EA"/><stop offset="1" stop-color="#E3F0FA"/></linearGradient>
+<linearGradient id="fswall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7ECF2"/><stop offset="1" stop-color="#D3DCE6"/></linearGradient></defs>
+<rect width="{w}" height="{h}" fill="url(#fswall)"/>{win}
+<rect y="{floor_y}" width="{w}" height="{h-floor_y}" fill="#B9C4CF"/>
+<path d="M0 {floor_y} H{w}" stroke="#9AA8B6" stroke-width="3"/>{shelves}{stack}{behind}{tables}{workers}"""

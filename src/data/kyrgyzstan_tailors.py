@@ -1,6 +1,6 @@
 """Demand 2026-10-06 (split): experienced tailors for Kyrgyzstan.
 Facts: demands/2026-10-06-uzbekistan-combined/facts.md (section C); the user
-confirmed the destination country is Kyrgyzstan, and corrected the tailor salary to 500 USD."""
+confirmed the destination country is Kyrgyzstan, and re-sent the source ad: salary $500–$800 monthly."""
 from common import C
 
 N = lambda v: f"<span class='num' style='font-family:Archivo;font-weight:700;letter-spacing:0'>{v}</span>"
@@ -20,9 +20,9 @@ DATA = {
         "opener": "Our respected client urgently needs experienced tailors",
         "from": "Pakistan", "to": "Kyrgyzstan",
         "badges_start": [
-            {"icon": "money", "label": "MONTHLY SALARY", "value": "$500", "size": 40, "sub": "USD"},
+            {"icon": "money", "label": "MONTHLY SALARY", "value": "$500–$800", "size": 32, "sub": "US dollars"},
             {"icon": "clock", "label": "DUTY", "value": "10 HOURS", "sub": "daily"},
-            {"icon": "home", "label": "ACCOMMODATION &amp; FOOD", "value": "By company", "num": False},
+            {"icon": "home", "label": "ACCOMMODATION &amp; FOOD", "value": "By company", "num": False, "sub": "(as per country)"},
         ],
         "badges_end": [
             {"icon": "doc", "label": "CONTRACT", "value": "Legal contract", "num": False},
@@ -46,9 +46,9 @@ DATA = {
         "opener": "ہمارے معزز کلائنٹ کو تجربہ کار ٹیلرز کی فوری ضرورت ہے",
         "from": "پاکستان", "to": "کرغزستان",
         "badges_start": [
-            {"icon": "money", "label": "ماہانہ تنخواہ", "value": "500 USD", "size": 36},
+            {"icon": "money", "label": "ماہانہ تنخواہ", "value": "$500 – $800", "size": 30, "sub": "امریکی ڈالر"},
             {"icon": "clock", "label": "ڈیوٹی کا وقت", "value": f"{N(10)} گھنٹے روزانہ", "num": False},
-            {"icon": "home", "label": "رہائش اور کھانا", "value": "کمپنی کی جانب سے", "num": False},
+            {"icon": "home", "label": "رہائش اور کھانا", "value": "کمپنی کی جانب سے", "num": False, "sub": "(ممالک کے مطابق)"},
         ],
         "badges_end": [
             {"icon": "doc", "label": "معاہدہ", "value": "قانونی معاہدہ", "num": False},
