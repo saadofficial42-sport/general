@@ -74,7 +74,7 @@ def job_card(job, x, y, w, h, f, uid):
   {f.head(job['title'], job.get('title_en_px', 28), job.get('title_ur_px', 25), col, 'text-align:center')}
   {f.txt(job['roles'], 14.5, 15, '#5A6470', 'text-align:center', 1.75 if f.ur else 1.2) if job.get('roles') else ''}
   <div style='display:flex;align-items:center;justify-content:center;gap:5px;margin-top:{0 if f.ur else 4}px'>{icon('pin', 15, C['red'], 2.6)}
-   {f.txt(job['location'], 14.5, 15.5, C['navy'], 'font-weight:700', 1.55 if f.ur else 1.2)}</div>
+   {f.txt(job['location'], 14.5, 15.5, C['navy'], 'font-weight:700', 1.85 if f.ur else 1.2)}</div>
   <div style='margin:{6 if f.ur else 10}px auto 0;background:{col};border-radius:14px;padding:{'4px 8px 6px' if f.ur else '8px 8px'};color:#fff'>
     {f.label(sal['label'], 12, 15, C['gold2'], 'text-align:center')}
     <div class='num' style='font-size:{sal.get('size', 40)}px;line-height:1.05;margin-top:{(14 if sal.get('rtl') else 4) if f.ur else 0}px;{'direction:rtl' if sal.get('rtl') else ''}'>{sal['value']}</div>
@@ -83,18 +83,19 @@ def job_card(job, x, y, w, h, f, uid):
 </div></div>"""
 
 
-def panel(title, items, x, y, w, h, f, uid, check_icon="check", accent=None):
+def panel(title, items, x, y, w, h, f, uid, check_icon="check", accent=None, cols=1, px=(16, 16)):
     accent = accent or C["emerald2"]
     lis = "".join(
-        f"<div style='display:flex;align-items:center;gap:9px'>"
+        f"<div style='display:flex;align-items:center;gap:9px;width:{100 // cols}%;padding-inline-end:12px'>"
         f"<div class='ic' style='width:24px;height:24px;background:{accent}'>{icon(ic or check_icon, 14, '#fff', 3)}</div>"
-        f"{f.txt(txt, 16, 16, C['navy2'], 'min-width:0', 1.8 if f.ur else 1.25)}</div>"
+        f"{f.txt(txt, px[0], px[1], C['navy2'], 'min-width:0', 1.8 if f.ur else 1.25)}</div>"
         for ic, txt in items)
     return f"""<div class='abs' style='inset-inline-start:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#FBF8F0;border-radius:18px;
- border:3px solid {C['gold']};padding:{'6px 18px' if f.ur else '14px 18px'};display:flex;flex-direction:column;gap:{0 if f.ur else 7}px' data-check='{uid}'>
+ border:3px solid {C['gold']};padding:{'6px 18px' if f.ur else '14px 18px'};display:flex;flex-direction:column;justify-content:{'center' if cols > 1 else 'flex-start'};gap:{(10 if f.ur else 16) if cols > 1 else (0 if f.ur else 7)}px' data-check='{uid}'>
  <div style='display:flex;align-items:center;gap:8px;margin-bottom:{0 if f.ur else 4}px'>
   <div style='width:10px;height:10px;transform:rotate(45deg);background:{C['gold']}'></div>
-  {f.label(title, 13.5, 18, C['green'], 'font-weight:700')}</div>{lis}</div>"""
+  {f.label(title, 13.5, 18, C['green'], 'font-weight:700')}</div>
+ <div style='display:flex;flex-wrap:wrap;row-gap:{(8 if f.ur else 20) if cols > 1 else (0 if f.ur else 7)}px'>{lis}</div></div>"""
 
 
 def build(d, lang):
@@ -137,12 +138,17 @@ def build(d, lang):
  <div style='display:inline-block;background:{C['red']};color:#fff;border-radius:10px;padding:{'0 12px' if ur else '6px 12px'};transform:rotate({4 if ur else -4}deg);box-shadow:0 4px 10px #0005'>
  {f.head(t['urgent'], 26, 24, '#fff')}</div></div>"""
     # ---------------- job cards
-    cy, ch, cw, gap = g["cards_top"], g["cards_h"], 326, 18
+    n = len(t["jobs"])
+    cy, ch, gap = g["cards_top"], g["cards_h"], g.get("cards_gap", 18)
+    cw = (1014 - gap * (n - 1)) // n
     cards = "".join(job_card(job, 33 + i * (cw + gap), cy, cw, ch, f, f"c{i}{lang}") for i, job in enumerate(t["jobs"]))
     # ---------------- panels
     py, ph = g["panels_top"], g["panels_h"]
-    panels = (panel(t["p1_title"], t["p1"], 33, py, 497, ph, f, "p1" + lang) +
-              panel(t["p2_title"], t["p2"], 550, py, 497, ph, f, "p2" + lang, accent=C["green"]))
+    if t.get("p2"):
+        panels = (panel(t["p1_title"], t["p1"], 33, py, 497, ph, f, "p1" + lang) +
+                  panel(t["p2_title"], t["p2"], 550, py, 497, ph, f, "p2" + lang, accent=C["green"]))
+    else:  # single full-width panel, two columns
+        panels = panel(t["p1_title"], t["p1"], 33, py, 1014, ph, f, "p1" + lang, cols=2, px=(19, 19))
     # ---------------- CTA
     ct = g["cta_top"]
     cta = f"""<div class='abs' style='top:{ct}px;left:0;width:1080px;height:{1350-ct}px;background:{GOLD_GRAD}'></div>

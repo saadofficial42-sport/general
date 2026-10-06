@@ -61,6 +61,8 @@ Source: three reference ads (screenshots in this folder). Content only; no layou
   candidate pays for the ticket?
 
 ## User corrections (2026-10-06)
-- Uzbekistan job 3 is titled **Tailors** (not hosiery workers); Kyrgyzstan is a separate tailors demand.
-- Uzbekistan salaries: **bike riders 400 USD**, **car drivers 450 USD**, **tailors 500 USD**.
-  (Replaces "10 lakh Uzbek som" for riders and "$400" for job 3.)
+- **Uzbekistan ad = bike riders + car drivers only** (Tashkent). The factory/hosiery demand (B) is
+  not used.
+- **Kyrgyzstan ad = tailors** (demand C).
+- Salaries: **bike riders 400 USD/month**, **car drivers 450 USD/month**, **tailors 500 USD**
+  (replaces "10 lakh Uzbek som" for riders and "$500–$800" for tailors).
