@@ -1,4 +1,5 @@
-"""Demand 2026-10-06 (split): Uzbekistan riders, car drivers, hosiery/factory workers.
+"""Demand 2026-10-06 (split): Uzbekistan riders, car drivers, tailors (factory: packing, ironing, shifting goods).
+User instruction 2026-10-06: title this job "Tailors", not "Hosiery Workers".
 Facts: demands/2026-10-06-uzbekistan-combined/facts.md (sections A and B)."""
 from common import C
 
@@ -6,7 +7,7 @@ N = lambda v: f"<span class='num' style='font-family:Archivo;font-weight:700;let
 B = lambda v: f"<b style='font-weight:700'>{v}</b>"
 
 DATA = {
-    "stem": "RS-Links-Uzbekistan-Riders-Drivers-Factory-Workers",
+    "stem": "RS-Links-Uzbekistan-Riders-Drivers-Tailors",
     "layout": {"hero_h": 270, "head_top": 52, "head_top_ur": 22,
                "cards_top": 470, "cards_h": 500, "panels_top": 982, "panels_h": 244, "cta_top": 1240},
     "en": {
@@ -32,7 +33,7 @@ DATA = {
              "rows": [("clock", f"{B('Duty:')} 12 hours daily"),
                       ("home", f"{B('Accommodation:')} by company"),
                       ("food", f"{B('Food:')} provided by company")]},
-            {"art": "factory", "color": "#8A5A12", "title": "Hosiery Workers", "title_en_px": 30,
+            {"art": "tailor", "color": "#8A5A12", "title": "Tailors", "title_en_px": 30,
              "roles": "Packing · Ironing · Shifting goods",
              "location": "Tashkent &amp; Samarkand", "posts": ("50", "POSTS"),
              "salary": {"label": "SALARY", "value": "$400", "size": 44, "sub": "US dollars"},
@@ -47,7 +48,7 @@ DATA = {
                (None, "Full skill in riding motorcycle / scooter"),
                (None, "Good car-driving skill"),
                (None, "Able to use Google Maps / location")],
-        "p2_title": "HOSIERY WORKERS · DETAILS",
+        "p2_title": "TAILORS · DETAILS",
         "p2": [("user", "Age 21–35 years"),
                ("visa", "Visa category: B-2"),
                ("calendar", "Processing time: 30–35 days"),
@@ -80,7 +81,7 @@ DATA = {
              "rows": [("clock", f"{B('ڈیوٹی:')} {N(12)} گھنٹے روزانہ"),
                       ("home", f"{B('رہائش:')} کمپنی کی طرف سے"),
                       ("food", f"{B('کھانا:')} کمپنی کی طرف سے")]},
-            {"art": "factory", "color": "#8A5A12", "title": "ہوزری ورکرز",
+            {"art": "tailor", "color": "#8A5A12", "title": "ٹیلرز",
              "roles": "پیکنگ، استری کرنا، سامان شفٹ کرنا",
              "location": "تاشقند اور ثمرقند", "posts": ("50", "آسامیاں"),
              "salary": {"label": "تنخواہ", "value": "400", "size": 40, "sub": "ڈالر"},
@@ -95,7 +96,7 @@ DATA = {
                (None, "موٹر سائیکل / اسکوٹر چلانے میں مکمل مہارت"),
                (None, "کار ڈرائیونگ کی اچھی مہارت"),
                (None, f"{N('Google Maps')} / لوکیشن کے استعمال کی صلاحیت")],
-        "p2_title": "ہوزری ورکرز — تفصیلات",
+        "p2_title": "ٹیلرز — تفصیلات",
         "p2": [("user", f"عمر کی حد: {N('21 – 35')} سال"),
                ("visa", f"ویزا کیٹیگری: {N('B-2')}"),
                ("calendar", f"پروسیسنگ ٹائم: {N('30 – 35')} دن"),
