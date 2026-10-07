@@ -39,6 +39,9 @@ const pages = {
   'logo-seal.png': `<div class="solo">${seal}</div>`,
   'logo-mark-512.png': `<div class="app">${seal}</div>`,
   'logo-icon.png': `<div class="fav">${icon}</div>`,
+  // solid white backgrounds (for documents, printing, WhatsApp/DP uploads)
+  'logo-seal-white-bg.png': `<div style="background:#fff;padding:120px;display:inline-block;line-height:0"><div class="solo">${seal}</div></div>`,
+  'logo-horizontal-white-bg.png': `<div style="background:#fff;padding:40px 30px;display:inline-block">${lock('')}</div>`,
   'og-image.png': `<div class="og"><div class="grid"></div><div class="ghost">${icon}</div><div class="in">${lock('')}<p>Manpower recruitment &amp; consultancy. Linking Pakistan's workforce with employers in <b>the Gulf, Europe and Central Asia</b>.</p></div></div>`
 };
 
