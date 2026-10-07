@@ -24,7 +24,7 @@ if (!inFile) {
 const e = JSON.parse(fs.readFileSync(inFile, "utf8"));
 const outFile = process.argv[3] || inFile.replace(/\.json$/, ".docx");
 const LETTERHEAD_DIR = path.join(__dirname, "..", "templates", "letterhead");
-const salary = `PKR ${e.salaryPkr.toLocaleString("en-US")}/-`;
+const salary = e.salaryPkr ? `PKR ${e.salaryPkr.toLocaleString("en-US")}/-` : "PKR ______________/-";
 
 const r = (text, opts = {}) => new TextRun({ text, font: FONT, size: 22, ...opts });
 const b = (text, opts = {}) => r(text, { bold: true, ...opts });
