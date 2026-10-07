@@ -7,14 +7,14 @@ window.SITE = {
   legalName:"RS Links Consultants Pvt. Ltd.",
   phone:    "+92 371 9051589",
   whatsapp: "923719051589",                    // digits only, country code first
-  email:    "",                                // leave empty to hide email everywhere
+  email:    "hr@rslinksconsultants.com",       // leave empty to hide email everywhere
   address:  "Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi",
   mapUrl:   "https://www.google.com/maps/search/?api=1&query=Satellite+Shopping+Centre+Sixth+Road+Rawalpindi",   // swap for your exact Google Maps pin link if you have one
   hours:    "Mon–Sat, 9:00 am – 6:00 pm PKT",
   founded:  "",                                // e.g. "2024" — leave empty to hide
   social: {                                    // leave a value empty to hide that icon
-    facebook:  "",
-    instagram: "",
+    facebook:  "https://www.facebook.com/search/top?q=rs%20links%20consultants%20pvt.%20ltd.",
+    instagram: "https://www.instagram.com/rslinks.consultants/",
     linkedin:  "",
     tiktok:    "",
     youtube:   ""

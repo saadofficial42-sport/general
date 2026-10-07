@@ -69,6 +69,13 @@
   };
   var WA_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>';
 
+  var SOCIAL_NAMES = {facebook:"Facebook", instagram:"Instagram", linkedin:"LinkedIn", tiktok:"TikTok", youtube:"YouTube"};
+  function socialLinks(withLabels){
+    return Object.keys(SOCIAL).filter(function(k){ return S.social && S.social[k]; }).map(function(k){
+      return '<a href="' + esc(S.social[k]) + '" target="_blank" rel="noopener" aria-label="' + SOCIAL_NAMES[k] + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + SOCIAL[k] + '</svg>' + (withLabels ? '<span>' + SOCIAL_NAMES[k] + '</span>' : '') + '</a>';
+    }).join("");
+  }
+
   var totalRoles = IND.reduce(function(n, c){ return n + c.roles.length; }, 0);
 
   /* ---------------- header / footer / chrome ---------------- */
@@ -90,9 +97,7 @@
 
   var footer = $("#site-footer");
   if(footer){
-    var socials = Object.keys(SOCIAL).filter(function(k){ return S.social && S.social[k]; }).map(function(k){
-      return '<a href="' + esc(S.social[k]) + '" target="_blank" rel="noopener" aria-label="' + k + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + SOCIAL[k] + '</svg></a>';
-    }).join("");
+    var socials = socialLinks(false);
     footer.outerHTML =
       '<footer><canvas class="foot-canvas" data-scene="stars" aria-hidden="true"></canvas><div class="wrap">' +
         '<div class="foot">' +
@@ -102,7 +107,7 @@
             (socials ? '<div class="socials">' + socials + '</div>' : '') +
           '</div>' +
           '<div><h4>Company</h4><ul>' + NAV.map(function(n){ return '<li><a href="' + n.href + '">' + esc(n.label) + '</a></li>'; }).join("") + '</ul></div>' +
-          '<div><h4>Industries</h4><ul>' + IND.slice(0, 7).map(function(c){ return '<li><a href="recruitment.html#' + c.id + '">' + esc(c.name.split(" & ")[0].split(",")[0]) + '</a></li>'; }).join("") + '<li><a href="recruitment.html">All ' + totalRoles + ' roles →</a></li></ul></div>' +
+          '<div><h4>Industries</h4><ul>' + IND.slice(0, 7).map(function(c){ return '<li><a href="recruitment.html#' + c.id + '">' + esc(c.name.split(" & ")[0]) + '</a></li>'; }).join("") + '<li><a href="recruitment.html">All ' + totalRoles + ' roles →</a></li></ul></div>' +
           '<div><h4>Contact</h4><ul>' +
             '<li>' + esc(S.address) + '</li>' +
             '<li><a data-cfg="phone" href="tel:' + esc(S.phone.replace(/[^+\d]/g, "")) + '">' + esc(S.phone) + '</a></li>' +
@@ -128,6 +133,11 @@
     }
   });
   $$("[data-wa]").forEach(function(a){ a.href = "https://wa.me/" + S.whatsapp; });
+  // labelled social buttons (contact & about pages); hide the row when no accounts are set
+  $$("[data-socials]").forEach(function(el){
+    var html = socialLinks(true), row = el.closest(".info-row");
+    if(html) el.innerHTML = html; else if(row) row.hidden = true;
+  });
   // "Send a message" + WhatsApp buttons beside every phone number in an info block
   $$(".info-row a[data-cfg='phone']").forEach(function(a){
     var box = document.createElement("div"); box.className = "phone-actions";
@@ -242,7 +252,7 @@
   var dir = $("[data-render='directory']");
   if(dir){
     var chips = $("#dirChips"), search = $("#dirSearch"), count = $("#dirCount"), curr = "all";
-    chips.innerHTML = '<button type="button" class="chip" data-id="all" aria-pressed="true">All industries</button>' + IND.map(function(c){ return '<button type="button" class="chip" data-id="' + c.id + '" aria-pressed="false">' + esc(c.name.split(" & ")[0].split(",")[0]) + '</button>'; }).join("");
+    chips.innerHTML = '<button type="button" class="chip" data-id="all" aria-pressed="true">All industries</button>' + IND.map(function(c){ return '<button type="button" class="chip" data-id="' + c.id + '" aria-pressed="false">' + esc(c.name.split(" & ")[0]) + '</button>'; }).join("");
     function renderDir(){
       var q = (search.value || "").trim().toLowerCase(), shown = 0, roles = 0;
       var html = IND.filter(function(c){ return curr === "all" || c.id === curr; }).map(function(c){

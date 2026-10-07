@@ -55,11 +55,10 @@ AFTER IT IS LIVE — please do these
    to WhatsApp +92 371 9051589).
 4. Optional: add the site to Google Search Console and submit sitemap.xml.
 
-COMPANY EMAIL (optional, recommended)
--------------------------------------
-If you set up an email such as info@yourdomain.com, send it to us. It can be
-added to the whole website by changing one line in  assets/js/config.js
-  (email: "info@yourdomain.com").
+COMPANY EMAIL
+-------------
+The website shows hr@rslinksconsultants.com. Please make sure this mailbox is
+set up on the hosting (cPanel > Email Accounts) so messages are received.
 
 WHERE CONTENT IS EDITED
 -----------------------
@@ -71,4 +70,5 @@ CONTACT
 -------
 RS Links Consultants Pvt. Ltd.
 Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi
-Phone / WhatsApp: +92 371 9051589
+Mobile / WhatsApp: +92 371 9051589
+Email: hr@rslinksconsultants.com
