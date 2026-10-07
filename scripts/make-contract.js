@@ -40,10 +40,10 @@ const clause = (title) => {
     spacing: { before: 200, after: 100 }, keepNext: true,
   });
 };
-const sub = (children) => new Paragraph({
+const sub = (children, opts = {}) => new Paragraph({
   children: (Array.isArray(children) ? children : [children]).map((c) => (typeof c === "string" ? r(c) : c)),
   numbering: { reference: "sub", level: 0, instance: clauseNo },
-  spacing: { after: 80, line: 276 }, alignment: AlignmentType.JUSTIFIED,
+  spacing: { after: 80, line: 276 }, alignment: AlignmentType.JUSTIFIED, ...opts,
 });
 
 // A4 page in EMU-free pixel units docx-js expects (96 dpi): 595.92 x 842.88 pt
@@ -105,11 +105,51 @@ const sigBlock = (left, right) => {
   const none = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
   const nb = { top: none, bottom: none, left: none, right: none };
   const col = (lines) => new TableCell({ width: { size: half, type: WidthType.DXA }, borders: nb,
-    children: lines.map((l, i) => new Paragraph({ spacing: { after: 60 },
+    children: lines.map((l, i) => new Paragraph({ spacing: { after: 60 }, keepNext: true,
       children: [i === 0 ? b(l, { color: BRAND }) : r(l)] })) });
   return new Table({ width: { size: W, type: WidthType.DXA }, columnWidths: [half, half],
     rows: [new TableRow({ cantSplit: true, children: [col(left), col(right)] })] });
 };
+
+function modeOfWork() {
+  const mode = (e.workMode || "").toLowerCase();
+  if (mode === "remote") return [
+    sub(["The Employee shall work on a ", b("remote"), " basis and is not required to attend the Company's office on a regular basis, unless specifically requested by the Company with reasonable notice."]),
+    sub("The Employee shall be available and reachable through the Company's agreed communication channels during working hours, attend scheduled online meetings, and maintain a reliable internet connection and suitable workspace at their own cost."),
+    sub(`Working hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
+  ];
+  if (mode === "on-site") return [
+    sub(["The Employee shall work ", b("on-site"), ` from the Company's office at ${COMPANY_ADDRESS}, or at such other location as the Company may reasonably direct.`]),
+    sub(`Working days and hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
+  ];
+  return [
+    sub("The Employee shall work from the Company's office or remotely, as directed by the Company in writing from time to time."),
+    sub(`Working days and hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
+  ];
+}
+
+// Optional per-case commission: e.commission = { rates: [[region, amountPkr]], terms: [..] }
+function commissionClause() {
+  if (!e.commission) return [];
+  const C = [W - 720 - 3000, 3000];
+  const cell = (child, w, shade) => new TableCell({ width: { size: w, type: WidthType.DXA }, borders,
+    ...(shade ? { shading: { type: ShadingType.CLEAR, fill: "E8F3EE", color: "auto" } } : {}),
+    margins: { top: 60, bottom: 60, left: 120, right: 120 }, children: [new Paragraph({ keepNext: true, children: [child] })] });
+  const table = new Table({ width: { size: W - 720, type: WidthType.DXA }, columnWidths: C,
+    indent: { size: 720, type: WidthType.DXA },
+    rows: [
+      new TableRow({ tableHeader: true, children: [cell(b("Destination"), C[0], true), cell(b("Commission per approved case"), C[1], true)] }),
+      ...e.commission.rates.map(([region, amt]) => new TableRow({ cantSplit: true, children: [
+        cell(r(region), C[0]), cell(b(`PKR ${amt.toLocaleString("en-US")}/-`), C[1])] })),
+    ] });
+  return [
+    clause("Commission"),
+    sub("In addition to the salary, the Employee shall be entitled to a commission for every approved case submitted by the Employee, at the following rates:", { keepNext: true }),
+    table,
+    new Paragraph({ spacing: { after: 80 }, children: [] }),
+    ...e.commission.terms.map(sub),
+  ];
+}
 
 const body = [
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 },
@@ -131,19 +171,18 @@ const body = [
   sub("The Employee shall report to the Company's management or to such person as the Company may designate from time to time."),
 
   clause("Duties and Responsibilities"),
-  sub("The Employee shall be responsible for planning, creating and publishing content across the Company's social media channels; managing posting calendars; engaging with followers and responding to messages and comments in a timely and professional manner; running and monitoring campaigns; and reporting on reach, engagement and performance."),
+  ...e.duties.map(sub),
   sub("The Employee shall perform such other related duties as may reasonably be assigned by the Company, and shall carry out all duties diligently, honestly and to the best of their ability."),
-  sub("The Employee shall not publish any content on behalf of the Company that has not been approved in line with the Company's instructions, and shall comply with the policies of each social media platform."),
 
   clause("Mode of Work"),
-  sub(["The Employee shall work on a ", b("remote"), " basis and is not required to attend the Company's office on a regular basis, unless specifically requested by the Company with reasonable notice."]),
-  sub("The Employee shall be available and reachable through the Company's agreed communication channels during working hours, attend scheduled online meetings, and maintain a reliable internet connection and suitable workspace at their own cost."),
-  sub("Working hours shall be as communicated by the Company from time to time. Social media duties may occasionally require reasonable availability outside normal hours."),
+  ...modeOfWork(),
 
   clause("Remuneration"),
   sub(["The Employee shall be paid a fixed monthly salary of ", b(salary), ` (${e.salaryWords} only).`]),
   sub(["The salary shall be disbursed ", b(e.payDay), " for the preceding month of service, by bank transfer or any other mode agreed between the Parties."]),
   sub("Salary for any incomplete month of service shall be calculated on a pro-rata basis. Any applicable taxes shall be deducted in accordance with the laws of Pakistan."),
+
+  ...commissionClause(),
 
   clause("Probation"),
   sub("The first three (3) months of employment shall be a probationary period. During probation, either Party may terminate this Agreement by giving seven (7) days' written notice. On successful completion, the Employee's appointment shall be confirmed in writing."),
@@ -155,9 +194,8 @@ const body = [
   sub("The Employee shall keep strictly confidential all information relating to the Company, its clients, candidates, partners, pricing, business plans and operations, and shall not disclose or use such information except for the performance of their duties."),
   sub("This obligation shall continue during employment and after this Agreement ends, for any reason."),
 
-  clause("Company Accounts and Intellectual Property"),
-  sub("All content, designs, graphics, videos, captions and other material created by the Employee in the course of employment shall be the sole property of the Company."),
-  sub("All login credentials and access to the Company's social media accounts, tools and pages are the property of the Company. The Employee shall not change passwords, remove administrators or transfer ownership without written approval, and shall hand over all credentials and access on the termination of employment."),
+  clause(e.propertyClause.title),
+  ...e.propertyClause.items.map(sub),
 
   clause("Conduct and Exclusivity"),
   sub("The Employee shall act professionally, comply with the Company's policies and lawful instructions, and shall not engage in any activity that conflicts with the interests of the Company or harms its reputation."),
