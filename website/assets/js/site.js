@@ -97,19 +97,18 @@
 
   var footer = $("#site-footer");
   if(footer){
-    var socials = socialLinks(false);
     footer.outerHTML =
       '<footer><canvas class="foot-canvas" data-scene="stars" aria-hidden="true"></canvas><div class="wrap">' +
         '<div class="foot">' +
           '<div><a class="brand" href="index.html">' + brandHTML() + '</a>' +
             '<p style="max-width:40ch">' + esc(S.legalName) + ' is a recruitment and HR consultancy in Rawalpindi–Islamabad supplying skilled, semi-skilled and general manpower to employers in Pakistan and abroad.</p>' +
             '<div class="foot-flags">' + CTRY.map(function(c){ return '<img src="' + flagSrc(c.code) + '" alt="' + esc(c.name) + '" title="' + esc(c.name) + '" loading="lazy">'; }).join("") + '</div>' +
-            (socials ? '<div class="socials">' + socials + '</div>' : '') +
           '</div>' +
           '<div><h4>Company</h4><ul>' + NAV.map(function(n){ return '<li><a href="' + n.href + '">' + esc(n.label) + '</a></li>'; }).join("") + '</ul></div>' +
           '<div><h4>Industries</h4><ul>' + IND.slice(0, 7).map(function(c){ return '<li><a href="recruitment.html#' + c.id + '">' + esc(c.name.split(" & ")[0]) + '</a></li>'; }).join("") + '<li><a href="recruitment.html">All ' + totalRoles + ' roles →</a></li></ul></div>' +
           '<div><h4>Contact</h4><ul>' +
-            '<li>' + esc(S.address) + '</li>' +
+            '<li><a href="' + esc(S.mapUrl) + '" target="_blank" rel="noopener">' + esc(S.address) + '</a></li>' +
+            (socialLinks(true) ? '<li class="social-pills foot-social">' + socialLinks(true) + '</li>' : '') +
             '<li><a data-cfg="phone" href="tel:' + esc(S.phone.replace(/[^+\d]/g, "")) + '">' + esc(S.phone) + '</a></li>' +
             '<li><a class="mini-btn solid" href="contact.html#enquiry">' + icon("mail", 2) + 'Send a message</a></li>' +
             (S.email ? '<li><a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a></li>' : '') +

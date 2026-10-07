@@ -492,3 +492,8 @@ footer .foot-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
 .social-pills a[aria-label="Facebook"] svg{color:#1877F2}
 .social-pills a[aria-label="Instagram"] svg{color:#D62976}
 .info-row .social-pills svg{width:16px;height:16px;margin:0}
+footer .social-pills a{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.2);color:var(--hero-ink)!important;font-size:13.5px!important;padding:8px 13px}
+footer .social-pills a:hover{border-color:var(--hero-accent)}
+footer .social-pills a[aria-label="Facebook"] svg{color:#4C9BFF}
+footer .social-pills a[aria-label="Instagram"] svg{color:#F06BA8}
+footer .social-pills svg{width:15px;height:15px}
