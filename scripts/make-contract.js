@@ -1,18 +1,19 @@
 // Generates an employment contract (.docx) on RS Links Consultants letterhead.
 // Usage: node scripts/make-contract.js contracts/<employee>.json [out.docx]
-// If contracts/letterhead.png exists it is used as the page header image;
-// otherwise a text letterhead is rendered.
+// The letterhead (templates/letterhead/) is placed as a full-page background:
+// first.jpg on page 1 (with REF/DATE lines), cont.jpg on later pages.
 
 const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, Header, Footer, ImageRun, Table,
   TableRow, TableCell, WidthType, BorderStyle, AlignmentType, PageNumber,
-  LevelFormat, ShadingType,
+  LevelFormat, ShadingType, HorizontalPositionRelativeFrom, VerticalPositionRelativeFrom,
 } = require("docx");
 
 const COMPANY = "RS Links Consultants (Pvt.) Ltd.";
-const BRAND = "1F3A5F";
+const BRAND = "0E6143";
+const COMPANY_ADDRESS = "Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi, Pakistan";
 const FONT = "Calibri";
 
 const inFile = process.argv[2];
@@ -22,7 +23,7 @@ if (!inFile) {
 }
 const e = JSON.parse(fs.readFileSync(inFile, "utf8"));
 const outFile = process.argv[3] || inFile.replace(/\.json$/, ".docx");
-const letterheadPath = path.join(path.dirname(inFile), "letterhead.png");
+const LETTERHEAD_DIR = path.join(__dirname, "..", "templates", "letterhead");
 const salary = `PKR ${e.salaryPkr.toLocaleString("en-US")}/-`;
 
 const r = (text, opts = {}) => new TextRun({ text, font: FONT, size: 22, ...opts });
@@ -45,47 +46,40 @@ const sub = (children) => new Paragraph({
   spacing: { after: 80, line: 276 }, alignment: AlignmentType.JUSTIFIED,
 });
 
-function letterhead() {
-  if (fs.existsSync(letterheadPath)) {
-    return [new Paragraph({ alignment: AlignmentType.CENTER, children: [
-      new ImageRun({ type: "png", data: fs.readFileSync(letterheadPath),
-        transformation: { width: 600, height: 90 } }),
-    ] })];
-  }
-  return [
-    new Paragraph({ alignment: AlignmentType.LEFT, spacing: { after: 0 }, children: [
-      b("RS LINKS CONSULTANTS", { size: 34, color: BRAND, characterSpacing: 20 }),
-      r("  (PVT.) LTD.", { size: 20, color: BRAND, bold: true }),
-    ] }),
-    new Paragraph({
-      spacing: { after: 0 },
-      border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: BRAND, space: 4 } },
-      children: [],
-    }),
-  ];
-}
+// A4 page in EMU-free pixel units docx-js expects (96 dpi): 595.92 x 842.88 pt
+const PAGE_PX = { width: 795, height: 1124 };
+const background = (file) => new Header({ children: [new Paragraph({ children: [
+  new ImageRun({ type: "jpg", data: fs.readFileSync(path.join(LETTERHEAD_DIR, file)),
+    transformation: PAGE_PX,
+    floating: {
+      horizontalPosition: { relative: HorizontalPositionRelativeFrom.PAGE, offset: 0 },
+      verticalPosition: { relative: VerticalPositionRelativeFrom.PAGE, offset: 0 },
+      behindDocument: true, allowOverlap: true,
+    } }),
+] })] });
 
+// Small page counter sitting just above the letterhead's tagline band.
 const footer = new Footer({ children: [
   new Paragraph({
-    alignment: AlignmentType.CENTER,
-    border: { top: { style: BorderStyle.SINGLE, size: 6, color: BRAND, space: 4 } },
+    alignment: AlignmentType.RIGHT,
     children: [
-      r(`${COMPANY}  |  Employment Agreement — ${e.name}  |  Page `, { size: 16, color: "666666" }),
-      new TextRun({ children: [PageNumber.CURRENT], size: 16, color: "666666", font: FONT }),
-      r(" of ", { size: 16, color: "666666" }),
-      new TextRun({ children: [PageNumber.TOTAL_PAGES], size: 16, color: "666666", font: FONT }),
+      r(`Employment Agreement — ${e.name}  |  Page `, { size: 16, color: "6B7C75" }),
+      new TextRun({ children: [PageNumber.CURRENT], size: 16, color: "6B7C75", font: FONT }),
+      r(" of ", { size: 16, color: "6B7C75" }),
+      new TextRun({ children: [PageNumber.TOTAL_PAGES], size: 16, color: "6B7C75", font: FONT }),
     ],
   }),
 ] });
 
 // Key-terms summary table
-const W = 9026; // A4 text width at 1" margins (DXA)
+const MARGIN_X = 1000;
+const W = 11906 - 2 * MARGIN_X; // A4 text width (DXA)
 const COLS = [2800, W - 2800];
-const cellBorder = { style: BorderStyle.SINGLE, size: 4, color: "BFC8D6" };
+const cellBorder = { style: BorderStyle.SINGLE, size: 4, color: "B8D4C7" };
 const borders = { top: cellBorder, bottom: cellBorder, left: cellBorder, right: cellBorder };
 const row = (k, v) => new TableRow({ children: [
   new TableCell({ width: { size: COLS[0], type: WidthType.DXA }, borders,
-    shading: { type: ShadingType.CLEAR, fill: "EAF0F7", color: "auto" },
+    shading: { type: ShadingType.CLEAR, fill: "E8F3EE", color: "auto" },
     margins: { top: 60, bottom: 60, left: 120, right: 120 },
     children: [new Paragraph({ children: [b(k)] })] }),
   new TableCell({ width: { size: COLS[1], type: WidthType.DXA }, borders,
@@ -114,19 +108,17 @@ const sigBlock = (left, right) => {
     children: lines.map((l, i) => new Paragraph({ spacing: { after: 60 },
       children: [i === 0 ? b(l, { color: BRAND }) : r(l)] })) });
   return new Table({ width: { size: W, type: WidthType.DXA }, columnWidths: [half, half],
-    rows: [new TableRow({ children: [col(left), col(right)] })] });
+    rows: [new TableRow({ cantSplit: true, children: [col(left), col(right)] })] });
 };
 
 const body = [
-  new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { after: 200 },
-    children: [r(`Date: ${e.contractDate}`)] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 },
     children: [b("EMPLOYMENT AGREEMENT", { size: 32, color: BRAND })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 },
     children: [r(e.position, { size: 24, italics: true })] }),
 
   p([r("This Employment Agreement (the "), b("“Agreement”"), r(") is made and entered into on the date stated above by and between:")]),
-  p([b(COMPANY), r(", a private limited company incorporated under the laws of Pakistan (hereinafter the "), b("“Company”"), r(", which expression shall include its successors and assigns);")]),
+  p([b(COMPANY), r(`, a private limited company incorporated under the laws of Pakistan, having its office at ${COMPANY_ADDRESS} (hereinafter the `), b("“Company”"), r(", which expression shall include its successors and assigns);")]),
   p([b("AND", { color: BRAND })], { alignment: AlignmentType.CENTER }),
   p([b(`${e.salutation} ${e.name}`), r(`, ${e.relation} ${e.fatherName}, holding CNIC No. `), b(e.cnic), r(" (hereinafter the "), b("“Employee”"), r(").")]),
   p("The Company and the Employee are each referred to as a “Party” and together as the “Parties”. The Parties agree to the following terms and conditions."),
@@ -188,7 +180,7 @@ const body = [
     ["For and on behalf of the Company", COMPANY, "", "Signature: ______________________", "Name: __________________________", "Designation: ____________________", "Company Stamp:"],
     ["Employee", `${e.name}`, "", "Signature: ______________________", `CNIC: ${e.cnic}`, "Date: ___________________________"],
   ),
-  new Paragraph({ spacing: { before: 280, after: 80 }, children: [b("Witnesses", { color: BRAND })] }),
+  new Paragraph({ spacing: { before: 280, after: 80 }, keepNext: true, children: [b("Witnesses", { color: BRAND })] }),
   sigBlock(
     ["Witness 1", "Name: __________________________", "CNIC: __________________________", "Signature: ______________________"],
     ["Witness 2", "Name: __________________________", "CNIC: __________________________", "Signature: ______________________"],
@@ -203,9 +195,13 @@ const doc = new Document({
     text: "(%1)", alignment: AlignmentType.LEFT,
     style: { paragraph: { indent: { left: 720, hanging: 400 } } } }] }] },
   sections: [{
-    properties: { page: { margin: { top: 1700, bottom: 1300, left: 1440, right: 1440, header: 500, footer: 500 } } },
-    headers: { default: new Header({ children: letterhead() }) },
-    footers: { default: footer },
+    properties: {
+      titlePage: true,
+      // Body sits between the letterhead's REF/DATE line and its tagline band.
+      page: { margin: { top: 3500, bottom: 2400, left: MARGIN_X, right: MARGIN_X, header: 0, footer: 1750 } },
+    },
+    headers: { first: background("first.jpg"), default: background("cont.jpg") },
+    footers: { first: footer, default: footer },
     children: body,
   }],
 });

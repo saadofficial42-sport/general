@@ -7,5 +7,5 @@ Generate a contract:
 
     node scripts/make-contract.js contracts/<name>.json
 
-Optionally place the company letterhead image at `contracts/letterhead.png`; it
-replaces the text letterhead at the top of every page.
+The RS Links letterhead in `templates/letterhead/` is applied as the page
+background (`first.jpg` on page 1 with REF/DATE, `cont.jpg` on later pages).
