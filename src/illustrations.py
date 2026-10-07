@@ -301,3 +301,83 @@ def factory_scene(w, h, ur=False):
 <rect width="{w}" height="{h}" fill="url(#fswall)"/>{win}
 <rect y="{floor_y}" width="{w}" height="{h-floor_y}" fill="#B9C4CF"/>
 <path d="M0 {floor_y} H{w}" stroke="#9AA8B6" stroke-width="3"/>{shelves}{stack}{behind}{tables}{workers}"""
+
+
+def ce_truck(uid="ce"):
+    """CE category: articulated lorry (tractor unit + trailer)."""
+    return f"""{_bg(uid, '#EEF3FB', '#C9D8EF')}
+<path d="M0 150 H200 V200 H0z" fill="#AFC3E2"/>
+<rect x="8" y="70" width="120" height="66" rx="4" fill="#F4F6F8" stroke="{INK}" stroke-width="3"/>
+<rect x="16" y="80" width="104" height="10" fill="{C['navy']}" opacity=".85"/>
+<path d="M128 132 L128 88 Q130 78 142 78 L166 78 Q176 78 182 90 L192 108 L192 132Z" fill="{C['navy']}"/>
+<path d="M146 86 L166 86 Q172 86 176 94 L182 106 L146 106Z" fill="#9CC7EA"/>
+<circle cx="160" cy="96" r="6" fill="{SKIN}"/><path d="M153 106 Q153 98 160 98 Q167 98 167 106Z" fill="#26364A"/>
+<rect x="8" y="132" width="186" height="8" fill="{INK}"/>
+<circle cx="36" cy="146" r="14" fill="{INK}"/><circle cx="36" cy="146" r="6" fill="#9BA7B0"/>
+<circle cx="68" cy="146" r="14" fill="{INK}"/><circle cx="68" cy="146" r="6" fill="#9BA7B0"/>
+<circle cx="168" cy="146" r="14" fill="{INK}"/><circle cx="168" cy="146" r="6" fill="#9BA7B0"/>
+<rect x="186" y="112" width="8" height="8" fill="{C['gold2']}"/>"""
+
+
+def precast_worker(uid="pc"):
+    """Precast concrete installation: crane hook lowering a panel, worker in hard hat + vest."""
+    return f"""{_bg(uid, '#FFF6E5', '#F5DEB0')}
+<path d="M0 168 H200 V200 H0z" fill="#C9B79A"/>
+<path d="M150 0 L150 40 M150 40 L150 60" stroke="{INK}" stroke-width="3"/>
+<path d="M144 60 Q150 70 156 60" stroke="{INK}" stroke-width="3" fill="none"/>
+<path d="M150 64 L118 88 M150 64 L182 88" stroke="{INK}" stroke-width="2"/>
+<rect x="112" y="88" width="76" height="70" fill="#A9AFB5" stroke="#7D848B" stroke-width="3"/>
+<path d="M122 100h56M122 116h56M122 132h56" stroke="#8F969D" stroke-width="2"/>
+<rect x="20" y="150" width="90" height="18" fill="#A9AFB5" stroke="#7D848B" stroke-width="2"/>
+<path d="M52 150 Q48 108 62 98 L86 98 Q98 108 94 150Z" fill="#C6E24A"/>
+<path d="M58 100 L58 148 M90 100 L90 148" stroke="#F4F6F8" stroke-width="4"/>
+<rect x="69" y="86" width="10" height="12" fill="{SKIN_D}"/>
+<circle cx="74" cy="72" r="15" fill="{SKIN}"/>
+<path d="M56 72 Q56 50 74 50 Q92 50 92 72Z" fill="{C['gold2']}"/><rect x="52" y="68" width="44" height="6" rx="3" fill="#E8B400"/>
+<path d="M92 108 Q108 104 114 96" stroke="#C6E24A" stroke-width="10" fill="none" stroke-linecap="round"/>
+<circle cx="115" cy="95" r="6" fill="#5C6B7A"/>"""
+
+
+def cleaner(uid="cl"):
+    """Cleaning worker with mop and trolley."""
+    return f"""{_bg(uid, '#EAF6F3', '#C3E6DD')}
+<path d="M0 166 H200 V200 H0z" fill="#D9E3EA"/>
+<ellipse cx="64" cy="170" rx="38" ry="6" fill="#9CC7EA" opacity=".8"/>
+<rect x="128" y="104" width="54" height="56" rx="4" fill="{C['navy']}"/>
+<rect x="134" y="86" width="16" height="20" rx="3" fill="{C['gold2']}"/><rect x="156" y="80" width="14" height="26" rx="3" fill="#2DB0E0"/>
+<circle cx="138" cy="164" r="6" fill="{INK}"/><circle cx="174" cy="164" r="6" fill="{INK}"/>
+<path d="M78 158 L76 118 M92 158 L96 118" stroke="#3F4E5E" stroke-width="12" stroke-linecap="round"/>
+<path d="M68 122 Q64 82 78 72 L100 72 Q112 82 108 122Z" fill="#2C4F7C"/>
+<path d="M76 74 L76 120 M102 74 L102 120" stroke="#7E8C9A" stroke-width="5"/>
+<rect x="84" y="60" width="10" height="13" fill="{SKIN_D}"/>
+<circle cx="89" cy="46" r="15" fill="{SKIN}"/>
+<path d="M73 44 Q73 28 89 28 Q105 28 105 42Z" fill="{C['navy']}"/><path d="M101 40 L116 43 L103 46Z" fill="{C['navy']}"/>
+<path d="M70 84 Q56 100 52 112" stroke="#2C4F7C" stroke-width="10" fill="none" stroke-linecap="round"/>
+<circle cx="51" cy="113" r="6" fill="#2DB0E0"/>
+<path d="M58 70 L34 162" stroke="#8A5A12" stroke-width="4"/>
+<path d="M18 160 L52 160 L50 170 L20 170Z" fill="#2DB0E0"/>"""
+
+
+TRADES.update({"ce_truck": ce_truck, "precast": precast_worker, "cleaner": cleaner})
+
+
+def kosovo_skyline(w, h, fill, accent=None):
+    """Kosovo landmarks: Prizren fortress on its hill + Sinan Pasha Mosque
+    (dome and tall minaret) on the left; Pristina's NEWBORN monument
+    (block letters) and modern blocks on the right."""
+    accent = accent or fill
+    b = h
+    hill = f'<path d="M0 {b} L0 {b-60} Q80 {b-120} 170 {b-96} Q230 {b-80} 260 {b-40} L260 {b}Z"/>'
+    fort = (f'<rect x="70" y="{b-142}" width="80" height="34"/>'
+            + "".join(f'<rect x="{70 + i*12}" y="{b-150}" width="7" height="9"/>' for i in range(7))
+            + f'<rect x="132" y="{b-170}" width="16" height="30"/>')
+    mosque = (f'<rect x="250" y="{b-70}" width="90" height="70"/>'
+              f'<path d="M262 {b-70} Q295 {b-130} 328 {b-70}Z"/>'
+              f'<rect x="293" y="{b-140}" width="4" height="14"/>'
+              f'<rect x="352" y="{b-175}" width="12" height="175"/><path d="M350 {b-175} L358 {b-205} L366 {b-175}Z"/>'
+              f'<rect x="349" y="{b-140}" width="18" height="5"/>')
+    blocks = "".join(f'<rect x="{x}" y="{b-hh}" width="{ww}" height="{hh}"/>' for x, ww, hh in
+                     ((600, 46, 90), (652, 30, 130), (690, 54, 70), (900, 40, 110), (946, 60, 80), (1012, 50, 120)))
+    newborn = (f'<g transform="translate(740 {b-12})"><rect x="-6" y="0" width="160" height="12" fill="{accent}"/>'
+               f'<text x="74" y="-4" text-anchor="middle" font-family="Anton" font-size="44" letter-spacing="2" fill="{accent}">NEWBORN</text></g>')
+    return f'<g fill="{fill}">{hill}{fort}{mosque}{blocks}</g>'

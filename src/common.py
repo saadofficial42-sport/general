@@ -212,6 +212,11 @@ ICONS = {
     "sock": '<path d="M8 2h7v10l-6 7a3 3 0 0 1-5-3l4-5z"/><path d="M8 6h7"/>',
     "dolly": '<path d="M4 3h3l3 13h10"/><rect x="10" y="6" width="9" height="7" rx="1"/><circle cx="10" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>',
     "gift": '<rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12"/><path d="M12 9c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z"/>',
+    "truck": '<rect x="1" y="6" width="13" height="10" rx="1"/><path d="M14 9h4l3 4v3h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+    "crane": '<path d="M5 21V3h2v18M5 4h15M7 7l4-3M17 4v6"/><rect x="14" y="10" width="6" height="4"/><path d="M3 21h8"/>',
+    "mop": '<path d="M14 3l-4 12"/><path d="M6 15h8l2 6H4z"/><path d="M7 18v3M10 18v3M13 18v3"/>',
+    "gear": '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+    "male": '<circle cx="10" cy="14" r="5"/><path d="M14 10l6-6M15 4h5v5"/>',
     "megaphone": '<path d="M3 10v4h4l8 5V5L7 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>',
 }
 
@@ -296,10 +301,19 @@ def flag_kyrgyzstan(uid="kg"):
 <circle cx="{cx}" cy="{cy}" r="{t - 4}" fill="none" stroke="#E8112D" stroke-width="8"/>"""
 
 
+def _flag_file(code):
+    """Flag body from assets/flags/<code>.svg (inner markup of the <svg>)."""
+    import re
+    raw = (ROOT / "assets" / "flags" / f"{code}.svg").read_text()
+    return lambda uid=None: re.sub(r"^.*?<svg[^>]*>|</svg>\s*$", "", raw, flags=re.S)
+
+
 FLAGS = {
     "pakistan": (flag_pakistan, 900, 600),
     "uzbekistan": (flag_uzbekistan, 500, 250),
     "kyrgyzstan": (flag_kyrgyzstan, 500, 300),
+    # Kosovo: blue field, gold map, six white stars; official ratio 1:1.4
+    "kosovo": (_flag_file("xk"), 840, 600),
 }
 
 
