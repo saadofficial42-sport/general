@@ -317,6 +317,8 @@ FLAGS = {
     "kosovo": (_flag_file("xk"), 840, 600),
     # Serbia: red/blue/white tricolour with the lesser coat of arms; ratio 2:3
     "serbia": (_flag_file("rs"), 756.13, 504.09),
+    # Saudi Arabia: green field, white Shahada + sword; ratio 2:3
+    "saudi": (_flag_file("sa"), 900, 600),
 }
 
 

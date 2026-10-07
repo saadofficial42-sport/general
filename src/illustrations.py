@@ -434,3 +434,97 @@ def warehouse_worker(uid="wh"):
 
 
 TRADES["warehouse"] = warehouse_worker
+
+
+
+def _person(x, base, s=1.0, shirt=None, vest=True, helmet=None, cap=None, flip=False, arms=""):
+    """Standing worker (feet at y=base). Arms supplied by caller in local coords."""
+    shirt = shirt or C["navy"]
+    head = ""
+    if helmet:
+        head = (f'<path d="M-19 -158 Q-19 -182 0 -182 Q19 -182 19 -158Z" fill="{helmet}"/>'
+                f'<rect x="-23" y="-160" width="46" height="6" rx="3" fill="{helmet}" opacity=".85"/>')
+    elif cap:
+        head = (f'<path d="M-17 -160 Q-16 -180 1 -180 Q18 -180 17 -162Z" fill="{cap}"/>'
+                f'<path d="M13 -164 L30 -161 L15 -157Z" fill="{cap}"/>')
+    v = (f'<path d="M-24 -128 L-22 -76 L22 -76 L24 -128 L10 -132 L0 -110 L-10 -132Z" fill="#C6E24A"/>'
+         f'<path d="M-23 -104 H23 M-22 -92 H22" stroke="#E8EDF2" stroke-width="4"/>') if vest else ""
+    tf = f"translate({x} {base}) scale({-s if flip else s} {s})"
+    return f"""<g transform="{tf}">
+<path d="M-12 -74 L-14 -4 M12 -74 L14 -4" stroke="#22303F" stroke-width="16" stroke-linecap="round"/>
+<path d="M-24 0 L-6 0 M6 0 L26 0" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+<path d="M-28 -70 Q-32 -124 -16 -136 L16 -136 Q32 -124 28 -70Z" fill="{shirt}"/>{v}
+<rect x="-6" y="-148" width="12" height="13" fill="{SKIN_D}"/>
+<circle cx="0" cy="-162" r="17" fill="{SKIN}"/>
+<path d="M-15 -152 Q0 -140 15 -152" stroke="{HAIR}" stroke-width="4" fill="none" opacity=".55"/>{head}
+{arms}</g>"""
+
+
+def picker_scene(w=400, h=300, uid="pk"):
+    """Picker/checker in hi-vis vest scanning a carton beside warehouse racking."""
+    floor = h * 0.86
+    rack = ""
+    for rx in (w * 0.52, w * 0.76):
+        rack += f'<rect x="{rx}" y="{h*0.08}" width="{w*0.22}" height="{floor - h*0.08}" fill="none" stroke="#2C5DA8" stroke-width="7"/>'
+        for k in range(4):
+            yy = h * 0.08 + k * (floor - h * 0.08) / 4
+            rack += f'<path d="M{rx} {yy + (floor - h*0.08)/4} H{rx + w*0.22}" stroke="#E58A1F" stroke-width="6"/>'
+            for j in range(3):
+                bw = w * 0.055
+                rack += (f'<rect x="{rx + 6 + j*(bw+5)}" y="{yy + (floor-h*0.08)/4 - 30}" width="{bw}" height="27" fill="{["#C8935A","#B07B45","#D9A66B"][(j+k)%3]}"/>')
+    arms = (f'<path d="M18 -124 Q44 -112 52 -98" stroke="{C["navy"]}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+            f'<path d="M-18 -124 Q-6 -100 18 -98" stroke="{C["navy"]}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+            f'<rect x="14" y="-118" width="34" height="44" rx="4" fill="#1B1B1B" transform="rotate(-12 31 -96)"/>'
+            f'<rect x="18" y="-113" width="26" height="32" rx="2" fill="#7FD3FF" transform="rotate(-12 31 -96)"/>'
+            f'<circle cx="54" cy="-98" r="7" fill="#E8EDF2"/>'
+            )
+    return f"""<defs><linearGradient id="{uid}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF2F6"/><stop offset="1" stop-color="#D6DEE7"/></linearGradient></defs>
+<rect width="{w}" height="{h}" fill="url(#{uid}w)"/>{rack}
+<rect y="{floor}" width="{w}" height="{h-floor}" fill="#B9C4CF"/>
+<rect x="{w*0.30}" y="{floor-62}" width="76" height="62" fill="#C8935A"/><rect x="{w*0.30}" y="{floor-62}" width="76" height="10" fill="#B07B45"/>
+<rect x="{w*0.30+30}" y="{floor-62}" width="14" height="62" fill="#E2B988"/><rect x="{w*0.30+46}" y="{floor-40}" width="22" height="14" fill="#fff"/>
+<path d="M{w*0.30+49} {floor-37} v8 m4 -8 v8 m3 -8 v8 m5 -8 v8" stroke="#111" stroke-width="1.5"/>
+{_person(w*0.18, floor, 1.15, C["navy"], vest=True, cap=C["navy"], arms=arms)}"""
+
+
+def helper_scene(w=400, h=300, uid="hp"):
+    """Factory helpers in hard hats loading cartons from a conveyor."""
+    floor = h * 0.88
+    conv_y = h * 0.60
+    belt = (f'<rect x="{w*0.30}" y="{conv_y}" width="{w*0.70}" height="16" rx="8" fill="#3F4E5E"/>'
+            + "".join(f'<circle cx="{w*0.30 + 12 + i*26}" cy="{conv_y+8}" r="5" fill="#9BA7B0"/>' for i in range(int(w*0.70/26)))
+            + f'<path d="M{w*0.34} {conv_y+16} V{floor} M{w*0.96} {conv_y+16} V{floor}" stroke="#5C6B7A" stroke-width="7"/>')
+    boxes = "".join(f'<rect x="{bx}" y="{conv_y-40}" width="50" height="40" fill="#C8935A"/><rect x="{bx}" y="{conv_y-40}" width="50" height="7" fill="#B07B45"/><rect x="{bx+20}" y="{conv_y-40}" width="10" height="40" fill="#E2B988"/>'
+                    for bx in (w*0.52, w*0.70, w*0.86))
+    pallet = (f'<rect x="{w*0.03}" y="{floor-10}" width="96" height="10" fill="#8A5A12"/>'
+              + "".join(f'<rect x="{w*0.03 + (i%2)*48}" y="{floor-10-42*(i//2+1)}" width="46" height="40" fill="#C8935A" stroke="#B07B45" stroke-width="2"/>' for i in range(4)))
+    arms1 = (f'<path d="M18 -124 Q36 -112 42 -100" stroke="{C["navy"]}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+             f'<path d="M-18 -124 Q-8 -108 0 -100" stroke="{C["navy"]}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+             f'<rect x="-6" y="-128" width="54" height="42" fill="#C8935A"/><rect x="-6" y="-128" width="54" height="7" fill="#B07B45"/><rect x="16" y="-128" width="10" height="42" fill="#E2B988"/>'
+             f'<circle cx="44" cy="-104" r="7" fill="#5C6B7A"/><circle cx="-2" cy="-104" r="7" fill="#5C6B7A"/>')
+    arms2 = (f'<path d="M18 -124 Q34 -100 40 -84" stroke="#1F4E8C" stroke-width="13" fill="none" stroke-linecap="round"/>'
+             f'<path d="M-18 -124 Q-2 -100 6 -86" stroke="#1F4E8C" stroke-width="13" fill="none" stroke-linecap="round"/>'
+             f'<circle cx="40" cy="-82" r="7" fill="#5C6B7A"/><circle cx="6" cy="-84" r="7" fill="#5C6B7A"/>')
+    return f"""<defs><linearGradient id="{uid}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF2F6"/><stop offset="1" stop-color="#D3DCE6"/></linearGradient></defs>
+<rect width="{w}" height="{h}" fill="url(#{uid}w)"/>
+<rect x="{w*0.06}" y="{h*0.06}" width="{w*0.88}" height="{h*0.26}" rx="6" fill="#C3D6EA"/>
+<path d="M{w*0.28} {h*0.06} V{h*0.32} M{w*0.50} {h*0.06} V{h*0.32} M{w*0.72} {h*0.06} V{h*0.32}" stroke="#E9EEF3" stroke-width="5"/>
+<rect y="{floor}" width="{w}" height="{h-floor}" fill="#B9C4CF"/>{pallet}
+{_person(w*0.62, floor-6, 0.95, "#1F4E8C", vest=False, helmet="#F2C230", arms=arms2)}
+{belt}{boxes}
+{_person(w*0.30, floor, 1.12, C["navy"], vest=False, helmet="#F2C230", flip=True, arms=arms1)}"""
+
+
+def riyadh_skyline(w, h, fill):
+    """Riyadh: Kingdom Centre (tapered tower with parabolic opening + sky
+    bridge), Al Faisaliah (pyramid with globe), and towers."""
+    b = h
+    kx = w * 0.80
+    kingdom = (f'<path d="M{kx-46} {b} L{kx-30} {b-250} Q{kx} {b-195} {kx+30} {b-250} L{kx+46} {b}Z"/>'
+               f'<rect x="{kx-24}" y="{b-218}" width="48" height="6"/>')
+    fx = w * 0.62
+    faisaliah = (f'<path d="M{fx-34} {b} L{fx} {b-190} L{fx+34} {b}Z"/><circle cx="{fx}" cy="{b-150}" r="13"/>'
+                 f'<rect x="{fx-1.5}" y="{b-215}" width="3" height="30"/>')
+    towers = "".join(f'<rect x="{x}" y="{b-hh}" width="{ww}" height="{hh}"/>' for x, ww, hh in
+                     ((w*0.42, 40, 110), (w*0.48, 30, 150), (w*0.69, 44, 120), (w*0.88, 40, 140), (w*0.94, 50, 90), (w*0.36, 34, 80)))
+    return f'<g fill="{fill}">{towers}{faisaliah}{kingdom}</g>'
