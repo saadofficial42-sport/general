@@ -381,3 +381,56 @@ def kosovo_skyline(w, h, fill, accent=None):
     newborn = (f'<g transform="translate(740 {b-12})"><rect x="-6" y="0" width="160" height="12" fill="{accent}"/>'
                f'<text x="74" y="-4" text-anchor="middle" font-family="Anton" font-size="44" letter-spacing="2" fill="{accent}">NEWBORN</text></g>')
     return f'<g fill="{fill}">{hill}{fort}{mosque}{blocks}</g>'
+
+
+
+def belgrade_skyline(w, h, fill, accent=None):
+    """Belgrade: Kalemegdan fortress walls (left), Church of Saint Sava (big
+    central dome, four half-domes, gilded cross), Avala TV Tower (right),
+    and modern blocks."""
+    b = h
+    fort = (f'<path d="M0 {b} L0 {b-70} L160 {b-70} L160 {b}Z"/>'
+            + "".join(f'<rect x="{i*16}" y="{b-80}" width="10" height="11"/>' for i in range(10))
+            + f'<rect x="120" y="{b-110}" width="34" height="42"/>'
+            + "".join(f'<rect x="{120 + i*9}" y="{b-118}" width="6" height="9"/>' for i in range(4)))
+    cx = 470
+    sava = (f'<rect x="{cx-110}" y="{b-80}" width="220" height="80"/>'
+            f'<rect x="{cx-70}" y="{b-130}" width="140" height="52"/>'
+            f'<path d="M{cx-110} {b-80} Q{cx-80} {b-120} {cx-50} {b-80}Z"/><path d="M{cx+50} {b-80} Q{cx+80} {b-120} {cx+110} {b-80}Z"/>'
+            f'<path d="M{cx-64} {b-130} Q{cx} {b-230} {cx+64} {b-130}Z"/>'
+            f'<rect x="{cx-6}" y="{b-252}" width="12" height="24"/>'
+            + "".join(f'<rect x="{x-9}" y="{b-150}" width="18" height="70"/><path d="M{x-12} {b-150} Q{x} {b-176} {x+12} {b-150}Z"/>'
+                      for x in (cx-96, cx+96)))
+    cross = f'<path d="M{cx} {b-280} V{b-250} M{cx-9} {b-270} H{cx+9}" stroke="{accent or fill}" stroke-width="4"/>'
+    ax = 900
+    avala = (f'<path d="M{ax-26} {b} L{ax-6} {b-60} L{ax+6} {b-60} L{ax+26} {b}Z"/>'
+             f'<rect x="{ax-6}" y="{b-200}" width="12" height="142"/>'
+             f'<rect x="{ax-16}" y="{b-236}" width="32" height="40" rx="6"/>'
+             f'<rect x="{ax-3}" y="{b-290}" width="6" height="56"/>')
+    blocks = "".join(f'<rect x="{x}" y="{b-hh}" width="{ww}" height="{hh}"/>' for x, ww, hh in
+                     ((600, 50, 100), (656, 34, 140), (696, 56, 80), (760, 44, 120), (980, 40, 110), (1026, 54, 80)))
+    return f'<g fill="{fill}">{fort}{sava}{avala}{blocks}</g>{cross}'
+
+
+
+def warehouse_worker(uid="wh"):
+    """Warehouse worker in hi-vis vest carrying a carton past racking."""
+    return f"""{_bg(uid, '#FFF4E0', '#F2D9A8')}
+<path d="M0 166 H200 V200 H0z" fill="#C9B79A"/>
+<rect x="118" y="30" width="76" height="136" fill="#5C6B7A"/>
+<path d="M118 70 H194 M118 110 H194 M118 150 H194" stroke="#E58A1F" stroke-width="5"/>
+<rect x="124" y="44" width="30" height="24" fill="#C8935A"/><rect x="158" y="48" width="30" height="20" fill="#B07B45"/>
+<rect x="124" y="86" width="28" height="22" fill="#B07B45"/><rect x="156" y="82" width="32" height="26" fill="#C8935A"/>
+<rect x="128" y="126" width="56" height="22" fill="#C8935A"/>
+<path d="M64 162 L62 122 M80 162 L84 122" stroke="#26364A" stroke-width="12" stroke-linecap="round"/>
+<path d="M52 126 Q48 86 62 76 L86 76 Q98 86 94 126Z" fill="{C['navy']}"/>
+<path d="M56 80 L58 124 L90 124 L90 80" fill="#F2C230" opacity=".95"/>
+<path d="M58 100 H90" stroke="#E8EDF2" stroke-width="4"/>
+<rect x="69" y="64" width="10" height="13" fill="{SKIN_D}"/>
+<circle cx="74" cy="50" r="15" fill="{SKIN}"/>
+<path d="M58 50 Q58 30 74 30 Q90 30 90 50Z" fill="#F2C230"/><rect x="55" y="46" width="38" height="6" rx="3" fill="#D9A800"/>
+<rect x="70" y="86" width="52" height="40" fill="#C8935A"/><rect x="70" y="86" width="52" height="7" fill="#B07B45"/><rect x="92" y="86" width="8" height="40" fill="#E2B988"/>
+<circle cx="70" cy="106" r="6" fill="{SKIN}"/><circle cx="122" cy="106" r="6" fill="{SKIN}"/>"""
+
+
+TRADES["warehouse"] = warehouse_worker

@@ -12,10 +12,10 @@ import importlib
 import sys
 
 from common import C, WHATSAPP, flag, icon, logo_img, page, render, whatsapp_icon, overflow_report
-from illustrations import kosovo_skyline, photo_or_art
+from illustrations import belgrade_skyline, kosovo_skyline, photo_or_art
 from style_corporate_grid import T
 
-SKYLINES = {"kosovo": kosovo_skyline}
+SKYLINES = {"kosovo": kosovo_skyline, "serbia": belgrade_skyline}
 
 
 def css(ur, d):
@@ -54,7 +54,7 @@ def build(d, lang):
     if ur:
         title = (f"<div style='display:inline-block;background:{C['red']};border-radius:8px;padding:0 14px 4px'>{f.txt(t['kicker'], 0, 22, '#fff', 'font-weight:700', 1.6)}</div>"
                  + f.txt(t['title'], 0, 50, '#fff', 'font-weight:700;margin-top:4px', 1.75)
-                 + f.txt(t['tagline'], 0, 21, gold, 'font-weight:700;margin-top:8px', 1.8))
+                 + f.txt(t['tagline'], 0, 21, gold, 'font-weight:700;margin-top:14px', 1.8))
     else:
         title = (f"<div style='display:inline-block;background:{C['red']};border-radius:8px;padding:5px 14px'><span class='mono' style='font-size:16px;color:#fff'>{t['kicker']}</span></div>"
                  f"<div class='anton' style='font-size:92px;line-height:1;color:#fff;margin-top:10px'>{t['title_a']} <span style='color:{gold}'>{t['title_b']}</span></div>"
@@ -86,7 +86,8 @@ def build(d, lang):
                  f"<div class='c1'><div style='width:58px;height:58px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 3px {gold}'>{photo_or_art(r['art'], r['art'] + str(i) + lang)}</div>"
                  f"{f.txt(r['name'], 20, 19, C['navy2'], 'font-weight:800;min-width:0', 1.6 if ur else 1.15)}</div>"
                  f"<div class='c2'><div style='display:inline-block;background:{blue};color:#fff;border-radius:12px;padding:2px 14px'><span class='num' style='font-size:32px;line-height:1.15'>{r['posts']}</span></div></div>"
-                 f"<div class='c3'>{f.txt(r['sal_label'], 12, 14, '#5A6470', 'text-align:center', 1.4 if ur else 1.1) if r.get('sal_label') else ''}<div class='num' style='{sal_style}'>{r['salary']}</div></div>"
+                 f"<div class='c3'>{f.txt(r['sal_label'], 12, 14, '#5A6470', 'text-align:center', 1.4 if ur else 1.1) if r.get('sal_label') else ''}<div class='num' style='{sal_style}'>{r['salary']}</div>"
+                 f"{f.txt(r['sal_sub'], 14, 14, '#5A6470', 'text-align:center;font-weight:600', 1.5 if ur else 1.15) if r.get('sal_sub') else ''}</div>"
                  f"<div class='c4'>{f.txt(r['age'], 18, 18, C['navy2'], 'font-weight:700;text-align:center', 1.6 if ur else 1.15)}</div></div>")
     total = (f"<div class='trow' style='background:{gold};height:{g['total_h']}px;border:0'>"
              f"<div class='c1' style='padding-inline-start:24px'>{f.head(t['total_row'], 26, 24, C['navy2'])}</div>"
@@ -97,16 +98,17 @@ def build(d, lang):
     # ---------------- common terms
     ny = ty + g["thead_h"] + g["row_h"] * len(t["rows"]) + g["total_h"] + g["gap"] + 4
     tiles = "".join(
-        f"<div style='width:calc(33.33% - 9px);background:#fff;border-radius:16px;box-shadow:0 3px 10px rgba(16,33,46,.1);display:flex;align-items:center;gap:12px;padding:{'4px 14px' if ur else '12px 14px'};height:{g['term_h']}px'>"
-        f"<div class='ic' style='width:50px;height:50px;background:{blue}'>{icon(ic, 26)}</div>"
-        f"<div style='min-width:0'>{f.label(lab, 11.5, 15, '#5A6470')}"
-        f"<div style='display:flex;align-items:center;gap:8px'>{f.txt(val, 21, 20, C['navy2'], 'font-weight:800', 1.6 if ur else 1.15)}"
+        f"<div style='width:calc({100 / g.get('term_cols', 3):.2f}% - {12 * (g.get('term_cols', 3) - 1) / g.get('term_cols', 3):.1f}px);background:#fff;border-radius:16px;box-shadow:0 3px 10px rgba(16,33,46,.1);display:flex;align-items:center;gap:12px;padding:{'4px 14px' if ur else '12px 14px'};height:{g['term_h']}px'>"
+        f"<div class='ic' style='width:46px;height:46px;background:{blue}'>{icon(ic, 24)}</div>"
+        f"<div style='min-width:0'>{f.label(lab, 11.5, 14, '#5A6470', 'margin-bottom:6px' if ur else '')}"
+        f"<div style='display:flex;align-items:center;gap:8px'>{f.txt(val, g.get('term_px', (21, 20))[0], g.get('term_px', (21, 20))[1], C['navy2'], 'font-weight:' + str(g.get('term_w', 800)), 1.85 if ur else 1.18)}"
         f"{('<div style=\"line-height:0;box-shadow:0 1px 3px #0004\">' + flag(extra, 34, False) + '</div>') if extra else ''}</div></div></div>"
         for ic, lab, val, extra in t["terms"])
     terms = (f"<div class='abs' style='top:{ny}px;left:30px;right:30px' data-check='terms-{lang}'>"
              f"<div style='display:flex;align-items:center;gap:10px;margin-bottom:{4 if ur else 12}px'><div style='width:6px;height:24px;border-radius:3px;background:{blue}'></div>"
              f"{f.label(t['terms_title'], 15, 19, blue, 'font-weight:700')}</div>"
-             f"<div style='display:flex;flex-wrap:wrap;gap:12px 13px'>{tiles}</div></div>")
+             f"<div style='display:flex;flex-wrap:wrap;gap:12px 12px'>{tiles}</div>"
+             f"{f.txt(t['footnote'], 14, 15, '#5A6470', 'margin-top:' + ('2px' if ur else '10px'), 1.6 if ur else 1.25) if t.get('footnote') else ''}</div>")
     # ---------------- CTA
     ct = g["cta_top"]
     cta = f"""<div class='abs' style='top:{ct}px;left:0;width:1080px;height:{1350-ct}px;background:linear-gradient(100deg,{C['navy']},{blue})'></div>
