@@ -13,7 +13,7 @@ window.SITE = {
   hours:    "Mon–Sat, 9:00 am – 6:00 pm PKT",
   founded:  "",                                // e.g. "2024" — leave empty to hide
   social: {                                    // leave a value empty to hide that icon
-    facebook:  "https://www.facebook.com/search/top?q=rs%20links%20consultants%20pvt.%20ltd.",
+    facebook:  "https://www.facebook.com/profile.php?id=61594857642513",
     instagram: "https://www.instagram.com/rslinks.consultants/",
     linkedin:  "",
     tiktok:    "",
