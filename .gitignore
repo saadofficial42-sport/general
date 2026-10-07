@@ -26,3 +26,7 @@ __pycache__/
 node_modules/
 .venv/
 venv/
+
+# Employee contracts and their input data (personal data: CNIC, salary)
+contracts/*
+!contracts/README.md
