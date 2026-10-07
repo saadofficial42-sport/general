@@ -35,3 +35,13 @@ TODO — confirm/adjust. Defaults until specified otherwise:
   never be committed to Git (enforced by `.gitignore`).
 - Scraping should only pull publicly available website content; see
   `README.md` for what's in scope.
+
+## Recruitment ad design rules (RS Links)
+
+- **Every ad must include a prominent picture of the positions being advertised, showing people
+  doing the job** (e.g. a rider riding a bike, a driver at the wheel, a worker on the factory
+  floor, a tailor at a sewing machine, a cleaner mopping). Small icon-sized thumbnails alone are
+  not enough: at least one large hero image or scene, or a large picture per job card.
+- Use real photos from `assets/photos/` when available; otherwise use the illustrations in
+  `src/illustrations.py` (add a new one for any trade that doesn't have one yet).
+- Never reuse photos from other agencies' ads (they are content sources only).
