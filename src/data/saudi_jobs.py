@@ -5,7 +5,7 @@
    basic English (speaking, reading) · work: loading/unloading, checking, packing
  Both: accommodation, medical, transport by company · other benefits as per Saudi labour law ·
    "for a renowned company in Saudi Arabia" · interviews ongoing.
- Currency and salary period are NOT stated in the sources (shown exactly as "1200 + 200")."""
+ Currency SAR confirmed by user 2026-10-07; salary period not stated in the sources."""
 from common import C
 
 N = lambda v: f"<span class='num' style='font-family:Archivo;font-weight:800;letter-spacing:0'>{v}</span>"
@@ -23,13 +23,13 @@ DATA = {
         "opener": "For a renowned company in Saudi Arabia",
         "jobs": [
             {"scene": "picker_scene", "title": "Picker / Checker", "badge": "AGE 21–33",
-             "salary": {"label": "SALARY", "value": "1200 + 200"},
+             "salary": {"label": "SALARY", "value": "1200 + 200", "unit": "SAR"},
              "rows": [("clock", f"{B('Duty:')} 10 hours"),
                       ("user", f"{B('Age:')} 21 – 33 years"),
                       ("doc", f"{B('Education:')} Minimum Matric"),
                       ("chat", f"{B('Language:')} Basic English — read, write &amp; speak")]},
             {"scene": "helper_scene", "title": "Factory Helper", "badge": "AGE 21–35",
-             "salary": {"label": "SALARY", "value": "1100 + 200"},
+             "salary": {"label": "SALARY", "value": "1100 + 200", "unit": "SAR"},
              "rows": [("clock", f"{B('Duty:')} 10 hours"),
                       ("user", f"{B('Age:')} 21 – 35 years"),
                       ("doc", f"{B('Education:')} Minimum Matric"),
@@ -49,13 +49,13 @@ DATA = {
         "opener": "سعودی عرب کی مشہور کمپنی کے لیے درج ذیل آسامیوں کی فوری ضرورت ہے",
         "jobs": [
             {"scene": "picker_scene", "title": "پکر / چیکر", "badge": f"عمر {N('21 – 33')}",
-             "salary": {"label": "سیلری", "value": "1200 + 200"},
+             "salary": {"label": "سیلری", "value": "1200 + 200", "unit": "SAR"},
              "rows": [("clock", f"{B('ڈیوٹی ٹائم:')} {N(10)} گھنٹے"),
                       ("user", f"{B('عمر کی حد:')} {N('21 – 33')} سال"),
                       ("doc", f"{B('تعلیم:')} کم از کم میٹرک"),
                       ("chat", f"{B('زبان:')} بیسک انگلش — لکھنا، پڑھنا اور بولنا")]},
             {"scene": "helper_scene", "title": "فیکٹری ہیلپر", "badge": f"عمر {N('21 – 35')}",
-             "salary": {"label": "سیلری", "value": "1100 + 200"},
+             "salary": {"label": "سیلری", "value": "1100 + 200", "unit": "SAR"},
              "rows": [("clock", f"{B('ڈیوٹی:')} {N(10)} گھنٹے"),
                       ("user", f"{B('عمر کی حد:')} {N('21 – 35')} سال"),
                       ("doc", f"{B('تعلیم:')} کم از کم میٹرک"),

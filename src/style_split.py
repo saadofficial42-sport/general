@@ -64,7 +64,7 @@ def column(job, x, y, w, h, f, d, uid):
   <div class='abs' style='inset:0'>{burst(C['gold2'])}</div>
   <div class='abs' style='inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center'>
    <div style='background:{C['red']};border-radius:8px;padding:{'0 12px 2px' if ur else '2px 12px'}'>{f.label(sal['label'], 13, 16, '#fff')}</div>
-   <div class='num' style='font-size:58px;color:{C['navy2']};line-height:1.05'>{sal['value']}</div></div></div>
+   <div class='num' style='font-size:58px;color:{C['navy2']};line-height:1.05'>{sal['value']}<span style='font-size:30px;margin-left:8px'>{sal.get('unit', '')}</span></div></div></div>
 <div class='abs' style='top:{sh + 142}px;left:20px;right:20px'>{rows}{tasks}</div>
 </div>"""
 

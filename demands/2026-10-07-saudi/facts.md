@@ -9,7 +9,7 @@ Both: for a renowned company in Saudi Arabia · accommodation, medical, transpor
 other benefits as per Saudi labour law · interviews ongoing.
 
 ## To confirm
-- Currency and period of "1200 + 200" / "1100 + 200" are not stated (likely SAR monthly,
+- Currency confirmed by user: **SAR**. Period of "1200 + 200" / "1100 + 200" still not stated (likely monthly,
   basic + allowance) — shown exactly as written.
 - Picker/Checker language box says "FA (basic English)": FA may be an education requirement
   (Intermediate) that conflicts with "minimum Matric" — left out until confirmed.
