@@ -118,8 +118,8 @@ function modeOfWork() {
     sub("The Employee shall be available and reachable through the Company's agreed communication channels during working hours, attend scheduled online meetings, and maintain a reliable internet connection and suitable workspace at their own cost."),
     sub(`Working hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
   ];
-  if (mode === "on-site") return [
-    sub(["The Employee shall work ", b("on-site"), ` from the Company's office at ${COMPANY_ADDRESS}, or at such other location as the Company may reasonably direct.`]),
+  if (mode === "on-site" || mode === "in office") return [
+    sub(["The Employee shall work ", b("in office"), `, from the Company's office at ${COMPANY_ADDRESS}, or at such other location as the Company may reasonably direct.`]),
     sub(`Working days and hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
   ];
   return [
