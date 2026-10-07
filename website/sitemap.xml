@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Replace https://example.com with your live domain before submitting to Google Search Console -->
+<!-- If the site moves to a different domain, replace https://rslinksconsultants.com everywhere in this file -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://example.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://example.com/recruitment.html</loc><priority>0.9</priority></url>
-  <url><loc>https://example.com/countries.html</loc><priority>0.9</priority></url>
-  <url><loc>https://example.com/consultancy.html</loc><priority>0.8</priority></url>
-  <url><loc>https://example.com/visas.html</loc><priority>0.8</priority></url>
-  <url><loc>https://example.com/partnerships.html</loc><priority>0.8</priority></url>
-  <url><loc>https://example.com/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://example.com/contact.html</loc><priority>0.8</priority></url>
-  <url><loc>https://example.com/privacy.html</loc><priority>0.3</priority></url>
-  <url><loc>https://example.com/terms.html</loc><priority>0.3</priority></url>
+  <url><loc>https://rslinksconsultants.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://rslinksconsultants.com/recruitment.html</loc><priority>0.9</priority></url>
+  <url><loc>https://rslinksconsultants.com/countries.html</loc><priority>0.9</priority></url>
+  <url><loc>https://rslinksconsultants.com/consultancy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://rslinksconsultants.com/visas.html</loc><priority>0.8</priority></url>
+  <url><loc>https://rslinksconsultants.com/partnerships.html</loc><priority>0.8</priority></url>
+  <url><loc>https://rslinksconsultants.com/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://rslinksconsultants.com/contact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://rslinksconsultants.com/privacy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://rslinksconsultants.com/terms.html</loc><priority>0.3</priority></url>
 </urlset>

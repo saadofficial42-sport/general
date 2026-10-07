@@ -48,8 +48,10 @@ HOW TO UPLOAD (Netlify — easiest free option)
 
 AFTER IT IS LIVE — please do these
 ----------------------------------
-1. In sitemap.xml and robots.txt, replace  https://example.com  with the real
-   domain (for example https://www.rslinks.com).
+1. The site is already set up for  https://rslinksconsultants.com
+   (sitemap.xml, robots.txt and link previews). If it will run on a different
+   address (for example with www.), replace that address in sitemap.xml,
+   robots.txt and the <head> section of each .html page.
 2. Check these pages load correctly: Home, Countries, Contact.
 3. Test the WhatsApp button and the contact form (the form sends the enquiry
    to WhatsApp +92 371 9051589).

@@ -22,7 +22,7 @@
 </head>
 <body>
 <canvas id="c" aria-hidden="true"></canvas>
-<div><b>404</b><h1>This page has moved on.</h1><p>The page you're looking for doesn't exist. Let's get you back on route.</p><a href="./">Go to the homepage</a></div>
+<div><b>404</b><h1>This page has moved on.</h1><p>The page you're looking for doesn't exist. Let's get you back on route.</p><a href="/">Go to the homepage</a></div>
 <script>
 (function(){var c=document.getElementById("c"),x=c.getContext("2d"),W,H,P=[];function r(){W=c.width=innerWidth;H=c.height=innerHeight;P=[];for(var i=0;i<70;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4})}
 function d(){x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.fillStyle="rgba(200,220,215,.6)";x.fillRect(p.x,p.y,2,2);for(var j=i+1;j<P.length;j++){var q=P[j],k=Math.hypot(p.x-q.x,p.y-q.y);if(k<120){x.strokeStyle="rgba(61,187,138,"+(.2*(1-k/120))+")";x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}requestAnimationFrame(d)}
