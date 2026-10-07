@@ -187,30 +187,69 @@ const body = [
   clause("Probation"),
   sub("The first three (3) months of employment shall be a probationary period. During probation, either Party may terminate this Agreement by giving seven (7) days' written notice. On successful completion, the Employee's appointment shall be confirmed in writing."),
 
+  clause("Working Hours and Attendance"),
+  sub("The Employee shall observe the working days, hours and attendance procedures communicated by the Company, and shall inform the Company in advance of any absence or delay."),
+  sub("Unauthorised absence for three (3) or more consecutive working days without a reasonable explanation may be treated as abandonment of employment."),
+
   clause("Leave"),
   sub("The Employee shall be entitled to leave in accordance with the Company's leave policy and applicable law. All leave must be requested in advance and approved by the Company, except in case of genuine emergency or illness, which must be reported as soon as possible."),
 
-  clause("Confidentiality"),
-  sub("The Employee shall keep strictly confidential all information relating to the Company, its clients, candidates, partners, pricing, business plans and operations, and shall not disclose or use such information except for the performance of their duties."),
-  sub("This obligation shall continue during employment and after this Agreement ends, for any reason."),
+  clause("Confidentiality and Company Secrets"),
+  sub(["“Confidential Information” means all information about the Company and its business that is not publicly available, whether written, electronic or verbal, including in particular: (i) client, employer and partner lists and their contact details; (ii) job orders, demand letters, visa quotas and recruitment requirements; (iii) overseas partners, agents, OEPs and other business relationships; (iv) fees, pricing, cost structures, margins, commission rates and all financial information; (v) the candidate database and candidates' personal data and documents; (vi) business methods, processes, templates, strategies and plans; and (vii) any other information marked or reasonably understood to be confidential."]),
+  sub("The Employee shall not, during or after employment, disclose any Confidential Information to any person — including other recruitment agencies, OEPs, agents, candidates, competitors, friends or family members — or use it for their own benefit or for the benefit of anyone other than the Company."),
+  sub("The Employee shall not copy, download, photograph, forward to a personal email, phone or messaging account, or remove from the Company's systems or premises any Confidential Information, except as strictly necessary to perform their duties and as authorised by the Company."),
+  sub("These restrictions shall not apply to disclosure required by law or by order of a competent authority, provided the Employee first informs the Company where lawfully permitted."),
+  sub("The obligations in this clause shall continue during employment and indefinitely after this Agreement ends, for any reason. Any breach of this clause shall be treated as gross misconduct."),
 
   clause(e.propertyClause.title),
   ...e.propertyClause.items.map(sub),
 
-  clause("Conduct and Exclusivity"),
-  sub("The Employee shall act professionally, comply with the Company's policies and lawful instructions, and shall not engage in any activity that conflicts with the interests of the Company or harms its reputation."),
-  sub("The Employee shall not, without prior written consent of the Company, undertake similar work for any competing business during the term of employment."),
+  clause("Non-Solicitation and Non-Circumvention"),
+  sub("During employment and for a period of twelve (12) months after it ends, the Employee shall not, directly or indirectly, solicit, approach or deal with any client, employer, overseas partner, agent or candidate of the Company with whom the Employee dealt, or about whom the Employee received Confidential Information, during their employment, for the purpose of providing services that compete with the Company."),
+  sub("The Employee shall not bypass the Company to deal directly, or through any other person or agency, with any client, partner or candidate introduced to the Employee through the Company."),
+  sub("During the same period, the Employee shall not induce or encourage any employee of the Company to leave the Company."),
+
+  clause("Integrity and Handling of Payments"),
+  sub("The Employee shall not demand, accept or receive any money, fee, gift, commission or other benefit from any candidate, client, partner, vendor or other person in connection with the Company's business, other than the remuneration paid by the Company under this Agreement."),
+  sub("All payments from candidates and clients shall be made only to the Company's official bank account or against an official Company receipt. The Employee shall not collect any payment in their personal name or account."),
+  sub("The Employee shall not make any false or misleading promise or statement to any candidate or client regarding jobs, visas, salaries, timelines or costs, and shall not prepare, alter or submit any forged, false or misleading document."),
+  sub("Any breach of this clause shall be treated as gross misconduct, and the Company may also take legal action and report the matter to the relevant authorities."),
+
+  clause("Conflict of Interest and Exclusivity"),
+  sub("The Employee shall devote their working time and attention to the Company's business and shall promptly disclose to the Company any personal or financial interest that conflicts, or may conflict, with the interests of the Company."),
+  sub("During employment, the Employee shall not, without the Company's prior written consent, work for, advise or hold any interest in any other recruitment agency, OEP, travel or visa consultancy, or any other business that competes with the Company."),
+
+  clause("Conduct and Public Statements"),
+  sub("The Employee shall act professionally and honestly, comply with the Company's policies and lawful instructions, and shall not engage in any activity that harms the Company's interests or reputation."),
+  sub("The Employee shall not make any public statement or social media post about the Company, its clients, partners or candidates, and shall not use the Company's name, logo or materials for personal purposes, without the Company's prior approval."),
+
+  clause("Compliance with Laws"),
+  sub("The Employee shall comply with all applicable laws of Pakistan, including the Emigration Ordinance, 1979 and the rules made under it, and with the requirements of destination countries as instructed by the Company, in the course of their duties."),
+  sub("The Employee shall handle all personal data of candidates, clients and staff lawfully, securely and only for the Company's legitimate business purposes."),
+
+  clause("Company Systems and Equipment"),
+  sub("All Company email accounts, phone numbers, messaging accounts, software, devices and equipment provided to or used by the Employee for work are the property of the Company and shall be used only for the Company's business."),
+  sub("The Company may access and review its accounts, systems and records, including work communications, for legitimate business purposes."),
 
   clause("Termination"),
   sub("After confirmation, either Party may terminate this Agreement by giving one (1) month's written notice, or salary in lieu of notice."),
-  sub("The Company may terminate this Agreement immediately and without notice in case of misconduct, breach of confidentiality, dishonesty, gross negligence, or a material breach of this Agreement."),
-  sub("Upon termination, the Employee shall return all Company property, files and data, and hand over all account credentials. Final dues shall be settled after a complete handover."),
+  sub("The Company may terminate this Agreement immediately and without notice in case of gross misconduct, including breach of the Confidentiality and Company Secrets or Integrity and Handling of Payments clauses, dishonesty, fraud, gross negligence, unauthorised absence, or any other material breach of this Agreement."),
+  sub("Upon termination, the Employee shall immediately return all Company property, documents, files, data and equipment, hand over all account credentials, and shall not retain any copies. Final dues shall be settled after a complete handover."),
+
+  clause("Consequences of Breach"),
+  sub("The Employee shall be liable for any loss or damage suffered by the Company as a result of the Employee's breach of this Agreement, wilful misconduct or negligence, and the Company may recover such amounts as permitted by law."),
+  sub("Because a breach of the confidentiality, non-solicitation or integrity obligations may cause the Company harm that cannot be adequately compensated by money, the Company shall be entitled to seek injunctive relief from a competent court, in addition to any other remedy."),
+
+  clause("General"),
+  sub("Notices under this Agreement shall be given in writing and delivered by hand, courier or email to the address or email of the receiving Party on the Company's records."),
+  sub("If any provision of this Agreement is found invalid or unenforceable, it shall be enforced to the maximum extent permitted, and the remaining provisions shall continue in full force."),
+  sub("The Employee may not assign or transfer any rights or obligations under this Agreement. No failure or delay by the Company in enforcing any provision shall be treated as a waiver of it."),
 
   clause("Governing Law and Disputes"),
-  sub("This Agreement shall be governed by the laws of the Islamic Republic of Pakistan. The Parties shall first attempt to resolve any dispute amicably; failing which, it shall be referred to the competent courts of Pakistan."),
+  sub("This Agreement shall be governed by the laws of the Islamic Republic of Pakistan. The Parties shall first attempt to resolve any dispute amicably; failing which, it shall be referred to the competent courts at Rawalpindi."),
 
   clause("Entire Agreement"),
-  sub("This Agreement constitutes the entire agreement between the Parties regarding the employment and supersedes any prior understanding. Any amendment shall be valid only if made in writing and signed by both Parties."),
+  sub("This Agreement constitutes the entire agreement between the Parties regarding the employment and supersedes any prior understanding. Any amendment shall be valid only if made in writing and signed by both Parties. The Employee confirms that they have read and understood this Agreement and sign it voluntarily."),
 
   new Paragraph({ spacing: { before: 280, after: 200 }, keepNext: true,
     children: [r("IN WITNESS WHEREOF, the Parties have signed this Agreement on the date first written above.")] }),
