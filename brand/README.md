@@ -27,3 +27,8 @@ into `concepts/`, plus a side-by-side comparison sheet.
 `letterhead.mjs` renders the A4 letterhead to `letterhead/RS-Links-Letterhead.pdf`.
 Add phone, WhatsApp, email and website in the `CONTACT` block at the top and
 re-run it; empty values are left off the page.
+
+## Banner
+
+`banner.mjs` renders the "Linking Talent. Building Futures." banner (1920×720)
+and a Facebook cover (1640×624) at 2× resolution into `banner/`.
