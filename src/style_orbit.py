@@ -102,21 +102,31 @@ def build(d, lang):
         f"font-size:16px;line-height:28px;text-align:center'>{n+1}</div>"
         f"<div class='ic' style='width:44px;height:44px;background:{C['green']}14'>{icon(ic, 24, C['green'], 2)}</div>"
         f"{f.txt(txt, 15.5, 15.5, C['navy2'], 'min-width:0;font-weight:600', 1.7 if ur else 1.2)}</div>"
-        for n, (ic, txt) in enumerate(t["documents"]))
+        for n, (ic, txt) in enumerate(t.get("documents", [])))
     docs = f"""<div class='abs' style='top:{dy}px;left:0;width:1080px;height:{g['cta_top']-dy}px;background:{C['offwhite']}'></div>
 <div class='abs' style='top:{dy + 14}px;left:30px;right:30px' data-check='docs-{lang}'>
  <div style='display:flex;align-items:center;gap:12px;margin-bottom:{8 if ur else 18}px'>
   <div style='flex:1;height:2px;background:{C['gold']}'></div>
   <div class='ic' style='width:36px;height:36px;background:{C['gold']}'>{icon('doc', 20, C['navy2'])}</div>
-  {f.head(t['docs_title'], 28, 26, C['green'])}
+  {f.head(t.get('docs_title', ''), 28, 26, C['green'])}
   <div style='flex:1;height:2px;background:{C['gold']}'></div></div>
  <div style='display:flex;flex-wrap:wrap;gap:{g['doc_gap']}px 15px'>{items}</div></div>"""
+    if t.get("highlights"):  # big highlight tiles instead of a documents grid
+        hl = "".join(
+            f"<div style='flex:1;min-width:0;background:{bg};border-radius:18px;box-shadow:0 4px 12px rgba(16,33,46,.14);"
+            f"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:{2 if ur else 6}px;padding:10px'>"
+            f"<div class='ic' style='width:58px;height:58px;background:#ffffff2E'>{icon(ic, 32)}</div>"
+            f"{f.head(big, 30, 24, '#fff', 'text-align:center')}"
+            f"{f.txt(small, 15, 15.5, '#ffffffDD', 'text-align:center', 1.6 if ur else 1.2)}</div>"
+            for ic, big, small, bg in t["highlights"])
+        docs = (f"<div class='abs' style='top:{dy}px;left:0;width:1080px;height:{g['cta_top']-dy}px;background:{C['offwhite']}'></div>"
+                f"<div class='abs' style='top:{dy + 18}px;left:30px;right:30px;height:{g['cta_top'] - dy - 36}px;display:flex;gap:16px' data-check='docs-{lang}'>{hl}</div>")
     # ---------------- CTA
     ct = g["cta_top"]
     cta = f"""<div class='abs' style='top:{ct}px;left:0;width:1080px;height:{1350-ct}px;background:linear-gradient(100deg,{C['navy2']},{C['navy']})'></div>
 <div class='abs' style='top:{ct}px;height:{1350-ct}px;inset-inline-start:36px;width:440px;display:flex;flex-direction:column;justify-content:center'>
  {f.head(t['apply'], 44, 34, C['gold2'])}
- {f.txt(t['note'], 15, 16.5, '#DCE6F2', 'margin-top:' + ('0' if ur else '4px'), 1.5 if ur else 1.3)}</div>
+ {f.txt(t['note'], 15, 16.5, '#DCE6F2', 'margin-top:' + ('10px' if ur else '4px'), 1.5 if ur else 1.3)}</div>
 <div class='abs' style='top:{ct+13}px;inset-inline-end:30px;height:{1350-ct-26}px;background:#fff;border-radius:999px;display:flex;align-items:center;gap:14px;
  padding-inline:10px 32px;box-shadow:0 6px 16px #0006'>{whatsapp_icon(62)}
  <div class='num' style='font-size:54px;color:{C['navy2']};line-height:1.15'>{WHATSAPP}</div></div>"""

@@ -528,3 +528,47 @@ def riyadh_skyline(w, h, fill):
     towers = "".join(f'<rect x="{x}" y="{b-hh}" width="{ww}" height="{hh}"/>' for x, ww, hh in
                      ((w*0.42, 40, 110), (w*0.48, 30, 150), (w*0.69, 44, 120), (w*0.88, 40, 140), (w*0.94, 50, 90), (w*0.36, 34, 80)))
     return f'<g fill="{fill}">{towers}{faisaliah}{kingdom}</g>'
+
+
+def _egg_tray(x, y, cols=5, rows=3, cell=14, full=True, uid="t"):
+    """Pulp egg tray seen from slightly above, with eggs."""
+    w, h = cols * cell + 6, rows * cell * 0.62 + 8
+    cells = ""
+    for r in range(rows):
+        for c in range(cols):
+            cx = x + 3 + c * cell + cell / 2
+            cy = y + 4 + r * cell * 0.62 + cell * 0.31
+            cells += f'<ellipse cx="{cx:.1f}" cy="{cy:.1f}" rx="{cell*0.42:.1f}" ry="{cell*0.24:.1f}" fill="#CBB79A"/>'
+            if full:
+                cells += (f'<ellipse cx="{cx:.1f}" cy="{cy - cell*0.18:.1f}" rx="{cell*0.34:.1f}" ry="{cell*0.30:.1f}" fill="#F3D9B1"/>'
+                          f'<ellipse cx="{cx - cell*0.1:.1f}" cy="{cy - cell*0.28:.1f}" rx="{cell*0.1:.1f}" ry="{cell*0.08:.1f}" fill="#FFF6E6"/>')
+    return f'<rect x="{x}" y="{y}" width="{w}" height="{h:.1f}" rx="3" fill="#DCCBB0"/>{cells}'
+
+
+def egg_packer(uid="eg"):
+    """Egg packing factory worker (blue uniform, cap, gloves) placing eggs in trays."""
+    stacks = "".join(_egg_tray(140, 150 - k * 12, 4, 2, 13) for k in range(4))
+    stacks += "".join(_egg_tray(6, 150 - k * 12, 3, 2, 13) for k in range(4))
+    return f"""{_bg(uid, '#EEF6FF', '#C9DDF2')}
+<rect x="0" y="0" width="200" height="70" fill="#DCE8F5"/>
+<path d="M20 22 H80 M120 22 H180" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+<!-- worker -->
+<path d="M58 140 Q52 96 72 84 L108 84 Q128 96 122 140Z" fill="#1E5BB8"/>
+<path d="M84 84 L90 100 L96 84" fill="#fff"/>
+<rect x="85" y="70" width="10" height="15" fill="{SKIN_D}"/>
+<circle cx="90" cy="56" r="17" fill="{SKIN}"/>
+<path d="M72 54 Q72 34 90 34 Q108 34 108 52Z" fill="#1E5BB8"/><path d="M104 50 L122 54 L106 58Z" fill="#1E5BB8"/>
+<circle cx="84" cy="57" r="1.8" fill="{HAIR}"/><circle cx="97" cy="57" r="1.8" fill="{HAIR}"/>
+<path d="M85 65 Q90 68 95 65" stroke="{HAIR}" stroke-width="1.6" fill="none"/>
+<path d="M66 100 Q62 122 80 134" stroke="#1E5BB8" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M114 100 Q122 120 106 134" stroke="#1E5BB8" stroke-width="12" fill="none" stroke-linecap="round"/>
+<!-- table -->
+<rect x="0" y="152" width="200" height="12" fill="#9AA8B6"/>
+<rect x="0" y="164" width="200" height="36" fill="#B9C4CF"/>
+{_egg_tray(52, 128, 6, 3, 14)}
+<circle cx="80" cy="134" r="7" fill="#F4F6F8"/><circle cx="106" cy="134" r="7" fill="#F4F6F8"/>
+<ellipse cx="106" cy="128" rx="5" ry="6.5" fill="#F3D9B1"/>
+{stacks}"""
+
+
+TRADES["egg_packer"] = egg_packer
