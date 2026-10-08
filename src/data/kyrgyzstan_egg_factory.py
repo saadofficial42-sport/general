@@ -13,18 +13,19 @@ DATA = {
     "art": "egg_packer",
     "accent": "#D6202F",
     "layout": {"header_h": 186, "band_h": 170, "title_top": 22, "title_top_ur": 0,
-               "scene_h": 640, "circle_r": 226, "circle_cy": 324, "badge_tops": [100, 262, 424],
+               "scene_h": 640, "circle_r": 200, "circle_cy": 330, "badge_tops": [96, 262, 428],
+               "big_text": True, "badge_w": 300,
                "route_top": 586, "doc_h": 74, "doc_gap": 18, "cta_top": 1240},
     "en": {
         "title": "FACTORY WORKERS",
         "dest": "for Kyrgyzstan",
         "urgent": "URGENT",
-        "opener": "Egg Packing Factory · Work opportunity in industry / factory",
+        "opener": "EGG PACKING FACTORY · Work in industry / factory",
         "from": "Pakistan", "to": "Kyrgyzstan",
         "badges_start": [
-            {"icon": "money", "label": "MONTHLY SALARY", "value": "$450", "size": 40, "sub": "per month", "color": C["green"]},
-            {"icon": "clock", "label": "DUTY", "value": "10 HOURS", "sub": "daily", "color": C["green"]},
-            {"icon": "user", "label": "AGE LIMIT", "value": "18 – 50", "sub": "years", "color": C["green"]},
+            {"icon": "money", "label": "MONTHLY SALARY", "value": "$450", "size": 50, "sub": "per month", "color": C["green"]},
+            {"icon": "clock", "label": "DUTY", "value": "10 HOURS", "size": 40, "sub": "daily", "color": C["green"]},
+            {"icon": "user", "label": "AGE LIMIT", "value": "18 – 50", "size": 40, "sub": "years", "color": C["green"]},
         ],
         "badges_end": [
             {"icon": "home", "label": "ACCOMMODATION", "value": "By factory", "num": False},
@@ -46,7 +47,7 @@ DATA = {
         "opener": "ایگ پیکنگ فیکٹری — انڈسٹری / فیکٹری میں کام کا موقع",
         "from": "پاکستان", "to": "کرغزستان",
         "badges_start": [
-            {"icon": "money", "label": "تنخواہ (ماہانہ)", "value": "$450", "size": 38, "color": C["green"]},
+            {"icon": "money", "label": "تنخواہ (ماہانہ)", "value": "$450", "size": 48, "color": C["green"]},
             {"icon": "clock", "label": "ڈیوٹی", "value": f"{N(10)} گھنٹے روزانہ", "num": False, "color": C["green"]},
             {"icon": "user", "label": "عمر کی حد", "value": f"{N('18 – 50')} سال", "num": False, "color": C["green"]},
         ],

@@ -16,7 +16,7 @@ from illustrations import mountains, photo_or_art, yurt
 from style_corporate_grid import T
 
 
-def css(ur):
+def css(ur, bw=262):
     base = 'Nastaliq' if ur else 'Archivo'
     return f"""
 .canvas{{font-family:'{base}',sans-serif;background:{C['offwhite']};}}
@@ -24,21 +24,21 @@ def css(ur):
 .num{{font-family:'Anton','Nastaliq',sans-serif;direction:ltr;unicode-bidi:isolate;display:inline-block;letter-spacing:.5px;}}
 .ic{{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;}}
 .mir{{transform:scaleX(-1);}}
-.badge{{position:absolute;width:262px;background:#fff;border-radius:18px;box-shadow:0 6px 18px rgba(16,33,46,.18);
+.badge{{position:absolute;width:{bw}px;background:#fff;border-radius:18px;box-shadow:0 6px 18px rgba(16,33,46,.18);
         display:flex;align-items:center;gap:12px;padding:10px 14px;}}
 """
 
 
-def badge(b, side, top, f, color):
+def badge(b, side, top, f, color, big=False):
     pos = "inset-inline-start:24px" if side == "start" else "inset-inline-end:24px"
     val = ""
     if b.get("value"):
         val = (f"<div class='num' style='font-size:{b.get('size', 30)}px;color:{C['navy2']};line-height:1.1'>{b['value']}</div>"
-               if b.get("num", True) else f.txt(b["value"], 17, 18, C["navy2"], "font-weight:700", 1.8 if f.ur else 1.2))
-    sub = f.txt(b["sub"], 13.5, 14.5, "#5A6470", "", 1.5 if f.ur else 1.15) if b.get("sub") else ""
+               if b.get("num", True) else f.txt(b["value"], 23 if big else 17, 22 if big else 18, C["navy2"], "font-weight:800", 1.8 if f.ur else 1.15))
+    sub = f.txt(b["sub"], 17 if big else 13.5, 17 if big else 14.5, "#3E4A57", "font-weight:600", 1.5 if f.ur else 1.15) if b.get("sub") else ""
     return (f"<div class='badge' style='{pos};top:{top}px;border-inline-start:6px solid {color}'>"
-            f"<div class='ic' style='width:50px;height:50px;background:{color}'>{icon(b['icon'], 27)}</div>"
-            f"<div style='min-width:0'>{f.label(b['label'], 11.5, 14.5, color, 'line-height:' + ('1.9;margin-bottom:6px' if f.ur else '1.25'))}{val}{sub}</div></div>")
+            f"<div class='ic' style='width:{58 if big else 50}px;height:{58 if big else 50}px;background:{color}'>{icon(b['icon'], 31 if big else 27)}</div>"
+            f"<div style='min-width:0'>{f.label(b['label'], 14 if big else 11.5, 17 if big else 14.5, color, 'font-weight:800;line-height:' + ('1.9;margin-bottom:6px' if f.ur else '1.25'))}{val}{sub}</div></div>")
 
 
 def build(d, lang):
@@ -82,16 +82,17 @@ def build(d, lang):
               f"box-shadow:0 0 0 7px {accent},0 12px 30px #0004'>{photo_or_art(d['art'], 'big' + lang)}</div>")
     opener = (f"<div class='abs' style='top:18px;left:0;right:0;display:flex;justify-content:center'>"
               f"<div style='background:{C['navy']};color:#fff;border-radius:999px;padding:{'2px 26px 6px' if ur else '9px 24px'};box-shadow:0 4px 12px #0003'>"
-              f"{f.txt(t['opener'], 18, 19, '#fff', 'font-weight:600;text-align:center', 1.8 if ur else 1.2)}</div></div>")
-    badges = "".join(badge(b, "start", g["badge_tops"][i], f, b.get("color", C["green"])) for i, b in enumerate(t["badges_start"]))
-    badges += "".join(badge(b, "end", g["badge_tops"][i], f, b.get("color", accent)) for i, b in enumerate(t["badges_end"]))
+              f"{f.txt(t['opener'], 23 if g.get('big_text') else 18, 22 if g.get('big_text') else 19, '#fff', 'font-weight:700;text-align:center', 1.8 if ur else 1.2)}</div></div>")
+    big = g.get("big_text", False)
+    badges = "".join(badge(b, "start", g["badge_tops"][i], f, b.get("color", C["green"]), big) for i, b in enumerate(t["badges_start"]))
+    badges += "".join(badge(b, "end", g["badge_tops"][i], f, b.get("color", accent), big) for i, b in enumerate(t["badges_end"]))
     dash = f"<div style='width:34px;border-top:3px dashed {C['navy']}'></div>"
     plane = f"<span class='{'mir' if ur else ''}' style='display:inline-flex'>{icon('plane', 28, accent, 2.2)}</span>"
     route = (f"<div class='abs' style='top:{g['route_top']}px;left:0;right:0;display:flex;justify-content:center'>"
              f"<div style='display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:999px;padding:{'2px 18px 4px' if ur else '6px 18px'};box-shadow:0 4px 12px #0003'>"
-             f"<div style='line-height:0;box-shadow:0 1px 3px #0005'>{flag('pakistan', 42, False)}</div>{f.txt(t['from'], 16, 17, C['navy2'], 'font-weight:700', 1.8 if ur else 1)}"
+             f"<div style='line-height:0;box-shadow:0 1px 3px #0005'>{flag('pakistan', 42, False)}</div>{f.txt(t['from'], 19, 19, C['navy2'], 'font-weight:800', 1.8 if ur else 1)}"
              f"{dash}{plane}{dash}<div style='line-height:0;box-shadow:0 1px 3px #0005'>{flag(d['country'], 48, False)}</div>"
-             f"{f.txt(t['to'], 16, 17, C['navy2'], 'font-weight:700', 1.8 if ur else 1)}</div></div>")
+             f"{f.txt(t['to'], 19, 19, C['navy2'], 'font-weight:800', 1.8 if ur else 1)}</div></div>")
     scene = f"""<div class='abs' style='top:{sy}px;left:0;width:1080px;height:{sh}px;overflow:hidden'>{scene_bg}{ring}{circle}{opener}{badges}{route}</div>"""
     # ---------------- documents
     dy = sy + sh
@@ -116,8 +117,8 @@ def build(d, lang):
             f"<div style='flex:1;min-width:0;background:{bg};border-radius:18px;box-shadow:0 4px 12px rgba(16,33,46,.14);"
             f"display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:{2 if ur else 6}px;padding:10px'>"
             f"<div class='ic' style='width:58px;height:58px;background:#ffffff2E'>{icon(ic, 32)}</div>"
-            f"{f.head(big, 30, 24, '#fff', 'text-align:center')}"
-            f"{f.txt(small, 15, 15.5, '#ffffffDD', 'text-align:center', 1.6 if ur else 1.2)}</div>"
+            f"{f.head(big, 36, 28, '#fff', 'text-align:center')}"
+            f"{f.txt(small, 19, 16, '#FFFFFF', 'text-align:center;font-weight:600;margin-top:' + ('6px' if ur else '0'), 1.75 if ur else 1.2)}</div>"
             for ic, big, small, bg in t["highlights"])
         docs = (f"<div class='abs' style='top:{dy}px;left:0;width:1080px;height:{g['cta_top']-dy}px;background:{C['offwhite']}'></div>"
                 f"<div class='abs' style='top:{dy + 18}px;left:30px;right:30px;height:{g['cta_top'] - dy - 36}px;display:flex;gap:16px' data-check='docs-{lang}'>{hl}</div>")
@@ -126,11 +127,11 @@ def build(d, lang):
     cta = f"""<div class='abs' style='top:{ct}px;left:0;width:1080px;height:{1350-ct}px;background:linear-gradient(100deg,{C['navy2']},{C['navy']})'></div>
 <div class='abs' style='top:{ct}px;height:{1350-ct}px;inset-inline-start:36px;width:440px;display:flex;flex-direction:column;justify-content:center'>
  {f.head(t['apply'], 44, 34, C['gold2'])}
- {f.txt(t['note'], 15, 16.5, '#DCE6F2', 'margin-top:' + ('10px' if ur else '4px'), 1.5 if ur else 1.3)}</div>
+ {f.txt(t['note'], 18, 18, '#FFFFFF', 'margin-top:' + ('10px' if ur else '4px'), 1.5 if ur else 1.3)}</div>
 <div class='abs' style='top:{ct+13}px;inset-inline-end:30px;height:{1350-ct-26}px;background:#fff;border-radius:999px;display:flex;align-items:center;gap:14px;
  padding-inline:10px 32px;box-shadow:0 6px 16px #0006'>{whatsapp_icon(62)}
  <div class='num' style='font-size:54px;color:{C['navy2']};line-height:1.15'>{WHATSAPP}</div></div>"""
-    return page(f"<div class='{'ur-on' if ur else ''}'>{header}{band}{scene}{docs}{cta}</div>", css(ur), rtl=ur)
+    return page(f"<div class='{'ur-on' if ur else ''}'>{header}{band}{scene}{docs}{cta}</div>", css(ur, g.get('badge_w', 262)), rtl=ur)
 
 
 def main(mod_name):

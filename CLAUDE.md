@@ -42,6 +42,10 @@ TODO — confirm/adjust. Defaults until specified otherwise:
   doing the job** (e.g. a rider riding a bike, a driver at the wheel, a worker on the factory
   floor, a tailor at a sewing machine, a cleaner mopping). Small icon-sized thumbnails alone are
   not enough: at least one large hero image or scene, or a large picture per job card.
-- Use real photos from `assets/photos/` when available; otherwise use the illustrations in
-  `src/illustrations.py` (add a new one for any trade that doesn't have one yet).
+- **The user wants REAL photos of actual people doing the job, not cartoon/flat illustrations.**
+  Use photos from `assets/photos/` (named by trade, e.g. `egg_packer.jpg`, `rider.jpg`). If no
+  suitable photo is available, say so and ask for one (or for the environment's network policy to
+  allow a licence-free stock site); illustrations are only a temporary fallback, flagged as such.
+- All ad text must be large and high-contrast enough to read on a phone (body ≥ 17px, labels
+  ≥ 14px on a 1080px canvas).
 - Never reuse photos from other agencies' ads (they are content sources only).
