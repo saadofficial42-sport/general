@@ -572,3 +572,32 @@ def egg_packer(uid="eg"):
 
 
 TRADES["egg_packer"] = egg_packer
+
+
+def tissue_packer(w=400, h=300, uid="ts"):
+    """Placeholder until a real photo exists: worker in hairnet, mask and gloves
+    packing tissue boxes from a conveyor into a carton."""
+    floor = h * 0.9
+    belt_y = h * 0.62
+    def tbox(x, y, c):
+        return (f'<rect x="{x}" y="{y}" width="58" height="30" rx="3" fill="#FFFFFF" stroke="#C9D3DE"/>'
+                f'<rect x="{x}" y="{y+16}" width="58" height="14" fill="{c}" opacity=".8"/>'
+                f'<path d="M{x+18} {y} Q{x+29} {y-12} {x+40} {y}" fill="#FFFFFF" stroke="#C9D3DE"/>')
+    boxes = "".join(tbox(w*0.42 + i*70, belt_y-30, c) for i, c in enumerate(["#F4B6CF", "#A8E0C0", "#F4B6CF", "#B9D3F4"]))
+    arms = (f'<path d="M18 -124 Q40 -106 52 -96" stroke="#1E6FCC" stroke-width="13" fill="none" stroke-linecap="round"/>'
+            f'<path d="M-18 -124 Q-4 -104 14 -98" stroke="#1E6FCC" stroke-width="13" fill="none" stroke-linecap="round"/>'
+            f'<circle cx="54" cy="-95" r="7" fill="#7FC4F5"/><circle cx="16" cy="-97" r="7" fill="#7FC4F5"/>')
+    person = (_person(w*0.20, floor, 1.15, "#1E6FCC", vest=False, arms=arms)
+              .replace(f'<path d="M-15 -152 Q0 -140 15 -152"', '<path d="M-15 -152 Q0 -140 15 -152" opacity="0"'))
+    net = (f'<g transform="translate({w*0.20} {floor}) scale(1.15)">'
+           f'<path d="M-19 -164 Q-20 -186 0 -186 Q20 -186 19 -164Z" fill="#EEF3F8" stroke="#C9D3DE"/>'
+           f'<rect x="-14" y="-160" width="28" height="12" rx="5" fill="#BFE3F7"/></g>')
+    return f"""<defs><linearGradient id="{uid}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FB"/><stop offset="1" stop-color="#DCE5EE"/></linearGradient></defs>
+<rect width="{w}" height="{h}" fill="url(#{uid}w)"/>
+<rect x="{w*0.55}" y="{h*0.08}" width="{w*0.4}" height="{h*0.3}" rx="6" fill="#CFE2F2"/>
+<rect y="{floor}" width="{w}" height="{h-floor}" fill="#C3CED9"/>
+<rect x="{w*0.36}" y="{belt_y}" width="{w*0.64}" height="14" rx="7" fill="#5C6B7A"/>
+<path d="M{w*0.40} {belt_y+14} V{floor} M{w*0.96} {belt_y+14} V{floor}" stroke="#7D8B98" stroke-width="6"/>
+{boxes}
+<rect x="{w*0.02}" y="{floor-60}" width="70" height="60" fill="#C8935A"/><rect x="{w*0.02}" y="{floor-60}" width="70" height="9" fill="#B07B45"/>
+{person}{net}"""
