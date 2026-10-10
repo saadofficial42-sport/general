@@ -9,11 +9,18 @@ from common import _launch
 SRC = Path(__file__).resolve().parent.parent / "demands" / "2026-10-10-kuwait-derma"
 S = 1254
 NAVY = "#03284F"
+PHONE2 = "+92 317 0363690"  # second RS Links number (user, 2026-10-10)
 
 
 def patch(x, y, w, h, bg, inner="", radius=0, extra=""):
     return (f"<div style='position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:{bg};"
             f"border-radius:{radius}px;display:flex;align-items:center;justify-content:center;{extra}'>{inner}</div>")
+
+
+def wa_pill2(w, h, size=28):
+    nums = "".join(f"<div class='anton' style='font-size:{size}px;color:{C['navy2']};line-height:1.08'>{n}</div>" for n in (WHATSAPP, PHONE2))
+    return (f"<div style='display:flex;align-items:center;gap:12px;background:#fff;border-radius:22px;height:{h}px;width:{w}px;"
+            f"justify-content:center;box-shadow:0 4px 12px #0003'>{whatsapp_icon(min(h - 20, 56))}<div>{nums}</div></div>")
 
 
 def wa_pill(w, h, size=40, label=None):
@@ -36,8 +43,8 @@ def ad_dermatologist():
     p.append(patch(42, 962, 392, 192, "linear-gradient(180deg,#02264E,#03284F)",
                    "<div style='text-align:center'>"
                    "<div style='font-family:Archivo;font-weight:800;font-size:19px;color:#fff;line-height:1.2'>INTERESTED CANDIDATES NEED TO</div>"
-                   f"<div style='font-family:Archivo;font-weight:800;font-size:20px;color:#5FB2FF;line-height:1.3;margin-bottom:10px'>SEND THE FOLLOWING ON WHATSAPP</div>"
-                   f"<div style='display:flex;justify-content:center'>{wa_pill(366, 64, 36)}</div>"
+                   f"<div style='font-family:Archivo;font-weight:800;font-size:20px;color:#5FB2FF;line-height:1.3;margin-bottom:8px'>SEND THE FOLLOWING ON WHATSAPP</div>"
+                   f"<div style='display:flex;justify-content:center'>{wa_pill2(330, 82, 31)}</div>"
                    "<div style='font-family:Archivo;font-weight:600;font-size:17px;color:#fff;margin-top:10px'>"
                    "mentioning <span style='color:#5FB2FF'>(Dermatologist)</span></div></div>"))
     # footer: social handles, website, Arabic slogan
@@ -45,7 +52,9 @@ def ad_dermatologist():
                    "<div style='display:flex;align-items:center;gap:22px'>"
                    f"<div style='font-family:Anton;font-size:30px;color:{C['green']};letter-spacing:.5px'>RS LINKS CONSULTANTS PVT. LTD.</div>"
                    "<div style='width:2px;height:40px;background:#B9C2CC'></div>"
-                   f"{whatsapp_icon(46)}<div class='anton' style='font-size:38px;color:{C['navy2']}'>{WHATSAPP}</div></div>"))
+                   f"{whatsapp_icon(46)}<div class='anton' style='font-size:34px;color:{C['navy2']}'>{WHATSAPP}</div>"
+                   f"<div style='width:2px;height:40px;background:#B9C2CC'></div>"
+                   f"<div class='anton' style='font-size:34px;color:{C['navy2']}'>{PHONE2}</div></div>"))
     return p
 
 
@@ -53,14 +62,14 @@ def ad_consultant():
     p = []
     p.append(patch(44, 16, 420, 160, "#FBFBFD", logo_plate(410, 150), 18, "box-shadow:0 4px 14px #0002"))
     # "How to Apply" intro lines inside the right card
-    p.append(patch(926, 728, 296, 92, "linear-gradient(180deg,#132F57,#082D57)",
-                   "<div style='font-family:Archivo;font-size:15.5px;line-height:1.35;color:#E8EEF7;width:280px'>"
+    p.append(patch(926, 726, 296, 98, "linear-gradient(180deg,#132F57,#082D57)",
+                   "<div style='font-family:Archivo;font-size:14.5px;line-height:1.3;color:#E8EEF7;width:284px'>"
                    "Interested candidates need to send the following on WhatsApp "
-                   f"<b style='color:#5FB2FF;white-space:nowrap'>{WHATSAPP}</b> mentioning <b>(Dermatology Consultant)</b>.</div>"))
+                   f"<b style='color:#5FB2FF;white-space:nowrap'>{WHATSAPP}</b> / <b style='color:#5FB2FF;white-space:nowrap'>{PHONE2}</b> mentioning <b>(Dermatology Consultant)</b>.</div>"))
     # "Send your application to" box: replace email pill + subject line
-    p.append(patch(190, 1060, 370, 98, "linear-gradient(180deg,#012B56,#012748)",
-                   f"<div style='text-align:center'>{wa_pill(354, 56, 32)}"
-                   "<div style='font-family:Archivo;font-size:15px;color:#fff;margin-top:6px'>Mention <b>(Dermatology Consultant)</b> in your message.</div></div>"))
+    p.append(patch(190, 1056, 370, 106, "linear-gradient(180deg,#012B56,#012748)",
+                   f"<div style='text-align:center'>{wa_pill2(330, 74, 27)}"
+                   "<div style='font-family:Archivo;font-size:14px;color:#fff;margin-top:3px'>Mention <b>(Dermatology Consultant)</b> in your message.</div></div>"))
     p.append(patch(190, 1024, 372, 36, "#012D58",
                    "<div style='font-family:Archivo;font-size:19px;color:#fff;width:360px'>Send your application on WhatsApp:</div>"))
     # envelope icon circle -> WhatsApp icon
