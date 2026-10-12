@@ -52,14 +52,23 @@ def front(p):
 
 
 def back():
+    services = ["Manpower Recruitment", "HR Consultancy", "Student Consultancy", "Tax Consultancy",
+                "Career Advisory", "Visa &amp; Documentation"]
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:8.6px;font-weight:700;color:#fff'>"
+                  f"<span style='color:{C['gold2']};font-size:8px'>&#10003;</span>{x}</div>" for x in services)
+    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'>{icon('phone', 9, C['gold2'], 2.6)}"
+                    f"<span style='font-family:Anton;font-size:10px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
     return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
-<div style='position:absolute;inset:{B + 8}px;border:1px solid {GOLD};border-radius:6px'></div>
-<div style='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center'>
-  <div style='background:#fff;border-radius:10px;padding:6px 12px;box-shadow:0 2px 6px #0004'>
-    {logo_img('logo-horizontal-light', 'width:190px;height:52px')}</div>
-  <div style='font-family:Dancing;font-weight:700;font-size:15px;color:{C['gold2']};margin-top:9px'>{TAGLINE}</div>
-  <div style='font-size:7.5px;font-weight:700;color:#DCEBE3;letter-spacing:1.4px;margin-top:5px'>
-    MANPOWER · HR · STUDENT &amp; CAREER CONSULTANCY</div>
+<div style='position:absolute;inset:{B + 7}px;border:1px solid {GOLD};border-radius:6px'></div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE}px;display:flex;align-items:center;justify-content:space-between'>
+  <div style='background:#fff;border-radius:8px;padding:4px 8px'>{logo_img('logo-horizontal-light', 'width:132px;height:36px')}</div>
+  <div style='text-align:right;font-family:Dancing;font-weight:700;font-size:11.5px;color:{C['gold2']};line-height:1.1;width:110px'>{TAGLINE}</div>
+</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 58}px;display:grid;grid-template-columns:1fr 1fr;gap:7px 10px'>{svc}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
+  display:flex;align-items:center;justify-content:space-between'>
+  {wa("+92 371 9051589")}{wa("+92 317 0363690")}
+  <span style='font-size:7.2px;font-weight:700;color:#DCEBE3'>{WEBSITE}</span>
 </div></div>"""
 
 
