@@ -1,0 +1,104 @@
+"""RS Links business cards (print).
+
+Standard Pakistani/US card 3.5 x 2 in with 0.125 in bleed on every side (page 3.75 x 2.25 in);
+keep text inside the 0.125 in safe margin. Each person gets a 2-page PDF (front = person,
+back = company) at exact physical size, plus 600 dpi PNGs of each side.
+"""
+from common import C, OUTPUT, font_css, icon, logo_img
+from common import _launch
+
+GREEN, GOLD, NAVY = C["green"], C["gold"], "#0A1B25"
+WEBSITE = "www.rslinksconsultants.com"
+ADDRESS = "Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi"
+TAGLINE = "Turning Your Dreams into Reality"
+PPI = 96                     # CSS px per inch (PDF native)
+BLEED = 0.125
+W, H = 3.5 + 2 * BLEED, 2 + 2 * BLEED
+PX_W, PX_H = round(W * PPI), round(H * PPI)
+B = round(BLEED * PPI)       # bleed in px
+SAFE = B + 14                # bleed + ~0.15 in safe margin
+
+PEOPLE = [
+    {"slug": "Saad-Khalid", "name": "Saad Khalid", "title": "Co-Founder &amp; COO",
+     "phone": "0300-5558335", "email": "saad@rslinksconsultants.com"},
+    {"slug": "Rahim-Ullah", "name": "Rahim Ullah", "title": "Co-Founder &amp; CEO",
+     "phone": "0319-0727427", "email": "raheem@rslinksconsultants.com"},
+]
+
+
+def row(ic, text, size=8.6):
+    return (f"<div style='display:flex;align-items:center;gap:6px'>"
+            f"<div style='width:15px;height:15px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
+            f"{icon(ic, 9, '#fff', 2.6)}</div>"
+            f"<div style='font-size:{size}px;font-weight:600;color:{NAVY};line-height:1.25'>{text}</div></div>")
+
+
+def front(p):
+    return f"""<div class='card' style='background:#fff'>
+<div style='position:absolute;left:0;top:0;bottom:0;width:{B + 22}px;background:{GREEN}'></div>
+<div style='position:absolute;left:{B + 22}px;top:0;bottom:0;width:4px;background:{GOLD}'></div>
+<div style='position:absolute;right:{SAFE}px;top:{SAFE - 2}px'>{logo_img('logo-badge', 'width:46px;height:46px')}</div>
+<div style='position:absolute;left:{B + 40}px;top:{SAFE + 2}px;right:{SAFE + 54}px'>
+  <div style='font-family:Anton;font-size:23px;color:{NAVY};line-height:1;letter-spacing:.3px'>{p['name']}</div>
+  <div style='font-size:9.5px;font-weight:800;color:{GREEN};margin-top:4px;letter-spacing:.3px'>{p['title']}</div>
+  <div style='font-size:7.2px;font-weight:700;color:#6B7785;letter-spacing:1.2px;margin-top:2px'>RS LINKS CONSULTANTS PVT. LTD.</div>
+</div>
+<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE - 2}px;display:flex;flex-direction:column;gap:3.5px'>
+  {row('phone', p['phone'], 9.4)}
+  {row('mail', p['email'])}
+  {row('gear', WEBSITE)}
+  {row('pin', ADDRESS, 7.4)}
+</div></div>"""
+
+
+def back():
+    return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
+<div style='position:absolute;inset:{B + 8}px;border:1px solid {GOLD};border-radius:6px'></div>
+<div style='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center'>
+  <div style='background:#fff;border-radius:10px;padding:6px 12px;box-shadow:0 2px 6px #0004'>
+    {logo_img('logo-horizontal-light', 'width:190px;height:52px')}</div>
+  <div style='font-family:Dancing;font-weight:700;font-size:15px;color:{C['gold2']};margin-top:9px'>{TAGLINE}</div>
+  <div style='font-size:7.5px;font-weight:700;color:#DCEBE3;letter-spacing:1.4px;margin-top:5px'>
+    MANPOWER · HR · STUDENT &amp; CAREER CONSULTANCY</div>
+</div></div>"""
+
+
+CSS = f"""{font_css()}
+html,body{{margin:0;padding:0;width:{PX_W}px;height:{PX_H}px;overflow:hidden}}
+@page{{size:{W}in {H}in;margin:0}}
+.card{{position:relative;width:{PX_W}px;height:{PX_H}px;overflow:hidden;font-family:'Archivo',sans-serif;page-break-after:always}}
+"""
+
+
+def render_person(p):
+    from playwright.sync_api import sync_playwright
+    out = OUTPUT / "business-cards"
+    out.mkdir(parents=True, exist_ok=True)
+    tmp = OUTPUT / ".tmp"
+    tmp.mkdir(exist_ok=True)
+    sides = {"Front": front(p), "Back": back()}
+    with sync_playwright() as pw:
+        b = _launch(pw)
+        # 2-page print PDF
+        both = tmp / f"card-{p['slug']}.html"
+        both.write_text(f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}html,body{{height:auto;overflow:visible}}</style></head>"
+                        f"<body>{sides['Front']}{sides['Back']}</body></html>", encoding="utf-8")
+        pg = b.new_page(viewport={"width": PX_W, "height": PX_H})
+        pg.goto(both.as_uri()); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(300)
+        pg.pdf(path=str(out / f"RS-Links-Business-Card-{p['slug']}.pdf"), width=f"{W}in", height=f"{H}in", print_background=True)
+        pg.close()
+        # 600 dpi PNG per side
+        for side, html in sides.items():
+            f = tmp / f"card-{p['slug']}-{side}.html"
+            f.write_text(f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{html}</body></html>", encoding="utf-8")
+            pg = b.new_page(viewport={"width": PX_W, "height": PX_H}, device_scale_factor=600 / PPI)
+            pg.goto(f.as_uri()); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(300)
+            pg.screenshot(path=str(out / f"RS-Links-Business-Card-{p['slug']}-{side}.png"))
+            pg.close()
+        b.close()
+    print(out / f"RS-Links-Business-Card-{p['slug']}.pdf")
+
+
+if __name__ == "__main__":
+    for person in PEOPLE:
+        render_person(person)
