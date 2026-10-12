@@ -23,6 +23,12 @@ PEOPLE = [
      "phone": "0300-5558335", "email": "saad@rslinksconsultants.com"},
     {"slug": "Rahim-Ullah", "name": "Rahim Ullah", "title": "Co-Founder &amp; CEO",
      "phone": "0319-0727427", "email": "raheem@rslinksconsultants.com"},
+    {"slug": "Hassan-Sultan", "name": "Hassan Sultan", "title": "Admin &amp; HR Officer",
+     "phone": "0317-0363690", "email": "hr@rslinksconsultants.com"},
+    {"slug": "Hameeda-Zia", "name": "Hameeda Zia", "title": "Recruitment &amp; Sales Officer",
+     "phone": "0371-9051589", "email": "hr@rslinksconsultants.com"},
+    {"slug": "Ayesha-Ghafoor", "name": "Ayesha Ghafoor", "title": "Social Media Specialist",
+     "phone": "+92 321 5128989", "email": "hr@rslinksconsultants.com"},
 ]
 
 
