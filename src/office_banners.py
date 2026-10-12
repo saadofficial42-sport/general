@@ -23,7 +23,7 @@ GREEN, GOLD, NAVY = C["green"], C["gold"], "#0A1B25"
 FLAGS = ROOT / "assets" / "flags"
 
 # Physical sizes in inches (width, height). CSS px are laid out at 48 px per inch.
-SIZES = {"top": (135, 29), "left": (36, 86), "right": (31, 86), "door": (36, 80)}  # measured by user
+SIZES = {"top": (135, 33), "left": (36, 86), "right": (31, 86), "door": (36, 80), "door2": (36, 80)}  # measured by user
 PPI = 48
 
 REGIONS = [
@@ -208,8 +208,56 @@ def door_banner():
     return w, h, body
 
 
+def door2_banner():
+    """Door 2: 'Your journey abroad starts here' — regions we serve + how it works + contacts/address."""
+    w, h = (v * PPI for v in SIZES["door2"])
+    regions = [("GCC", ["sa", "ae", "qa", "kw"]), ("CENTRAL ASIA", ["uz", "kg", "kz", "my"]),
+               ("EUROPE", ["ro", "pl", "de", "rs"])]
+    reg = "".join(
+        f"<div style='flex:1;background:#fff;border-radius:20px;box-shadow:0 6px 16px #0003;padding:{h*0.01:.0f}px {w*0.02:.0f}px;"
+        f"display:flex;flex-direction:column;align-items:center;gap:{h*0.006:.0f}px'>"
+        f"<div style='font-family:Anton;font-size:{w*0.038:.0f}px;color:{GREEN};letter-spacing:1px;white-space:nowrap'>{name}</div>"
+        f"<div style='display:grid;grid-template-columns:1fr 1fr;gap:{w*0.012:.0f}px'>"
+        + "".join(f"<img src='{(FLAGS / (c + '.svg')).as_uri()}' style='width:{w*0.1:.0f}px;height:{w*0.067:.0f}px;object-fit:cover;"
+                  f"border-radius:5px;box-shadow:0 2px 6px #0003'>" for c in codes)
+        + "</div></div>" for name, codes in regions)
+    steps = [("user", "Register", "Share your CV &amp; documents"),
+             ("check", "Trade Test &amp; Interview", "Skill assessment &amp; selection"),
+             ("visa", "Visa &amp; Documentation", "Processing, medical &amp; protector"),
+             ("plane", "Fly Abroad", "Pre-departure briefing &amp; travel")]
+    st = "".join(
+        f"<div style='display:flex;align-items:center;gap:{w*0.03:.0f}px;background:#ffffff14;border:2px solid {GOLD}66;border-radius:18px;"
+        f"padding:{h*0.009:.0f}px {w*0.03:.0f}px'>"
+        f"<div style='position:relative;flex:none'><div class='ic' style='width:{w*0.13:.0f}px;height:{w*0.13:.0f}px;background:{GOLD}'>{icon(ic, w*0.07, NAVY, 2.2)}</div>"
+        f"<div style='position:absolute;top:-6px;left:-6px;width:{w*0.055:.0f}px;height:{w*0.055:.0f}px;border-radius:50%;background:#fff;color:{GREEN};"
+        f"font-family:Anton;font-size:{w*0.035:.0f}px;display:flex;align-items:center;justify-content:center'>{n+1}</div></div>"
+        f"<div><div style='font-weight:900;font-size:{w*0.048:.0f}px;color:#fff;line-height:1.1'>{t}</div>"
+        f"<div style='font-weight:600;font-size:{w*0.032:.0f}px;color:#DCEBE3;margin-top:4px'>{sub}</div></div></div>"
+        for n, (ic, t, sub) in enumerate(steps))
+    body = f"""<div style='position:absolute;inset:0;background:linear-gradient(180deg,{GREEN} 0%,#063A2A 100%)'></div>
+{frame(w, h)}
+<div style='position:absolute;inset:{w*0.07:.0f}px;display:flex;flex-direction:column;align-items:center'>
+  <div style='background:#fff;border-radius:24px;padding:{h*0.01:.0f}px {w*0.05:.0f}px;box-shadow:0 6px 16px #0004;margin-top:{h*0.01:.0f}px'>
+    {logo_img('logo-horizontal-light', f'width:{w*0.66:.0f}px;height:{w*0.19:.0f}px')}</div>
+  <div style='font-family:Anton;font-size:{w*0.088:.0f}px;color:#fff;text-align:center;line-height:1.05;margin-top:{h*0.022:.0f}px'>
+    YOUR JOURNEY<br><span style='color:{C['gold2']}'>ABROAD STARTS HERE</span></div>
+  <div style='display:flex;gap:{w*0.025:.0f}px;width:100%;margin-top:{h*0.02:.0f}px'>{reg}</div>
+  <div style='font-family:Anton;font-size:{w*0.05:.0f}px;color:{C['gold2']};letter-spacing:2px;margin-top:{h*0.022:.0f}px'>HOW IT WORKS</div>
+  <div style='display:flex;flex-direction:column;gap:{h*0.009:.0f}px;width:100%;margin-top:{h*0.008:.0f}px'>{st}</div>
+  <div style='margin-top:auto;width:100%;background:#fff;border-radius:18px;padding:{h*0.01:.0f}px {w*0.04:.0f}px;display:flex;flex-direction:column;gap:{h*0.005:.0f}px'>
+    <div style='display:flex;align-items:center;gap:{w*0.025:.0f}px'>{whatsapp_icon(w*0.07)}
+      <div style='font-family:Anton;font-size:{w*0.05:.0f}px;color:{NAVY};line-height:1.15'>{WHATSAPP}<br>{PHONE2}</div></div>
+    <div style='display:flex;align-items:center;gap:{w*0.025:.0f}px'>
+      <div class='ic' style='width:{w*0.07:.0f}px;height:{w*0.07:.0f}px;background:{GREEN}'>{icon('pin', w*0.04, '#fff', 2.4)}</div>
+      <div style='font-weight:700;font-size:{w*0.032:.0f}px;color:{NAVY};line-height:1.2'>{ADDRESS}</div></div>
+  </div>
+</div>"""
+    return w, h, body
+
+
 if __name__ == "__main__":
     render("Top", top_banner)
     render("Left", left_banner)
     render("Right", right_banner)
-    render("Door", door_banner)
+    render("Door-1", door_banner)
+    render("Door-2", door2_banner)
