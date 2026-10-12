@@ -175,6 +175,7 @@ def render(name, build):
         pg.pdf(path=str(out / f"RS-Links-Gate-Banner-{name}.pdf"), width=f"{wi}in", height=f"{hi}in",
                scale=2, print_background=True, page_ranges="1")
         pg.screenshot(path=str(out / f"RS-Links-Gate-Banner-{name}.jpg"), type="jpeg", quality=95)
+        pg.screenshot(path=str(out / f"RS-Links-Gate-Banner-{name}.png"))
         b.close()
     print(out / f"RS-Links-Gate-Banner-{name}.pdf")
 
