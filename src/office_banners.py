@@ -115,7 +115,7 @@ def left_banner():
     blocks = ""
     for region, items in REGIONS:
         cells = "".join(
-            f"<div style='width:{w*0.15:.0f}px;display:flex;flex-direction:column;align-items:center;gap:6px'>"
+            f"<div style='width:{w*0.135:.0f}px;display:flex;flex-direction:column;align-items:center;gap:6px'>"
             f"<div style='width:100%;aspect-ratio:3/2;background:#fff;border-radius:8px;box-shadow:0 3px 10px #0003;"
             f"display:flex;align-items:center;justify-content:center;overflow:hidden'>"
             + (f"<img src='{(FLAGS / (code + '.svg')).as_uri()}' style='width:100%;height:100%;object-fit:cover'>" if code else
@@ -170,13 +170,15 @@ def render(name, build):
         pg.goto(tmp.as_uri())
         pg.evaluate("document.fonts.ready")
         pg.wait_for_timeout(400)
-        # Vector PDF at exact physical size: layout is 48 css-px/in, PDF is 96 css-px/in -> scale 2
-        wi, hi = SIZES[name.lower()]
-        pg.pdf(path=str(out / f"RS-Links-Gate-Banner-{name}.pdf"), width=f"{wi}in", height=f"{hi}in",
-               scale=2, print_background=True, page_ranges="1")
         pg.screenshot(path=str(out / f"RS-Links-Gate-Banner-{name}.jpg"), type="jpeg", quality=95)
         pg.screenshot(path=str(out / f"RS-Links-Gate-Banner-{name}.png"))
         b.close()
+    # Print PDF built from the 144 ppi PNG (Chromium's print path mis-scaled these
+    # oversized pages); PIL sets the page to exactly px / 144 inches.
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
+    Image.open(out / f"RS-Links-Gate-Banner-{name}.png").convert("RGB").save(
+        out / f"RS-Links-Gate-Banner-{name}.pdf", "PDF", resolution=float(PPI * 3))
     print(out / f"RS-Links-Gate-Banner-{name}.pdf")
 
 
