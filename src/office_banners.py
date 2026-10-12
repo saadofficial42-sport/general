@@ -29,10 +29,11 @@ PPI = 48
 REGIONS = [
     ("GCC", [("sa", "Saudi Arabia"), ("ae", "UAE"), ("qa", "Qatar"),
              ("kw", "Kuwait"), ("om", "Oman"), ("bh", "Bahrain")]),
-    ("ASIA", [("uz", "Uzbekistan"), ("kg", "Kyrgyzstan"), ("kz", "Kazakhstan"),
-              ("my", "Malaysia"), ("jp", "Japan"), ("kr", "South Korea")]),
-    ("EUROPE", [("rs", "Serbia"), ("xk", "Kosovo"), ("ro", "Romania"),
-                ("pl", "Poland"), ("hr", "Croatia"), ("de", "Germany")]),
+    ("ASIA", [("uz", "Uzbekistan"), ("kg", "Kyrgyzstan"), ("kz", "Kazakhstan"), ("my", "Malaysia")]),
+    ("EUROPE", [("ro", "Romania"), ("pl", "Poland"), ("de", "Germany"), ("xk", "Kosovo"),
+                ("md", "Moldova"), ("rs", "Serbia"), ("it", "Italy"), ("bg", "Bulgaria"),
+                ("es", "Spain"), ("lt", "Lithuania"), ("cz", "Czech Republic"), ("ba", "Bosnia &amp; Herzegovina"),
+                (None, "")]),
 ]
 
 SERVICES = [
@@ -102,9 +103,9 @@ def top_banner():
     return w, h, body
 
 
-def side_header(w, h, title):
+def side_header(w, h, title, logo=0.34):
     return (f"<div style='display:flex;flex-direction:column;align-items:center;padding-top:{h*0.04:.0f}px'>"
-            f"{logo_img('logo-stacked', f'width:{w*0.34:.0f}px;height:{w*0.34:.0f}px')}"
+            f"{logo_img('logo-stacked', f'width:{w*logo:.0f}px;height:{w*logo:.0f}px')}"
             f"<div style='margin-top:{h*0.008:.0f}px;background:{GREEN};color:#fff;border-radius:999px;padding:{w*0.012:.0f}px {w*0.06:.0f}px;"
             f"font-family:Anton;font-size:{w*0.058:.0f}px;letter-spacing:1px;white-space:nowrap'>{title}</div></div>")
 
@@ -117,18 +118,25 @@ def left_banner():
             f"<div style='width:{w*0.15:.0f}px;display:flex;flex-direction:column;align-items:center;gap:6px'>"
             f"<div style='width:100%;aspect-ratio:3/2;background:#fff;border-radius:8px;box-shadow:0 3px 10px #0003;"
             f"display:flex;align-items:center;justify-content:center;overflow:hidden'>"
-            f"<img src='{(FLAGS / (code + '.svg')).as_uri()}' style='width:100%;height:100%;object-fit:cover'></div>"
-            f"<div style='font-weight:800;font-size:{w*0.034:.0f}px;text-align:center;line-height:1.1;white-space:nowrap'>{name}</div></div>"
-            for code, name in items)
-        blocks += (f"<div style='margin-top:{h*0.004:.0f}px'><div style='display:flex;align-items:center;gap:12px;margin-bottom:{h*0.008:.0f}px'>"
+            + (f"<img src='{(FLAGS / (code + '.svg')).as_uri()}' style='width:100%;height:100%;object-fit:cover'>" if code else
+               f"<div style='width:100%;height:100%;background:{GREEN};display:flex;align-items:center;justify-content:center;"
+               f"font-family:Anton;font-size:{w*0.06:.0f}px;color:#fff'>+ OTHERS</div>")
+            + "</div>"
+            f"<div style='font-weight:800;font-size:{w*0.03:.0f}px;text-align:center;line-height:1.05;height:{w*0.064:.0f}px'>{name}</div></div>"
+            for code, name in items if code)
+        others = "".join(
+            f"<div style='display:flex;justify-content:center;margin:{h*0.004:.0f}px 0 {h*0.01:.0f}px'><div style='background:{GREEN};color:#fff;"
+            f"border-radius:999px;padding:{w*0.006:.0f}px {w*0.05:.0f}px;font-family:Anton;font-size:{w*0.04:.0f}px;letter-spacing:2px'>+ OTHERS</div></div>"
+            for code, _ in items if not code)
+        blocks += (f"<div style='margin-top:{h*0.004:.0f}px'><div style='display:flex;align-items:center;gap:12px;margin-bottom:{h*0.004:.0f}px'>"
                    f"<div style='flex:1;height:3px;background:{GOLD}'></div>"
                    f"<div style='font-family:Anton;font-size:{w*0.065:.0f}px;color:{GREEN};letter-spacing:2px'>{region}</div>"
                    f"<div style='flex:1;height:3px;background:{GOLD}'></div></div>"
-                   f"<div style='display:flex;flex-wrap:wrap;justify-content:center;gap:{w*0.015:.0f}px {w*0.08:.0f}px'>{cells}</div></div>")
+                   f"<div style='display:flex;flex-wrap:wrap;justify-content:center;gap:{w*0.004:.0f}px {w*0.07:.0f}px'>{cells}</div>{others}</div>")
     body = (f"{frame(w, h)}<div style='position:absolute;inset:{w*0.07:.0f}px;display:flex;flex-direction:column'>"
-            f"{side_header(w, h, 'WE CONNECT YOU WORLDWIDE')}"
+            f"{side_header(w, h, 'WE CONNECT YOU WORLDWIDE', 0.22)}"
             f"<div style='padding:0 {w*0.01:.0f}px'>{blocks}</div>"
-            f"<div style='margin-top:auto'>{contacts(w, w*0.043)}</div></div>")
+            f"<div style='margin-top:auto'>{contacts(w, w*0.039)}</div></div>")
     return w, h, body
 
 
