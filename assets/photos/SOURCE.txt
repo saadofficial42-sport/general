@@ -1,1 +1,2 @@
 rslinks_*.png: cropped from RS Links own Saudi ad (demands/2026-10-07-saudi/user-ad-before-fix.jpg), RS Links branded staff photos supplied by the user.
+rslinks_construction_engineer.png: cropped from RS Links' own Saudi construction ad (demands/2026-10-13-saudi-construction/user-ad-v2-source.jpg), supplied by the user.
