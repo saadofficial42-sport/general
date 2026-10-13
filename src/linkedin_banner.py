@@ -9,15 +9,15 @@ from office_banners import FLAGS, TAGLINE_EN, WEBSITE
 
 GREEN, GOLD, NAVY = C["green"], C["gold"], "#0A1B25"
 W, H = 1128, 191
-FLAG_CODES = ["sa", "ae", "qa", "kw", "om", "uz", "kg", "kz", "ro", "pl", "de", "rs", "it", "es"]
+FLAG_CODES = ["pk", "sa", "ae", "qa", "kw", "om", "uz", "kg", "kz", "ro", "pl", "de", "rs", "it"]
 
 
 def build():
     flags = "".join(f"<img src='{(FLAGS / (c + '.svg')).as_uri()}' style='width:34px;height:23px;object-fit:cover;border-radius:3px;"
                     f"box-shadow:0 1px 3px #0005'>" for c in FLAG_CODES)
-    svcs = ["Manpower Recruitment", "HR Consultancy", "Student &amp; Career Consultancy"]
+    svcs = ["HR &amp; Recruitment", "Student &amp; Career", "Tax &amp; Business Support", "Digital &amp; Marketing"]
     chips = "".join(f"<span style='background:#ffffff1A;border:1px solid {GOLD}88;border-radius:999px;padding:3px 10px;"
-                    f"font-size:11.5px;font-weight:700;color:#fff;white-space:nowrap'>{s}</span>" for s in svcs)
+                    f"font-size:11px;font-weight:700;color:#fff;white-space:nowrap'>{s}</span>" for s in svcs)
     return f"""<div style='position:relative;width:{W}px;height:{H}px;overflow:hidden;font-family:Archivo;
  background:linear-gradient(110deg,#06291D 0%,{GREEN} 45%,#0F5A3E 100%)'>
  <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>
@@ -25,9 +25,9 @@ def build():
   <path d='M0 {H} L360 0 L392 0 L32 {H}Z' fill='{GOLD}' opacity='.18'/>
   <path d='M60 {H} L420 0 L432 0 L72 {H}Z' fill='{GOLD}' opacity='.35'/>
  </svg>
- <div style='position:absolute;left:300px;top:24px;width:470px'>
-  <div style='font-family:Anton;font-size:38px;line-height:1.02;color:#fff;letter-spacing:.5px'>
-   CONNECTING PAKISTANI TALENT<br><span style='color:{C['gold2']}'>WITH GLOBAL OPPORTUNITIES</span></div>
+ <div style='position:absolute;left:290px;top:26px;width:520px'>
+  <div style='font-family:Anton;font-size:32px;line-height:1.05;color:#fff;letter-spacing:.5px;white-space:nowrap'>
+   YOUR TRUSTED CONSULTANCY PARTNER<br><span style='color:{C['gold2']}'>FOR PEOPLE &amp; BUSINESSES</span></div>
   <div style='font-family:Dancing;font-weight:700;font-size:20px;color:#DCEBE3;margin-top:4px'>{TAGLINE_EN}</div>
   <div style='display:flex;gap:6px;margin-top:8px'>{chips}</div>
  </div>
@@ -35,7 +35,7 @@ def build():
   <div style='background:#fff;border-radius:10px;padding:5px 10px;box-shadow:0 3px 10px #0005'>
    {logo_img('logo-horizontal-light', 'width:180px;height:46px')}</div>
   <div style='display:grid;grid-template-columns:repeat(7,34px);gap:5px'>{flags}</div>
-  <div style='font-size:11px;font-weight:800;color:{C['gold2']};letter-spacing:1.5px;white-space:nowrap'>GCC · CENTRAL ASIA · EUROPE</div>
+  <div style='font-size:11px;font-weight:800;color:{C['gold2']};letter-spacing:1.5px;white-space:nowrap'>PAKISTAN · GCC · CENTRAL ASIA · EUROPE</div>
  </div>
 </div>"""
 

@@ -2,32 +2,34 @@
 
 ## Tagline (LinkedIn limit: 120 characters)
 
-Connecting Pakistani talent with global opportunities across the GCC, Central Asia & Europe.
+Your trusted consultancy partner — helping people and businesses grow, in Pakistan and beyond.
 
 ## About (LinkedIn limit: 2,000 characters)
 
-RS Links Consultants Pvt. Ltd. is a Rawalpindi-based consultancy that connects skilled and motivated Pakistani professionals with employers across the GCC, Central Asia and Europe.
+RS Links Consultants Pvt. Ltd. is a multi-service consultancy firm based in Rawalpindi, Pakistan. We help individuals, students and businesses make better decisions and reach their goals — at home and abroad.
 
-We work with overseas employers and partner agencies to fill manpower demands in sectors such as manufacturing, logistics and warehousing, construction, retail, hospitality, driving and delivery, and healthcare. Our role is to make the journey from application to departure clear, organised and well-supported for every candidate.
+Our team brings together expertise in human resources, recruitment, education, taxation, careers and business growth, so our clients can get the guidance they need under one roof.
 
-What we do:
-• Manpower Recruitment – sourcing, screening and shortlisting candidates for overseas employers
-• HR Consultancy – recruitment support and staffing solutions for businesses
-• Student Consultancy – guidance for students planning to study abroad
-• Career Advisory – helping candidates choose the right path and prepare their profiles
-• Visa & Documentation Assistance – support with paperwork, attestation and processing
-• Trade Testing, Interviews & Pre-Departure Orientation
-• Tax Consultancy, Marketing and Website Development Support
+Our services:
+• HR Consultancy – HR policies, hiring support and staffing solutions for organisations
+• Recruitment & Manpower Solutions – local and overseas recruitment, including placements across the GCC, Central Asia and Europe
+• Student Consultancy – study-abroad guidance, admissions and documentation support
+• Career Advisory – career planning, CV development and interview preparation
+• Tax Consultancy – tax filing, registration and compliance support for individuals and businesses
+• Visa & Documentation Assistance – paperwork, attestation and processing support
+• Marketing Support – brand building and digital marketing for growing businesses
+• Website Development Support – professional websites and online presence
+• Corporate Staffing & Business Support – flexible solutions for companies of every size
 
-Where we place talent:
-GCC – Saudi Arabia, UAE, Qatar, Kuwait, Oman, Bahrain
-Central Asia – Uzbekistan, Kyrgyzstan, Kazakhstan, and Malaysia
-Europe – Romania, Poland, Germany, Serbia, Kosovo, Moldova, Italy, Bulgaria, Spain, Lithuania, Czech Republic, Bosnia & Herzegovina and more
+Why RS Links:
+✔ One consultancy for people and businesses
+✔ Transparent, honest advice and accurate information
+✔ Personal attention from first consultation to final result
+✔ A growing international network across Pakistan, the GCC, Central Asia and Europe
 
-Our promise: transparent communication, accurate job information and genuine care for every candidate and client. Turning your dreams into reality.
+Turning your dreams into reality.
 
-Employers and partner agencies: we welcome collaboration on new demands.
-Candidates: follow our page for the latest vacancies.
+Whether you are a candidate, a student, a business owner or a partner agency, we would be glad to work with you.
 
 📍 Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi
 📞 WhatsApp: +92 371 9051589 | +92 317 0363690
@@ -36,7 +38,7 @@ Candidates: follow our page for the latest vacancies.
 
 ## Other page fields
 
-- Industry: Staffing and Recruiting
+- Industry: Business Consulting and Services
 - Company type: Privately Held
 - Headquarters: Rawalpindi, Punjab, Pakistan
-- Specialties: Overseas Recruitment, Manpower Supply, HR Consultancy, Student Consultancy, Career Advisory, Visa Processing, GCC Jobs, Europe Jobs, Central Asia Jobs
+- Specialties: HR Consultancy, Recruitment, Overseas Employment, Student Consultancy, Study Abroad, Career Advisory, Tax Consultancy, Visa & Documentation, Digital Marketing, Website Development, Business Consultancy
