@@ -187,6 +187,11 @@ def whatsapp_icon(size=64, bg=C["wa"], fg="#fff"):
 
 ICONS = {
     # 24x24 stroke icons, drawn in currentColor
+    "bolt": '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+    "wrench": '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>',
+    "roller": '<rect x="3" y="3" width="15" height="6" rx="1.5"/><path d="M18 6h3v6h-9v3"/><rect x="10.5" y="15" width="3" height="7" rx="1"/>',
+    "hammer": '<path d="M14 4l6 6-2 2-6-6z"/><path d="M12 6L9 3 6 6l3 3M13 11L4 20l-1-1 9-9"/>',
+    "rebar": '<path d="M4 3v18M10 3v18M16 3v18M2 8h20M2 16h20"/>',
     "money": '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/>',
     "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     "home": '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
