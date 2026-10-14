@@ -1,7 +1,7 @@
 """2026-10-13: Saudi Arabia construction — redesign of the user's own ad
 (demands/2026-10-13-saudi-construction/user-ad-v2-source.jpg), same content, new theme.
 Content from the user's ad: Electrician 08, Plumber 10, Painter 10, Shuttering Carpenter 10,
-Steel Fixer 10, each 1200 + 300 SAR · facilities: free ticket (on visa/departure), accommodation,
+Steel Fixer 10, each 1200 + 300 SAR · facilities: accommodation,
 food 3 times, medical, transport, kitchen facility · 2-year contract · duty 9 hours · age 21–37 ·
 best salary in Saudi Riyal · bring complete documents · urgent CV selection.
 Phone order per user: 0317 first."""
@@ -30,8 +30,9 @@ DATA = {
                  ("hammer", "Shuttering Carpenter", "", "10"), ("rebar", "Steel Fixer", "", "10")],
         "best": ["BEST SALARY", "Paid in Saudi Riyal"],
         "fac_title": "FACILITIES BY THE COMPANY",
-        "facilities": [("plane", "Free ticket (on visa / departure)"), ("home", "Accommodation"), ("food", "Food (3 times a day)"),
+        "facilities": [("home", "Accommodation"), ("food", "Food (3 times a day)"),
                        ("medical", "Medical facility"), ("bus", "Transport"), ("gear", "Kitchen facility"),
+                       ("check", "Other benefits as per labour law"),
                        ("clock", "Duty: 9 hours"), ("calendar", "Contract: 2 years"), ("user", "Age limit: 21 – 37 years")],
         "docs": "Bring your complete documents",
         "cv": "URGENT CV SELECTION",
@@ -48,8 +49,9 @@ DATA = {
                  ("hammer", "شٹرنگ کارپینٹر", "Shuttering Carpenter", "10"), ("rebar", "اسٹیل فکسر", "Steel Fixer", "10")],
         "best": ["بہترین تنخواہ", "سعودی ریال میں"],
         "fac_title": "کمپنی کی طرف سے سہولیات",
-        "facilities": [("plane", "مفت ٹکٹ (ویزا / روانگی پر)"), ("home", "رہائش کمپنی کی طرف سے"), ("food", f"کھانا ({N(3)} وقت)"),
+        "facilities": [("home", "رہائش کمپنی کی طرف سے"), ("food", f"کھانا ({N(3)} وقت)"),
                        ("medical", "میڈیکل کی سہولت"), ("bus", "ٹرانسپورٹ"), ("gear", "کچن کی سہولت"),
+                       ("check", "دیگر مراعات لیبر لاء کے مطابق"),
                        ("clock", f"ڈیوٹی: {N(9)} گھنٹے"), ("calendar", f"کنٹریکٹ: {N(2)} سال"), ("user", f"عمر کی حد: {N('21 – 37')} سال")],
         "docs": "اپنے مکمل دستاویزات ساتھ لائیں",
         "cv": f"فوری {N('CV')} سلیکشن",
