@@ -1,5 +1,5 @@
 """Saudi Arabia — Warehouse Workers for SMASCO (2026-10-14). Facts from the user: warehouse workers,
-salary 1500 SAR, food + accommodation provided, SMASCO company (named at user request). Real RS Links photos. Urdu only."""
+salary 1500 SAR, accommodation provided (food removed 2026-10-14), SMASCO company (named at user request). Real RS Links photos. Urdu only."""
 from common import C, PHOTOS, WHATSAPP, flag, icon, logo_img, page, render, whatsapp_icon
 from style_corporate_grid import T
 
@@ -49,9 +49,6 @@ def build():
 
 <div class='abs' style='top:1022px;left:30px;right:30px;height:88px;display:flex;gap:14px' data-check='fac'>
 
- <div style='flex:1;border-radius:20px;background:{GREEN};display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 6px 16px rgba(0,64,31,.25)'>
-  <div style='width:58px;height:58px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center'>{icon('food', 32, NAVY, 2.3)}</div>
-  {f.txt('کھانا کمپنی کی طرف سے', 0, 32, '#fff', 'font-weight:700', 1.6)}</div>
  <div style='flex:1;border-radius:20px;background:{GREEN};display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 6px 16px rgba(0,64,31,.25)'>
   <div style='width:58px;height:58px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center'>{icon('home', 32, NAVY, 2.3)}</div>
   {f.txt('رہائش کمپنی کی طرف سے', 0, 32, '#fff', 'font-weight:700', 1.6)}</div>
