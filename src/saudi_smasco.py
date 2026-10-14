@@ -1,5 +1,5 @@
 """Saudi Arabia — Warehouse Workers for SMASCO (2026-10-14). Facts from the user: warehouse workers,
-salary 1500 SAR, SMASCO company (named at user request). Real RS Links photos. Urdu only."""
+salary 1500 SAR, food + accommodation provided, SMASCO company (named at user request). Real RS Links photos. Urdu only."""
 from common import C, PHOTOS, WHATSAPP, flag, icon, logo_img, page, render, whatsapp_icon
 from style_corporate_grid import T
 
@@ -37,7 +37,7 @@ def build():
  {f.txt('ویئر ہاؤس ورکرز', 0, 76, '#fff', 'font-weight:700;margin-top:6px', 1.55)}
  <div style='font-family:Anton;font-size:34px;color:#CFE8D9;letter-spacing:2px;direction:ltr;text-align:right;margin-top:22px'>WAREHOUSE WORKERS</div></div>
 
-<div class='abs' style='top:720px;left:30px;right:30px;height:290px;display:flex;gap:20px;align-items:center;direction:ltr' data-check='mid'>
+<div class='abs' style='top:716px;left:30px;right:30px;height:290px;display:flex;gap:20px;align-items:center;direction:ltr' data-check='mid'>
  {ph('rslinks_team_scan', 290, 280, 22, 5)}
  <div style='flex:1;height:280px;border-radius:24px;background:#fff;border:6px solid {GOLD};box-shadow:0 10px 24px rgba(0,64,31,.22);display:flex;flex-direction:column;align-items:center;justify-content:center;direction:rtl'>
   <div style='display:flex;align-items:center;gap:10px'><div style='width:54px;height:54px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center'>{icon('money', 30)}</div>
@@ -47,10 +47,17 @@ def build():
  {ph('rslinks_worker_pack', 290, 280, 22, 5)}
 </div>
 
-<div class='abs' style='top:1030px;left:30px;right:30px;height:150px;border-radius:24px;background:{NAVY};display:flex;align-items:center;gap:22px;padding:0 30px;box-shadow:0 8px 22px #0003' data-check='cv'>
- <div style='flex:none'>{whatsapp_icon(86)}</div>
- <div>{f.txt(f"خواہشمند حضرات اپنی {N('CV')} نیچے دیے گئے نمبرز پر واٹس ایپ کریں", 0, 30, '#fff', 'font-weight:700', 1.7)}
-  {f.txt('مزید تفصیلات کے لیے ابھی رابطہ کریں', 0, 24, GOLD, 'font-weight:700', 1.7)}</div></div>
+<div class='abs' style='top:1022px;left:30px;right:30px;height:88px;display:flex;gap:14px' data-check='fac'>
+
+ <div style='flex:1;border-radius:20px;background:{GREEN};display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 6px 16px rgba(0,64,31,.25)'>
+  <div style='width:58px;height:58px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center'>{icon('food', 32, NAVY, 2.3)}</div>
+  {f.txt('کھانا کمپنی کی طرف سے', 0, 32, '#fff', 'font-weight:700', 1.6)}</div>
+ <div style='flex:1;border-radius:20px;background:{GREEN};display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 6px 16px rgba(0,64,31,.25)'>
+  <div style='width:58px;height:58px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center'>{icon('home', 32, NAVY, 2.3)}</div>
+  {f.txt('رہائش کمپنی کی طرف سے', 0, 32, '#fff', 'font-weight:700', 1.6)}</div>
+</div>
+<div class='abs' style='top:1122px;left:30px;right:30px;height:62px;border-radius:18px;background:{NAVY};display:flex;align-items:center;justify-content:center;gap:14px' data-check='cv'>
+ {whatsapp_icon(44)}{f.txt(f"خواہشمند حضرات اپنی {N('CV')} نیچے دیے گئے نمبرز پر واٹس ایپ کریں", 0, 24, '#fff', 'font-weight:700', 1.6)}</div>
 
 <div class='abs' style='top:1196px;left:0;width:1080px;height:154px;background:linear-gradient(100deg,{DEEP},{GREEN});border-top:6px solid {GOLD}'></div>
 <div class='abs' style='top:1196px;height:154px;right:30px;width:500px;display:flex;flex-direction:column;justify-content:center;text-align:right'>
