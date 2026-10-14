@@ -117,9 +117,18 @@ def build(d, lang):
     loc = (f"<div style='display:inline-flex;align-items:center;gap:10px;background:{EM};border-radius:12px;padding:{'0 16px 6px' if ur else '8px 16px'};margin-top:{14 if ur else 18}px'>"
            f"{icon('pin', 26, '#fff', 2.4)}{f.txt(t['where'], 22, 23, '#fff', 'font-weight:800', 1.7 if ur else 1.1)}</div>")
     opener = f.txt(t["opener"], 22, 22, "#DCE5E1", "font-weight:600;margin-top:" + ("10px" if ur else "16px"), 1.75 if ur else 1.3)
+    brand = ""
+    if d.get("brand_logo"):
+        bl = d["brand_logo"]
+        brand = ((f.txt(bl['caption'], 20, 26, GOLD, 'font-weight:700;white-space:nowrap', 1.6 if ur else 1.15) if bl.get('caption') else '')
+                 + f"<div style='display:flex;align-items:center;gap:16px;margin:4px 0 {bl.get('gap', 10)}px'>"
+                 f"<div style='background:#fff;border-radius:18px;padding:8px 16px;box-shadow:0 8px 20px #0007;border:4px solid {GOLD}'>"
+                 f"<img src='{(PHOTOS / bl['file']).as_uri()}' style='width:{bl['w']}px;display:block'></div>"
+                 f"{f.txt(bl['side'], 20, 30, '#fff', 'font-weight:700;white-space:nowrap', 1.6 if ur else 1.15) if bl.get('side') else ''}</div>")
+        shield = ""
     hero = (f"<div class='abs' style='top:{hy}px;left:0;width:1080px;height:{H}px;background:{CHAR};overflow:hidden'>{pic}"
             f"<div class='abs' style='top:{g['title_top']}px;inset-inline-start:36px;width:{1080 - pw - 20}px'>"
-            f"<div style='display:flex;align-items:flex-start;gap:16px'>{shield}<div>{title}</div></div>{loc}{opener}</div></div>")
+            f"{brand}<div style='display:flex;align-items:flex-start;gap:16px'>{shield}<div>{title}</div></div>{loc}{opener}</div></div>")
     # ---------------- terms tiles
     ty = hy + H
     tiles = "".join(
@@ -136,7 +145,7 @@ def build(d, lang):
     ly = ty + g["tiles_h"] + g["gap"]
     lh_ = 1350 - ly - (1350 - g["cta_top"]) - g["gap"]
 
-    def column(title, ic, items, color, flex, numbered):
+    def column(title, ic, items, color, flex, numbered, thumbs=()):
         li = "".join(
             f"<div style='display:flex;align-items:flex-start;gap:10px;margin-top:{g['li_gap_ur'] if ur else 8}px'>"
             + (f"<div class='num' style='width:28px;height:28px;border-radius:8px;background:{color};color:#fff;font-size:16px;line-height:28px;text-align:center;flex:none;margin-top:{6 if ur else 0}px'>{n + 1}</div>"
@@ -146,9 +155,13 @@ def build(d, lang):
         return (f"<div style='flex:{flex};min-width:0;height:{lh_}px;background:#fff;border-radius:20px;box-shadow:0 6px 18px rgba(16,33,46,.12);"
                 f"padding:{'8px 20px' if ur else '16px 20px'};border-top:7px solid {color}'>"
                 f"<div style='display:flex;align-items:center;gap:12px'><div class='ic' style='width:44px;height:44px;background:{color}'>{icon(ic, 24)}</div>"
-                f"{f.head(title, 26, 25, color)}</div>{li}</div>")
+                f"{f.head(title, 26, 25, color)}</div>{li}"
+                + (f"<div style='display:flex;gap:10px;margin-top:12px'>" + "".join(
+                    f"<div style='flex:1;height:{g.get('thumb_h', 150)}px;border-radius:14px;overflow:hidden;box-shadow:0 4px 10px #0003'>"
+                    f"<img src='{(PHOTOS / (n + '.png')).as_uri()}' style='width:100%;height:100%;object-fit:cover;display:block'></div>" for n in thumbs) + "</div>" if thumbs else "")
+                + "</div>")
     lists = (f"<div class='abs' style='top:{ly}px;left:30px;right:30px;display:flex;gap:14px' data-check='lists-{lang}'>"
-             f"{column(t['duties_title'], 'doc', t['duties'], CHAR2, 1.08, True)}{column(t['req_title'], 'user', t['reqs'], EM, 1, False)}</div>")
+             f"{column(t['duties_title'], 'doc', t['duties'], CHAR2, 1.08, True)}{column(t['req_title'], 'user', t['reqs'], EM, 1, False, d.get('thumbs', ()))}</div>")
     # ---------------- CTA
     ct = g["cta_top"]
     nums = "".join(f"<div class='num' style='display:block;font-size:42px;color:{navy};line-height:1.08'>{n}</div>" for n in d["phones"])

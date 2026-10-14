@@ -11,15 +11,17 @@ N = lambda v: f"<span class='num' style='font-family:Archivo;font-weight:800;let
 DATA = {
     "stem": "RS-Links-Saudi-Arabia-Checker-Receiver",
     "country": "saudi",
-    "photo": "checker_receiver",      # drop a real photo here to replace the placeholder scene
+    "photo": "rslinks_worker_hero",   # real RS Links photo: worker scanning / checking a carton
+    "thumbs": ["rslinks_team_scan", "rslinks_worker_pack"],
+    "brand_logo": {"file": "panda_logo_src-ad.png", "w": 220, "caption": "سعودی عرب کی مشہور سپر مارکیٹ", "side": "کے لیے", "gap": 2},
     "jacket": "CHECKER",
     "phones": ["+92 317 0363690", WHATSAPP],
     "email": "hr@rslinksconsultants.com",
-    "layout": {"header_h": 140, "hero_h": 400, "pic_w": 470, "title_top": 22, "tiles_h": 120, "gap": 14,
-               "li_gap_ur": 9, "li_px_ur": 19, "li_lh_ur": 1.75, "cta_top": 1196},
+    "layout": {"header_h": 140, "hero_h": 460, "pic_w": 470, "title_top": 12, "tiles_h": 110, "gap": 14,
+               "li_gap_ur": 3, "li_px_ur": 18, "li_lh_ur": 1.75, "cta_top": 1196, "thumb_h": 112},
     "ur": {
         "urgent": "فوری ضرورت",
-        "kicker": f"<span style='white-space:nowrap;font-size:22px'>سعودی عرب کی مشہور سپر مارکیٹ <span style='font-family:Archivo;font-weight:900;color:#fff;background:#2E7D32;border-radius:8px;padding:0 9px;direction:ltr;unicode-bidi:isolate;display:inline-block;line-height:1.3;font-size:20px'>Panda</span> کے لیے</span>",   # employer named at user request (2026-10-14)
+        "kicker": "",
         "title": "چیکر اینڈ ریسیور",
         "title_en": "CHECKER &amp; RECEIVER",
         "where": "فوری ویزہ • فوری روانگی",
