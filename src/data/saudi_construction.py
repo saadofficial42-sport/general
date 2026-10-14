@@ -16,6 +16,7 @@ DATA = {
     "country": "saudi",
     "green": GREEN,
     "hero_photo": "saudi_construction_hero",   # drop a real photo here to replace the silhouette scene
+    "phones": ["+92 317 0363690", "+92 371 9051589"],   # 0317 first (user, 2026-10-13)
     "layout": {"header_h": 150, "hero_h": 440, "head_top": 30, "head_top_ur": 10, "gap": 14,
                "thead_h": 48, "row_h": 64, "table_w": 640, "term_h": 96, "note_h": 84, "cta_top": 1222},
     "en": {

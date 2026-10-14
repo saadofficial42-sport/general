@@ -217,7 +217,7 @@ def build(d, lang):
             f"{icon('check', 34, '#fff', 3)}{f.head(t['cv'], 34, 28, '#fff')}</div></div>")
     # ---------------- CTA
     ct = g["cta_top"]
-    nums = "".join(f"<div class='num' style='display:block;font-size:40px;color:{navy};line-height:1.08'>{n}</div>" for n in (WHATSAPP, PHONE2))
+    nums = "".join(f"<div class='num' style='display:block;font-size:40px;color:{navy};line-height:1.08'>{n}</div>" for n in d.get("phones", (WHATSAPP, PHONE2)))
     cta = (f"<div class='abs' style='top:{ct}px;left:0;width:1080px;height:{1350-ct}px;background:linear-gradient(100deg,{C['navy']},{green})'></div>"
            f"<div class='abs' style='top:{ct}px;height:{1350-ct}px;inset-inline-start:30px;width:520px;display:flex;flex-direction:column;justify-content:center'>"
            f"{f.head(t['apply'], 46, 34, gold, 'line-height:1.4' if ur else '')}"
