@@ -92,6 +92,7 @@ const terms = new Table({
     row("Employee Name", e.name),
     row("Father's Name", e.fatherName),
     row("CNIC No.", e.cnic),
+    ...(e.address ? [row("Address", e.address)] : []),
     row("Designation", e.position),
     row("Mode of Work", e.workMode),
     row("Monthly Salary", `${salary} (${e.salaryWords} only)`),
@@ -160,7 +161,7 @@ const body = [
   p([r("This Employment Agreement (the "), b("“Agreement”"), r(") is made and entered into on the date stated above by and between:")]),
   p([b(COMPANY), r(`, a private limited company incorporated under the laws of Pakistan, having its office at ${COMPANY_ADDRESS} (hereinafter the `), b("“Company”"), r(", which expression shall include its successors and assigns);")]),
   p([b("AND", { color: BRAND })], { alignment: AlignmentType.CENTER }),
-  p([b(`${e.salutation} ${e.name}`), r(`, ${e.relation} ${e.fatherName}, holding CNIC No. `), b(e.cnic), r(" (hereinafter the "), b("“Employee”"), r(").")]),
+  p([b(`${e.salutation} ${e.name}`), r(`, ${e.relation} ${e.fatherName}, holding CNIC No. `), b(e.cnic), r(`${e.address ? `, resident of ${e.address}` : ""} (hereinafter the `), b("“Employee”"), r(").")]),
   p("The Company and the Employee are each referred to as a “Party” and together as the “Parties”. The Parties agree to the following terms and conditions."),
 
   new Paragraph({ spacing: { before: 120, after: 100 }, children: [b("KEY TERMS", { color: BRAND })] }),
