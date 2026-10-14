@@ -316,6 +316,16 @@ def _flag_file(code):
     return lambda uid=None: re.sub(r"^.*?<svg[^>]*>|</svg>\s*$", "", raw, flags=re.S)
 
 
+def flag_turkey(uid="tr"):
+    """Turkey flag, 3:2 (viewBox 1200x800): red field, white crescent + star (proportions per law)."""
+    pts = " ".join(f"{583.33 + 100 * math.cos(math.radians(a)):.2f},{400 + 100 * math.sin(math.radians(a)):.2f}"
+                   if i % 2 == 0 else
+                   f"{583.33 + 38.2 * math.cos(math.radians(a)):.2f},{400 + 38.2 * math.sin(math.radians(a)):.2f}"
+                   for i, a in enumerate(range(180, 540, 36)))
+    return (f'<rect width="1200" height="800" fill="#E30A17"/><circle cx="400" cy="400" r="200" fill="#fff"/>'
+            f'<circle cx="450" cy="400" r="160" fill="#E30A17"/><polygon points="{pts}" fill="#fff"/>')
+
+
 FLAGS = {
     "pakistan": (flag_pakistan, 900, 600),
     "uzbekistan": (flag_uzbekistan, 500, 250),
@@ -326,6 +336,7 @@ FLAGS = {
     "serbia": (_flag_file("rs"), 756.13, 504.09),
     # Saudi Arabia: green field, white Shahada + sword; ratio 2:3
     "saudi": (_flag_file("sa"), 900, 600),
+    "tr": (flag_turkey, 1200, 800),
 }
 
 
