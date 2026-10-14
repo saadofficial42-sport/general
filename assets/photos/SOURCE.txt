@@ -1,3 +1,4 @@
 rslinks_*.png: cropped from RS Links own Saudi ad (demands/2026-10-07-saudi/user-ad-before-fix.jpg), RS Links branded staff photos supplied by the user.
 rslinks_construction_engineer.png: cropped from RS Links' own Saudi construction ad (demands/2026-10-13-saudi-construction/user-ad-v2-source.jpg), supplied by the user.
 turkey_factory_worker_src-ad.png: cropped from a Phoenix HR Consultants ad (demands/2026-10-14-turkey-factory/ref.jpg); reused ONLY because the user explicitly asked to keep the same picture (2026-10-14).
+rslinks_drivers_trucks.png: from the user's own RS Links drivers ad (demands/2026-10-14-saudi-drivers/ref.jpg); noon logos painted out, Luna/noon box cropped off (user request).
