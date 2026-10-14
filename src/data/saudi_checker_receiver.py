@@ -19,7 +19,7 @@ DATA = {
                "li_gap_ur": 9, "li_px_ur": 19, "li_lh_ur": 1.75, "cta_top": 1196},
     "ur": {
         "urgent": "فوری ضرورت",
-        "kicker": "سعودی عرب کی ایک معروف سپر مارکیٹ کے لیے",
+        "kicker": f"<span style='white-space:nowrap;font-size:22px'>سعودی عرب کی مشہور سپر مارکیٹ <span style='font-family:Archivo;font-weight:900;color:#fff;background:#2E7D32;border-radius:8px;padding:0 9px;direction:ltr;unicode-bidi:isolate;display:inline-block;line-height:1.3;font-size:20px'>Panda</span> کے لیے</span>",   # employer named at user request (2026-10-14)
         "title": "چیکر اینڈ ریسیور",
         "title_en": "CHECKER &amp; RECEIVER",
         "where": "فوری ویزہ • فوری روانگی",
