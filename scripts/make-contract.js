@@ -95,6 +95,7 @@ const terms = new Table({
     ...(e.address ? [row("Address", e.address)] : []),
     row("Designation", e.position),
     row("Mode of Work", e.workMode),
+    ...(e.officeHours ? [row("Office Timings", e.officeHours)] : []),
     row("Monthly Salary", `${salary} (${e.salaryWords} only)`),
     row("Salary Disbursement", `Paid ${e.payDay}`),
     row("Date of Joining", e.startDate),
@@ -112,6 +113,10 @@ const sigBlock = (left, right) => {
     rows: [new TableRow({ cantSplit: true, children: [col(left), col(right)] })] });
 };
 
+const officeHours = () => sub(e.officeHours
+  ? ["Office timings shall be ", b(e.officeHours), ", on the working days communicated by the Company from time to time. The Company may change these timings with reasonable notice."]
+  : `Working days and hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`);
+
 function modeOfWork() {
   const mode = (e.workMode || "").toLowerCase();
   if (mode === "remote") return [
@@ -121,7 +126,7 @@ function modeOfWork() {
   ];
   if (mode === "on-site" || mode === "in office") return [
     sub(["The Employee shall work ", b("in office"), `, from the Company's office at ${COMPANY_ADDRESS}, or at such other location as the Company may reasonably direct.`]),
-    sub(`Working days and hours shall be as communicated by the Company from time to time.${e.workHoursNote ? " " + e.workHoursNote : ""}`),
+    officeHours(),
   ];
   return [
     sub("The Employee shall work from the Company's office or remotely, as directed by the Company in writing from time to time."),
