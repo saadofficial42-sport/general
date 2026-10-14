@@ -59,11 +59,14 @@ def aisle_scene(w, h, uid, label="SECURITY"):
     return f"<svg width='{w}' height='{h}' style='display:block'>{glow}{lights}{floor}{shelf}{cam}{off}</svg>"
 
 
-def job_picture(name, w, h, uid, label="SECURITY"):
+def job_picture(name, w, h, uid, label="SECURITY", scene="aisle"):
     for e in ("jpg", "jpeg", "png", "webp"):
         p = PHOTOS / f"{name}.{e}"
         if p.exists():
             return f"<img src='{p.as_uri()}' style='width:{w}px;height:{h}px;object-fit:cover;display:block'>"
+    if scene == "factory":
+        from style_trio import factory_scene
+        return factory_scene(w, h, uid)
     return aisle_scene(w, h, uid, label)
 
 
@@ -79,6 +82,9 @@ def css(ur):
 
 
 def build(d, lang):
+    global CHAR, CHAR2, EM, GOLD
+    pal = d.get("palette", {})
+    CHAR, CHAR2, EM, GOLD = (pal.get(k, v) for k, v in (("char", "#151D22"), ("char2", "#22303A"), ("em", "#1E9E4A"), ("gold", "#F0B443")))
     ur = lang == "ur"
     f = T(ur)
     t = d[lang]
@@ -97,7 +103,7 @@ def build(d, lang):
     # ---------------- hero
     hy, H = hh + 6, g["hero_h"]
     pw = g["pic_w"]
-    pic = (f"<div class='abs' style='top:0;inset-inline-end:0;width:{pw}px;height:{H}px;overflow:hidden'>{job_picture(d['photo'], pw, H, lang, d.get('jacket', 'SECURITY'))}"
+    pic = (f"<div class='abs' style='top:0;inset-inline-end:0;width:{pw}px;height:{H}px;overflow:hidden'>{job_picture(d['photo'], pw, H, lang, d.get('jacket', 'SECURITY'), d.get('scene', 'aisle'))}"
            f"<div style='position:absolute;inset:0;background:linear-gradient({'270deg' if ur else '90deg'},{CHAR} 0,#151D2200 30%)'></div></div>")
     shield = (f"<svg width='92' height='106' viewBox='0 0 92 106' style='flex:none'><path d='M46 4 L86 18 V52 Q86 86 46 102 Q6 86 6 52 V18Z' fill='{EM}' stroke='{GOLD}' stroke-width='5'/>"
               f"<path d='M28 54 L42 68 L66 40' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
@@ -124,7 +130,7 @@ def build(d, lang):
         f"{(f'<div class=num style=\"font-size:{vs}px;color:#fff;line-height:1.05;white-space:nowrap\">{val}</div>') if num else f.txt(val, 19, 19, '#fff', 'font-weight:800', 1.6 if ur else 1.15)}"
         f"{f.txt(sub, 14, 15, '#BFD9CB', 'font-weight:600', 1.5 if ur else 1.15) if sub else ''}</div></div>"
         for i, (ic, lab, val, num, vs, sub, fl) in enumerate(t["tiles"]))
-    tiles_html = (f"<div class='abs' style='top:{ty}px;left:0;width:1080px;height:{g['tiles_h']}px;background:linear-gradient(100deg,#0F5E35,{EM});"
+    tiles_html = (f"<div class='abs' style='top:{ty}px;left:0;width:1080px;height:{g['tiles_h']}px;background:linear-gradient(100deg,{pal.get('tiles_from', '#0F5E35')},{EM});"
                   f"display:flex;align-items:stretch;padding:0 20px;box-sizing:border-box' data-check='tiles-{lang}'>{tiles}</div>")
     # ---------------- duties + requirements
     ly = ty + g["tiles_h"] + g["gap"]
