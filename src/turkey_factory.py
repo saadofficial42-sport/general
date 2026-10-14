@@ -1,6 +1,5 @@
 """Turkey factory-worker ad (2026-10-14). Converts another agency's ad; the photo is kept at the
-user's explicit request ("picture same"). Interview dates (21-23 Sep 2026) are already past, so they
-are replaced by 'online interview with delegation - share your CV'."""
+user's explicit request ("picture same"). Interview info removed entirely (user request)."""
 from common import C, PHOTOS, WHATSAPP, font_css, flag, icon, logo_img, page, render, whatsapp_icon
 
 RED, NAVY, GOLD = "#E30A17", "#0D2D63", "#FFD23F"
@@ -41,9 +40,9 @@ def build():
   <div style='display:flex;align-items:baseline;gap:10px'><span class='num' style='font-size:82px;color:{NAVY};line-height:1'>28,000</span><span class='anton' style='font-size:38px;color:{RED}'>LIRA</span></div></div></div>
 
 <div class='abs' style='top:830px;left:36px;width:540px;height:160px;background:linear-gradient(120deg,{RED},#B00712);border-radius:20px;display:flex;align-items:center;gap:20px;padding:0 24px;box-sizing:border-box;box-shadow:0 8px 20px #0003'>
- <div style='width:84px;height:84px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none'>{icon('video', 48, RED, 2.2)}</div>
- <div><div class='anton' style='font-size:30px;color:#fff;line-height:1.1'>INTERVIEW WITH DELEGATION</div>
-  <div class='anton' style='font-size:72px;color:{GOLD};line-height:1'>ONLINE</div></div></div>
+ <div style='width:84px;height:84px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none'>{whatsapp_icon(60)}</div>
+ <div><div class='anton' style='font-size:34px;color:#fff;line-height:1.1'>SEND YOUR CV</div>
+  <div class='anton' style='font-size:66px;color:{GOLD};line-height:1'>TODAY!</div></div></div></div>
 
 <div class='abs' style='top:1016px;left:0;width:1080px;height:334px;background:linear-gradient(100deg,{NAVY},{C['green']})'></div>
 <div class='abs' style='top:1040px;left:36px;width:1008px;display:flex;align-items:center;gap:16px'>
@@ -52,9 +51,9 @@ def build():
  {whatsapp_icon(92)}<div>{nums}</div></div>
 <div class='abs' style='top:1146px;right:36px;width:420px;text-align:right'>
  <div class='anton' style='font-size:58px;color:{GOLD};line-height:1'>APPLY NOW!</div>
- <div style='display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:14px'>{icon('mail', 26, GOLD, 2)}<span style='font-size:24px;font-weight:700;color:#fff'>{EMAIL}</span></div></div>
+ <div style='display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:14px'>{icon('mail', 26, GOLD, 2)}<span style='font-family:Archivo;font-size:24px;font-weight:700;color:#fff'>{EMAIL}</span></div></div>
 <div class='abs' style='top:1290px;left:0;width:1080px;height:60px;background:{GOLD};display:flex;align-items:center;justify-content:center'>
- <span style='font-size:18px;font-weight:800;color:{NAVY};letter-spacing:.5px;white-space:nowrap'>RS LINKS CONSULTANTS PVT. LTD. &nbsp;·&nbsp; Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi</span></div>
+ <span style='font-family:Archivo;font-size:18px;font-weight:800;color:{NAVY};letter-spacing:.5px;white-space:nowrap'>RS LINKS CONSULTANTS PVT. LTD. &nbsp;·&nbsp; Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi</span></div>
 """
     return page(body, ".canvas{font-family:'Archivo',sans-serif;background:#F9F8F4}.num{font-family:'Anton',sans-serif;letter-spacing:.5px}")
 
