@@ -1,7 +1,7 @@
 """2026-10-14: Uzbekistan factory workers — new ad (user request). New from user today: accommodation,
 food and transport FREE; ticket by the company (replaces the earlier "ticket from Punjab" note).
 Other facts reused from the 2026-10-06 factory demand (demands/2026-10-06-uzbekistan-combined, section B):
-Tashkent & Samarkand · 50 posts · hosiery, packing, ironing, shifting goods · $400 · duty 10 hours + overtime ·
+Tashkent & Samarkand · 50 posts · hosiery, packing, ironing, shifting goods · $550 (user 2026-10-14; was $400) · duty 10 hours + overtime ·
 age 21–35 · visa B-2 · processing 30–35 days · medical · other benefits per local labour law. Urdu only."""
 from common import WHATSAPP
 
@@ -24,7 +24,7 @@ DATA = {
         "title_en": "FACTORY WORKERS",
         "where": "تاشقند اور ثمرقند",
         "opener": "بہتر مستقبل کی جانب ایک مضبوط قدم",
-        "tiles": [("money", "تنخواہ", "$400", True, 40, "امریکی ڈالر", 1.05),
+        "tiles": [("money", "تنخواہ", "$550", True, 40, "امریکی ڈالر", 1.05),
                   ("user", "آسامیاں", "50", True, 40, "", .8),
                   ("clock", "ڈیوٹی", f"{N(10)} گھنٹے", False, 0, "+ اوور ٹائم", 1.05),
                   ("calendar", "عمر", f"{N('21 – 35')} سال", False, 0, "", 1.05),
