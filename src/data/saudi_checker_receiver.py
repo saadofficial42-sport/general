@@ -1,6 +1,6 @@
 """Demand 2026-10-14: Saudi Arabia — Checker & Receiver for a well-known super market
 (demands/2026-10-14-saudi-checker-receiver/ref.jpg; employer name omitted per ad rules).
-Facts: urgent visa · immediate departure · salary 1300 + 200 riyal (food) · duty 08 hours + 1 hour rest ·
+Facts: urgent visa · immediate departure · salary 1300 riyal; food free (user 2026-10-14, replaces the 200 riyal food line) · duty 08 hours + 1 hour rest ·
 visa: Istiqdam · contract 2 years · accommodation, medical, transport by company · other benefits per
 local labour law · bring complete documents · test & interview ongoing · WhatsApp documents + CV.
 Duties as listed in the source. No post count / age in source. Urdu only."""
@@ -25,7 +25,7 @@ DATA = {
         "where": "فوری ویزہ • فوری روانگی",
         "opener": "ٹیسٹ اور انٹرویو جاری ہیں",
         "tiles": [("money", "تنخواہ", "1300 SAR", True, 36, "", 1.25),
-                  ("food", "کھانے کا الاؤنس", "200 SAR", True, 36, "", 1.1),
+                  ("food", "کھانا", "مفت", False, 0, "کمپنی کی طرف سے", 1.0),
                   ("clock", "ڈیوٹی", "08 + 1", True, 36, "گھنٹے (1 گھنٹہ ریسٹ)", 1.1),
                   ("calendar", "معاہدہ", f"{N(2)} سال", False, 0, "", .85),
                   ("visa", "ویزا", "استقدام", False, 0, "", .85)],
