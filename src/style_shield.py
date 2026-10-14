@@ -18,7 +18,7 @@ from style_corporate_grid import T
 INK, CHAR, CHAR2, EM, GOLD = "#0B1512", "#151D22", "#22303A", "#1E9E4A", "#F0B443"
 
 
-def aisle_scene(w, h, uid):
+def aisle_scene(w, h, uid, label="SECURITY"):
     """Store aisle in perspective with a uniformed officer (back view) holding a radio, CCTV camera above."""
     vx, vy = w * .5, h * .42
     shelf = ""
@@ -55,16 +55,16 @@ def aisle_scene(w, h, uid):
            f"<rect x='-14' y='-232' width='28' height='22'/><circle cx='0' cy='-250' r='26'/>"
            f"<path d='M-28 -252 Q-28 -284 0 -286 Q28 -284 28 -252Z'/><path d='M-30 -254 L12 -258 L40 -246 L10 -250Z'/>"
            f"<rect x='30' y='-208' width='16' height='36' rx='3'/><rect x='40' y='-246' width='4' height='40'/>"
-           f"<text x='0' y='-150' font-family='Anton' font-size='26' fill='#E8E2CF' text-anchor='middle' letter-spacing='1'>SECURITY</text></g>")
+           f"<text x='0' y='-150' font-family='Anton' font-size='26' fill='#E8E2CF' text-anchor='middle' letter-spacing='1'>{label}</text></g>")
     return f"<svg width='{w}' height='{h}' style='display:block'>{glow}{lights}{floor}{shelf}{cam}{off}</svg>"
 
 
-def job_picture(name, w, h, uid):
+def job_picture(name, w, h, uid, label="SECURITY"):
     for e in ("jpg", "jpeg", "png", "webp"):
         p = PHOTOS / f"{name}.{e}"
         if p.exists():
             return f"<img src='{p.as_uri()}' style='width:{w}px;height:{h}px;object-fit:cover;display:block'>"
-    return aisle_scene(w, h, uid)
+    return aisle_scene(w, h, uid, label)
 
 
 def css(ur):
@@ -97,13 +97,13 @@ def build(d, lang):
     # ---------------- hero
     hy, H = hh + 6, g["hero_h"]
     pw = g["pic_w"]
-    pic = (f"<div class='abs' style='top:0;inset-inline-end:0;width:{pw}px;height:{H}px;overflow:hidden'>{job_picture(d['photo'], pw, H, lang)}"
+    pic = (f"<div class='abs' style='top:0;inset-inline-end:0;width:{pw}px;height:{H}px;overflow:hidden'>{job_picture(d['photo'], pw, H, lang, d.get('jacket', 'SECURITY'))}"
            f"<div style='position:absolute;inset:0;background:linear-gradient({'270deg' if ur else '90deg'},{CHAR} 0,#151D2200 30%)'></div></div>")
     shield = (f"<svg width='92' height='106' viewBox='0 0 92 106' style='flex:none'><path d='M46 4 L86 18 V52 Q86 86 46 102 Q6 86 6 52 V18Z' fill='{EM}' stroke='{GOLD}' stroke-width='5'/>"
               f"<path d='M28 54 L42 68 L66 40' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
     if ur:
         title = (f.txt(t["kicker"], 0, 24, GOLD, 'font-weight:700', 1.7)
-                 + f.txt(t["title"], 0, 52, '#fff', 'font-weight:700', 1.6)
+                 + f.txt(t["title"], 0, 52, '#fff', 'font-weight:700;margin-top:10px', 1.6)
                  + f"<div style='font-family:Anton;font-size:30px;color:#B9C6C0;letter-spacing:1.5px;direction:ltr;text-align:right;margin-top:2px'>{t['title_en']}</div>")
     else:
         title = (f"<div class='mono' style='font-size:18px;color:{GOLD};letter-spacing:3px'>{t['kicker']}</div>"
