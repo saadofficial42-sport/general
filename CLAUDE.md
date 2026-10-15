@@ -49,3 +49,9 @@ TODO — confirm/adjust. Defaults until specified otherwise:
 - All ad text must be large and high-contrast enough to read on a phone (body ≥ 17px, labels
   ≥ 14px on a 1080px canvas).
 - Never reuse photos from other agencies' ads (they are content sources only).
+
+## Contact details on every ad (RS Links)
+
+- WhatsApp / phone numbers, in this order: **+92 317 0363690**, **+92 371 9051589**, **+92 341 5087051**
+  (the third added 2026-10-15 for all future ads). Use `common.PHONES`.
+- Email: hr@rslinksconsultants.com
