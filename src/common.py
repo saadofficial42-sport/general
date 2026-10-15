@@ -337,6 +337,8 @@ FLAGS = {
     # Saudi Arabia: green field, white Shahada + sword; ratio 2:3
     "saudi": (_flag_file("sa"), 900, 600),
     "tr": (flag_turkey, 1200, 800),
+    # Belarus: red/green with white ornament band at hoist; ratio 1:2
+    "by": (_flag_file("by"), 900, 450),
 }
 
 
