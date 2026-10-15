@@ -1,11 +1,10 @@
 """Belarus factory workers (2026-10-15). Source: user demand text (visa-on-arrival procedure at Minsk
 airport) + a sample special work permit (Заводской рабочий / factory worker, employer in Minsk).
 The permit image contains a third person's personal data and is NOT used in the ad. Urdu only."""
-from common import C, PHOTOS, WHATSAPP, flag, icon, logo_img, page, render, whatsapp_icon
+from common import C, PHOTOS, PHONES, flag, icon, logo_img, page, render, whatsapp_icon
 from style_corporate_grid import T
 
 RED, GREEN, INK, GOLD = "#C8102E", "#00843D", "#14161C", "#F0B443"
-PHONES = ["+92 317 0363690", WHATSAPP]
 EMAIL = "hr@rslinksconsultants.com"
 N = lambda v: f"<span class='num' style='font-family:Archivo;font-weight:800;letter-spacing:0'>{v}</span>"
 
@@ -39,7 +38,7 @@ def build():
         f"<div style='display:flex;align-items:center;gap:12px;margin-top:4px'>"
         f"<div style='width:38px;height:38px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 21)}</div>"
         f"{f.txt(s, 0, 21, INK, 'font-weight:600', 1.75)}</div>" for ic, s in docs)
-    nums = "".join(f"<div class='num' style='display:block;font-size:46px;color:{INK};line-height:1.06'>{n}</div>" for n in PHONES)
+    nums = "".join(f"<div class='num' style='display:block;font-size:37px;color:{INK};line-height:1.06'>{n}</div>" for n in PHONES)
     body = f"""<div class='ur-on'>
 <div class='abs' style='top:0;left:0;width:1080px;height:140px;background:#fff'></div>
 <div class='abs' style='top:10px;right:26px;width:480px;height:120px'>{logo_img('logo-horizontal-light', 'width:480px;height:120px;object-position:right')}</div>
@@ -75,7 +74,7 @@ def build():
  {f.head('ابھی رابطہ کریں!', 0, 34, GOLD, 'line-height:1.5')}
  <div style='display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:6px;direction:ltr'>{icon('mail', 24, GOLD, 2)}
   <span style='font-family:Archivo;font-size:23px;font-weight:700;color:#fff'>{EMAIL}</span></div></div>
-<div class='abs' style='top:1220px;left:30px;height:116px;background:#fff;border-radius:24px;display:flex;align-items:center;gap:14px;padding:0 26px 0 14px;box-shadow:0 6px 16px #0006;direction:ltr'>
+<div class='abs' style='top:1216px;left:30px;height:124px;background:#fff;border-radius:24px;display:flex;align-items:center;gap:14px;padding:0 26px 0 14px;box-shadow:0 6px 16px #0006;direction:ltr'>
  {whatsapp_icon(68)}<div>{nums}</div></div>
 </div>"""
     css = (".canvas{font-family:'Nastaliq',serif;background:#F3F1EE}.ur-on .t{font-family:'Nastaliq',serif}.mir svg{transform:scaleX(-1)}"
