@@ -59,11 +59,13 @@ def front():
 
 
 def back():
-    flags = "".join(f"<img src='{(FLAGS / (c + '.svg')).as_uri()}' style='width:62px;height:42px;object-fit:cover;border-radius:5px;box-shadow:0 2px 6px #0003'>" for c in FLAG_CODES)
+    flags = "".join(f"<img src='{(FLAGS / (c + '.svg')).as_uri()}' style='width:53px;height:36px;object-fit:cover;border-radius:5px;box-shadow:0 2px 6px #0003'>" for c in FLAG_CODES)
     row = lambda ic, t, sz=24, f="Archivo": (f"<div style='display:flex;align-items:center;gap:16px'><div style='width:54px;height:54px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
                                             f"{icon(ic, 28, '#fff', 2.2)}</div><span style='font-family:{f};font-weight:700;font-size:{sz}px;color:{NAVY};line-height:1.25'>{t}</span></div>")
     nums = "<br>".join(PHONES)
-    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:18px;color:{NAVY};display:flex;align-items:center;gap:8px'>{icon('check', 18, GREEN, 3)}{t}</div>" for _, t in SERVICES[8:])
+    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:9px'>"
+                  f"<div style='width:30px;height:30px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 17, NAVY, 2.4)}</div>{t}</div>"
+                  for ic, t in SERVICES)
     return f"""
 <div style='position:absolute;inset:0;background:#fff'></div>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, GREEN, .05)}</svg>
@@ -72,12 +74,13 @@ def back():
 <div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.05:.0f}px;width:{W*0.82:.0f}px'>
  <div style='font-family:Anton;font-size:52px;color:{GREEN};line-height:1'>WHERE WE CONNECT YOU</div>
  <div style='font-family:Archivo;font-weight:700;font-size:21px;color:#A87508;margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
- <div style='display:flex;flex-wrap:wrap;gap:10px;margin-top:20px'>{flags}</div>
- <div style='font-family:Anton;font-size:30px;color:{NAVY};margin-top:22px'>ALSO OFFERING</div>
- <div style='display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-top:12px'>{svc}</div>
- <div style='background:#F6FAF7;border:2px solid {GREEN}33;border-radius:24px;box-shadow:0 6px 16px #0001;padding:18px 26px;margin-top:22px;display:flex;flex-direction:column;gap:12px;border-top:8px solid {GOLD}'>
-  <div style='font-family:Anton;font-size:34px;color:{GREEN}'>GET IN TOUCH</div>
-  {row('phone', nums, 26, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
+ <div style='display:flex;flex-wrap:wrap;gap:7px;margin-top:14px'>{flags}</div>
+ <div style='margin-top:20px;background:linear-gradient(135deg,{GREEN},{DEEP});border-radius:24px;padding:16px 22px 18px;box-shadow:0 8px 20px #0002'>
+  <div style='font-family:Anton;font-size:32px;color:{GOLD}'>OUR SERVICES</div>
+  <div style='display:grid;grid-template-columns:1fr 1fr;gap:9px 16px;margin-top:10px'>{svc}</div></div>
+ <div style='background:#F6FAF7;border:2px solid {GREEN}33;border-radius:24px;box-shadow:0 6px 16px #0001;padding:12px 24px;margin-top:16px;display:flex;flex-direction:column;gap:8px;border-top:8px solid {GOLD}'>
+  <div style='font-family:Anton;font-size:30px;color:{GREEN}'>GET IN TOUCH</div>
+  {row('phone', ' | '.join(PHONES), 22, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.13:.0f}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.035:.0f}px;display:flex;justify-content:center'>
  <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:380px;height:96px')}</div></div>"""
