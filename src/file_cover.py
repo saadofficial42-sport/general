@@ -1,12 +1,14 @@
-"""RS Links presentation folder / file cover (2026-10-16).
-Front and back panels 9 x 12 in (standard A4/letter presentation folder), plus a flat spread
-(back | front, 18 x 12 in) with 0.125 in bleed. Rendered at 96 css px/in x3 = 288 dpi; PDFs built from PNG."""
+"""RS Links file cover (2026-10-16, rev. 2): holds A4 sheets in bulk.
+Panels 9.25 x 12.25 in (235 x 311 mm) + 0.5 in spine; front mostly white, back green.
+Flat spread = back | spine | front (19 x 12.25 in) with 0.125 in bleed. Rendered at 96 css px/in x3 = 288 dpi; PDFs built from PNG."""
 from common import C, OUTPUT, PHONES, font_css, icon, logo_img, _launch
 from office_banners import ADDRESS, FLAGS, SERVICES, TAGLINE_EN, TAGLINE_UR, WEBSITE
 
 GREEN, DEEP, GOLD, NAVY, CREAM = C["green"], "#06291D", C["gold2"], "#0A1B25", "#F7F3EA"
 PX, SCALE, BLEED = 96, 3, 0.125
-W, H = int((9 + 2 * BLEED) * PX), int((12 + 2 * BLEED) * PX)
+PANEL_W, PANEL_H, SPINE = 9.25, 12.25, 0.5   # holds A4 (8.27 x 11.69 in) with margin; 0.5 in spine for bulk
+W, H = int((PANEL_W + 2 * BLEED) * PX), int((PANEL_H + 2 * BLEED) * PX)
+SW = int(SPINE * PX)
 EMAIL = "hr@rslinksconsultants.com"
 FLAG_CODES = ["pk", "sa", "ae", "qa", "kw", "om", "bh", "uz", "kg", "kz", "my", "ro", "pl", "de", "xk", "rs", "it", "bg", "es", "lt", "cz", "md", "ba"]
 
@@ -28,26 +30,29 @@ def globe(cx, cy, r, color, op):
 
 
 def front():
-    svc = "".join(f"<div style='display:flex;align-items:center;gap:10px'><div style='width:38px;height:38px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center;flex:none'>"
-                  f"{icon(ic, 21, NAVY, 2.3)}</div><span style='font-family:Archivo;font-weight:700;font-size:18px;color:#fff'>{t}</span></div>"
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:10px'><div style='width:40px;height:40px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
+                  f"{icon(ic, 22, '#fff', 2.3)}</div><span style='font-family:Archivo;font-weight:700;font-size:19px;color:{NAVY}'>{t}</span></div>"
                   for ic, t in SERVICES[:8])
     return f"""
-<div style='position:absolute;inset:0;background:linear-gradient(165deg,#0E5A3F 0%,{GREEN} 35%,{DEEP} 100%)'></div>
-<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.82, H*0.20, 260, '#ffffff', .07)}
- <circle cx='{W*0.1}' cy='{H*0.48}' r='160' fill='#ffffff07'/></svg>
-<div style='position:absolute;left:0;top:{H*0.06:.0f}px;width:14px;height:{H*0.28:.0f}px;background:{GOLD}'></div>
-<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.07:.0f}px;width:{W*0.62:.0f}px;background:#fff;border-radius:26px;padding:22px 26px;box-shadow:0 16px 36px #0007'>
- {logo_img('logo-horizontal-light', f'width:{W*0.62-52:.0f}px;height:{(W*0.62-52)*0.25:.0f}px')}</div>
-<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.27:.0f}px;width:{W*0.82:.0f}px'>
- <div style='font-family:PlexMono;font-weight:700;font-size:19px;letter-spacing:4px;color:{GOLD};white-space:nowrap'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div>
- <div style='font-family:Anton;font-size:76px;line-height:1.02;color:#fff;margin-top:12px'>YOUR TRUSTED<br>CONSULTANCY <span style='color:{GOLD}'>PARTNER</span></div>
- <div style='font-family:Dancing;font-weight:700;font-size:46px;color:#DCEBE3;margin-top:10px'>{TAGLINE_EN}</div>
+<div style='position:absolute;inset:0;background:#fff'></div>
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.84, H*0.14, 250, GREEN, .05)}
+ <path d='M{W} 0 L{W} {H*0.34} L{W*0.80} 0Z' fill='{GREEN}' opacity='.08'/></svg>
+<div style='position:absolute;left:0;top:{H*0.08:.0f}px;width:16px;height:{H*0.26:.0f}px;background:{GREEN}'></div>
+<div style='position:absolute;left:0;top:{H*0.34:.0f}px;width:16px;height:{H*0.06:.0f}px;background:{GOLD}'></div>
+<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.08:.0f}px'>
+ {logo_img('logo-horizontal-light', f'width:{W*0.66:.0f}px;height:{W*0.66*0.25:.0f}px;object-position:left')}</div>
+<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.28:.0f}px;width:{W*0.82:.0f}px'>
+ <div style='font-family:PlexMono;font-weight:700;font-size:19px;letter-spacing:4px;color:#A87508;white-space:nowrap'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div>
+ <div style='font-family:Anton;font-size:80px;line-height:1.02;color:{GREEN};margin-top:12px'>YOUR TRUSTED<br>CONSULTANCY <span style='color:{GOLD}'>PARTNER</span></div>
+ <div style='font-family:Dancing;font-weight:700;font-size:46px;color:{NAVY};margin-top:10px'>{TAGLINE_EN}</div>
  <div style='width:160px;height:5px;background:{GOLD};border-radius:3px;margin-top:22px'></div>
- <div style='display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;margin-top:26px'>{svc}</div></div>
-{waves(W, H, 'f')}
-<div style='position:absolute;left:{W*0.09:.0f}px;right:{W*0.09:.0f}px;bottom:{H*0.03:.0f}px;display:flex;flex-direction:column;align-items:center;gap:2px'>
- <div style='font-family:Nastaliq;font-size:26px;color:#fff;direction:rtl;line-height:1.8;white-space:nowrap'>{TAGLINE_UR}</div>
- <div style='font-family:Archivo;font-weight:800;font-size:22px;color:{GOLD};letter-spacing:1px'>{WEBSITE}</div></div>"""
+ <div style='display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:28px'>{svc}</div></div>
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>
+ <path d='M0 {H*0.90} C {W*0.3} {H*0.86}, {W*0.6} {H*0.95}, {W} {H*0.90} L{W} {H} L0 {H}Z' fill='{GREEN}'/>
+ <path d='M0 {H*0.875} C {W*0.3} {H*0.835}, {W*0.6} {H*0.925}, {W} {H*0.875}' stroke='{GOLD}' stroke-width='8' fill='none'/></svg>
+<div style='position:absolute;left:{W*0.09:.0f}px;right:{W*0.09:.0f}px;bottom:{H*0.022:.0f}px;display:flex;justify-content:space-between;align-items:center'>
+ <div style='font-family:Nastaliq;font-size:24px;color:#fff;direction:rtl;line-height:1.8;white-space:nowrap'>{TAGLINE_UR}</div>
+ <div style='font-family:Archivo;font-weight:800;font-size:20px;color:{GOLD}'>{WEBSITE}</div></div>"""
 
 
 def back():
@@ -55,20 +60,20 @@ def back():
     row = lambda ic, t, sz=24, f="Archivo": (f"<div style='display:flex;align-items:center;gap:16px'><div style='width:54px;height:54px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
                                             f"{icon(ic, 28, '#fff', 2.2)}</div><span style='font-family:{f};font-weight:700;font-size:{sz}px;color:{NAVY};line-height:1.25'>{t}</span></div>")
     nums = "<br>".join(PHONES)
-    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:18px;color:{NAVY};display:flex;align-items:center;gap:8px'>{icon('check', 18, GREEN, 3)}{t}</div>" for _, t in SERVICES[8:])
+    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:18px;color:#fff;display:flex;align-items:center;gap:8px'>{icon('check', 18, GOLD, 3)}{t}</div>" for _, t in SERVICES[8:])
     return f"""
-<div style='position:absolute;inset:0;background:{CREAM}'></div>
-<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, GREEN, .06)}</svg>
+<div style='position:absolute;inset:0;background:linear-gradient(165deg,#0E5A3F 0%,{GREEN} 40%,{DEEP} 100%)'></div>
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, '#ffffff', .07)}</svg>
 <div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.05:.0f}px;width:{W*0.82:.0f}px'>
- <div style='font-family:Anton;font-size:52px;color:{GREEN};line-height:1'>WHERE WE CONNECT YOU</div>
- <div style='font-family:Archivo;font-weight:700;font-size:21px;color:#4A5868;margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
+ <div style='font-family:Anton;font-size:52px;color:#fff;line-height:1'>WHERE WE CONNECT YOU</div>
+ <div style='font-family:Archivo;font-weight:700;font-size:21px;color:{GOLD};margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
  <div style='display:flex;flex-wrap:wrap;gap:10px;margin-top:20px'>{flags}</div>
- <div style='font-family:Anton;font-size:30px;color:{NAVY};margin-top:22px'>ALSO OFFERING</div>
+ <div style='font-family:Anton;font-size:30px;color:#fff;margin-top:22px'>ALSO OFFERING</div>
  <div style='display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-top:12px'>{svc}</div>
  <div style='background:#fff;border-radius:24px;box-shadow:0 10px 26px #0002;padding:18px 26px;margin-top:22px;display:flex;flex-direction:column;gap:12px;border-top:8px solid {GOLD}'>
   <div style='font-family:Anton;font-size:34px;color:{GREEN}'>GET IN TOUCH</div>
   {row('phone', nums, 26, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
-{waves(W, H, 'b')}
+<div style='position:absolute;left:0;right:0;bottom:{H*0.16:.0f}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.035:.0f}px;display:flex;justify-content:center'>
  <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:300px;height:76px')}</div></div>"""
 
@@ -89,8 +94,11 @@ def main():
     from PIL import Image
     out = OUTPUT / "for-printer"
     out.mkdir(parents=True, exist_ok=True)
-    spread = f"<div style='position:absolute;left:0;top:0;width:{W}px;height:{H}px'>{back()}</div><div style='position:absolute;left:{W}px;top:0;width:{W}px;height:{H}px'>{front()}</div>"
-    jobs = [("Front_9x12in", front(), W), ("Back_9x12in", back(), W), ("Spread_18x12in", spread, 2 * W)]
+    spine = (f"<div style='position:absolute;left:{W}px;top:0;width:{SW}px;height:{H}px;background:{DEEP};display:flex;align-items:center;justify-content:center'>"
+             f"<div style='transform:rotate(-90deg);white-space:nowrap;font-family:Anton;font-size:26px;letter-spacing:6px;color:{GOLD}'>RS LINKS CONSULTANTS PVT. LTD.</div></div>")
+    spread = (f"<div style='position:absolute;left:0;top:0;width:{W}px;height:{H}px'>{back()}</div>{spine}"
+              f"<div style='position:absolute;left:{W + SW}px;top:0;width:{W}px;height:{H}px'>{front()}</div>")
+    jobs = [("Front_9.25x12.25in", front(), W), ("Back_9.25x12.25in", back(), W), ("Spread-with-Spine_19x12.25in", spread, 2 * W + SW)]
     with sync_playwright() as p:
         b = _launch(p)
         pg = b.new_page(device_scale_factor=SCALE)
