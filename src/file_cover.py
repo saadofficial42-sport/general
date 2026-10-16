@@ -40,6 +40,7 @@ def front():
 <div style='position:absolute;inset:0;background:#fff'></div>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.5, H*0.17, 300, GREEN, .05)}</svg>
 <div style='position:absolute;left:0;top:0;width:{W}px;height:16px;background:linear-gradient(90deg,{GREEN} 0 70%,{GOLD} 70%)'></div>
+<div style='position:absolute;right:{W*0.06:.0f}px;top:{H*0.04:.0f}px;display:flex;align-items:flex-end;gap:8px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{NAVY}'>Ref:</span><div style='width:150px;border-bottom:2px solid #9AA5A0;margin-bottom:5px'></div></div>
 <div style='position:absolute;left:0;right:0;top:{H*0.045:.0f}px;display:flex;justify-content:center'>
  <div style='border-radius:50%;padding:10px;background:#fff;box-shadow:0 14px 34px rgba(6,41,29,.25)'>{logo_img('logo-badge', 'width:270px;height:270px')}</div></div>
 <div style='position:absolute;left:0;right:0;top:{H*0.33:.0f}px;text-align:center'>
@@ -47,8 +48,11 @@ def front():
  <div style='font-family:PlexMono;font-weight:700;font-size:20px;letter-spacing:8px;color:{NAVY};margin-top:8px'>PVT. LTD.</div>
  <div style='font-family:Dancing;font-weight:700;font-size:44px;color:#A87508;margin-top:10px'>{TAGLINE_EN}</div>
  <div style='font-family:PlexMono;font-weight:700;font-size:17px;letter-spacing:3px;color:#5A6470;margin-top:8px'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div></div>
-<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.535:.0f}px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;
- padding:22px 24px;border:2px solid {GREEN}22;border-radius:22px;background:#F6FAF7'>{svc}</div>
+<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.545:.0f}px;padding:18px 26px 8px;border:2px solid {GREEN}33;border-radius:20px;background:#fff'>
+ <div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Name:</span>
+  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Passport No:</span>
+  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Country / Job:</span>
+  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div></div>
 <div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:{H*0.235:.0f}px;background:linear-gradient(120deg,{GREEN},{DEEP})'></div>
 <div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.79:.0f}px;display:flex;flex-direction:column;gap:12px'>
@@ -62,20 +66,22 @@ def back():
     row = lambda ic, t, sz=24, f="Archivo": (f"<div style='display:flex;align-items:center;gap:16px'><div style='width:54px;height:54px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
                                             f"{icon(ic, 28, '#fff', 2.2)}</div><span style='font-family:{f};font-weight:700;font-size:{sz}px;color:{NAVY};line-height:1.25'>{t}</span></div>")
     nums = "<br>".join(PHONES)
-    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:18px;color:#fff;display:flex;align-items:center;gap:8px'>{icon('check', 18, GOLD, 3)}{t}</div>" for _, t in SERVICES[8:])
+    svc = "".join(f"<div style='font-family:Archivo;font-weight:700;font-size:18px;color:{NAVY};display:flex;align-items:center;gap:8px'>{icon('check', 18, GREEN, 3)}{t}</div>" for _, t in SERVICES[8:])
     return f"""
-<div style='position:absolute;inset:0;background:linear-gradient(165deg,#0E5A3F 0%,{GREEN} 40%,{DEEP} 100%)'></div>
-<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, '#ffffff', .07)}</svg>
+<div style='position:absolute;inset:0;background:#fff'></div>
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, GREEN, .05)}</svg>
+<div style='position:absolute;left:0;top:0;width:{W}px;height:16px;background:linear-gradient(90deg,{GOLD} 0 30%,{GREEN} 30%)'></div>
+<div style='position:absolute;left:0;bottom:0;width:{W}px;height:{H*0.13:.0f}px;background:{GREEN}'></div>
 <div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.05:.0f}px;width:{W*0.82:.0f}px'>
- <div style='font-family:Anton;font-size:52px;color:#fff;line-height:1'>WHERE WE CONNECT YOU</div>
- <div style='font-family:Archivo;font-weight:700;font-size:21px;color:{GOLD};margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
+ <div style='font-family:Anton;font-size:52px;color:{GREEN};line-height:1'>WHERE WE CONNECT YOU</div>
+ <div style='font-family:Archivo;font-weight:700;font-size:21px;color:#A87508;margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
  <div style='display:flex;flex-wrap:wrap;gap:10px;margin-top:20px'>{flags}</div>
- <div style='font-family:Anton;font-size:30px;color:#fff;margin-top:22px'>ALSO OFFERING</div>
+ <div style='font-family:Anton;font-size:30px;color:{NAVY};margin-top:22px'>ALSO OFFERING</div>
  <div style='display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin-top:12px'>{svc}</div>
- <div style='background:#fff;border-radius:24px;box-shadow:0 10px 26px #0002;padding:18px 26px;margin-top:22px;display:flex;flex-direction:column;gap:12px;border-top:8px solid {GOLD}'>
+ <div style='background:#F6FAF7;border:2px solid {GREEN}33;border-radius:24px;box-shadow:0 6px 16px #0001;padding:18px 26px;margin-top:22px;display:flex;flex-direction:column;gap:12px;border-top:8px solid {GOLD}'>
   <div style='font-family:Anton;font-size:34px;color:{GREEN}'>GET IN TOUCH</div>
   {row('phone', nums, 26, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
-<div style='position:absolute;left:0;right:0;bottom:{H*0.16:.0f}px;height:6px;background:{GOLD}'></div>
+<div style='position:absolute;left:0;right:0;bottom:{H*0.13:.0f}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.035:.0f}px;display:flex;justify-content:center'>
  <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:380px;height:96px')}</div></div>"""
 
