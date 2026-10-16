@@ -3,3 +3,4 @@ rslinks_construction_engineer.png: cropped from RS Links' own Saudi construction
 turkey_factory_worker_src-ad.png: cropped from a Phoenix HR Consultants ad (demands/2026-10-14-turkey-factory/ref.jpg); reused ONLY because the user explicitly asked to keep the same picture (2026-10-14).
 rslinks_drivers_trucks.png: from the user's own RS Links drivers ad (demands/2026-10-14-saudi-drivers/ref.jpg); Luna/noon box cropped off; noon branding on the trucks kept (user request 2026-10-14).
 panda_logo_src-ad.png: Panda logo cropped from the Checker & Receiver source ad (demands/2026-10-14-saudi-checker-receiver/ref.jpg); shown at user request.
+by_*, ua_*, rs_*_mason, xk_*: cropped from the user's own Europe ad drafts (demands/2026-10-16-europe-set/), no other agency branding; reused at user request to convert those ads.

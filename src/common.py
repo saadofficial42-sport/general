@@ -342,6 +342,9 @@ FLAGS = {
     "tr": (flag_turkey, 1200, 800),
     # Belarus: red/green with white ornament band at hoist; ratio 1:2
     "by": (_flag_file("by"), 900, 450),
+    "ua": (_flag_file("ua"), 3, 2),
+    "rs2": (_flag_file("rs"), 756.13, 504.09),
+    "xk2": (_flag_file("xk"), 840, 600),
 }
 
 
