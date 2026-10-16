@@ -30,29 +30,31 @@ def globe(cx, cy, r, color, op):
 
 
 def front():
-    svc = "".join(f"<div style='display:flex;align-items:center;gap:10px'><div style='width:40px;height:40px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
-                  f"{icon(ic, 22, '#fff', 2.3)}</div><span style='font-family:Archivo;font-weight:700;font-size:19px;color:{NAVY}'>{t}</span></div>"
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:10px'><div style='width:38px;height:38px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
+                  f"{icon(ic, 21, '#fff', 2.3)}</div><span style='font-family:Archivo;font-weight:700;font-size:18px;color:{NAVY}'>{t}</span></div>"
                   for ic, t in SERVICES[:8])
+    crow = lambda ic, t, sz=19, f="Archivo", w=700: (f"<div style='display:flex;align-items:center;gap:12px'><div style='width:42px;height:42px;border-radius:50%;background:{GOLD};display:flex;align-items:center;justify-content:center;flex:none'>"
+                                          f"{icon(ic, 22, NAVY, 2.4)}</div><span style='font-family:{f};font-weight:{w};font-size:{sz}px;color:#fff;line-height:1.2'>{t}</span></div>")
+    nums = " &nbsp;|&nbsp; ".join(PHONES)
     return f"""
 <div style='position:absolute;inset:0;background:#fff'></div>
-<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.84, H*0.14, 250, GREEN, .05)}
- <path d='M{W} 0 L{W} {H*0.34} L{W*0.80} 0Z' fill='{GREEN}' opacity='.08'/></svg>
-<div style='position:absolute;left:0;top:{H*0.08:.0f}px;width:16px;height:{H*0.26:.0f}px;background:{GREEN}'></div>
-<div style='position:absolute;left:0;top:{H*0.34:.0f}px;width:16px;height:{H*0.06:.0f}px;background:{GOLD}'></div>
-<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.08:.0f}px'>
- {logo_img('logo-horizontal-light', f'width:{W*0.66:.0f}px;height:{W*0.66*0.25:.0f}px;object-position:left')}</div>
-<div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.28:.0f}px;width:{W*0.82:.0f}px'>
- <div style='font-family:PlexMono;font-weight:700;font-size:19px;letter-spacing:4px;color:#A87508;white-space:nowrap'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div>
- <div style='font-family:Anton;font-size:80px;line-height:1.02;color:{GREEN};margin-top:12px'>YOUR TRUSTED<br>CONSULTANCY <span style='color:{GOLD}'>PARTNER</span></div>
- <div style='font-family:Dancing;font-weight:700;font-size:46px;color:{NAVY};margin-top:10px'>{TAGLINE_EN}</div>
- <div style='width:160px;height:5px;background:{GOLD};border-radius:3px;margin-top:22px'></div>
- <div style='display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:28px'>{svc}</div></div>
-<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>
- <path d='M0 {H*0.90} C {W*0.3} {H*0.86}, {W*0.6} {H*0.95}, {W} {H*0.90} L{W} {H} L0 {H}Z' fill='{GREEN}'/>
- <path d='M0 {H*0.875} C {W*0.3} {H*0.835}, {W*0.6} {H*0.925}, {W} {H*0.875}' stroke='{GOLD}' stroke-width='8' fill='none'/></svg>
-<div style='position:absolute;left:{W*0.09:.0f}px;right:{W*0.09:.0f}px;bottom:{H*0.022:.0f}px;display:flex;justify-content:space-between;align-items:center'>
- <div style='font-family:Nastaliq;font-size:24px;color:#fff;direction:rtl;line-height:1.8;white-space:nowrap'>{TAGLINE_UR}</div>
- <div style='font-family:Archivo;font-weight:800;font-size:20px;color:{GOLD}'>{WEBSITE}</div></div>"""
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.5, H*0.17, 300, GREEN, .05)}</svg>
+<div style='position:absolute;left:0;top:0;width:{W}px;height:16px;background:linear-gradient(90deg,{GREEN} 0 70%,{GOLD} 70%)'></div>
+<div style='position:absolute;left:0;right:0;top:{H*0.045:.0f}px;display:flex;justify-content:center'>
+ <div style='border-radius:50%;padding:10px;background:#fff;box-shadow:0 14px 34px rgba(6,41,29,.25)'>{logo_img('logo-badge', 'width:270px;height:270px')}</div></div>
+<div style='position:absolute;left:0;right:0;top:{H*0.33:.0f}px;text-align:center'>
+ <div style='font-family:Anton;font-size:74px;line-height:1;color:{GREEN};letter-spacing:2px'>RS LINKS CONSULTANTS</div>
+ <div style='font-family:PlexMono;font-weight:700;font-size:20px;letter-spacing:8px;color:{NAVY};margin-top:8px'>PVT. LTD.</div>
+ <div style='font-family:Dancing;font-weight:700;font-size:44px;color:#A87508;margin-top:10px'>{TAGLINE_EN}</div>
+ <div style='font-family:PlexMono;font-weight:700;font-size:17px;letter-spacing:3px;color:#5A6470;margin-top:8px'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div></div>
+<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.535:.0f}px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;
+ padding:22px 24px;border:2px solid {GREEN}22;border-radius:22px;background:#F6FAF7'>{svc}</div>
+<div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:{H*0.235:.0f}px;background:linear-gradient(120deg,{GREEN},{DEEP})'></div>
+<div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:6px;background:{GOLD}'></div>
+<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.79:.0f}px;display:flex;flex-direction:column;gap:12px'>
+ {crow('phone', nums, 24, 'Anton', 400)}
+ <div style='display:flex;gap:30px'>{crow('mail', EMAIL)}{crow('gear', WEBSITE)}</div>
+ {crow('pin', ADDRESS + ', Pakistan', 18)}</div>"""
 
 
 def back():
@@ -75,7 +77,7 @@ def back():
   {row('phone', nums, 26, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.16:.0f}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:0;right:0;bottom:{H*0.035:.0f}px;display:flex;justify-content:center'>
- <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:300px;height:76px')}</div></div>"""
+ <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:380px;height:96px')}</div></div>"""
 
 
 def shot(pg, body, w, path):
