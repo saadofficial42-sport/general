@@ -49,10 +49,7 @@ def front():
  <div style='font-family:Dancing;font-weight:700;font-size:44px;color:#A87508;margin-top:10px'>{TAGLINE_EN}</div>
  <div style='font-family:PlexMono;font-weight:700;font-size:17px;letter-spacing:3px;color:#5A6470;margin-top:8px'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div></div>
 <div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.545:.0f}px;padding:18px 26px 8px;border:2px solid {GREEN}33;border-radius:20px;background:#fff'>
- <div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Name:</span>
-  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Passport No:</span>
-  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{GREEN};white-space:nowrap;width:160px'>Country / Job:</span>
-  <div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div></div>
+ <div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div></div>
 <div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:{H*0.235:.0f}px;background:linear-gradient(120deg,{GREEN},{DEEP})'></div>
 <div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:6px;background:{GOLD}'></div>
 <div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.79:.0f}px;display:flex;flex-direction:column;gap:12px'>
