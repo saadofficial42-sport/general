@@ -29,6 +29,39 @@ def globe(cx, cy, r, color, op):
     return f"<g opacity='{op}'>{lines}{lat}<path d='M{cx} {cy - r} V{cy + r}' stroke='{color}' stroke-width='2'/></g>"
 
 
+def wave3d(w, h, y0, amp, uid, flip=False):
+    """Layered 3D gradient wave band from y0 (top edge, fraction of h) to the bottom; flip mirrors horizontally."""
+    Y = lambda f: h * f
+    def edge(off):
+        a, b = y0 + off, y0 + off + amp
+        return f"M0 {Y(b):.0f} C {w*0.25:.0f} {Y(a - amp*0.6):.0f}, {w*0.55:.0f} {Y(b + amp*0.9):.0f}, {w} {Y(a):.0f}"
+    tf = f" transform='translate({w} 0) scale(-1 1)'" if flip else ""
+    return f"""<svg style='position:absolute;left:0;top:0' width='{w}' height='{h}'><defs>
+ <linearGradient id='g1{uid}' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#1FA36B'/><stop offset='.45' stop-color='{GREEN}'/><stop offset='1' stop-color='#03231A'/></linearGradient>
+ <linearGradient id='g2{uid}' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='#FFE9A6'/><stop offset='.35' stop-color='{GOLD}'/><stop offset='.7' stop-color='#C98A1B'/><stop offset='1' stop-color='#FFE09A'/></linearGradient>
+ <linearGradient id='g3{uid}' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#3CCB8F' stop-opacity='.9'/><stop offset='1' stop-color='#0B5E3E' stop-opacity='.9'/></linearGradient>
+ <filter id='sh{uid}' x='-5%' y='-20%' width='110%' height='140%'><feDropShadow dx='0' dy='-8' stdDeviation='10' flood-color='#00140C' flood-opacity='.45'/></filter></defs>
+ <g{tf}>
+ <path d='{edge(-0.035)} L{w} {h} L0 {h}Z' fill='url(#g3{uid})' opacity='.55' filter='url(#sh{uid})'/>
+ <path d='{edge(-0.012)} L{w} {h} L0 {h}Z' fill='url(#g2{uid})' filter='url(#sh{uid})'/>
+ <path d='{edge(0)} L{w} {h} L0 {h}Z' fill='url(#g1{uid})' filter='url(#sh{uid})'/>
+ <path d='{edge(-0.006)}' stroke='#FFF6D6' stroke-width='2.5' fill='none' opacity='.7'/>
+ <path d='{edge(0.012)}' stroke='#ffffff' stroke-width='1.5' fill='none' opacity='.18'/></g></svg>"""
+
+
+def swoosh(w, h, uid, right=False):
+    """Glossy curved corner accent (green + gold ribbons) for the top of a panel."""
+    tf = f" transform='translate({w} 0) scale(-1 1)'" if right else ""
+    return f"""<svg style='position:absolute;left:0;top:0' width='{w}' height='{h}'><defs>
+ <linearGradient id='s1{uid}' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#0B5E3E'/><stop offset='.6' stop-color='{GREEN}'/><stop offset='1' stop-color='#2DB077'/></linearGradient>
+ <linearGradient id='s2{uid}' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='#C98A1B'/><stop offset='.5' stop-color='#FFE9A6'/><stop offset='1' stop-color='{GOLD}'/></linearGradient>
+ <filter id='ss{uid}'><feDropShadow dx='4' dy='6' stdDeviation='8' flood-color='#00140C' flood-opacity='.35'/></filter></defs>
+ <g{tf}>
+ <path d='M0 0 H{w*0.42:.0f} C {w*0.30:.0f} {h*0.05:.0f}, {w*0.16:.0f} {h*0.06:.0f}, 0 {h*0.16:.0f}Z' fill='url(#s2{uid})' filter='url(#ss{uid})'/>
+ <path d='M0 0 H{w*0.38:.0f} C {w*0.27:.0f} {h*0.035:.0f}, {w*0.14:.0f} {h*0.045:.0f}, 0 {h*0.135:.0f}Z' fill='url(#s1{uid})'/>
+ <path d='M{w*0.36:.0f} 4 C {w*0.25:.0f} {h*0.035:.0f}, {w*0.12:.0f} {h*0.045:.0f}, 4 {h*0.125:.0f}' stroke='#fff' stroke-width='2' fill='none' opacity='.35'/></g></svg>"""
+
+
 def front():
     svc = "".join(f"<div style='display:flex;align-items:center;gap:10px'><div style='width:38px;height:38px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
                   f"{icon(ic, 21, '#fff', 2.3)}</div><span style='font-family:Archivo;font-weight:700;font-size:18px;color:{NAVY}'>{t}</span></div>"
@@ -39,7 +72,7 @@ def front():
     return f"""
 <div style='position:absolute;inset:0;background:#fff'></div>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.5, H*0.17, 300, GREEN, .05)}</svg>
-<div style='position:absolute;left:0;top:0;width:{W}px;height:16px;background:linear-gradient(90deg,{GREEN} 0 70%,{GOLD} 70%)'></div>
+{swoosh(W, H, 'f')}
 <div style='position:absolute;right:{W*0.06:.0f}px;top:{H*0.04:.0f}px;display:flex;align-items:flex-end;gap:8px'><span style='font-family:Archivo;font-weight:800;font-size:20px;color:{NAVY}'>Ref:</span><div style='width:150px;border-bottom:2px solid #9AA5A0;margin-bottom:5px'></div></div>
 <div style='position:absolute;left:0;right:0;top:{H*0.045:.0f}px;display:flex;justify-content:center'>
  <div style='border-radius:50%;padding:10px;background:#fff;box-shadow:0 14px 34px rgba(6,41,29,.25)'>{logo_img('logo-badge', 'width:270px;height:270px')}</div></div>
@@ -48,10 +81,9 @@ def front():
  <div style='font-family:PlexMono;font-weight:700;font-size:20px;letter-spacing:8px;color:{NAVY};margin-top:8px'>PVT. LTD.</div>
  <div style='font-family:Dancing;font-weight:700;font-size:44px;color:#A87508;margin-top:10px'>{TAGLINE_EN}</div>
  <div style='font-family:PlexMono;font-weight:700;font-size:17px;letter-spacing:3px;color:#5A6470;margin-top:8px'>RECRUITMENT · CONSULTANCY · VISA SERVICES</div></div>
-<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.545:.0f}px;padding:18px 26px 8px;border:2px solid {GREEN}33;border-radius:20px;background:#fff'>
+<div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.515:.0f}px;padding:14px 26px 6px;border:2px solid {GREEN}33;border-radius:20px;background:#fff'>
  <div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div><div style='display:flex;align-items:flex-end;gap:14px;height:62px'><div style='flex:1;border-bottom:2px solid #9AA5A0;margin-bottom:8px'></div></div></div>
-<div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:{H*0.235:.0f}px;background:linear-gradient(120deg,{GREEN},{DEEP})'></div>
-<div style='position:absolute;left:0;top:{H*0.765:.0f}px;width:{W}px;height:6px;background:{GOLD}'></div>
+{wave3d(W, H, 0.745, 0.035, 'f')}
 <div style='position:absolute;left:{W*0.08:.0f}px;right:{W*0.08:.0f}px;top:{H*0.79:.0f}px;display:flex;flex-direction:column;gap:12px'>
  {crow('phone', nums, 24, 'Anton', 400)}
  <div style='display:flex;gap:30px'>{crow('mail', EMAIL)}{crow('gear', WEBSITE)}</div>
@@ -69,8 +101,7 @@ def back():
     return f"""
 <div style='position:absolute;inset:0;background:#fff'></div>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{globe(W*0.18, H*0.16, 220, GREEN, .05)}</svg>
-<div style='position:absolute;left:0;top:0;width:{W}px;height:16px;background:linear-gradient(90deg,{GOLD} 0 30%,{GREEN} 30%)'></div>
-<div style='position:absolute;left:0;bottom:0;width:{W}px;height:{H*0.13:.0f}px;background:{GREEN}'></div>
+{swoosh(W, H, 'b', right=True)}
 <div style='position:absolute;left:{W*0.09:.0f}px;top:{H*0.05:.0f}px;width:{W*0.82:.0f}px'>
  <div style='font-family:Anton;font-size:52px;color:{GREEN};line-height:1'>WHERE WE CONNECT YOU</div>
  <div style='font-family:Archivo;font-weight:700;font-size:21px;color:#A87508;margin-top:8px'>Pakistan · GCC · Central Asia · Europe</div>
@@ -81,7 +112,7 @@ def back():
  <div style='background:#F6FAF7;border:2px solid {GREEN}33;border-radius:24px;box-shadow:0 6px 16px #0001;padding:12px 24px;margin-top:16px;display:flex;flex-direction:column;gap:8px;border-top:8px solid {GOLD}'>
   <div style='font-family:Anton;font-size:30px;color:{GREEN}'>GET IN TOUCH</div>
   {row('phone', ' | '.join(PHONES), 22, 'Anton')}{row('mail', EMAIL)}{row('gear', WEBSITE)}{row('pin', ADDRESS, 22)}</div></div>
-<div style='position:absolute;left:0;right:0;bottom:{H*0.13:.0f}px;height:6px;background:{GOLD}'></div>
+{wave3d(W, H, 0.845, 0.03, 'b', flip=True)}
 <div style='position:absolute;left:0;right:0;bottom:{H*0.035:.0f}px;display:flex;justify-content:center'>
  <div style='background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 20px #0006'>{logo_img('logo-horizontal-light', 'width:380px;height:96px')}</div></div>"""
 
