@@ -4,7 +4,7 @@ Standard Pakistani/US card 3.5 x 2 in with 0.125 in bleed on every side (page 3.
 keep text inside the 0.125 in safe margin. Each person gets a 2-page PDF (front = person,
 back = company) at exact physical size, plus 600 dpi PNGs of each side.
 """
-from common import C, OUTPUT, font_css, icon, logo_img
+from common import C, OUTPUT, PHONES, font_css, icon, logo_img
 from common import _launch
 
 GREEN, GOLD, NAVY = C["green"], C["gold"], "#0A1B25"
@@ -49,8 +49,9 @@ def front(p):
   <div style='font-size:9.5px;font-weight:800;color:{GREEN};margin-top:4px;letter-spacing:.3px'>{p['title']}</div>
   <div style='font-size:7.2px;font-weight:700;color:#6B7785;letter-spacing:1.2px;margin-top:2px'>RS LINKS CONSULTANTS PVT. LTD.</div>
 </div>
-<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE - 2}px;display:flex;flex-direction:column;gap:3.5px'>
+<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE - 4}px;display:flex;flex-direction:column;gap:2.5px'>
   {row('phone', p['phone'], 9.4)}
+  {row('chat', 'Office: ' + ' | '.join(n.replace('+92 ', '0') for n in PHONES), 7.9)}
   {row('mail', p['email'])}
   {row('gear', WEBSITE)}
   {row('pin', ADDRESS, 7.4)}
@@ -73,8 +74,7 @@ def back():
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 58}px;display:grid;grid-template-columns:1fr 1fr;gap:7px 10px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
   display:flex;align-items:center;justify-content:space-between'>
-  {wa("+92 371 9051589")}{wa("+92 317 0363690")}
-  <span style='font-size:7.2px;font-weight:700;color:#DCEBE3'>{WEBSITE}</span>
+  {''.join(wa(n) for n in PHONES)}
 </div></div>"""
 
 
