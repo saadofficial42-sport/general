@@ -19,7 +19,7 @@ B = round(BLEED * PPI)       # bleed in px
 SAFE = B + 14                # bleed + ~0.15 in safe margin
 
 PEOPLE = [
-    {"slug": "Saad-Khalid", "name": "Saad Khalid", "title": "Co-Founder &amp; COO",
+    {"slug": "Saad-Khalid", "name": "Engr. Saad Khalid", "creds": "(PMP&reg;, aPHRi&reg;, CHRP&reg;)", "title": "Co-Founder &amp; COO",
      "phone": "0344-5899955", "email": "saad@rslinksconsultants.com"},
     {"slug": "Rahim-Ullah", "name": "Rahim Ullah", "title": "Co-Founder &amp; CEO",
      "phone": "0319-0727427", "email": "raheem@rslinksconsultants.com"},
@@ -91,7 +91,8 @@ def front(p):
   <div style='border-radius:50%;background:#fff;padding:3px;box-shadow:0 4px 10px #0007'>{logo_img('logo-badge', 'width:56px;height:56px')}</div>
   <div style='font-family:Dancing;font-weight:700;font-size:10.5px;color:#FFE7A0;text-align:center;line-height:1.05;margin-top:6px'>Turning Your Dreams<br>into Reality</div></div>
 <div style='position:absolute;left:{SAFE + 2}px;top:{SAFE + 10}px;width:200px'>
-  <div style='font-family:Anton;font-size:23px;color:{NAVY};line-height:1;letter-spacing:.3px'>{p['name']}</div>
+  <div style='font-family:Anton;font-size:{20 if p.get('creds') else 23}px;color:{NAVY};line-height:1;letter-spacing:.3px;white-space:nowrap'>{p['name']}</div>
+  {f"<div style='font-size:8px;font-weight:700;color:#5A6B7B;margin-top:3px;letter-spacing:.2px;white-space:nowrap'>{p['creds']}</div>" if p.get('creds') else ''}
   <div style='font-size:9.5px;font-weight:800;color:{GREEN};margin-top:4px;letter-spacing:.3px'>{p['title']}</div>
   <div style='width:44px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,{GOLD},#C98A1B);margin-top:5px'></div>
   <div style='font-size:6.8px;font-weight:700;color:#6B7785;letter-spacing:1.1px;margin-top:4px'>RS LINKS CONSULTANTS PVT. LTD.</div>
