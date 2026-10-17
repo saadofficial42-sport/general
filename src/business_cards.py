@@ -24,11 +24,13 @@ PEOPLE = [
     {"slug": "Rahim-Ullah", "name": "Rahim Ullah", "title": "Co-Founder &amp; CEO",
      "phone": "0319-0727427", "email": "raheem@rslinksconsultants.com"},
     {"slug": "Hassan-Sultan", "name": "Hassan Sultan", "title": "Admin &amp; HR Officer",
-     "phone": "0317-0363690", "email": "hr@rslinksconsultants.com"},
+     "phone": "0329-5690570", "email": "hr@rslinksconsultants.com"},
     {"slug": "Hameeda-Zia", "name": "Hameeda Zia", "title": "Recruitment &amp; Sales Officer",
      "phone": "0371-9051589", "email": "hr@rslinksconsultants.com"},
     {"slug": "Ayesha-Ghafoor", "name": "Ayesha Ghafoor", "title": "Social Media Specialist",
-     "phone": "0321-5128989", "email": "hr@rslinksconsultants.com"},
+     "phone": "", "email": "hr@rslinksconsultants.com"},
+    {"slug": "Sumna-Bibi", "name": "Sumna Bibi", "title": "Sales &amp; Recruitment Officer",
+     "phone": "0317-0363690", "email": "hr@rslinksconsultants.com"},
 ]
 
 
@@ -98,7 +100,7 @@ def front(p):
   <div style='font-size:6.8px;font-weight:700;color:#6B7785;letter-spacing:1.1px;margin-top:4px'>RS LINKS CONSULTANTS PVT. LTD.</div>
 </div>
 <div style='position:absolute;left:{SAFE + 2}px;bottom:{SAFE + 2}px;display:flex;flex-direction:column;gap:5px'>
-  {row('phone', p['phone'], 10.5)}
+  {row('phone', p['phone'], 10.5) if p['phone'] else ''}
   {row('mail', p['email'], 9)}
   {row('gear', WEBSITE, 9)}
 </div></div>"""
