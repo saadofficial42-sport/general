@@ -117,7 +117,10 @@ def back():
     return f"""<div class='card' style='background:radial-gradient(circle at 80% 0%,#1C8A5C,{GREEN} 45%,#03231A)'>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'><circle cx='{W*0.85:.0f}' cy='10' r='90' fill='#fff' opacity='.05'/><circle cx='20' cy='{H*0.6:.0f}' r='60' fill='#fff' opacity='.04'/></svg>
 {corner_swoosh(right=True)}
-<div style='position:absolute;left:{SAFE}px;top:{SAFE - 4}px;background:#fff;border-radius:8px;padding:3px 7px;box-shadow:0 3px 8px #0006'>{logo_img('logo-horizontal-light', 'width:112px;height:29px')}</div>
+<div style='position:absolute;left:{SAFE}px;top:{SAFE - 6}px;display:flex;align-items:center;gap:7px'>
+  <div style='border-radius:50%;background:#fff;padding:1.5px;box-shadow:0 3px 8px #0007;line-height:0'>{logo_img('logo-badge', 'width:34px;height:34px')}</div>
+  <div><div style='font-family:Archivo;font-weight:900;font-size:17px;color:#fff;line-height:1;letter-spacing:-.3px'>RS Links</div>
+  <div style='font-family:PlexMono;font-weight:700;font-size:6.2px;color:{GOLD2};letter-spacing:1.4px;margin-top:2px'>CONSULTANTS PVT. LTD.</div></div></div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 38}px;display:grid;grid-template-columns:1fr 1fr;gap:1.5px 8px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 100}px;display:flex;flex-direction:column;gap:2px'>
   <div style='display:flex;align-items:center;gap:5px'>{mi('mail')}<span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span></div>
