@@ -61,8 +61,9 @@ def front(p):
 
 def back():
     services = ["Manpower Recruitment", "HR Consultancy", "Student Consultancy", "Tax Consultancy",
-                "Career Advisory", "Visa &amp; Documentation"]
-    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:8.6px;font-weight:700;color:#fff'>"
+                "Career Advisory", "Visa &amp; Documentation", "Travel &amp; Ticketing", "Document Attestation",
+                "Marketing Support", "Website Development"]
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:7.8px;font-weight:700;color:#fff'>"
                   f"<span style='color:{C['gold2']};font-size:8px'>&#10003;</span>{x}</div>" for x in services)
     wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'><span style='line-height:0'>{whatsapp_icon(11)}</span>"
                     f"<span style='font-family:Anton;font-size:10px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
@@ -72,7 +73,7 @@ def back():
   <div style='background:#fff;border-radius:8px;padding:4px 8px'>{logo_img('logo-horizontal-light', 'width:132px;height:36px')}</div>
   <div style='text-align:right;font-family:Dancing;font-weight:700;font-size:11.5px;color:{C['gold2']};line-height:1.1;width:110px'>{TAGLINE}</div>
 </div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 58}px;display:grid;grid-template-columns:1fr 1fr;gap:7px 10px'>{svc}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 58}px;display:grid;grid-template-columns:1fr 1fr;gap:3.5px 10px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
   display:flex;align-items:center;justify-content:space-between'>
   {''.join(wa(n) for n in PHONES)}

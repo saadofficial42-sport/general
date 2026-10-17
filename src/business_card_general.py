@@ -26,8 +26,9 @@ def front(_p=None):
 
 def back():
     services = ["Manpower Recruitment", "HR Consultancy", "Student Consultancy", "Tax Consultancy",
-                "Career Advisory", "Visa &amp; Documentation"]
-    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:8.4px;font-weight:700;color:#fff'>"
+                "Career Advisory", "Visa &amp; Documentation", "Travel &amp; Ticketing", "Document Attestation",
+                "Marketing Support", "Website Development"]
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:7.8px;font-weight:700;color:#fff'>"
                   f"<span style='color:{C['gold2']};font-size:8px'>&#10003;</span>{x}</div>" for x in services)
     wa = "".join(f"<span style='font-family:Anton;font-size:9.6px;color:#fff;letter-spacing:.3px'>{n}</span>" for n in PHONES)
     return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
@@ -36,7 +37,7 @@ def back():
   <div style='background:#fff;border-radius:8px;padding:4px 8px'>{logo_img('logo-horizontal-light', 'width:132px;height:36px')}</div>
   <div style='text-align:right;font-family:PlexMono;font-weight:700;font-size:6.6px;color:{C['gold2']};letter-spacing:1px;line-height:1.5;width:110px'>RECRUITMENT<br>CONSULTANCY<br>VISA SERVICES</div>
 </div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 56}px;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px'>{svc}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 56}px;display:grid;grid-template-columns:1fr 1fr;gap:3.5px 10px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 3}px;border-top:1px solid {GOLD}88;padding-top:4px;
   display:flex;align-items:center;justify-content:space-between'>
   <span style='line-height:0'>{whatsapp_icon(13)}</span>{wa}</div>
