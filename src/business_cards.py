@@ -4,7 +4,7 @@ Standard Pakistani/US card 3.5 x 2 in with 0.125 in bleed on every side (page 3.
 keep text inside the 0.125 in safe margin. Each person gets a 2-page PDF (front = person,
 back = company) at exact physical size, plus 600 dpi PNGs of each side.
 """
-from common import C, OUTPUT, PHONES, font_css, icon, logo_img
+from common import C, OUTPUT, PHONES, font_css, icon, logo_img, whatsapp_icon
 from common import _launch
 
 GREEN, GOLD, NAVY = C["green"], C["gold"], "#0A1B25"
@@ -33,9 +33,10 @@ PEOPLE = [
 
 
 def row(ic, text, size=8.6):
-    return (f"<div style='display:flex;align-items:center;gap:6px'>"
-            f"<div style='width:15px;height:15px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
-            f"{icon(ic, 9, '#fff', 2.6)}</div>"
+    badge = (f"<div style='width:15px;height:15px;flex:none;line-height:0'>{whatsapp_icon(15)}</div>" if ic == 'wa' else
+             f"<div style='width:15px;height:15px;border-radius:50%;background:{GREEN};display:flex;align-items:center;justify-content:center;flex:none'>"
+             f"{icon(ic, 9, '#fff', 2.6)}</div>")
+    return (f"<div style='display:flex;align-items:center;gap:6px'>{badge}"
             f"<div style='font-size:{size}px;font-weight:600;color:{NAVY};line-height:1.25'>{text}</div></div>")
 
 
@@ -51,7 +52,7 @@ def front(p):
 </div>
 <div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE - 4}px;display:flex;flex-direction:column;gap:2.5px'>
   {row('phone', p['phone'], 9.4)}
-  {row('chat', 'Office: ' + ' | '.join(n.replace('+92 ', '0') for n in PHONES), 7.9)}
+  {row('wa', 'Office: ' + ' | '.join(n.replace('+92 ', '0') for n in PHONES), 7.9)}
   {row('mail', p['email'])}
   {row('gear', WEBSITE)}
   {row('pin', ADDRESS, 7.4)}
@@ -63,7 +64,7 @@ def back():
                 "Career Advisory", "Visa &amp; Documentation"]
     svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:8.6px;font-weight:700;color:#fff'>"
                   f"<span style='color:{C['gold2']};font-size:8px'>&#10003;</span>{x}</div>" for x in services)
-    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'>{icon('phone', 9, C['gold2'], 2.6)}"
+    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'><span style='line-height:0'>{whatsapp_icon(11)}</span>"
                     f"<span style='font-family:Anton;font-size:10px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
     return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
 <div style='position:absolute;inset:{B + 7}px;border:1px solid {GOLD};border-radius:6px'></div>
@@ -75,6 +76,10 @@ def back():
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
   display:flex;align-items:center;justify-content:space-between'>
   {''.join(wa(n) for n in PHONES)}
+</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE + 17}px;display:flex;align-items:center;justify-content:flex-end;gap:5px'>
+  <span style='width:13px;height:13px;border-radius:50%;background:{C['gold2']};display:flex;align-items:center;justify-content:center'>{icon('mail', 8, NAVY, 2.6)}</span>
+  <span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span>
 </div></div>"""
 
 

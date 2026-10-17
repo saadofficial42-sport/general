@@ -2,7 +2,7 @@
 employee. 3.5 x 2 in + 0.125 in bleed; same print pipeline as business_cards.py."""
 import business_cards as bc
 from business_cards import ADDRESS, B, GOLD, GREEN, NAVY, SAFE, TAGLINE, WEBSITE, row
-from common import C, PHONES, icon, logo_img
+from common import C, PHONES, icon, logo_img, whatsapp_icon
 
 EMAIL = "hr@rslinksconsultants.com"
 
@@ -17,7 +17,7 @@ def front(_p=None):
   <div style='font-size:7.4px;font-weight:800;color:{NAVY};letter-spacing:2px;margin-top:2px'>PVT. LTD.</div>
   <div style='font-family:Dancing;font-weight:700;font-size:11px;color:#A87508;margin-top:1px'>{TAGLINE}</div></div></div>
 <div style='position:absolute;left:{B + 38}px;right:{SAFE}px;bottom:{SAFE - 4}px;display:flex;flex-direction:column;gap:3px'>
-  {row('phone', ' &nbsp;|&nbsp; '.join(p.replace('+92 ', '0') for p in PHONES), 8.6)}
+  {row('wa', ' &nbsp;|&nbsp; '.join(p.replace('+92 ', '0') for p in PHONES), 8.6)}
   {row('mail', EMAIL)}
   {row('gear', WEBSITE)}
   {row('pin', ADDRESS, 7.3)}
@@ -39,7 +39,10 @@ def back():
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 56}px;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 3}px;border-top:1px solid {GOLD}88;padding-top:4px;
   display:flex;align-items:center;justify-content:space-between'>
-  {icon('phone', 10, C['gold2'], 2.6)}{wa}</div></div>"""
+  <span style='line-height:0'>{whatsapp_icon(13)}</span>{wa}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE + 16}px;display:flex;align-items:center;justify-content:flex-end;gap:5px'>
+  <span style='width:13px;height:13px;border-radius:50%;background:{C['gold2']};display:flex;align-items:center;justify-content:center'>{icon('mail', 8, NAVY, 2.6)}</span>
+  <span style='font-size:8px;font-weight:700;color:#fff'>{EMAIL}</span></div></div>"""
 
 
 if __name__ == "__main__":
