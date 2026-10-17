@@ -28,7 +28,7 @@ PEOPLE = [
     {"slug": "Hameeda-Zia", "name": "Hameeda Zia", "title": "Recruitment &amp; Sales Officer",
      "phone": "0371-9051589", "email": "hr@rslinksconsultants.com"},
     {"slug": "Ayesha-Ghafoor", "name": "Ayesha Ghafoor", "title": "Social Media Specialist",
-     "phone": "+92 321 5128989", "email": "hr@rslinksconsultants.com"},
+     "phone": "0321-5128989", "email": "hr@rslinksconsultants.com"},
 ]
 
 
