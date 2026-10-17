@@ -20,7 +20,7 @@ SAFE = B + 14                # bleed + ~0.15 in safe margin
 
 PEOPLE = [
     {"slug": "Saad-Khalid", "name": "Saad Khalid", "title": "Co-Founder &amp; COO",
-     "phone": "0300-5558335", "email": "saad@rslinksconsultants.com"},
+     "phone": "0344-5899955", "email": "saad@rslinksconsultants.com"},
     {"slug": "Rahim-Ullah", "name": "Rahim Ullah", "title": "Co-Founder &amp; CEO",
      "phone": "0319-0727427", "email": "raheem@rslinksconsultants.com"},
     {"slug": "Hassan-Sultan", "name": "Hassan Sultan", "title": "Admin &amp; HR Officer",
