@@ -164,6 +164,11 @@ def render_person(p):
             pg.screenshot(path=str(out / f"RS-Links-Business-Card-{p['slug']}-{side}.png"))
             pg.close()
         b.close()
+    # Final PDF built from the 600 dpi PNGs: some viewers (iOS) draw SVG/box shadows from Chromium's
+    # vector PDF as dark rectangles, so a raster PDF looks identical everywhere.
+    from PIL import Image
+    pages = [Image.open(out / f"RS-Links-Business-Card-{p['slug']}-{side}.png").convert("RGB") for side in ("Front", "Back")]
+    pages[0].save(out / f"RS-Links-Business-Card-{p['slug']}.pdf", "PDF", resolution=600.0, save_all=True, append_images=pages[1:])
     print(out / f"RS-Links-Business-Card-{p['slug']}.pdf")
 
 
