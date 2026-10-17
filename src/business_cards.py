@@ -40,46 +40,92 @@ def row(ic, text, size=8.6):
             f"<div style='font-size:{size}px;font-weight:600;color:{NAVY};line-height:1.25'>{text}</div></div>")
 
 
+GOLD2 = C["gold2"]
+DEF = f"""<defs>
+ <linearGradient id='cg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#22A86E'/><stop offset='.5' stop-color='{GREEN}'/><stop offset='1' stop-color='#03231A'/></linearGradient>
+ <linearGradient id='cgold' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#FFEBA8'/><stop offset='.4' stop-color='{GOLD2}'/><stop offset='.75' stop-color='#C98A1B'/><stop offset='1' stop-color='#FFE09A'/></linearGradient>
+ <linearGradient id='cmint' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#7EE2B5'/><stop offset='1' stop-color='#1E9E66'/></linearGradient>
+ <linearGradient id='ccream' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#FFFFFF'/><stop offset='1' stop-color='#EEF3EE'/></linearGradient>
+ <filter id='csh' x='-20%' y='-20%' width='140%' height='140%'><feDropShadow dx='0' dy='0' stdDeviation='3' flood-color='#00140C' flood-opacity='.45'/></filter></defs>"""
+
+
+def side_panel(x_top, x_bot):
+    """Right-hand curved 3D panel: mint, gold, green gradient layers with highlight."""
+    W, H = PX_W, PX_H
+    edge = lambda d: f"M{x_top - d} 0 C {x_top - 40 - d} {H*0.35:.0f}, {x_bot + 30 - d} {H*0.65:.0f}, {x_bot - d} {H}"
+    body = lambda d: f"{edge(d)} L{W} {H} L{W} 0Z"
+    return (f"<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{DEF}"
+            f"<path d='{body(16)}' fill='url(#cmint)' opacity='.55' filter='url(#csh)'/>"
+            f"<path d='{body(7)}' fill='url(#cgold)' filter='url(#csh)'/>"
+            f"<path d='{body(0)}' fill='url(#cg)' filter='url(#csh)'/>"
+            f"<path d='{edge(4)}' stroke='#FFF6D6' stroke-width='1' fill='none' opacity='.8'/>"
+            f"<circle cx='{W - 30}' cy='26' r='70' fill='#ffffff' opacity='.06'/></svg>")
+
+
+def bottom_wave(y, amp, cream=False):
+    W, H = PX_W, PX_H
+    edge = lambda d: f"M0 {y + amp - d} C {W*0.3:.0f} {y - amp*0.8 - d:.0f}, {W*0.6:.0f} {y + amp*1.4 - d:.0f}, {W} {y - d}"
+    body = lambda d: f"{edge(d)} L{W} {H} L0 {H}Z"
+    top = "url(#ccream)" if cream else "url(#cg)"
+    return (f"<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{DEF}"
+            f"<path d='{body(9)}' fill='url(#cmint)' opacity='.55' filter='url(#csh)'/>"
+            f"<path d='{body(4)}' fill='url(#cgold)' filter='url(#csh)'/>"
+            f"<path d='{body(0)}' fill='{top}' filter='url(#csh)'/>"
+            f"<path d='{edge(2)}' stroke='#FFF6D6' stroke-width='.8' fill='none' opacity='.8'/></svg>")
+
+
+def corner_swoosh(right=False):
+    W, H = PX_W, PX_H
+    tf = f" transform='translate({W} 0) scale(-1 1)'" if right else ""
+    return (f"<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'>{DEF}<g{tf}>"
+            f"<path d='M0 0 H{W*0.30:.0f} C {W*0.2:.0f} 8, {W*0.1:.0f} 14, 0 34Z' fill='url(#cgold)' filter='url(#csh)'/>"
+            f"<path d='M0 0 H{W*0.26:.0f} C {W*0.17:.0f} 6, {W*0.08:.0f} 10, 0 27Z' fill='url(#cg)'/></g></svg>")
+
+
 def front(p):
-    return f"""<div class='card' style='background:#fff'>
-<div style='position:absolute;left:0;top:0;bottom:0;width:{B + 22}px;background:{GREEN}'></div>
-<div style='position:absolute;left:{B + 22}px;top:0;bottom:0;width:4px;background:{GOLD}'></div>
-<div style='position:absolute;right:{SAFE}px;top:{SAFE - 2}px'>{logo_img('logo-badge', 'width:46px;height:46px')}</div>
-<div style='position:absolute;left:{B + 40}px;top:{SAFE + 2}px;right:{SAFE + 54}px'>
+    W, H = PX_W, PX_H
+    return f"""<div class='card' style='background:radial-gradient(circle at 20% 30%,#FFFFFF,#F2F6F3)'>
+{corner_swoosh()}
+{side_panel(W - 92, W - 128)}
+<div style='position:absolute;right:{SAFE - 6}px;top:{H/2 - 54:.0f}px;width:92px;display:flex;flex-direction:column;align-items:center'>
+  <div style='border-radius:50%;background:#fff;padding:3px;box-shadow:0 4px 10px #0007'>{logo_img('logo-badge', 'width:56px;height:56px')}</div>
+  <div style='font-family:Dancing;font-weight:700;font-size:10.5px;color:#FFE7A0;text-align:center;line-height:1.05;margin-top:6px'>Turning Your Dreams<br>into Reality</div></div>
+<div style='position:absolute;left:{SAFE + 2}px;top:{SAFE + 10}px;width:200px'>
   <div style='font-family:Anton;font-size:23px;color:{NAVY};line-height:1;letter-spacing:.3px'>{p['name']}</div>
   <div style='font-size:9.5px;font-weight:800;color:{GREEN};margin-top:4px;letter-spacing:.3px'>{p['title']}</div>
-  <div style='font-size:7.2px;font-weight:700;color:#6B7785;letter-spacing:1.2px;margin-top:2px'>RS LINKS CONSULTANTS PVT. LTD.</div>
+  <div style='width:44px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,{GOLD},#C98A1B);margin-top:5px'></div>
+  <div style='font-size:6.8px;font-weight:700;color:#6B7785;letter-spacing:1.1px;margin-top:4px'>RS LINKS CONSULTANTS PVT. LTD.</div>
 </div>
-<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE}px;display:flex;flex-direction:column;gap:6px'>
-  {row('phone', p['phone'], 11)}
-  {row('mail', p['email'], 9.6)}
-  {row('gear', WEBSITE, 9.6)}
+<div style='position:absolute;left:{SAFE + 2}px;bottom:{SAFE + 2}px;display:flex;flex-direction:column;gap:5px'>
+  {row('phone', p['phone'], 10.5)}
+  {row('mail', p['email'], 9)}
+  {row('gear', WEBSITE, 9)}
 </div></div>"""
 
 
 def back():
+    W, H = PX_W, PX_H
     services = ["Manpower Recruitment", "HR Consultancy", "Student Consultancy", "Tax Consultancy",
                 "Career Advisory", "Visa &amp; Documentation", "Travel &amp; Ticketing", "Document Attestation",
                 "Marketing Support", "Website Development"]
-    svc = "".join(f"<div style='display:flex;align-items:center;gap:4px;font-size:7.8px;font-weight:700;color:#fff'>"
-                  f"<span style='color:{C['gold2']};font-size:8px'>&#10003;</span>{x}</div>" for x in services)
-    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'><span style='line-height:0'>{whatsapp_icon(11)}</span>"
-                    f"<span style='font-family:Anton;font-size:10px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
-    return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
-<div style='position:absolute;inset:{B + 7}px;border:1px solid {GOLD};border-radius:6px'></div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE}px;display:flex;align-items:center;justify-content:space-between'>
-  <div style='background:#fff;border-radius:8px;padding:3px 8px'>{logo_img('logo-horizontal-light', 'width:122px;height:32px')}</div>
-  <div style='text-align:right;font-family:Dancing;font-weight:700;font-size:11.5px;color:{C['gold2']};line-height:1.1;width:110px'>{TAGLINE}</div>
+    svc = "".join(f"<div style='display:flex;align-items:center;gap:3px;font-size:7.3px;font-weight:700;color:#fff'>"
+                  f"<span style='color:{GOLD2};font-size:7.5px'>&#10003;</span>{x}</div>" for x in services)
+    mi = lambda ic: (f"<span style='width:11px;height:11px;border-radius:50%;background:{GOLD2};display:inline-flex;align-items:center;justify-content:center;flex:none'>"
+                     f"{icon(ic, 7, NAVY, 2.6)}</span>")
+    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:3px'><span style='line-height:0'>{whatsapp_icon(11)}</span>"
+                    f"<span style='font-family:Anton;font-size:10px;color:{NAVY};letter-spacing:.3px'>{n}</span></div>")
+    return f"""<div class='card' style='background:radial-gradient(circle at 80% 0%,#1C8A5C,{GREEN} 45%,#03231A)'>
+<svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'><circle cx='{W*0.85:.0f}' cy='10' r='90' fill='#fff' opacity='.05'/><circle cx='20' cy='{H*0.6:.0f}' r='60' fill='#fff' opacity='.04'/></svg>
+{corner_swoosh(right=True)}
+<div style='position:absolute;left:{SAFE}px;top:{SAFE - 4}px;background:#fff;border-radius:8px;padding:3px 7px;box-shadow:0 3px 8px #0006'>{logo_img('logo-horizontal-light', 'width:112px;height:29px')}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 38}px;display:grid;grid-template-columns:1fr 1fr;gap:1.5px 8px'>{svc}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 100}px;display:flex;flex-direction:column;gap:2px'>
+  <div style='display:flex;align-items:center;gap:5px'>{mi('mail')}<span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span></div>
+  <div style='display:flex;align-items:center;gap:5px'>{mi('pin')}<span style='font-size:6.6px;font-weight:600;color:#DCEBE3;white-space:nowrap'>{ADDRESS}</span></div>
 </div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 50}px;display:grid;grid-template-columns:1fr 1fr;gap:2px 10px'>{svc}</div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
-  display:flex;align-items:center;justify-content:space-between'>
-  {''.join(wa(n) for n in PHONES)}
-</div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE + 21}px;display:flex;flex-direction:column;gap:2px'>
-  <div style='display:flex;align-items:center;gap:5px'><span style='width:12px;height:12px;border-radius:50%;background:{C['gold2']};display:inline-flex;align-items:center;justify-content:center;flex:none'>{icon('mail', 7.5, NAVY, 2.6)}</span><span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span></div>
-  <div style='display:flex;align-items:center;gap:5px'><span style='width:12px;height:12px;border-radius:50%;background:{C['gold2']};display:inline-flex;align-items:center;justify-content:center;flex:none'>{icon('pin', 7.5, NAVY, 2.6)}</span><span style='font-size:6.9px;font-weight:600;color:#DCEBE3;white-space:nowrap'>{ADDRESS}</span></div>
-</div></div>"""
+{bottom_wave(H - 58, 8, cream=True)}
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 1}px;display:flex;align-items:center;justify-content:space-between'>
+  {''.join(wa(n) for n in PHONES)}</div></div>"""
 
 
 CSS = f"""{font_css()}
