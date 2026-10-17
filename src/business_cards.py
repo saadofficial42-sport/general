@@ -50,12 +50,10 @@ def front(p):
   <div style='font-size:9.5px;font-weight:800;color:{GREEN};margin-top:4px;letter-spacing:.3px'>{p['title']}</div>
   <div style='font-size:7.2px;font-weight:700;color:#6B7785;letter-spacing:1.2px;margin-top:2px'>RS LINKS CONSULTANTS PVT. LTD.</div>
 </div>
-<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE - 4}px;display:flex;flex-direction:column;gap:2.5px'>
-  {row('phone', p['phone'], 9.4)}
-  {row('wa', 'Office: ' + ' | '.join(n.replace('+92 ', '0') for n in PHONES), 7.9)}
-  {row('mail', p['email'])}
-  {row('gear', WEBSITE)}
-  {row('pin', ADDRESS, 7.4)}
+<div style='position:absolute;left:{B + 40}px;right:{SAFE}px;bottom:{SAFE}px;display:flex;flex-direction:column;gap:6px'>
+  {row('phone', p['phone'], 11)}
+  {row('mail', p['email'], 9.6)}
+  {row('gear', WEBSITE, 9.6)}
 </div></div>"""
 
 
@@ -70,17 +68,17 @@ def back():
     return f"""<div class='card' style='background:linear-gradient(135deg,{GREEN},#06291D)'>
 <div style='position:absolute;inset:{B + 7}px;border:1px solid {GOLD};border-radius:6px'></div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE}px;display:flex;align-items:center;justify-content:space-between'>
-  <div style='background:#fff;border-radius:8px;padding:4px 8px'>{logo_img('logo-horizontal-light', 'width:132px;height:36px')}</div>
+  <div style='background:#fff;border-radius:8px;padding:3px 8px'>{logo_img('logo-horizontal-light', 'width:122px;height:32px')}</div>
   <div style='text-align:right;font-family:Dancing;font-weight:700;font-size:11.5px;color:{C['gold2']};line-height:1.1;width:110px'>{TAGLINE}</div>
 </div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 58}px;display:grid;grid-template-columns:1fr 1fr;gap:3.5px 10px'>{svc}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{SAFE + 50}px;display:grid;grid-template-columns:1fr 1fr;gap:2px 10px'>{svc}</div>
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 2}px;border-top:1px solid {GOLD}88;padding-top:5px;
   display:flex;align-items:center;justify-content:space-between'>
   {''.join(wa(n) for n in PHONES)}
 </div>
-<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE + 17}px;display:flex;align-items:center;justify-content:flex-end;gap:5px'>
-  <span style='width:13px;height:13px;border-radius:50%;background:{C['gold2']};display:flex;align-items:center;justify-content:center'>{icon('mail', 8, NAVY, 2.6)}</span>
-  <span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE + 21}px;display:flex;flex-direction:column;gap:2px'>
+  <div style='display:flex;align-items:center;gap:5px'><span style='width:12px;height:12px;border-radius:50%;background:{C['gold2']};display:inline-flex;align-items:center;justify-content:center;flex:none'>{icon('mail', 7.5, NAVY, 2.6)}</span><span style='font-size:8px;font-weight:700;color:#fff'>hr@rslinksconsultants.com</span></div>
+  <div style='display:flex;align-items:center;gap:5px'><span style='width:12px;height:12px;border-radius:50%;background:{C['gold2']};display:inline-flex;align-items:center;justify-content:center;flex:none'>{icon('pin', 7.5, NAVY, 2.6)}</span><span style='font-size:6.9px;font-weight:600;color:#DCEBE3;white-space:nowrap'>{ADDRESS}</span></div>
 </div></div>"""
 
 
