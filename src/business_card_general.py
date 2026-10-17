@@ -28,5 +28,5 @@ def front(_p=None):
 
 
 if __name__ == "__main__":
-    bc.front = front
+    bc.front, bc.back = (lambda _p=None: bc.back()), bc.back_services
     bc.render_person({"slug": "General", "name": "", "title": "", "phone": "", "email": EMAIL})

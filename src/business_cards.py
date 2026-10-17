@@ -103,7 +103,7 @@ def front(p):
 </div></div>"""
 
 
-def back():
+def back_services():
     W, H = PX_W, PX_H
     services = ["Manpower Recruitment", "HR Consultancy", "Student Consultancy", "Tax Consultancy",
                 "Career Advisory", "Visa &amp; Documentation", "Travel &amp; Ticketing", "Document Attestation",
@@ -128,6 +128,31 @@ def back():
 </div>
 {bottom_wave(H - 58, 8, cream=True)}
 <div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 1}px;display:flex;align-items:center;justify-content:space-between'>
+  {''.join(wa(n) for n in PHONES)}</div></div>"""
+
+
+
+def back():
+    """Company side (user's preferred layout): white top with round logo + name, 3D green wave,
+    office email / website / address, and the three WhatsApp numbers along the bottom."""
+    W, H = PX_W, PX_H
+    mi = lambda ic: (f"<span style='width:14px;height:14px;border-radius:50%;background:{GOLD2};display:inline-flex;align-items:center;justify-content:center;flex:none'>"
+                     f"{icon(ic, 8.5, NAVY, 2.6)}</span>")
+    wrow = lambda ic, t, sz=8.6: (f"<div style='display:flex;align-items:center;gap:6px'>{mi(ic)}"
+                                  f"<span style='font-size:{sz}px;font-weight:700;color:#fff;white-space:nowrap'>{t}</span></div>")
+    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'><span style='line-height:0'>{whatsapp_icon(13)}</span>"
+                    f"<span style='font-family:Anton;font-size:11px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
+    return f"""<div class='card' style='background:radial-gradient(circle at 25% 20%,#FFFFFF,#F2F6F3)'>
+{corner_swoosh(right=True)}
+<div style='position:absolute;left:{SAFE}px;top:{SAFE - 6}px;display:flex;align-items:center;gap:8px'>
+  {logo_img('logo-badge', 'width:52px;height:52px')}
+  <div><div style='font-family:Anton;font-size:19px;color:{GREEN};line-height:1;letter-spacing:.3px'>RS LINKS CONSULTANTS</div>
+  <div style='font-size:7.2px;font-weight:800;color:{NAVY};letter-spacing:2px;margin-top:2px'>PVT. LTD.</div>
+  <div style='font-family:Dancing;font-weight:700;font-size:11px;color:#A87508;margin-top:1px'>{TAGLINE}</div></div></div>
+{bottom_wave(H - 128, 9)}
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;top:{H - 106}px;display:flex;flex-direction:column;gap:4px'>
+  {wrow('mail', 'hr@rslinksconsultants.com')}{wrow('gear', WEBSITE)}{wrow('pin', ADDRESS, 6.9)}</div>
+<div style='position:absolute;left:{SAFE}px;right:{SAFE}px;bottom:{SAFE - 4}px;border-top:1px solid {GOLD2}66;padding-top:5px;display:flex;align-items:center;justify-content:space-between'>
   {''.join(wa(n) for n in PHONES)}</div></div>"""
 
 
