@@ -19,3 +19,8 @@ Total 120. Net = after tax; paid monthly in BYN, USD indicative; upper end depen
 - Company provides: free accommodation (utilities, heating); food 3 meals/day or meal allowance; free transport; ticket to Belarus + ticket after 2 years; medical insurance; 24 days paid leave; airport pickup, registration, residence permit in 2 months, bank account help.
 - Return ticket paid by employer at contract end (and other listed cases).
 - Documents: CV, passport (colour scans, min 2 yrs validity), matric/equivalent where required, experience certificates, medical.
+
+## v2 (user: check accuracy + add points from last Belarus ad)
+- Fixed wording vs letter: overtime "at least double hourly rate"; hours "40 h/week, max 12-h shift" (agri is 8-12 h).
+- Added from previous RS Links Belarus ad: visa process steps (now per letter section 8) and required documents (CNIC copy, white-background photos, PCC, medical fitness) merged with letter section 9. Passport validity per letter (2+ yrs, old ad said 1 yr).
+- Not carried over (conflict with this demand): 8 h/day, EUR 450-550, 2-year contract, "Limited seats".
