@@ -11,3 +11,7 @@ welder / plastic / aluminium = drawn placeholders until real photos supplied.
 - Plastic / Aluminium factory: no salary in references -> "salary: contact us"
 - Not used: CNC operator 33,000 & HTV driver 35,000 (not in user's position list); interview/video-selection dates; "limited seats";
   their photos (other agency).
+
+## Update: user added (2026-10-19)
+- Timeline: 4 months
+- Documents: PCC + FRC (MOFA attested), plus standard documents
