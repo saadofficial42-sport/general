@@ -263,11 +263,6 @@ const body = [
     ["For and on behalf of the Company", COMPANY, "", "Signature: ______________________", "Name: __________________________", "Designation: ____________________", "Company Stamp:"],
     ["Employee", `${e.name}`, "", "Signature: ______________________", `CNIC: ${e.cnic}`, "Date: ___________________________"],
   ),
-  new Paragraph({ spacing: { before: 280, after: 80 }, keepNext: true, children: [b("Witnesses", { color: BRAND })] }),
-  sigBlock(
-    ["Witness 1", "Name: __________________________", "CNIC: __________________________", "Signature: ______________________"],
-    ["Witness 2", "Name: __________________________", "CNIC: __________________________", "Signature: ______________________"],
-  ),
 ];
 
 const doc = new Document({
