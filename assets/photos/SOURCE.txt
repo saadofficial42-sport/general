@@ -5,3 +5,5 @@ rslinks_drivers_trucks.png: from the user's own RS Links drivers ad (demands/202
 panda_logo_src-ad.png: Panda logo cropped from the Checker & Receiver source ad (demands/2026-10-14-saudi-checker-receiver/ref.jpg); shown at user request.
 by_*, ua_*, rs_*_mason, xk_*: cropped from the user's own Europe ad drafts (demands/2026-10-16-europe-set/), no other agency branding; reused at user request to convert those ads.
 rslinks_*_x3.png: 3x LANCZOS upscales (+unsharp) of the matching rslinks_* crops, for larger display.
+tr_welder.png, tr_tailor.png, tr_aluminium.png: cropped from a Phoenix HR Consultants Turkey ad (demands/2026-10-19-turkey-multi/ref-trades.jpg; tr_aluminium is its CNC-operator photo); reused ONLY because the user explicitly approved using the reference-ad photos (2026-10-19).
+tr_plastic.png: RS Links machine-operator photo cropped from the user's own Belarus ad (demands/2026-10-16-belarus-user-ad/source.jpg), 3x upscaled.

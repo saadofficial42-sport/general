@@ -15,3 +15,4 @@ welder / plastic / aluminium = drawn placeholders until real photos supplied.
 ## Update: user added (2026-10-19)
 - Timeline: 4 months
 - Documents: PCC + FRC (MOFA attested), plus standard documents
+- Photos: user asked for real people, no drawings; approved using the Phoenix reference-ad photos (welder, tailor, CNC->aluminium). Plastic = RS Links machine operator from own Belarus ad.
