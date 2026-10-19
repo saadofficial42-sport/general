@@ -1,5 +1,7 @@
 """Turkey — 5 positions, Urdu (2026-10-19). Facts: demands/2026-10-19-turkey-multi/facts.md (user gave positions only:
-Factory Workers, Welders, Tailors, Plastic Factory Worker, Aluminum Factory Worker — no salary/posts/benefits, so none shown).
+Factory Workers, Welders, Tailors, Plastic Factory Worker, Aluminum Factory Worker). Salaries taken from the two
+reference ads the user sent ("take info from here"): factory worker 28000 Lira, welder & tailor 33,000 Lira monthly;
+plastic / aluminium have no figure in the references -> "salary: contact us".
 Design: "Istanbul skyline + photo grid" — white header, Turkish-red hero with Istanbul mosque/minaret skyline, tilted
 polaroid hero photo, 3+2 grid of large picture cards, charcoal CTA.
 Photos: real RS Links photos (factory) and the user's own tailor photo; welder / plastic / aluminium cards are
@@ -90,17 +92,20 @@ def istanbul(w, h, fill):
 
 
 def build():
-    jobs = [("فیکٹری ورکرز", "FACTORY WORKERS", photo("rslinks_team_scan_x3", "center 30%")),
-            ("ویلڈرز", "WELDERS", photo("tr_welder") or art(welder_svg, 324, 170)),
-            ("ٹیلرز", "TAILORS", photo("by_tailor", "center 35%")),
-            ("پلاسٹک فیکٹری ورکرز", "PLASTIC FACTORY WORKERS", photo("tr_plastic") or art(plastic_svg, 497, 170)),
-            ("ایلومینیم فیکٹری ورکرز", "ALUMINIUM FACTORY WORKERS", photo("tr_aluminium") or art(aluminium_svg, 497, 170))]
+    N = lambda v: f"<span class='num' style='font-size:30px;color:{RED2};line-height:1'>{v}</span>"
+    lira = lambda v, monthly=False: f"{N(v)} {T('لیرا ماہانہ' if monthly else 'لیرا', 20, INK, 'font-weight:700;display:inline-block', 1.4)}"
+    jobs = [("فیکٹری ورکرز", "FACTORY WORKERS", photo("rslinks_team_scan_x3", "center 30%"), lira("28,000")),
+            ("ویلڈرز", "WELDERS", photo("tr_welder") or art(welder_svg, 324, 170), lira("33,000", True)),
+            ("ٹیلرز", "TAILORS", photo("by_tailor", "center 35%"), lira("33,000", True)),
+            ("پلاسٹک فیکٹری ورکرز", "PLASTIC FACTORY WORKERS", photo("tr_plastic") or art(plastic_svg, 497, 170), T("تنخواہ: رابطہ کریں", 20, INK, "font-weight:700", 1.5)),
+            ("ایلومینیم فیکٹری ورکرز", "ALUMINIUM FACTORY WORKERS", photo("tr_aluminium") or art(aluminium_svg, 497, 170), T("تنخواہ: رابطہ کریں", 20, INK, "font-weight:700", 1.5))]
 
     def card(i, j, x, y, w):
-        ur, en, pic = j
+        ur, en, pic, sal = j
         return (f"<div class='abs' style='top:{y}px;left:{x}px;width:{w}px;height:266px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 20px rgba(28,30,38,.16)'>"
                 f"<div style='height:170px;overflow:hidden;position:relative'>{pic}"
-                f"<span class='num' style='position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;background:{RED};color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px #0006'>{i + 1}</span></div>"
+                f"<span class='num' style='position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;background:{RED};color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px #0006'>{i + 1}</span>"
+                f"<div style='position:absolute;bottom:10px;left:10px;background:{GOLD};border-radius:12px;padding:2px 14px 4px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 10px #0006'>{sal}</div></div>"
                 f"<div style='height:96px;border-top:6px solid {RED};display:flex;flex-direction:column;align-items:center;justify-content:center'>"
                 f"{T(ur, 28, INK, 'font-weight:700;margin-top:-6px', 1.5)}<div style='font-family:Anton;font-size:20px;color:{RED};letter-spacing:1px;line-height:1.1;margin-top:10px'>{en}</div></div></div>")
 
@@ -134,7 +139,7 @@ def build():
 <div class='abs' style='top:1150px;left:0;width:1080px;height:200px;background:{INK};border-top:6px solid {RED}'></div>
 <div class='abs' style='top:1170px;left:26px;height:160px;background:#fff;border-radius:22px;display:flex;align-items:center;padding:0 22px;direction:ltr;box-shadow:0 8px 18px #0008'><div style='display:flex;flex-direction:column;gap:2px'>{nums}</div></div>
 <div class='abs' style='top:1162px;right:30px;width:560px;text-align:right'>
- {T('تنخواہ اور مکمل تفصیلات کے لیے ابھی رابطہ کریں!', 27, GOLD, 'font-weight:700', 1.7)}
+ {T('مزید تفصیلات کے لیے ابھی رابطہ کریں!', 27, GOLD, 'font-weight:700', 1.7)}
  {T("اپنی <span class='num'>CV</span> واٹس ایپ کریں", 23, '#fff', 'font-weight:700', 1.7)}
  <div style='display:flex;align-items:center;justify-content:flex-end;gap:8px;direction:ltr;margin-top:4px'>{icon('mail', 24, GOLD, 2)}<span style='font-family:Archivo;font-size:23px;font-weight:700;color:#fff'>{EMAIL}</span></div>
  <div style='display:flex;align-items:center;justify-content:flex-end;gap:6px;direction:ltr;margin-top:6px'>{icon('pin', 20, GOLD, 2.2)}<span style='font-family:Archivo;font-size:15px;font-weight:600;color:#D5D8DC'>{ADDRESS}</span></div></div>
