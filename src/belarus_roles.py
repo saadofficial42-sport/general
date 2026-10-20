@@ -19,7 +19,7 @@ BENEFITS = [("home", "Free accommodation"), ("food", "3 meals a day or meal allo
 DOCS = "CV · Passport (2+ yrs validity) · CNIC · Photos · PCC · Medical fitness · Experience certificates"
 
 ROLES = [
-    dict(slug="milking", pos="center 40%", flip=True, title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
+    dict(slug="milking", pos="center 40%", flip=True, inset="by_woman_production", title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
          accent="#0E6BA8", duties=["Machine milking at a dairy plant", "2/2 shift rotation, 12-hour shifts (year-round)",
                                      "Free dormitory &amp; meals at the production site"],
          reqs=["Age 21 – 45 years", "1+ year livestock / dairy experience preferred", "On-site training provided",
@@ -40,7 +40,7 @@ ROLES = [
          accent="#6A8E23", duties=["Harvesting crops (cabbage, potatoes)", "General farm work, crop handling, loading &amp; unloading",
                                      "5/2 or 6/1, 8–12 hours per day", "Free dormitory: 2 per room (separate rooms for couples)"],
          reqs=["Age 21 – 45 years", "1+ year farm work preferred", "Literate; good physical health"]),
-    dict(slug="bakery", title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
+    dict(slug="bakery", inset="by_woman_production", title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
          accent="#D9822B", duties=["General work in bakery production", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
     dict(slug="cleaners", pos="center 6%", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
@@ -70,6 +70,8 @@ def build(r, i, uri):
     flip = r.get("flip", i % 2 == 1)          # alternate the photo / title side unless the photo needs one
     side, other = ("right", "left") if flip else ("left", "right")
     grad = f"linear-gradient({'270' if flip else '90'}deg,{INK}F2 0%,{INK}B0 38%,{INK}00 70%)"
+    inset = (f"<div class='abs' style='top:150px;{other}:50px;width:290px;height:290px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #000a'>"
+             f"<img src='{(PHOTOS / (r['inset'] + '.jpg')).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:center 20%'></div>") if r.get('inset') else ''
     who = (f"<span style='display:inline-block;background:#fff;color:{RED};font:800 20px Archivo;border-radius:8px;padding:4px 12px;margin-top:12px'>{r['who'].upper()}</span>"
            if r["who"] else "")
     duty_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:13px'>{icon('check', 22, A, 3)}<span style='font:700 20px Archivo;color:{INK};line-height:1.25'>{d}</span></div>" for d in r["duties"])
@@ -91,6 +93,7 @@ def build(r, i, uri):
  <div style='font:400 {54 if len(r['title']) < 26 else 44}px Anton;color:#fff;line-height:1.02;letter-spacing:1px;margin-top:6px;text-shadow:0 4px 14px #000a'>{r['title']}</div>
  {who}
  <div style='display:flex;align-items:center;gap:8px;margin-top:12px;justify-content:{'flex-end' if flip else 'flex-start'}'>{icon('pin', 26, '#FFD54F', 2.4)}<span style='font:800 24px Archivo;color:#fff'>{r['city']}, Belarus</span></div></div>
+{inset}
 <div class='abs' style='top:500px;{other}:40px;min-width:300px;padding:0 22px;box-sizing:border-box;height:118px;border-radius:20px;background:linear-gradient(135deg,#FFE27A,#F5B700);box-shadow:0 12px 26px #000a;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate({'3' if flip else '-3'}deg)'>
  <div style='font:800 15px Archivo;color:{INK};letter-spacing:2px'>NET SALARY / MONTH</div>
  <div style='font:400 54px Anton;color:{RED};line-height:1.05'>${r['sal']}</div></div>
