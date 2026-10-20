@@ -8,3 +8,4 @@ rslinks_*_x3.png: 3x LANCZOS upscales (+unsharp) of the matching rslinks_* crops
 tr_welder.png, tr_tailor.png, tr_aluminium.png: cropped from a Phoenix HR Consultants Turkey ad (demands/2026-10-19-turkey-multi/ref-trades.jpg; tr_aluminium is its CNC-operator photo); reused ONLY because the user explicitly approved using the reference-ad photos (2026-10-19).
 tr_plastic.png: RS Links machine-operator photo cropped from the user's own Belarus ad (demands/2026-10-16-belarus-user-ad/source.jpg), 3x upscaled.
 by_cleaners.jpg, by_bakery.jpg, by_agriculture.jpg, by_poultry.jpg, by_woodworking.jpg: trade photos supplied by the user for the Belarus per-trade ads (2026-10-20). by_woodworking carries a Vecteezy watermark, by_agriculture a faint stock watermark, by_cleaners shows "The Pink Wand" branding — flagged to the user.
+by_milking.jpg (cropped right part, Circle International logo/text removed), by_dairy.jpg: user-supplied dairy photos (2026-10-20).

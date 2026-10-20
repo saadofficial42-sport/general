@@ -19,12 +19,12 @@ BENEFITS = [("home", "Free accommodation"), ("food", "3 meals a day or meal allo
 DOCS = "CV · Passport (2+ yrs validity) · CNIC · Photos · PCC · Medical fitness · Experience certificates"
 
 ROLES = [
-    dict(slug="milking", title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
+    dict(slug="milking", pos="center 40%", flip=True, title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
          accent="#0E6BA8", duties=["Machine milking at a dairy plant", "2/2 shift rotation, 12-hour shifts (year-round)",
                                      "Free dormitory &amp; meals at the production site"],
          reqs=["Age 21 – 45 years", "1+ year livestock / dairy experience preferred", "On-site training provided",
                "Matric (Secondary School Certificate)", "Medical fitness"]),
-    dict(slug="dairy", title="GENERAL LABOURERS – DAIRY PLANT", who="Men", posts=6, city="Mogilev", sal="700 – 800",
+    dict(slug="dairy", pos="center 30%", flip=False, title="GENERAL LABOURERS – DAIRY PLANT", who="Men", posts=6, city="Mogilev", sal="700 – 800",
          accent="#2E7D32", duties=["General labour at a dairy plant", "2/2 shift rotation, 12-hour shifts (year-round)",
                                      "Free dormitory &amp; meals at the production site"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
@@ -67,13 +67,14 @@ def ornament(w, h, c1, c2):
 
 def build(r, i, uri):
     A = r["accent"]
-    flip = i % 2 == 1          # alternate the photo / title side
+    flip = r.get("flip", i % 2 == 1)          # alternate the photo / title side unless the photo needs one
     side, other = ("right", "left") if flip else ("left", "right")
     grad = f"linear-gradient({'270' if flip else '90'}deg,{INK}F2 0%,{INK}B0 38%,{INK}00 70%)"
     who = (f"<span style='display:inline-block;background:#fff;color:{RED};font:800 20px Archivo;border-radius:8px;padding:4px 12px;margin-top:12px'>{r['who'].upper()}</span>"
            if r["who"] else "")
     duty_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:13px'>{icon('check', 22, A, 3)}<span style='font:700 20px Archivo;color:{INK};line-height:1.25'>{d}</span></div>" for d in r["duties"])
-    req_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:12px'>{icon('user' if k == 0 else 'check', 22, '#fff', 2.6)}<span style='font:700 20px Archivo;color:#fff;line-height:1.25'>{d}</span></div>" for k, d in enumerate(r["reqs"]))
+    rp, rm = (18, 8) if len(r["reqs"]) > 4 else (20, 12)
+    req_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:{rm}px'>{icon('user' if k == 0 else 'check', 22, '#fff', 2.6)}<span style='font:700 {rp}px Archivo;color:#fff;line-height:1.25'>{d}</span></div>" for k, d in enumerate(r["reqs"]))
     ben = "".join(f"<div style='display:flex;align-items:center;gap:8px'><span style='width:32px;height:32px;border-radius:8px;background:{A};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 19, '#fff', 2.2)}</span>"
                   f"<span style='font:700 15px Archivo;color:{INK};line-height:1.15'>{t}</span></div>" for ic, t in BENEFITS)
     nums = "".join(f"<div style='display:flex;align-items:center;gap:7px'>{whatsapp_icon(30)}<span style='font:400 27px Anton;color:{INK};letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
