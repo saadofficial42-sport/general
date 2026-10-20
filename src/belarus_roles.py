@@ -43,7 +43,7 @@ ROLES = [
     dict(slug="bakery", inset="by_woman_production", title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
          accent="#D9822B", duties=["General work in bakery production", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
-    dict(slug="cleaners", pos="center 6%", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
+    dict(slug="cleaners", pos="center 6%", inset="by_cleaner2", inset_css="top:350px;left:470px;width:260px;height:260px", inset_pos="center center", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
          accent="#7B3FA0", duties=["Cleaning of production premises (bakery)", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
 ]
@@ -70,8 +70,10 @@ def build(r, i, uri):
     flip = r.get("flip", i % 2 == 1)          # alternate the photo / title side unless the photo needs one
     side, other = ("right", "left") if flip else ("left", "right")
     grad = f"linear-gradient({'270' if flip else '90'}deg,{INK}F2 0%,{INK}B0 38%,{INK}00 70%)"
-    inset = (f"<div class='abs' style='top:150px;{other}:50px;width:290px;height:290px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #000a'>"
-             f"<img src='{(PHOTOS / (r['inset'] + '.jpg')).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:center 20%'></div>") if r.get('inset') else ''
+    ics = r.get('inset_css', f'top:150px;{other}:50px;width:290px;height:290px')
+    ipos = r.get('inset_pos', 'center 20%')
+    inset = (f"<div class='abs' style='{ics};border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #000a'>"
+             f"<img src='{(PHOTOS / (r['inset'] + '.jpg')).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:{ipos}'></div>") if r.get('inset') else ''
     who = (f"<span style='display:inline-block;background:#fff;color:{RED};font:800 20px Archivo;border-radius:8px;padding:4px 12px;margin-top:12px'>{r['who'].upper()}</span>"
            if r["who"] else "")
     duty_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:13px'>{icon('check', 22, A, 3)}<span style='font:700 20px Archivo;color:{INK};line-height:1.25'>{d}</span></div>" for d in r["duties"])

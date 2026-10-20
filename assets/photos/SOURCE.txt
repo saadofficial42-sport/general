@@ -10,3 +10,4 @@ tr_plastic.png: RS Links machine-operator photo cropped from the user's own Bela
 by_cleaners.jpg, by_bakery.jpg, by_agriculture.jpg, by_poultry.jpg, by_woodworking.jpg: trade photos supplied by the user for the Belarus per-trade ads (2026-10-20). by_woodworking carries a Vecteezy watermark, by_agriculture a faint stock watermark, by_cleaners shows "The Pink Wand" branding — flagged to the user.
 by_milking.jpg (cropped right part, Circle International logo/text removed), by_dairy.jpg: user-supplied dairy photos (2026-10-20).
 by_woman_production.jpg: user-supplied photo of a woman worker with clipboard (2026-10-20), cropped (Google Lens icon removed); used as round inset on women-eligible Belarus ads.
+by_cleaner2.jpg: left woman cropped from the user's cleaners photo (2026-10-20), used as round inset on the Belarus cleaners ad.
