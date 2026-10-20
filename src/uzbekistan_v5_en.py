@@ -26,7 +26,7 @@ def build():
     card = lambda title, color, body: (f"<div style='flex:1;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 20px rgba(6,50,74,.14)'>"
                                        f"<div style='background:linear-gradient(90deg,{color},{color}cc);padding:12px 20px'>{A(title, 32, '#fff')}</div>"
                                        f"<div style='padding:2px 20px 8px'>{body}</div></div>")
-    nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'><span style='line-height:0'>{whatsapp_icon(30)}</span><span style='font:400 31px Anton;color:{INK};line-height:1.15;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
+    nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'><span style='line-height:0'>{whatsapp_icon(28)}</span><span style='font:400 28px Anton;color:{INK};line-height:1.2;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""
 <div class='abs' style='top:0;left:0;width:1080px;height:150px;background:#fff'></div>
 <div class='abs' style='top:20px;left:26px'>{logo_img('logo-horizontal-light', 'width:420px;height:108px;object-position:left')}</div>
@@ -50,7 +50,7 @@ def build():
 <div class='abs' style='top:748px;left:30px;right:30px;display:flex;gap:16px'>{card('JOB DETAILS', TEAL, work_li)}{card('FACILITIES', '#1A9E46', fac_li)}</div>
 <div class='abs' style='top:1150px;left:0;width:1080px;height:200px;background:linear-gradient(250deg,{DEEP},{TEAL})'></div>
 <svg class='abs' style='left:0;top:1138px' width='1080' height='30'><path d='M0 6 C 380 24, 780 0, 1080 30 L0 30Z' fill='{GOLD}'/></svg>
-<div class='abs' style='top:1168px;right:26px;height:150px;background:#fff;border-radius:22px;display:flex;align-items:center;padding:0 22px;box-shadow:0 8px 18px #0006'><div style='display:flex;flex-direction:column;gap:2px'>{nums}</div></div>
+<div class='abs' style='top:1166px;right:26px;height:166px;background:#fff;border-radius:22px;display:flex;align-items:center;padding:0 20px;box-shadow:0 8px 18px #0006'><div style='display:flex;flex-direction:column;gap:2px'>{nums}</div></div>
 <div class='abs' style='top:1178px;left:34px;width:560px'>
  {A('CONTACT US NOW!', 44, GOLD)}
  {F('For more information, contact us on WhatsApp', 20, '#fff', 700, 'margin-top:10px')}
