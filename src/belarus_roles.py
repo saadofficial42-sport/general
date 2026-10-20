@@ -40,7 +40,7 @@ ROLES = [
          accent="#6A8E23", duties=["Harvesting crops (cabbage, potatoes)", "General farm work, crop handling, loading &amp; unloading",
                                      "5/2 or 6/1, 8–12 hours per day", "Free dormitory: 2 per room (separate rooms for couples)"],
          reqs=["Age 21 – 45 years", "1+ year farm work preferred", "Literate; good physical health"]),
-    dict(slug="bakery", inset="by_cleaner2", inset_pos="center center", title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
+    dict(slug="bakery", photo="by_bakery_woman", pos="center 12%", flip=True, title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
          accent="#D9822B", duties=["General work in bakery production", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
     dict(slug="cleaners", pos="center 6%", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     for i, r in enumerate(ROLES):
         if only and r["slug"] not in only:
             continue
-        uri = photo_uri(r["slug"])
+        uri = photo_uri(r["slug"]) if not r.get("photo") else (PHOTOS / (r["photo"] + ".jpg")).as_uri()
         if not uri:
             missing.append(f"assets/photos/by_{r['slug']}.jpg")
             continue
