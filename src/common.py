@@ -14,8 +14,8 @@ OUTPUT = ROOT / "output"
 
 W, H = 1080, 1350
 WHATSAPP = "+92 371 9051589"
-# Contact numbers for all new ads, in display order (user, 2026-10-13 / 2026-10-15)
-PHONES = ["+92 317 0363690", "+92 371 9051589", "+92 341 5087051"]
+# Contact numbers for all new ads, in display order (user, 2026-10-13 / 2026-10-15 / 2026-10-20)
+PHONES = ["+92 317 0363690", "+92 371 9051589", "+92 341 5087051", "+92 311 9435591"]
 WHATSAPP_LINK = "923719051589"
 
 C = {
