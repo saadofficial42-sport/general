@@ -19,7 +19,7 @@ BENEFITS = [("home", "Free accommodation"), ("food", "3 meals a day or meal allo
 DOCS = "CV · Passport (2+ yrs validity) · CNIC · Photos · PCC · Medical fitness · Experience certificates"
 
 ROLES = [
-    dict(slug="milking", pos="center 40%", flip=True, inset="by_woman_production", title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
+    dict(slug="milking", pos="center 40%", flip=True, title="MACHINE MILKING OPERATORS", who="Men &amp; Women", posts=10, city="Mogilev", sal="700 – 800",
          accent="#0E6BA8", duties=["Machine milking at a dairy plant", "2/2 shift rotation, 12-hour shifts (year-round)",
                                      "Free dormitory &amp; meals at the production site"],
          reqs=["Age 21 – 45 years", "1+ year livestock / dairy experience preferred", "On-site training provided",
