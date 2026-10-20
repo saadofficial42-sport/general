@@ -39,7 +39,7 @@ def build():
                                                    f"<img src='{uri}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'></div>")
     pics = (f"<div style='display:flex;gap:16px;align-items:flex-end'>{frame(gardener, 210, 400)}{frame(worker, 210, 340)}</div>" if gardener
             else frame(worker, 380, 470))
-    docs = [("user", "سی وی (CV)"), ("idcard", "پاسپورٹ"), ("idcard", "شناختی کارڈ (CNIC)"), ("camera", "پاسپورٹ سائز تصویر")]
+    docs = [("user", "سی وی"), ("idcard", "پاسپورٹ"), ("idcard", "شناختی کارڈ"), ("camera", "پاسپورٹ سائز تصویر")]
     doc_li = "".join(f"<div style='display:flex;align-items:center;gap:10px'><span style='width:40px;height:40px;border-radius:12px;background:{LEAF};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 22, GOLD, 2.2)}</span>"
                      f"{T(t, 25, INK, 'font-weight:700', 1.7)}</div>" for ic, t in docs)
     after = [("doc", "NAVTCC"), ("medical", "میڈیکل")]
@@ -58,20 +58,20 @@ def build():
 <div class='abs' style='top:150px;left:40px'>{pics}</div>
 <div class='abs' style='top:150px;right:40px;width:560px;text-align:right'>
  {T('برائے سعودی عرب', 34, GOLD, 'font-weight:700', 1.7)}
- {T('جنرل ورکرز', 88, '#fff', 'font-weight:700;margin-top:12px;text-shadow:0 6px 16px #0006', 1.45)}
- {T('(گارڈننگ یا لوڈنگ اَن لوڈنگ)', 32, LIME, 'font-weight:700;margin-top:22px;margin-bottom:10px', 1.6)}
+ {T('جنرل ورکرز', 86, '#fff', 'font-weight:700;margin-top:24px;text-shadow:0 6px 16px #0006', 1.85)}
+ {T('(گارڈننگ یا لوڈنگ اَن لوڈنگ)', 32, LIME, 'font-weight:700;margin-top:6px;margin-bottom:16px', 1.7)}
  <div style='font:400 40px Anton;color:#fff;letter-spacing:2px;direction:ltr;text-align:right;line-height:1.1'>GENERAL WORKERS</div>
  <div style='font:800 20px Archivo;color:{GOLD};letter-spacing:1px;direction:ltr;text-align:right;margin-top:4px'>GARDENING · LOADING / UNLOADING</div>
- {T('معروف فیسلٹی مینجمنٹ و کیٹرنگ سروسز کمپنی کے لیے', 22, '#DDEFE2', 'font-weight:700;margin-top:10px', 1.7)}</div>
+ {T('معروف فیسلٹی مینجمنٹ و کیٹرنگ سروسز کمپنی کے لیے', 22, '#DDEFE2', 'font-weight:700;margin-top:18px', 1.8)}</div>
 
-<div class='abs' style='top:640px;left:40px;right:40px;height:150px;display:flex;gap:14px'>
+<div class='abs' style='top:640px;left:40px;right:40px;height:158px;display:flex;gap:14px'>
  <div style='flex:1.5;background:radial-gradient(circle at 30% 25%,#FFE89A,{GOLD} 55%,#D9A21E);border-radius:90px 18px 90px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 28px #0007'>
-  {T('تنخواہ', 22, LEAF2, 'font-weight:700', 1.4)}
+  {T('تنخواہ', 22, LEAF2, 'font-weight:700;margin-bottom:8px', 1.5)}
   <div style='direction:ltr;display:flex;align-items:baseline;gap:8px'><span class='num' style='font-size:50px;color:{LEAF2};line-height:1'>1000 + 200</span><span class='num' style='font-size:22px;color:{LEAF2}'>SAR</span></div>
-  {T('+ اوور ٹائم', 20, LEAF2, 'font-weight:700', 1.5)}</div>
+  {T('+ اوور ٹائم', 20, LEAF2, 'font-weight:700;margin-top:8px', 1.5)}</div>
  {''.join(f"<div style='flex:1;background:#fff;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 28px #0006'>"
-          f"<div style='width:50px;height:50px;border-radius:50%;background:{LEAF};display:flex;align-items:center;justify-content:center'>{icon(ic, 28, GOLD, 2.3)}</div>"
-          f"{T(v, 26, INK, 'font-weight:700;margin-top:2px', 1.5)}{T(l, 17, '#4D5E54', 'font-weight:700;margin-top:-2px', 1.5)}</div>"
+          f"<div style='width:44px;height:44px;border-radius:50%;background:{LEAF};display:flex;align-items:center;justify-content:center'>{icon(ic, 25, GOLD, 2.3)}</div>"
+          f"{T(v, 25, INK, 'font-weight:700;margin-top:14px', 1.5)}{T(l, 17, '#4D5E54', 'font-weight:700;margin-top:10px', 1.5)}</div>"
           for ic, v, l in [('clock', f"{N(8)} گھنٹے", 'ڈیوٹی + اوور ٹائم'), ('calendar', f"{N(2)} سال", 'معاہدہ'), ('chat', 'بیسک انگلش', 'بول چال لازمی')])}</div>
 <div class='abs' style='top:806px;left:40px;right:40px;height:72px;border-radius:999px;background:#ffffff1a;border:2px solid {GOLD};display:flex;align-items:center;gap:26px;padding:0 26px'>
  {T('بذمہ کمپنی:', 26, GOLD, 'font-weight:700', 1.6)}
