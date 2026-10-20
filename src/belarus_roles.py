@@ -43,7 +43,7 @@ ROLES = [
     dict(slug="bakery", title="BAKERY PRODUCTION WORKERS", who="Men &amp; Women", posts=30, city="Borisov, Minsk Region", sal="700 – 850",
          accent="#D9822B", duties=["General work in bakery production", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
-    dict(slug="cleaners", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
+    dict(slug="cleaners", pos="center 6%", title="FACILITY CLEANERS", who="Women", posts=4, city="Borisov, Minsk Region", sal="600 – 750",
          accent="#7B3FA0", duties=["Cleaning of production premises (bakery)", "2/2 shift rotation, 12-hour shifts", "Free dormitory housing"],
          reqs=["Age 21 – 45 years", "No experience required", "Literate", "Medical fitness"]),
 ]
@@ -72,13 +72,13 @@ def build(r, i, uri):
     grad = f"linear-gradient({'270' if flip else '90'}deg,{INK}F2 0%,{INK}B0 38%,{INK}00 70%)"
     who = (f"<span style='display:inline-block;background:#fff;color:{RED};font:800 20px Archivo;border-radius:8px;padding:4px 12px;margin-top:12px'>{r['who'].upper()}</span>"
            if r["who"] else "")
-    duty_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:9px'>{icon('check', 20, A, 3)}<span style='font:700 18px Archivo;color:{INK};line-height:1.25'>{d}</span></div>" for d in r["duties"])
-    req_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:9px'>{icon('user' if k == 0 else 'check', 20, '#fff', 2.6)}<span style='font:700 18px Archivo;color:#fff;line-height:1.25'>{d}</span></div>" for k, d in enumerate(r["reqs"]))
+    duty_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:13px'>{icon('check', 22, A, 3)}<span style='font:700 20px Archivo;color:{INK};line-height:1.25'>{d}</span></div>" for d in r["duties"])
+    req_li = "".join(f"<div style='display:flex;gap:10px;align-items:flex-start;margin-top:12px'>{icon('user' if k == 0 else 'check', 22, '#fff', 2.6)}<span style='font:700 20px Archivo;color:#fff;line-height:1.25'>{d}</span></div>" for k, d in enumerate(r["reqs"]))
     ben = "".join(f"<div style='display:flex;align-items:center;gap:8px'><span style='width:32px;height:32px;border-radius:8px;background:{A};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 19, '#fff', 2.2)}</span>"
                   f"<span style='font:700 15px Archivo;color:{INK};line-height:1.15'>{t}</span></div>" for ic, t in BENEFITS)
     nums = "".join(f"<div style='display:flex;align-items:center;gap:7px'>{whatsapp_icon(30)}<span style='font:400 27px Anton;color:{INK};letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""
-<div class='abs' style='top:0;left:0;width:1080px;height:640px;overflow:hidden'><img src='{uri}' style='width:100%;height:100%;object-fit:cover;object-position:center 35%'></div>
+<div class='abs' style='top:0;left:0;width:1080px;height:640px;overflow:hidden'><img src='{uri}' style='width:100%;height:100%;object-fit:cover;object-position:{r.get("pos", "center 35%")}'></div>
 <div class='abs' style='top:0;left:0;width:1080px;height:640px;background:{grad}'></div>
 <div class='abs' style='top:470px;left:0;width:1080px;height:170px;background:linear-gradient(180deg,{INK}00,{INK}CC)'></div>
 <div class='abs' style='top:0;left:0'>{ornament(1080, 22, RED, '#fff')}</div>
@@ -99,7 +99,7 @@ def build(r, i, uri):
  <div style='font:400 28px Anton;color:{A};letter-spacing:1px'>THE JOB</div>{duty_li}</div>
 <div class='abs' style='top:666px;right:30px;width:476px;height:286px;background:{A};border-radius:18px;padding:10px 20px;box-sizing:border-box;box-shadow:0 8px 20px rgba(0,0,0,.15)'>
  <div style='font:400 28px Anton;color:#fff;letter-spacing:1px'>REQUIREMENTS</div>{req_li}
- <div style='margin-top:12px;font:800 17px Archivo;color:#FFE27A'>3-year contract (renewable) · Work visa + work permit</div></div>
+ <div style='margin-top:16px;font:800 18px Archivo;color:#FFE27A'>3-year contract (renewable) · Work visa + work permit</div></div>
 <div class='abs' style='top:966px;left:30px;right:30px;height:168px;background:#fff;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.08);padding:8px 18px;box-sizing:border-box'>
  <div style='font:400 24px Anton;color:{GRN};letter-spacing:1px'>PROVIDED BY THE COMPANY</div>
  <div style='display:grid;grid-template-columns:repeat(4,1fr);gap:8px 12px;margin-top:6px'>{ben}</div></div>
