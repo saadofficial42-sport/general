@@ -116,7 +116,7 @@ def back_services():
     mi = lambda ic: (f"<span style='width:11px;height:11px;border-radius:50%;background:{GOLD2};display:inline-flex;align-items:center;justify-content:center;flex:none'>"
                      f"{icon(ic, 7, NAVY, 2.6)}</span>")
     wa = lambda n: (f"<div style='display:flex;align-items:center;gap:3px'><span style='line-height:0'>{whatsapp_icon(11)}</span>"
-                    f"<span style='font-family:Anton;font-size:10px;color:{NAVY};letter-spacing:.3px'>{n}</span></div>")
+                    f"<span style='font-family:Anton;font-size:10px;color:{NAVY};letter-spacing:.2px;white-space:nowrap'>{n.replace('+92 ', '0')}</span></div>")
     return f"""<div class='card' style='background:radial-gradient(circle at 80% 0%,#1C8A5C,{GREEN} 45%,#03231A)'>
 <svg style='position:absolute;left:0;top:0' width='{W}' height='{H}'><circle cx='{W*0.85:.0f}' cy='10' r='90' fill='#fff' opacity='.05'/><circle cx='20' cy='{H*0.6:.0f}' r='60' fill='#fff' opacity='.04'/></svg>
 {corner_swoosh(right=True)}
@@ -137,14 +137,14 @@ def back_services():
 
 def back():
     """Company side (user's preferred layout): white top with round logo + name, 3D green wave,
-    office email / website / address, and the three WhatsApp numbers along the bottom."""
+    office email / website / address, and the four WhatsApp numbers along the bottom (local 03xx format to fit)."""
     W, H = PX_W, PX_H
     mi = lambda ic: (f"<span style='width:14px;height:14px;border-radius:50%;background:{GOLD2};display:inline-flex;align-items:center;justify-content:center;flex:none'>"
                      f"{icon(ic, 8.5, NAVY, 2.6)}</span>")
     wrow = lambda ic, t, sz=8.6: (f"<div style='display:flex;align-items:center;gap:6px'>{mi(ic)}"
                                   f"<span style='font-size:{sz}px;font-weight:700;color:#fff;white-space:nowrap'>{t}</span></div>")
-    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:4px'><span style='line-height:0'>{whatsapp_icon(13)}</span>"
-                    f"<span style='font-family:Anton;font-size:11px;color:#fff;letter-spacing:.3px'>{n}</span></div>")
+    wa = lambda n: (f"<div style='display:flex;align-items:center;gap:3px'><span style='line-height:0'>{whatsapp_icon(12)}</span>"
+                    f"<span style='font-family:Anton;font-size:10.5px;color:#fff;letter-spacing:.2px;white-space:nowrap'>{n.replace('+92 ', '0')}</span></div>")
     return f"""<div class='card' style='background:radial-gradient(circle at 25% 20%,#FFFFFF,#F2F6F3)'>
 {corner_swoosh(right=True)}
 <div style='position:absolute;left:{SAFE}px;top:{SAFE - 6}px;display:flex;align-items:center;gap:8px'>
