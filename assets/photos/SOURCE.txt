@@ -14,3 +14,4 @@ by_cleaner2.jpg: left woman cropped from the user's cleaners photo (2026-10-20),
 by_bakery_woman.jpg: user's two-cleaners photo, used full-frame on the Belarus bakery ad framed on the left woman (user: one photo per ad, 2026-10-20).
 by_minsk_oldtown.jpg, by_minsk_skyline.jpg: Minsk cityscape photos supplied by the user for ads (2026-10-22). Two other-agency Belarus ads sent at the same time (Tabraizim LLC study/work, castle 'work permit' ad) are NOT stored — content reference only.
 uz_charvak_lake.jpg: Uzbekistan lake/mountain landscape supplied by the user (2026-10-22).
+uz_milk_packing, uz_fruit_packing, uz_forklift, uz_truck_loading, uz_registan (.jpg): cropped from the hospitalityvacancy.com Uzbekistan ad the user sent (demands/2026-10-22-uzbekistan-milk/ref.jpg); reused ONLY because the user explicitly said to use the pictures and styles from it (2026-10-22). Logos/text cropped off.
