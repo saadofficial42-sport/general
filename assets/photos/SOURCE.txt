@@ -12,3 +12,4 @@ by_milking.jpg (cropped right part, Circle International logo/text removed), by_
 by_woman_production.jpg: user-supplied photo of a woman worker with clipboard (2026-10-20), cropped (Google Lens icon removed); used as round inset on women-eligible Belarus ads.
 by_cleaner2.jpg: left woman cropped from the user's cleaners photo (2026-10-20), used as round inset on the Belarus cleaners ad.
 by_bakery_woman.jpg: user's two-cleaners photo, used full-frame on the Belarus bakery ad framed on the left woman (user: one photo per ad, 2026-10-20).
+by_minsk_oldtown.jpg, by_minsk_skyline.jpg: Minsk cityscape photos supplied by the user for ads (2026-10-22). Two other-agency Belarus ads sent at the same time (Tabraizim LLC study/work, castle 'work permit' ad) are NOT stored — content reference only.
