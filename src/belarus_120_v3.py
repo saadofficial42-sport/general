@@ -3,7 +3,7 @@ pictures, 3D gradient colours, different from every other ad. Facts unchanged fr
 (demands/2026-10-19-belarus-120/facts.md); employer not named.
 Design: "3D glass" — deep indigo -> magenta -> amber mesh gradient with glossy 3D orbs, extruded gradient BELARUS
 wordmark, a perspective fan of the seven real trade photos, frosted-glass vacancy list with round photo chips,
-glass benefit pills, glass CTA with four numbers."""
+glass benefit pills, glass CTA with four numbers. Minsk skyline (user photo) tinted behind the title."""
 from common import PHONES, PHOTOS, flag, font_css, icon, logo_img, render, whatsapp_icon
 
 INK, GOLD = "#130B2E", "#FFC94D"
@@ -57,6 +57,7 @@ def build():
     body = f"""
 <div class='abs' style='inset:0;background:radial-gradient(circle at 15% 10%,#7C3AED 0,#3B1A8F 30%,transparent 55%),radial-gradient(circle at 95% 35%,#E0218A 0,transparent 45%),
  radial-gradient(circle at 10% 85%,#FF8A00 0,transparent 40%),linear-gradient(160deg,#1B0E4A,#2A0B4F 50%,#120726)'></div>
+<div class='abs' style='top:0;left:0;width:1080px;height:640px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 95%)'><img src='{(PHOTOS / "by_minsk_skyline.jpg").as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.5;mix-blend-mode:luminosity'></div>
 {orb(1015, 330, 46, '#FF6FB5', '#B0127A')}{orb(62, 300, 34, '#FFD36E', '#E07800')}{orb(850, 150, 16, '#8EC5FF', '#3550D8')}{orb(215, 205, 12, '#FFFFFF', '#C59BFF')}
 <div class='abs' style='top:28px;left:30px;padding:6px 14px;border-radius:18px;background:#fff;box-shadow:0 10px 24px #0007'>{logo_img('logo-horizontal-light', 'width:280px;height:72px;object-position:left')}</div>
 <div class='abs' style='top:30px;right:150px;padding:10px 18px;border-radius:999px;{GLASS};font:800 18px Archivo;color:#fff;letter-spacing:3px'>URGENT · 120 POSTS</div>
