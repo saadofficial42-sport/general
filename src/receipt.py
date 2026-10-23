@@ -8,8 +8,8 @@ PX = 96
 W, H = round(8.27 * PX), round(11.69 * PX)
 
 
-def line(label, w="1fr"):
-    return (f"<div style='display:flex;align-items:flex-end;gap:10px;height:46px'>"
+def line(label, h=42):
+    return (f"<div style='display:flex;align-items:flex-end;gap:10px;height:{h}px'>"
             f"<span style='font:700 14px Archivo;color:{INK};white-space:nowrap'>{label}</span>"
             f"<span style='flex:1;border-bottom:1.5px solid #9AA59F;height:22px'></span></div>")
 
@@ -21,23 +21,24 @@ def box(label):
 
 
 def receipt(copy):
-    return f"""<div style='position:relative;height:100%;padding:30px 46px;box-sizing:border-box;display:flex;flex-direction:column'>
+    return f"""<div style='position:relative;height:100%;padding:24px 46px 22px;box-sizing:border-box;display:flex;flex-direction:column'>
  <div style='display:flex;align-items:center;gap:14px;padding-bottom:12px;border-bottom:3px solid {GREEN}'>
   {logo_img('logo-badge', 'width:62px;height:62px')}
   <div style='flex:1'><div style='font-family:Anton;font-size:24px;color:{GREEN};letter-spacing:.5px;line-height:1'>RS LINKS CONSULTANTS PVT. LTD.</div>
    <div style='font:600 11.5px Archivo;color:#5A655F;margin-top:5px'>{ADDRESS}</div></div>
   <div style='text-align:right'><div style='font-family:Anton;font-size:28px;color:{INK};letter-spacing:1px;line-height:1'>PAYMENT RECEIPT</div>
    <div style='display:inline-block;margin-top:6px;font:800 11px Archivo;letter-spacing:2px;color:#fff;background:{GREEN};padding:3px 10px;border-radius:4px'>{copy.upper()}</div></div></div>
- <div style='display:grid;grid-template-columns:1fr 1fr;gap:4px 34px;margin-top:12px'>{line('Receipt No.')}{line('Date')}</div>
- {line('Received from (Name)')}
- <div style='display:grid;grid-template-columns:1fr 1fr;gap:4px 34px'>{line('CNIC / Passport No.')}{line('Amount (Rs.)')}</div>
- {line('Amount in words')}
- {line('Payment for')}
- <div style='display:flex;align-items:flex-end;height:50px'><span style='font:700 14px Archivo;color:{INK};margin-right:16px'>Payment method:</span>{box('Cash')}{box('Bank Transfer')}{box('Online')}{box('Cheque')}</div>
+ <div style='display:grid;grid-template-columns:1fr 1fr;gap:4px 34px;margin-top:12px'>{line('Receipt No.', 38)}{line('Date', 38)}</div>
+ {line('Received from (Name)', 54)}
+ {line('CNIC / Passport No.', 54)}
+ {line('Amount (Rs.)', 54)}
+ {line('Amount in words', 38)}
+ {line('Payment for', 38)}
+ <div style='display:flex;align-items:flex-end;height:42px'><span style='font:700 14px Archivo;color:{INK};margin-right:16px'>Payment method:</span>{box('Cash')}{box('Bank Transfer')}{box('Online')}{box('Cheque')}</div>
  <div style='flex:1'></div>
  <div style='display:flex;justify-content:space-between;align-items:flex-end'>
   <div style='width:240px;text-align:center'><div style='border-top:1.5px solid #9AA59F;padding-top:5px;font:700 13px Archivo;color:{INK}'>Received by (Name &amp; Signature)</div></div>
-  <div style='width:150px;height:80px;border:1.5px dashed #B6BFBA;border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 12px Archivo;color:#9AA59F'>Company Stamp</div>
+  <div style='width:140px;height:62px;border:1.5px dashed #B6BFBA;border-radius:8px;display:flex;align-items:center;justify-content:center;font:600 12px Archivo;color:#9AA59F'>Company Stamp</div>
   <div style='width:200px;text-align:center'><div style='border-top:1.5px solid #9AA59F;padding-top:5px;font:700 13px Archivo;color:{INK}'>Payer's Signature</div></div></div></div>"""
 
 
