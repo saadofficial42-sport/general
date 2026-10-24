@@ -345,6 +345,8 @@ FLAGS = {
     "ua": (_flag_file("ua"), 3, 2),
     "rs2": (_flag_file("rs"), 756.13, 504.09),
     "xk2": (_flag_file("xk"), 840, 600),
+    # Oman: white/red/green with red hoist band and national emblem; ratio 1:2
+    "om": (_flag_file("om"), 1200, 600),
 }
 
 
