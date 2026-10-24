@@ -183,10 +183,53 @@ def workforce():
     return page(body, "#F2F6F8", rtl=False)
 
 
+# ------------------------------------------------------------------ 4b Workforce 140, Urdu
+def workforce_ur():
+    G, G2, ORG, INK, BG = "#0B6E4F", "#064530", "#F28C28", "#18221D", "#F3F1EA"
+    rows = [("پی آئی سسٹم آپریٹر", "PI System Operator", 6, "2,200"), ("پی آئی اِن باؤنڈ آپریٹر", "PI Inbound Operator", 36, "1,500"),
+            ("فورک لفٹ آپریٹر", "Forklift Operator", 7, "1,800"), ("پی آئی او بی سپروائزر", "PI OB Supervisor", 1, "3,000"),
+            ("پی آئی او بی آپریٹر", "PI OB Operator", 44, "1,500"), ("ایف جی سسٹم آپریٹر", "FG System Operator", 3, "2,200"),
+            ("ایف جی اِن باؤنڈ آپریٹر", "FG Inbound Operator", 21, "1,500"), ("ایف جی آؤٹ باؤنڈ سپروائزر", "FG Outbound Supervisor", 1, "3,000"),
+            ("ایف جی آؤٹ باؤنڈ آپریٹر", "FG Outbound Operator", 21, "1,500")]
+    tiles = "".join(
+        f"<div style='background:#fff;border-radius:18px;box-shadow:0 6px 16px rgba(6,69,48,.14);overflow:hidden;display:flex;flex-direction:column'>"
+        f"<div style='display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:40px;background:{G}'>"
+        f"<span style='font:800 14px Archivo;color:#CFEDE1;direction:ltr'>{en}</span>"
+        f"<span style='display:flex;align-items:baseline;gap:4px'>{T('آسامیاں', 15, '#fff', 'font-weight:700', 1.4)}<span class='num' style='font-size:22px;color:#FFD9A8'>{q}</span></span></div>"
+        f"<div style='flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 8px'>"
+        f"{T(ur, 23, INK, 'font-weight:700;text-align:center', 1.75)}"
+        f"<div style='direction:ltr;background:{ORG};border-radius:10px;padding:2px 12px;margin-top:2px'><span class='num' style='font-size:22px;color:#fff'>{sal}</span> <span class='num' style='font-size:14px;color:#fff'>SAR</span></div></div></div>"
+        for ur, en, q, sal in rows)
+    perks = [("food", "کھانا الاؤنس", f"{N(300)} ریال ماہانہ"), ("home", "رہائش", "کمپنی کی طرف سے"), ("bus", "ٹرانسپورٹ", "کمپنی کی طرف سے"),
+             ("medical", "میڈیکل انشورنس", "کمپنی کی طرف سے"), ("overtime", "اوور ٹائم", "الگ سے")]
+    perk = "".join(f"<div style='flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;{'border-right:2px solid #ffffff33;' if i else ''}'>"
+                   f"{icon(ic, 32, '#FFD9A8', 2.2)}{T(a, 21, '#fff', 'font-weight:700', 1.7)}{T(b, 15, '#BFE6D6', 'font-weight:700;margin-top:4px', 1.6)}</div>" for i, (ic, a, b) in enumerate(perks))
+    body = f"""
+<div class='abs' style='top:0;left:0;width:1080px;height:370px;background:linear-gradient(135deg,{G},{G2})'></div>
+<svg class='abs' style='top:0;left:0' width='1080' height='400'><path d='M0 340 C 300 400, 700 300, 1080 370 L1080 400 L0 400Z' fill='{BG}'/><path d='M0 330 C 300 390, 700 290, 1080 360' stroke='{ORG}' stroke-width='6' fill='none'/></svg>
+<div class='abs' style='top:34px;left:40px;width:250px;height:250px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #0007'>{img('rslinks_worker_hero.png', 'center 20%')}</div>
+<div class='abs' style='top:22px;left:250px;width:120px;height:120px;border-radius:50%;background:{ORG};border:5px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 18px #0006'>
+ <span class='num' style='font-size:44px;color:#fff;line-height:1'>140</span>{T('آسامیاں', 18, '#fff', 'font-weight:700', 1.5)}</div>
+<div class='abs' style='top:24px;right:30px;display:flex;align-items:center;gap:14px;direction:ltr'>{flag('saudi', 96, True, 'saw4')}<div style='background:#fff;border-radius:14px;padding:2px 12px'>{logo_img('logo-horizontal-light', 'width:250px;height:64px;object-position:right')}</div></div>
+<div class='abs' style='top:108px;right:40px;width:640px;text-align:right'>
+ {T('فوری ضرورت برائے سعودی عرب', 32, '#FFD9A8', 'font-weight:700', 1.8)}
+ {T('ویئر ہاؤس آپریشنز', 64, '#fff', 'font-weight:700;margin-top:4px;white-space:nowrap', 1.8)}
+ {T('سپروائزرز، آپریٹرز اور فورک لفٹ ڈرائیورز', 24, '#CFEDE1', 'font-weight:700;margin-top:4px', 1.8)}</div>
+
+<div class='abs' style='top:404px;left:34px;right:34px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:140px;gap:12px'>{tiles}</div>
+<div class='abs' style='top:854px;left:34px;right:34px;text-align:center'>{T('تنخواہیں بنیادی ہیں، حتمی ملازمت کی تفصیل، تجربے، انٹرویو اور معاہدے کے مطابق', 17, '#5C6A62', 'font-weight:700', 1.8)}</div>
+<div class='abs' style='top:910px;left:34px;right:34px;height:212px;border-radius:22px;background:linear-gradient(135deg,{G},{G2});display:flex;flex-direction:column;padding:6px 10px 10px;box-sizing:border-box'>
+ {T('کمپنی کی طرف سے سہولیات', 28, '#FFD9A8', 'font-weight:700;text-align:center', 1.7)}
+ <div style='flex:1;display:flex;align-items:center'>{perk}</div></div>
+{cta_ur(1150, f'linear-gradient(100deg,#111,{INK})', '#FFD9A8')}"""
+    return page(body, BG)
+
+
 ADS = {"oman": (oman, "RS-Links-Oman-Azad-Visa-Urdu.png"),
        "warehouse": (warehouse, "RS-Links-Saudi-Arabia-Warehouse-Workers-1500-Urdu.png"),
        "wood": (wood, "RS-Links-Saudi-Arabia-Wood-Factory-Helper-Urdu.png"),
-       "workforce": (workforce, "RS-Links-Saudi-Arabia-Warehouse-Operations-140-English.png")}
+       "workforce": (workforce, "RS-Links-Saudi-Arabia-Warehouse-Operations-140-English.png"),
+       "workforce_ur": (workforce_ur, "RS-Links-Saudi-Arabia-Warehouse-Operations-140-Urdu.png")}
 
 if __name__ == "__main__":
     for k in (sys.argv[1:] or ADS):
