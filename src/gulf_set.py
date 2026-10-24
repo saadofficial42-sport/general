@@ -207,14 +207,18 @@ def workforce_ur():
     body = f"""
 <div class='abs' style='top:0;left:0;width:1080px;height:370px;background:linear-gradient(135deg,{G},{G2})'></div>
 <svg class='abs' style='top:0;left:0' width='1080' height='400'><path d='M0 340 C 300 400, 700 300, 1080 370 L1080 400 L0 400Z' fill='{BG}'/><path d='M0 330 C 300 390, 700 290, 1080 360' stroke='{ORG}' stroke-width='6' fill='none'/></svg>
-<div class='abs' style='top:34px;left:40px;width:250px;height:250px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #0007'>{img('rslinks_worker_hero.png', 'center 20%')}</div>
+<div class='abs' style='top:34px;left:40px;width:250px;height:250px;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:0 14px 30px #0007'>{img('rslinks_team_scan_x3.png', 'center 30%')}</div>
 <div class='abs' style='top:22px;left:250px;width:120px;height:120px;border-radius:50%;background:{ORG};border:5px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 18px #0006'>
  <span class='num' style='font-size:44px;color:#fff;line-height:1'>140</span>{T('آسامیاں', 18, '#fff', 'font-weight:700', 1.5)}</div>
-<div class='abs' style='top:24px;right:30px;display:flex;align-items:center;gap:14px;direction:ltr'>{flag('saudi', 96, True, 'saw4')}<div style='background:#fff;border-radius:14px;padding:2px 12px'>{logo_img('logo-horizontal-light', 'width:250px;height:64px;object-position:right')}</div></div>
-<div class='abs' style='top:108px;right:40px;width:640px;text-align:right'>
- {T('فوری ضرورت برائے سعودی عرب', 32, '#FFD9A8', 'font-weight:700', 1.8)}
- {T('ویئر ہاؤس آپریشنز', 64, '#fff', 'font-weight:700;margin-top:4px;white-space:nowrap', 1.8)}
- {T('سپروائزرز، آپریٹرز اور فورک لفٹ ڈرائیورز', 24, '#CFEDE1', 'font-weight:700;margin-top:4px', 1.8)}</div>
+<div class='abs' style='top:22px;right:30px;background:#fff;border-radius:14px;padding:2px 12px'>{logo_img('logo-horizontal-light', 'width:250px;height:64px;object-position:right')}</div>
+<div class='abs' style='top:84px;right:40px;display:flex;align-items:center;gap:14px'>
+ {T('فوری ضرورت برائے', 30, '#FFD9A8', 'font-weight:700', 1.7)}
+ <span style='background:#fff;color:{G};font:400 26px Anton;letter-spacing:4px;padding:2px 14px;border-radius:8px'>KSA</span></div>
+<div class='abs' style='top:118px;right:40px;display:flex;align-items:center;gap:22px'>
+ {T('سعودی عرب', 92, '#fff', 'font-weight:700;white-space:nowrap;text-shadow:0 6px 0 #03301F,0 14px 26px #0008', 1.6)}
+ <div style='filter:drop-shadow(0 8px 14px #0008)'>{flag('saudi', 160, True, 'saw4')}</div></div>
+<div class='abs' style='top:318px;right:40px;background:{ORG};border-radius:14px;padding:0 24px 8px;box-shadow:0 8px 18px #0005;display:flex;align-items:center;gap:14px'>
+ {T('ویئر ہاؤس آپریشنز', 40, '#fff', 'font-weight:700;white-space:nowrap', 1.7)}<span style='font:400 22px Anton;color:#fff;letter-spacing:2px;direction:ltr'>WAREHOUSE OPERATIONS</span></div>
 
 <div class='abs' style='top:404px;left:34px;right:34px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:140px;gap:12px'>{tiles}</div>
 <div class='abs' style='top:854px;left:34px;right:34px;text-align:center'>{T('تنخواہیں بنیادی ہیں، حتمی ملازمت کی تفصیل، تجربے، انٹرویو اور معاہدے کے مطابق', 17, '#5C6A62', 'font-weight:700', 1.8)}</div>
