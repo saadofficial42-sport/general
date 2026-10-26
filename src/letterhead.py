@@ -9,7 +9,10 @@ import subprocess
 
 from common import C, OUTPUT, PHONES, _launch, font_css, icon, logo_img, whatsapp_icon
 from file_cover import swoosh, wave3d
-from office_banners import ADDRESS, TAGLINE_EN, WEBSITE
+from office_banners import TAGLINE_EN, WEBSITE
+
+# Office number corrected to 320 (user, 2026-10-26)
+ADDRESS = "Office No. 320, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi"
 
 GREEN, GOLD, NAVY = C["green"], C["gold2"], "#0A1B25"
 EMAIL = "hr@rslinksconsultants.com"
