@@ -9,9 +9,9 @@ PAPER, CHAR, GOLD, GOLD2, GRN, INK = "#FBF5EA", "#1F1B18", "#C9A24A", "#E8C878",
 EMAIL = "hr@rslinksconsultants.com"
 ADDRESS = "Office No. 20, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi"
 
-JOBS = [("sa_waiter.jpg", "center 25%", "WAITER", "Restaurant service", "1,000 – 1,100"),
-        ("sa_kitchen_helper.jpg", "center 30%", "KITCHEN HELPER", "Kitchen support", "1,000"),
-        ("sa_rice_cook.jpg", "center 25%", "RICE COOK", "Rice &amp; main dishes", "1,300 – 1,500")]
+JOBS = [("sa_waiter_sharp.jpg", "center 25%", "WAITER", "Restaurant service", "1,000 – 1,100"),
+        ("sa_kitchen_helper_sharp.jpg", "center 30%", "KITCHEN HELPER", "Kitchen support", "1,000"),
+        ("sa_rice_cook_sharp.jpg", "center 25%", "RICE COOK", "Rice &amp; main dishes", "1,300 – 1,500")]
 
 
 def build():

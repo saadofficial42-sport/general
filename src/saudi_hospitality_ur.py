@@ -9,15 +9,15 @@ EMAIL = "hr@rslinksconsultants.com"
 N = lambda v: f"<span class='num'>{v}</span>"
 T = lambda s, px, c, extra="", lh=1.75: f"<div class='t' style='font-size:{px}px;color:{c};line-height:{lh};{extra}'>{s}</div>"
 
-JOBS = [("sa_waiter.jpg", "center 25%", "ویٹر", "WAITER", "1000 – 1100"),
-        ("sa_kitchen_helper.jpg", "center 30%", "کچن ہیلپر", "KITCHEN HELPER", "1000"),
-        ("sa_rice_cook.jpg", "center 25%", "رائس کک", "RICE COOK", "1300 – 1500")]
+JOBS = [("sa_waiter_sharp.jpg", "center 25%", "ویٹر", "WAITER", "1000 – 1100"),
+        ("sa_kitchen_helper_sharp.jpg", "center 30%", "کچن ہیلپر", "KITCHEN HELPER", "1000"),
+        ("sa_rice_cook_sharp.jpg", "center 25%", "رائس کک", "RICE COOK", "1300 – 1500")]
 
 
 def build():
     cols = "".join(
         f"<div style='background:#fff;border-radius:150px 150px 24px 24px;box-shadow:0 14px 30px rgba(8,58,64,.16);overflow:hidden;display:flex;flex-direction:column;align-items:center'>"
-        f"<div style='width:100%;height:300px;overflow:hidden;border-bottom:6px solid {GOLD}'><img src='{(PHOTOS / f).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'></div>"
+        f"<div style='width:100%;height:270px;overflow:hidden;border-bottom:6px solid {GOLD}'><img src='{(PHOTOS / f).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'></div>"
         f"{T(ur, 42, TEAL2, 'font-weight:700;margin-top:4px', 1.9)}"
         f"<div style='font:400 20px Anton;color:{GOLD};letter-spacing:3px;margin-top:10px'>{en}</div>"
         f"<div style='margin-top:14px;width:240px;height:96px;border-radius:50%;background:radial-gradient(circle at 40% 30%,{GOLD2},{GOLD} 60%,#A97F1F);box-shadow:0 8px 16px rgba(0,0,0,.2),inset 0 -4px 0 #0002;display:flex;flex-direction:column;align-items:center;justify-content:center'>"
