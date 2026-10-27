@@ -19,3 +19,4 @@ kw_rider.jpg: delivery rider cropped from an Armenia bike-rider ad the user sent
 kw_rider_tight.jpg: tighter crop of the same rider photo (2026-10-27).
 sa_waiter.jpg, sa_kitchen_helper.jpg, sa_rice_cook.jpg: cropped from the Subcontinental hospitality ad the user asked to convert (2026-10-27).
 sa_*_sharp.jpg: 2x LANCZOS + unsharp + slight contrast versions of the hospitality crops (user said photos were blurry, 2026-10-27).
+sa_cook2.jpg, sa_kitchen2.jpg, sa_waiter2.jpg: hospitality photos supplied by the user (2026-10-27) to replace the blurry crops; screen UI (arrows, app bar) cropped off.

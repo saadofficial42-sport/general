@@ -9,9 +9,9 @@ EMAIL = "hr@rslinksconsultants.com"
 N = lambda v: f"<span class='num'>{v}</span>"
 T = lambda s, px, c, extra="", lh=1.75: f"<div class='t' style='font-size:{px}px;color:{c};line-height:{lh};{extra}'>{s}</div>"
 
-JOBS = [("sa_waiter_sharp.jpg", "center 25%", "ویٹر", "WAITER", "1000 – 1100"),
-        ("sa_kitchen_helper_sharp.jpg", "center 30%", "کچن ہیلپر", "KITCHEN HELPER", "1000"),
-        ("sa_rice_cook_sharp.jpg", "center 25%", "رائس کک", "RICE COOK", "1300 – 1500")]
+JOBS = [("sa_waiter2.jpg", "40% 20%", "ویٹر", "WAITER", "1000 – 1100"),
+        ("sa_kitchen2.jpg", "70% 30%", "کچن ہیلپر", "KITCHEN HELPER", "1000"),
+        ("sa_cook2.jpg", "60% 20%", "رائس کک", "RICE COOK", "1300 – 1500")]
 
 
 def build():
