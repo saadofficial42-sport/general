@@ -17,3 +17,4 @@ uz_charvak_lake.jpg: Uzbekistan lake/mountain landscape supplied by the user (20
 uz_milk_packing, uz_fruit_packing, uz_forklift, uz_truck_loading, uz_registan (.jpg): cropped from the hospitalityvacancy.com Uzbekistan ad the user sent (demands/2026-10-22-uzbekistan-milk/ref.jpg); reused ONLY because the user explicitly said to use the pictures and styles from it (2026-10-22). Logos/text cropped off.
 kw_rider.jpg: delivery rider cropped from an Armenia bike-rider ad the user sent (2026-10-27) with 'take from here'; text/flags cropped off.
 kw_rider_tight.jpg: tighter crop of the same rider photo (2026-10-27).
+sa_waiter.jpg, sa_kitchen_helper.jpg, sa_rice_cook.jpg: cropped from the Subcontinental hospitality ad the user asked to convert (2026-10-27).
