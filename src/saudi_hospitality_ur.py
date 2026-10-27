@@ -4,7 +4,7 @@ Design: "serving tray" — white/mint page, deep teal header with a cloche (dome
 position columns (photo top, Urdu title, salary on a gold plate), teal ribbon perks, white CTA."""
 from common import PHONES, PHOTOS, flag, font_css, icon, logo_img, render, whatsapp_icon
 
-TEAL, TEAL2, GOLD, GOLD2, MINT, INK = "#0F5C63", "#083A40", "#D4A537", "#F3D27A", "#EEF7F5", "#17262A"
+TEAL, TEAL2, GOLD, GOLD2, MINT, INK = "#7A1F2B", "#4A0F18", "#D4A537", "#F3D27A", "#FBF4E6", "#2A1A14"   # warm maroon (user: teal made photos look blue)
 EMAIL = "hr@rslinksconsultants.com"
 N = lambda v: f"<span class='num'>{v}</span>"
 T = lambda s, px, c, extra="", lh=1.75: f"<div class='t' style='font-size:{px}px;color:{c};line-height:{lh};{extra}'>{s}</div>"
