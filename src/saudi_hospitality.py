@@ -28,7 +28,7 @@ def build():
         for i, (f, pos, t, sub, sal) in enumerate(JOBS))
     perks = [("home", "Accommodation"), ("medical", "Medical"), ("bus", "Transport")]
     perk = "".join(f"<div style='flex:1;display:flex;align-items:center;justify-content:center;gap:12px;{'border-left:2px solid #ffffff33;' if i else ''}'>"
-                   f"{icon(ic, 34, GOLD2, 2.2)}<div><div style='font:400 26px Anton;color:#fff;letter-spacing:1px'>{a.upper()}</div><div style='font:600 15px Archivo;color:#CFC6B8'>by company</div></div></div>" for i, (ic, a) in enumerate(perks))
+                   f"{icon(ic, 34, GOLD2, 2.2)}<div style='font:400 24px Anton;color:#fff;letter-spacing:1px'>{a.upper()} <span style='font:600 15px Archivo;color:#CFC6B8;letter-spacing:0'>by company</span></div></div>" for i, (ic, a) in enumerate(perks))
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(32)}<span style='font:400 28px Anton;color:{INK};letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""
 <div class='abs' style='top:0;left:0;width:1080px;height:330px;background:{CHAR}'></div>
@@ -45,7 +45,9 @@ def build():
 <div class='abs' style='top:330px;left:0;width:1080px;height:14px;background:repeating-linear-gradient(90deg,{GOLD} 0 24px,{CHAR} 24px 30px)'></div>
 
 <div class='abs' style='top:368px;left:50px;right:50px'>{rows}</div>
-<div class='abs' style='top:1006px;left:50px;right:50px;height:118px;border-radius:20px;background:{GRN};display:flex;align-items:center'>{perk}</div>
+<div class='abs' style='top:994px;left:50px;right:50px;height:58px;border-radius:14px;background:#fff;border:3px solid {GOLD};display:flex;align-items:center;justify-content:center;gap:14px'>
+ {icon('calendar', 30, GRN, 2.3)}<span style='font:400 30px Anton;color:{CHAR};letter-spacing:1px'>INTERVIEW: 29 OCTOBER · 1:00 PM</span><span style='font:600 16px Archivo;color:#6E6255'>(Pakistan time)</span></div>
+<div class='abs' style='top:1064px;left:50px;right:50px;height:74px;border-radius:18px;background:{GRN};display:flex;align-items:center'>{perk}</div>
 
 <div class='abs' style='top:1150px;left:0;width:1080px;height:200px;background:{CHAR};border-top:6px solid {GOLD}'></div>
 <div class='abs' style='top:1176px;left:30px;width:600px;height:150px;background:{PAPER};border-radius:18px;display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:12px;padding:0 18px;box-sizing:border-box'>{nums}</div>

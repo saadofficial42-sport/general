@@ -40,7 +40,9 @@ def build():
 
 <div class='abs' style='top:400px;left:34px;right:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px'>{cols}</div>
 
-<div class='abs' style='top:1030px;left:34px;right:34px;height:96px;background:{TEAL};border-radius:20px;display:flex;align-items:center;justify-content:space-around;padding:0 20px'>
+<div class='abs' style='top:984px;left:34px;right:34px;height:58px;border-radius:14px;background:#fff;border:3px solid {GOLD};display:flex;align-items:center;justify-content:center;gap:14px'>
+ {icon('calendar', 30, TEAL, 2.3)}{T('انٹرویو:', 28, TEAL, 'font-weight:700', 1.7)}{T(f"{N(29)} اکتوبر", 28, INK, 'font-weight:700', 1.7)}<span class='num' style='font-size:28px;color:{INK}'>· 1:00 PM</span>{T('(پاکستانی وقت)', 18, '#7A6A5A', 'font-weight:700', 1.7)}</div>
+<div class='abs' style='top:1054px;left:34px;right:34px;height:84px;background:{TEAL};border-radius:20px;display:flex;align-items:center;justify-content:space-around;padding:0 20px'>
  {T('کمپنی کی طرف سے:', 28, GOLD2, 'font-weight:700', 1.7)}{perk}</div>
 
 <div class='abs' style='top:1150px;left:0;width:1080px;height:200px;background:linear-gradient(100deg,{TEAL2},{TEAL})'></div>
