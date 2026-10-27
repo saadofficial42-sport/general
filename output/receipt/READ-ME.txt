@@ -1,0 +1,8 @@
+RS Links Payment Receipt (A4, two copies per page)
+
+Open in CorelDRAW: File > Import (or Open) the EPS or SVG file.
+  EPS - editable vector artwork
+  SVG - all text converted to curves (no fonts needed)
+  AI  - Adobe Illustrator / PDF-compatible
+  PDF - print-ready
+Fonts (only if needed for EPS/AI text): Archivo, Anton (Google Fonts, free).

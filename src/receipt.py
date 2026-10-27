@@ -1,7 +1,8 @@
 """RS Links payment receipt (2026-10-23): very simple, two copies on one A4 page (Customer Copy / Office Copy) with a
 dashed cut line. Basic fields only, no phone numbers (user). Outputs: output/receipt/RS-Links-Payment-Receipt-A4.pdf/.png"""
 from common import C, OUTPUT, _launch, font_css, logo_img
-from office_banners import ADDRESS
+# Office number 320 (user corrected on the letterhead, 2026-10-26)
+ADDRESS = "Office No. 320, 3rd Floor, Satellite Shopping Centre, Sixth Road, Rawalpindi"
 
 GREEN, INK = C["green"], "#1E2A24"
 PX = 96
