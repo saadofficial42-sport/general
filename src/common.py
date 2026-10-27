@@ -347,6 +347,8 @@ FLAGS = {
     "xk2": (_flag_file("xk"), 840, 600),
     # Oman: white/red/green with red hoist band and national emblem; ratio 1:2
     "om": (_flag_file("om"), 1200, 600),
+    # Kuwait: green/white/red with black trapezoid at hoist; ratio 1:2
+    "kw": (_flag_file("kw"), 12, 6),
 }
 
 
