@@ -55,7 +55,7 @@ def svg():
 </svg>"""
 
 
-def main():
+def main(name="RS-Links-Round-Logo"):
     from playwright.sync_api import sync_playwright
     out = OUTPUT / "logo-vector"
     out.mkdir(parents=True, exist_ok=True)
@@ -64,7 +64,7 @@ def main():
     tmp = OUTPUT / ".tmp" / "logo-vector.html"
     tmp.parent.mkdir(exist_ok=True)
     tmp.write_text(html, encoding="utf-8")
-    stem = out / "RS-Links-Round-Logo"
+    stem = out / name
     with sync_playwright() as pw:
         b = _launch(pw)
         pg = b.new_page(viewport={"width": 592, "height": 592}, device_scale_factor=2000 / 592)
