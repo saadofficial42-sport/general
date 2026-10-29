@@ -31,6 +31,8 @@ PEOPLE = [
      "phone": "", "email": "hr@rslinksconsultants.com"},
     {"slug": "Sumna-Bibi", "name": "Sumna Bibi", "title": "Sales &amp; Recruitment Officer",
      "phone": "0317-0363690", "email": "hr@rslinksconsultants.com"},
+    {"slug": "Nimra-Khalid", "name": "Nimra Khalid", "title": "Chief Marketing Officer (CMO)",
+     "phone": "", "email": "hr@rslinksconsultants.com"},
 ]
 
 
