@@ -21,3 +21,4 @@ sa_waiter.jpg, sa_kitchen_helper.jpg, sa_rice_cook.jpg: cropped from the Subcont
 sa_*_sharp.jpg: 2x LANCZOS + unsharp + slight contrast versions of the hospitality crops (user said photos were blurry, 2026-10-27).
 sa_cook2.jpg, sa_kitchen2.jpg, sa_waiter2.jpg: hospitality photos supplied by the user (2026-10-27) to replace the blurry crops; screen UI (arrows, app bar) cropped off.
 tj_farmer.jpg: farmer + tomatoes/cucumbers/onions cropped (2x, sharpened) from the Tajikistan agriculture ad the user asked to convert (2026-10-28); text cropped off.
+tr_furniture_worker.jpg, tr_furniture_showroom.jpg: cropped (2x) from the Phoenix Turkey furniture-factory ad the user asked to convert (2026-11-02).
