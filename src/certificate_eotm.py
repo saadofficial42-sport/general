@@ -1,6 +1,6 @@
 """Employee of the Month certificate (2026-11-04). A4 landscape (11.69 x 8.27 in). Blank lines for the employee's name
 and month (fill by hand or type in CorelDRAW / Illustrator), two signatories: Rahim Ullah (Co-Founder & CEO) and
-Engr. Saad Khalid (Co-Founder & COO). Design: white page, layered green + gold 3D waves in opposite corners, guilloche
+Saad Khalid (Co-Founder & COO). Design: white page, layered green + gold 3D waves in opposite corners, guilloche
 double border, gold rosette seal with ribbons, round badge logo, script heading.
 Outputs output/certificate/: PNG (300 dpi), PDF, AI, EPS, SVG + zip."""
 import math
@@ -78,7 +78,7 @@ def page():
  <div style='display:flex;align-items:flex-end;gap:10px;margin-top:12px;font:700 15px Archivo;color:{NAVY}'>Month: <span style='display:inline-block;width:200px;border-bottom:1.5px solid {NAVY}'></span>
   &nbsp;&nbsp;Year: <span style='display:inline-block;width:110px;border-bottom:1.5px solid {NAVY}'></span></div></div>
 <div style='position:absolute;left:120px;right:120px;bottom:70px;display:flex;justify-content:space-between;align-items:flex-end'>
- {sig('Rahim Ullah', 'CO-FOUNDER &amp; CEO')}<div style='margin-bottom:-26px'>{seal()}</div>{sig('Engr. Saad Khalid', 'CO-FOUNDER &amp; COO')}</div></div>"""
+ {sig('Rahim Ullah', 'CO-FOUNDER &amp; CEO')}<div style='margin-bottom:-26px'>{seal()}</div>{sig('Saad Khalid', 'CO-FOUNDER &amp; COO')}</div></div>"""
 
 
 def main():
