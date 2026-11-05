@@ -19,7 +19,7 @@ PX, BLEED = 96, 0.0625
 def round_sticker():
     d = round((2 + 2 * BLEED) * PX)
     c, r = d / 2, 2 * PX / 2
-    text_r = r - 17
+    text_r = r - 19
     return d, d, f"""<div style='position:relative;width:{d}px;height:{d}px'>
 <svg width='{d}' height='{d}' style='position:absolute;left:0;top:0'><defs>
  <radialGradient id='rg' cx='.3' cy='.25' r='.9'><stop offset='0' stop-color='#1FA36B'/><stop offset='.55' stop-color='{GREEN}'/><stop offset='1' stop-color='{DEEP}'/></radialGradient>
@@ -29,7 +29,7 @@ def round_sticker():
  <circle cx='{c}' cy='{c}' r='{d / 2}' fill='url(#rg)'/>
  <circle cx='{c}' cy='{c}' r='{r - 4}' fill='none' stroke='url(#rgold)' stroke-width='3'/>
  <circle cx='{c}' cy='{c}' r='{r - 30}' fill='none' stroke='url(#rgold)' stroke-width='1.2' stroke-dasharray='2 2'/>
- <text font-family='Anton' font-size='15' letter-spacing='2.2' fill='#fff' text-anchor='middle'><textPath href='#tp' startOffset='50%'>RS LINKS CONSULTANTS</textPath></text>
+ <text font-family='Anton' font-size='13.5' letter-spacing='1.6' fill='#fff' text-anchor='middle'><textPath href='#tp' startOffset='50%'>RS LINKS CONSULTANTS</textPath></text>
  <text font-family='Archivo' font-weight='800' font-size='8.5' letter-spacing='2.5' fill='{GOLD2}' text-anchor='middle'><textPath href='#bp' startOffset='50%'>PVT. LTD. • RAWALPINDI</textPath></text>
  <text x='{c - r + 14}' y='{c + 4}' font-size='11' fill='{GOLD2}' text-anchor='middle'>★</text><text x='{c + r - 14}' y='{c + 4}' font-size='11' fill='{GOLD2}' text-anchor='middle'>★</text></svg>
 <div style='position:absolute;left:{c - 38}px;top:{c - 44}px;width:76px;height:76px;border-radius:50%;background:#fff;box-shadow:0 2px 6px #0006'>{logo_img('logo-badge', 'width:76px;height:76px')}</div>
@@ -48,13 +48,13 @@ def rect_sticker():
  <linearGradient id='qgold' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='#FFEBA8'/><stop offset='.5' stop-color='{GOLD2}'/><stop offset='1' stop-color='{GOLD}'/></linearGradient></defs>
  <path d='M0 {h - 40} C {w * .3:.0f} {h - 56}, {w * .65:.0f} {h - 30}, {w} {h - 50} V{h} H0Z' fill='url(#qgold)'/>
  <path d='M0 {h - 35} C {w * .3:.0f} {h - 51}, {w * .65:.0f} {h - 25}, {w} {h - 45} V{h} H0Z' fill='url(#qg)'/>
- <path d='M{w - 70} 0 H{w} V60 C {w - 20} 40, {w - 50} 20, {w - 70} 0Z' fill='url(#qgold)'/><path d='M{w - 58} 0 H{w} V48 C {w - 18} 32, {w - 40} 16, {w - 58} 0Z' fill='url(#qg)'/></svg>
+ <path d='M{w - 56} 0 H{w} V46 C {w - 16} 30, {w - 40} 14, {w - 56} 0Z' fill='url(#qgold)'/><path d='M{w - 46} 0 H{w} V36 C {w - 14} 24, {w - 32} 10, {w - 46} 0Z' fill='url(#qg)'/></svg>
 <div style='position:absolute;left:{b}px;top:{b - 2}px;display:flex;align-items:center;gap:9px'>
  {logo_img('logo-badge', 'width:56px;height:56px')}
  <div><div style='font:400 19px Anton;color:{GREEN};letter-spacing:.4px;line-height:1'>RS LINKS CONSULTANTS</div>
   <div style='font:800 7px Archivo;color:{NAVY};letter-spacing:2.6px;margin-top:2px'>PVT. LTD.</div>
   <div style='font-family:Dancing;font-weight:700;font-size:11px;color:#A87508;margin-top:1px'>{TAGLINE}</div></div></div>
-<div style='position:absolute;left:{b + 65}px;top:{b + 58}px;display:flex;gap:12px'>{row('mail', EMAIL)}{row('gear', WEBSITE)}</div>
+<div style='position:absolute;left:{b + 65}px;top:{b + 54}px;display:flex;flex-direction:column;gap:3px'>{row('mail', EMAIL)}{row('gear', WEBSITE)}</div>
 <div style='position:absolute;left:{b}px;right:{b}px;bottom:{b - 4}px;display:flex;justify-content:space-between'>{wa}</div></div>"""
 
 
@@ -95,7 +95,7 @@ def main():
     jobs = [("RS-Links-Sticker-Round-2in", rw, rh, f"<div style='width:{rw}px;height:{rh}px;border-radius:50%;overflow:hidden'>{rb}</div>"),
             ("RS-Links-Sticker-Label-3.5x1.5in", qw, qh, qb),
             ("RS-Links-Sticker-Round-A4-Sheet-12", *sheet(rw, rh, rb, 3, 4, 26, True)),
-            ("RS-Links-Sticker-Label-A4-Sheet-14", *sheet(qw, qh, qb, 2, 7, 12))]
+            ("RS-Links-Sticker-Label-A4-Sheet-12", *sheet(qw, qh, qb, 2, 6, 14))]
     with sync_playwright() as pw:
         b = _launch(pw)
         pg = b.new_page(device_scale_factor=600 / PX)
@@ -108,7 +108,7 @@ def main():
             for ext in ("pdf", "ai", "eps", "svg", "png"):
                 z.write(out / f"{name}.{ext}", f"{name}.{ext}")
         z.writestr("READ-ME.txt", "RS Links stickers\n- Round: 2 in diameter (+1/16 in bleed). Label: 3.5 x 1.5 in (+1/16 in bleed).\n"
-                   "- A4 sheets: 12 round / 14 labels; dashed grey lines are cut guides (do not print if die-cutting).\n"
+                   "- A4 sheets: 12 round / 12 labels; dashed grey lines are cut guides (do not print if die-cutting).\n"
                    "- CorelDRAW: import the EPS or SVG. Illustrator: open the AI.\n")
 
 
