@@ -2,7 +2,7 @@
 350–500 USD per month. Rest as v8 (demands/2026-10-17-uzbekistan-factory): Tashkent, 50 posts, 10 hours, age 21–35,
 processing 30–35 days, visa/ticket/protector included, 5 duties, free accommodation / transport / medical / food.
 Design: "sunrise split" — white page, diagonal emerald-to-teal block on the right holding a big photo collage
-(fruit packing / forklift / truck loading), Uzbek flag ribbon, sunrise-orange salary bar, white stat chips."""
+(factory line / machine operator / packer — user: factory workers only, no fruit/agriculture), Uzbek flag ribbon, sunrise-orange salary bar, white stat chips."""
 import sys
 
 from common import PHONES, PHOTOS, flag, font_css, icon, logo_img, render, whatsapp_icon
@@ -38,7 +38,7 @@ def build(lang):
         fam = f"400 {px}px Anton" if anton else f"{weight} {px}px Archivo"
         return f"<div style='font:{fam};color:{c};line-height:1.05;direction:ltr;unicode-bidi:isolate;{extra}'>{s}</div>"
 
-    ph = lambda k, pos="center": f"<img src='{(PHOTOS / (k + '.jpg')).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'>"
+    ph = lambda k, pos="center": f"<img src='{(PHOTOS / k).as_uri()}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'>"
     poly = "polygon(18% 0,100% 0,100% 100%,0 100%)" if not ur else "polygon(0 0,82% 0,100% 100%,0 100%)"
     stats = "".join(f"<div style='background:#fff;border-radius:16px;box-shadow:0 8px 18px rgba(8,81,58,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:5px solid {TEAL}'>"
                     f"{icon(ic, 28, EM, 2.3)}{W(v, 32, INK, 'margin-top:6px', anton=True)}{W(l, 18 if ur else 14, '#5B6B63', 'margin-top:2px')}</div>" for ic, v, l in t["stats"])
@@ -50,9 +50,9 @@ def build(lang):
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(32)}<span style='font:400 29px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""<div dir='{t['dir']}'>
 <div class='abs' style='top:0;{end}:0;width:560px;height:700px;background:linear-gradient(160deg,{TEAL},{EM} 45%,{EM2});clip-path:{poly}'></div>
-<div class='abs' style='top:40px;{end}:30px;width:440px;height:300px;border-radius:22px;overflow:hidden;border:5px solid #fff;box-shadow:0 16px 32px #0006'>{ph('uz_fruit_packing', 'center 35%')}</div>
-<div class='abs' style='top:356px;{end}:30px;width:212px;height:210px;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 12px 24px #0006'>{ph('uz_forklift')}</div>
-<div class='abs' style='top:356px;{end}:258px;width:212px;height:210px;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 12px 24px #0006'>{ph('uz_truck_loading')}</div>
+<div class='abs' style='top:40px;{end}:30px;width:440px;height:300px;border-radius:22px;overflow:hidden;border:5px solid #fff;box-shadow:0 16px 32px #0006'>{ph('uz_milk_packing.jpg', 'center 30%')}</div>
+<div class='abs' style='top:356px;{end}:30px;width:212px;height:210px;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 12px 24px #0006'>{ph('tr_plastic.png', 'center 40%')}</div>
+<div class='abs' style='top:356px;{end}:258px;width:212px;height:210px;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 12px 24px #0006'>{ph('rslinks_worker_pack_x3.png', '55% 35%')}</div>
 <div class='abs' style='top:592px;{end}:30px;width:440px;display:flex;justify-content:center'>{flag('uzbekistan', 150, True, 'uz9')}</div>
 <div class='abs' style='top:28px;{start}:36px'>{logo_img('logo-horizontal-light', f'width:300px;height:78px;object-position:{start}')}</div>
 <div class='abs' style='top:136px;{start}:40px;width:500px;text-align:{start}'>
