@@ -16,7 +16,7 @@ def plane():
 
 
 def build():
-    hero = (PHOTOS / "rslinks_worker_hero.png").as_uri()
+    hero = (PHOTOS / "security_airport.jpg").as_uri()
     rows = "".join(f"<div style='display:flex;align-items:center;height:62px;padding:0 20px;border-top:{'0' if i == 0 else '1px solid #ffffff14'};background:{'#ffffff06' if i % 2 else 'transparent'}'>"
                    f"<span style='width:38px;font:400 22px Anton;color:{SKY}'>{i + 1:02d}</span>"
                    f"<span style='flex:1;font:400 30px Anton;color:#fff;letter-spacing:1.5px'>{t}</span>"
@@ -35,7 +35,7 @@ def build():
  <div style='font:400 104px Anton;color:#fff;letter-spacing:2px;line-height:1;text-shadow:0 8px 22px #0007'>DUBAI AIRPORT</div>
  <div style='font:700 22px Archivo;color:#DCEBFA;margin-top:12px'>With a leading airline group at Dubai International Airport</div></div>
 <div class='abs' style='top:120px;right:36px;width:290px;height:330px;border-radius:24px;overflow:hidden;border:5px solid #fff;box-shadow:0 18px 36px #0008'>
- <img src='{hero}' style='width:100%;height:100%;object-fit:cover;object-position:center 22%'></div>
+ <img src='{hero}' style='width:100%;height:100%;object-fit:cover;object-position:30% 20%'></div>
 
 <div class='abs' style='top:500px;left:36px;right:36px;border-radius:20px;overflow:hidden;background:#11161F;box-shadow:0 20px 40px #000a;border:2px solid #232A36'>
  <div style='display:flex;align-items:center;height:52px;padding:0 20px;background:#1B2230;font:800 15px Archivo;color:{AMBER};letter-spacing:3px'>
