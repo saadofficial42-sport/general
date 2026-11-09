@@ -349,6 +349,8 @@ FLAGS = {
     "om": (_flag_file("om"), 1200, 600),
     # Kuwait: green/white/red with black trapezoid at hoist; ratio 1:2
     "kw": (_flag_file("kw"), 12, 6),
+    # UAE: green/white/black with red hoist band; ratio 1:2
+    "ae": (_flag_file("ae"), 6, 3),
 }
 
 
