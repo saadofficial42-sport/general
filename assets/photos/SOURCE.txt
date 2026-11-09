@@ -24,3 +24,4 @@ tj_farmer.jpg: farmer + tomatoes/cucumbers/onions cropped (2x, sharpened) from t
 tr_furniture_worker.jpg, tr_furniture_showroom.jpg: cropped (2x) from the Phoenix Turkey furniture-factory ad the user asked to convert (2026-11-02).
 rs_plaster2.jpg, rs_tile2.jpg: plaster / tile mason photos cropped from the Serbia ad the user asked to convert (2026-11-04); text banners cropped off.
 kw_rider_towers.jpg: rider + Kuwait Towers cropped from the Subcontinental Kuwait ad the user asked to convert (2026-11-08); logo/text cropped off.
+driver_taxi.jpg (blurred right strip cropped off), security_airport.jpg (faint Dreamstime watermark on chest): photos supplied by the user for ads (2026-11-09).
