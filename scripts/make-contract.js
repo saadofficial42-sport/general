@@ -260,7 +260,7 @@ const body = [
   new Paragraph({ spacing: { before: 280, after: 200 }, keepNext: true,
     children: [r("IN WITNESS WHEREOF, the Parties have signed this Agreement on the date first written above.")] }),
   sigBlock(
-    ["For and on behalf of the Company", COMPANY, "", "Signature: ______________________", "Name: __________________________", "Designation: ____________________", "Company Stamp:"],
+    ["For and on behalf of the Company", COMPANY, "", "Signature: ______________________", `Name: ${e.signatory?.name || "__________________________"}`, `Designation: ${e.signatory?.designation || "____________________"}`, "Company Stamp:"],
     ["Employee", `${e.name}`, "", "Signature: ______________________", `CNIC: ${e.cnic}`, "Date: ___________________________"],
   ),
 ];
