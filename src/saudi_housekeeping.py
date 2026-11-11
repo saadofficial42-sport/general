@@ -10,7 +10,7 @@ T = lambda s, px, c, extra="", lh=1.8: f"<div class='t' style='font-size:{px}px;
 
 
 def build():
-    photo = (PHOTOS / "by_cleaners.jpg").as_uri()
+    photo = (PHOTOS / "rslinks_worker_pack_x3.png").as_uri()   # male only (user); replace with a real male cleaner photo when supplied
     bubbles = "".join(f"<circle cx='{x}' cy='{y}' r='{r}' fill='{AQUA}' opacity='{o}'/>" for x, y, r, o in
                       [(980, 140, 120, .10), (90, 620, 80, .08), (1020, 760, 60, .10), (160, 120, 40, .10), (560, 980, 30, .08)])
     facts = [("money", f"{N('1000 + 200')}", "ریال ماہانہ تنخواہ"), ("clock", f"{N(12)} گھنٹے", "روزانہ ڈیوٹی"), ("user", f"{N('21 – 26')} سال", "عمر کی حد")]
@@ -24,7 +24,7 @@ def build():
 <div class='abs' style='top:30px;right:34px'>{logo_img('logo-horizontal-light', 'width:310px;height:80px;object-position:right')}</div>
 <div class='abs' style='top:30px;left:34px;filter:drop-shadow(0 6px 12px #0004)'>{flag('saudi', 130, True, 'sahk')}</div>
 <div class='abs' style='top:150px;left:40px;width:470px;height:560px;border-radius:240px 240px 30px 30px;overflow:hidden;border:8px solid #fff;box-shadow:0 20px 40px rgba(5,80,47,.25)'>
- <img src='{photo}' style='width:100%;height:100%;object-fit:cover;object-position:center 8%'></div>
+ <img src='{photo}' style='width:100%;height:100%;object-fit:cover;object-position:55% 30%'></div>
 <div class='abs' style='top:140px;right:40px;width:510px;text-align:right'>
  <div style='display:inline-block;background:#E53935;border-radius:12px;padding:0 20px 6px'>{T('فوری ضرورت', 30, '#fff', 'font-weight:700', 1.6)}</div>
  {T('برائے سعودی عرب', 40, GRN, 'font-weight:700;margin-top:18px;margin-bottom:34px', 1.7)}
