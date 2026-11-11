@@ -27,3 +27,4 @@ kw_rider_towers.jpg: rider + Kuwait Towers cropped from the Subcontinental Kuwai
 driver_taxi.jpg (blurred right strip cropped off), security_airport.jpg (faint Dreamstime watermark on chest): photos supplied by the user for ads (2026-11-09).
 ksa_housekeeping_men.jpg: two men (housekeeper with towels + supervisor) cropped from the user's hotel housekeeping photo (2026-11-11); women cropped out per user.
 elec_*.jpg: industrial electrician photos cropped from a Google Images screenshot the user sent (2026-11-11; sources shown: Singleton Engineering Solutions, CODAN Electric). Web images — copyright not verified; flagged to user.
+kg_tailor_juki.jpg: tailor at JUKI machine cropped from the Kyrgyzstan tailors ad the user asked to convert (2026-11-11).
