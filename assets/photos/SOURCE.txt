@@ -28,3 +28,4 @@ driver_taxi.jpg (blurred right strip cropped off), security_airport.jpg (faint D
 ksa_housekeeping_men.jpg: two men (housekeeper with towels + supervisor) cropped from the user's hotel housekeeping photo (2026-11-11); women cropped out per user.
 elec_*.jpg: industrial electrician photos cropped from a Google Images screenshot the user sent (2026-11-11; sources shown: Singleton Engineering Solutions, CODAN Electric). Web images — copyright not verified; flagged to user.
 kg_tailor_juki.jpg: tailor at JUKI machine cropped from the Kyrgyzstan tailors ad the user asked to convert (2026-11-11).
+sewing_man.jpg (depositphotos watermark visible), sewing_woman.jpg: tailoring photos supplied by the user (2026-11-11).

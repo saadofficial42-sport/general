@@ -21,7 +21,7 @@ def sun(size, color, op):
 
 
 def build():
-    photo = (PHOTOS / "kg_tailor_juki.jpg").as_uri()
+    p1, p2 = (PHOTOS / "sewing_man.jpg").as_uri(), (PHOTOS / "sewing_woman.jpg").as_uri()   # user-supplied pair
     stitch = f"border:3px dashed {RED}"
     fac = [("home", "مفت رہائش"), ("food", "مفت کھانا (دن میں 2 بار)"), ("bus", "مفت ٹرانسپورٹ")]
     fac_li = "".join(f"<div style='display:flex;align-items:center;gap:12px;padding:2px 0;border-bottom:2px dashed #F2C9CF'>"
@@ -43,7 +43,7 @@ def build():
  <div style='font:400 24px Anton;color:#FFE3E6;letter-spacing:2px;direction:ltr;text-align:right;margin-top:10px'>JUKI MACHINE OPERATORS</div></div>
 
 <div class='abs' style='top:366px;right:36px;width:560px;height:430px;border-radius:26px;padding:10px;background:#fff;{stitch};box-sizing:border-box;box-shadow:0 16px 32px rgba(158,11,30,.18)'>
- <div style='width:100%;height:100%;border-radius:18px;overflow:hidden'><img src='{photo}' style='width:100%;height:100%;object-fit:cover;object-position:center 30%'></div></div>
+ <div style='display:flex;flex-direction:column;gap:10px;height:100%'><div style='flex:1;border-radius:16px;overflow:hidden'><img src='{p1}' style='width:100%;height:100%;object-fit:cover;object-position:center 8%'></div><div style='flex:1;border-radius:16px;overflow:hidden'><img src='{p2}' style='width:100%;height:100%;object-fit:cover;object-position:center 35%'></div></div></div>
 <div class='abs' style='top:730px;right:400px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE680,{SUN} 55%,#E0A000);border:7px solid #fff;box-shadow:0 14px 28px #0006;display:flex;flex-direction:column;align-items:center;justify-content:center'>
  {T('تنخواہ', 22, RED2, 'font-weight:700;margin-bottom:10px', 1.4)}<div style='font:400 70px Anton;color:{RED2};line-height:1'>$450</div>{T('ماہانہ', 20, RED2, 'font-weight:700;margin-top:4px', 1.4)}</div>
 <div class='abs' style='top:366px;left:36px;width:410px;background:#fff;border-radius:22px;{stitch};padding:4px 22px 6px;box-sizing:border-box'>
