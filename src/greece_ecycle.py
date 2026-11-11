@@ -43,7 +43,7 @@ def build():
  <div style='margin-top:18px;display:inline-block;background:{BLUE};border-radius:14px;padding:12px 22px'>
   <div style='font:400 36px Anton;color:#fff;letter-spacing:1.5px;line-height:1.05'>FACTORY WORKERS</div>
   <div style='font:800 18px Archivo;color:#CFE2F8;margin-top:6px;letter-spacing:1px'>Electric cycle (e-bike) manufacturing</div></div></div>
-<div class='abs' style='top:170px;right:40px;width:420px;height:470px;border-radius:210px 210px 28px 28px;overflow:hidden;border:8px solid #fff;outline:4px solid {BLUE};box-shadow:0 20px 40px rgba(7,59,115,.3)'>{ph('tr_plastic.png', 'center 40%')}</div>
+<div class='abs' style='top:170px;right:40px;width:420px;height:470px;border-radius:210px 210px 28px 28px;overflow:hidden;border:8px solid #fff;outline:4px solid {BLUE};box-shadow:0 20px 40px rgba(7,59,115,.3)'>{ph('elec_factory_floor.jpg', '70% 30%')}</div>
 <div class='abs' style='top:556px;left:44px;width:430px;height:180px;border-radius:24px;background:linear-gradient(135deg,{BLUE},{BLUE2});box-shadow:0 16px 32px rgba(7,59,115,.35);display:flex;flex-direction:column;align-items:center;justify-content:center'>
  <div style='font:800 16px Archivo;color:#CFE2F8;letter-spacing:3px'>SALARY</div>
  <div style='font:400 84px Anton;color:#fff;line-height:1'>€900</div>

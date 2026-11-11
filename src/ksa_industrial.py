@@ -38,8 +38,8 @@ def build():
 <div class='abs' style='top:330px;left:36px;width:1008px;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px'>
  <div style='display:flex;flex-direction:column;gap:8px'>{col(0, 7)}</div><div style='display:flex;flex-direction:column;gap:8px'>{col(7, 14)}</div></div>
 
-<div class='abs' style='top:796px;left:36px;width:240px;height:200px;border-radius:18px;overflow:hidden;box-shadow:0 12px 26px rgba(0,0,0,.2)'>{ph('rslinks_construction_engineer.png', 'center 20%')}
- <div style='position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(0deg,{GRN2}99,{GRN2}00)'></div></div>
+<div class='abs' style='top:796px;left:36px;width:240px;height:200px;border-radius:18px;overflow:hidden;box-shadow:0 12px 26px rgba(0,0,0,.2)'>{ph('elec_panel_main.jpg', '65% 20%')}
+ <div style='position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(0deg,{GRN2}99,{GRN2}00)'></div><span style='position:absolute;left:12px;bottom:10px;background:{ORG};color:#fff;font:400 20px Anton;padding:2px 10px;border-radius:6px;letter-spacing:1px'>ELECTRICIANS</span></div>
 <div class='abs' style='top:796px;right:36px;width:300px;height:200px;border-radius:18px;background:{GRN2};padding:8px 18px;box-sizing:border-box;border-top:6px solid {ORG}'>
  <div style='font:400 26px Anton;color:{ORG};letter-spacing:1px'>REQUIREMENTS</div>{req_li}</div>
 
