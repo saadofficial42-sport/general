@@ -39,8 +39,8 @@ def build():
 <div class='abs' style='top:28px;left:40px;filter:drop-shadow(0 6px 12px #0006)'>{flag('kyrgyzstan', 130, True, 'kgju')}</div>
 <div class='abs' style='top:92px;right:40px;text-align:right'>
  {T('فوری ضرورت برائے کرغزستان', 30, SUN, 'font-weight:700', 1.7)}
- {T('جوکی مشین آپریٹرز', 66, '#fff', 'font-weight:700;margin-top:0', 1.75)}
- <div style='font:400 24px Anton;color:#FFE3E6;letter-spacing:2px;direction:ltr;text-align:right;margin-top:10px'>JUKI MACHINE OPERATORS</div></div>
+ {T("جوکی مشین آپریٹرز <span style='font-size:46px;color:#FFE3E6'>(ٹیلر)</span>", 66, '#fff', 'font-weight:700;margin-top:0', 1.75)}
+ <div style='font:400 24px Anton;color:#FFE3E6;letter-spacing:2px;direction:ltr;text-align:right;margin-top:10px'>JUKI MACHINE OPERATORS (TAILOR)</div></div>
 
 <div class='abs' style='top:366px;right:36px;width:560px;height:430px;border-radius:26px;padding:10px;background:#fff;{stitch};box-sizing:border-box;box-shadow:0 16px 32px rgba(158,11,30,.18)'>
  <div style='display:flex;flex-direction:column;gap:10px;height:100%'><div style='flex:1;border-radius:16px;overflow:hidden'><img src='{p1}' style='width:100%;height:100%;object-fit:cover;object-position:center 8%'></div><div style='flex:1;border-radius:16px;overflow:hidden'><img src='{p2}' style='width:100%;height:100%;object-fit:cover;object-position:center 35%'></div></div></div>
