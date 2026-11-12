@@ -351,6 +351,8 @@ FLAGS = {
     "kw": (_flag_file("kw"), 12, 6),
     # UAE: green/white/black with red hoist band; ratio 1:2
     "ae": (_flag_file("ae"), 6, 3),
+    # Poland: white over red; ratio 5:8
+    "pl": (_flag_file("pl"), 16, 10),
 }
 
 
