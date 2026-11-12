@@ -13,9 +13,9 @@ def build():
     strip = "".join(f"<div style='flex:1;position:relative;border-radius:16px;overflow:hidden;border:3px solid {GOLD}'>{ph(f)}"
                     f"<div style='position:absolute;left:0;right:0;bottom:0;padding:24px 12px 8px;background:linear-gradient(0deg,{NAVY2}EE,{NAVY2}00);font:400 20px Anton;color:#fff;letter-spacing:1px'>{t}</div></div>"
                     for f, t in [("pl_sandwich.jpg", "SANDWICH MAKING"), ("pl_unloading.jpg", "UNLOADING &amp; RECEIVING"), ("pl_packing.jpg", "SORTING &amp; PACKING")])
-    req = [("user", "Age 21 – 55 years"), ("doc", "Matric + good spoken English"), ("home", "Free accommodation &amp; medical"),
+    req = [("video", "Interview-based selection"), ("user", "Age 21 – 55 years"), ("doc", "Matric + good spoken English"), ("home", "Free accommodation &amp; medical"),
            ("plane", "Schengen visa · travel in Schengen"), ("family", "Family may join after residence permit*")]
-    chips = "".join(f"<div style='display:flex;align-items:center;gap:12px;background:#ffffff12;border:1px solid #ffffff2a;border-radius:14px;padding:10px 16px'>"
+    chips = "".join(f"<div style='display:flex;align-items:center;gap:12px;background:#ffffff12;border:1px solid #ffffff2a;border-radius:14px;padding:7px 16px'>"
                     f"{icon(ic, 26, GOLD2, 2.2)}<span style='font:700 18px Archivo;color:#fff;line-height:1.2'>{t}</span></div>" for ic, t in req)
     inc = "".join(f"<div style='flex:1;display:flex;align-items:center;justify-content:center;gap:10px'>{icon(ic, 30, NAVY, 2.3)}"
                   f"<div><div style='font:400 24px Anton;color:{NAVY};line-height:1'>{t}</div><div style='font:800 12px Archivo;color:{NAVY};letter-spacing:2px'>INCLUDED</div></div></div>"
@@ -33,10 +33,10 @@ def build():
 
 <div class='abs' style='top:590px;left:36px;right:36px;height:104px;border-radius:18px;background:linear-gradient(135deg,{GOLD2},{GOLD});display:flex;align-items:center;justify-content:center;gap:18px;box-shadow:0 14px 30px #0008'>
  {icon('money', 40, NAVY, 2.2)}<span style='font:800 17px Archivo;color:{NAVY};letter-spacing:3px'>SALARY</span>
- <span style='font:400 58px Anton;color:{NAVY}'>PKR 4,00,000 – 4,50,000</span><span style='font:800 15px Archivo;color:{NAVY};letter-spacing:2px'>/ MONTH</span></div>
+ <span style='font:400 52px Anton;color:{NAVY}'>IN EUROS (€) · AS PER INTERVIEW</span></div>
 
 <div class='abs' style='top:720px;left:36px;width:560px;height:300px;display:flex;gap:10px'>{strip}</div>
-<div class='abs' style='top:720px;right:36px;width:420px;display:flex;flex-direction:column;gap:8px'>{chips}</div>
+<div class='abs' style='top:716px;right:36px;width:420px;display:flex;flex-direction:column;gap:6px'>{chips}</div>
 <div class='abs' style='top:1028px;right:36px;width:420px;font:600 12.5px Archivo;color:#9FB0CC'>*Subject to Polish immigration rules.</div>
 
 <div class='abs' style='top:1056px;left:36px;right:36px;height:88px;border-radius:18px;background:#fff;display:flex;align-items:center;padding:0 14px'>
