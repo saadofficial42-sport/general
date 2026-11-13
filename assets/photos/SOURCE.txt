@@ -31,3 +31,4 @@ kg_tailor_juki.jpg: tailor at JUKI machine cropped from the Kyrgyzstan tailors a
 sewing_man.jpg (depositphotos watermark visible), sewing_woman.jpg: tailoring photos supplied by the user (2026-11-11).
 pl_sandwich/pl_mushroom/pl_unloading/pl_packing.jpg: cropped from the Poland food-factory ad the user asked to convert (2026-11-12).
 uz_samarkand_madrasa.jpg: Samarkand madrasa cropped from the Uzbekistan English-teacher ad the user asked to convert (2026-11-13).
+teacher_man.jpg, teacher_woman.jpg: teacher photos supplied by the user (2026-11-13), used uncropped.
