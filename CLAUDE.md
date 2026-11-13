@@ -49,6 +49,8 @@ TODO — confirm/adjust. Defaults until specified otherwise:
 - All ad text must be large and high-contrast enough to read on a phone (body ≥ 17px, labels
   ≥ 14px on a 1080px canvas).
 - Never reuse photos from other agencies' ads (they are content sources only).
+- **Never write the word "visa" on any ad** (user, 2026-11-13). Describe the package without it
+  (e.g. "Work Permit + Embassy Appointment included", "Ticket + Protector included").
 - **Vary the design every time** (user, 2026-10-15: "all ads seem to be in same design and theme").
   Before building, read the last 3–4 rows of `output/design-log.md` and pick a different palette,
   layout family and hero treatment (e.g. full-bleed photo poster, magazine collage, split columns,

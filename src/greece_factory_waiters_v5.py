@@ -3,8 +3,8 @@ asked to use it as the reference and update our ad. Layout follows the reference
 navy curved title panel (JOBS IN / Greece / (Schengen)), two photo panels with yellow labels, navy salary bar with free
 medical + accommodation, yellow processing strip + package line, required-documents checklist, navy Apply Now footer.
 Facts: €1,100/month; free medical; free accommodation; work permit (tax-payer companies) + walk-in embassy appointment +
-visa processing in package; processing 3.5 months (user's figure — the reference says 2–3); documents from the reference.
-Dropped from reference: slogans ("Build your better future", "Your dream job awaits"), "Work Visa Included" reworded to
+no "visa" wording (user rule); processing 3.5 months (user's figure — the reference says 2–3); documents from the reference.
+Dropped from reference: slogans ("Build your better future", "Your dream job awaits"), "Work Visa Included" removed —
 visa processing (the visa itself is the embassy's decision). Photos cropped from the reference (user-approved)."""
 from common import PHONES, PHOTOS, font_css, icon, logo_img, render, whatsapp_icon
 from greece_ecycle import flag_gr
@@ -52,8 +52,8 @@ def build():
 <div class='abs' style='top:822px;left:0;right:0;height:100px;display:flex;align-items:center'>
  <div style='width:520px;height:100%;background:linear-gradient(90deg,{YEL},{YEL2});clip-path:polygon(0 0,100% 0,94% 100%,0 100%);display:flex;align-items:center;gap:16px;padding-left:34px;box-sizing:border-box'>
   {icon('clock', 56, NAVY, 2.4)}<div><div style='font:800 26px Archivo;color:{NAVY}'>Processing Time:</div><div style='font:900 40px Archivo;color:{NAVY};line-height:1'>3.5 Months</div></div></div>
- <div style='flex:1;padding-left:16px'><div style='font:800 23px Archivo;color:{NAVY}'>Work Permit + Embassy Appointment</div>
-  <div style='font:italic 900 32px Archivo;color:{RED};line-height:1.15'>+ Visa Processing Included</div>
+ <div style='flex:1;padding-left:16px'><div style='font:800 25px Archivo;color:{NAVY}'>Work Permit + Embassy Appointment</div>
+  <div style='font:italic 900 34px Archivo;color:{RED};line-height:1.15'>Included in Package</div>
   <div style='font:700 17px Archivo;color:#3A4A6B'>Work permit through tax-payer companies</div></div></div>
 
 <div class='abs' style='top:940px;left:30px;background:{NAVY};border-radius:0 16px 16px 0;padding:8px 26px;font:800 30px Archivo;color:#fff'>Required Documents:</div>
