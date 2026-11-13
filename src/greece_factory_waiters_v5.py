@@ -27,7 +27,7 @@ def panel(src, label, pos):
 def build():
     P = lambda f: (PHOTOS / f).as_uri()
     docs = [("Scanned Coloured Passport", "(complete, all pages)"), ("CNIC", "(front &amp; back)"), ("FRC, MRC", ""),
-            ("Police Clearance Certificate", ""), ("Schengen Photo", "(white background)")]
+            ("PCC – Police Clearance", "(MOFA attested)"), ("Schengen Photo", "(white background)")]
     doc_li = "".join(f"<div style='{'grid-column:1/3;' if i == 0 else ''}display:flex;align-items:center;gap:12px'>{tick(34)}<span style='font:800 25px Archivo;color:{INK}'>{a} <span style='font:600 19px Archivo;color:#3A4A6B'>{b}</span></span></div>" for i, (a, b) in enumerate(docs))
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(30)}<span style='font:400 28px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""
