@@ -42,6 +42,11 @@ def build():
  <div style='font:900 128px Archivo;color:{YEL};line-height:.95;letter-spacing:-2px;text-shadow:0 6px 0 {NAVY2}'>Greece</div>
  <div style='font:800 40px Archivo;color:#fff;line-height:1.1'>(Schengen)</div></div>
 
+<div class='abs' style='top:118px;right:36px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F0454C,{RED} 60%,#A3141B);border:6px solid #fff;box-shadow:0 14px 28px #0007;transform:rotate(-10deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center'>
+ <div style='position:absolute;inset:10px;border-radius:50%;border:2px dashed #ffffffaa'></div>
+ <div style='font:900 42px Archivo;color:#fff;line-height:1'>DONE</div><div style='font:900 42px Archivo;color:{YEL};line-height:1'>BASIS</div>
+ <div style='width:130px;height:3px;background:#fff;margin:8px 0'></div>
+ <div style='font:800 22px Archivo;color:#fff;line-height:1.1'>Pay After<br>Visa</div></div>
 <div class='abs' style='top:330px;left:30px;right:30px;display:flex;gap:24px'>{panel(P("gr_factory_ref.jpg"), "Factory Workers", "center 30%")}{panel(P("gr_waiters_ref.jpg"), "Waiters", "center 25%")}</div>
 
 <div class='abs' style='top:676px;left:30px;right:30px;height:130px;border-radius:24px;background:linear-gradient(90deg,{NAVY2},{NAVY});display:flex;align-items:center;box-shadow:0 12px 24px #0A1E5744'>

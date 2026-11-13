@@ -61,6 +61,7 @@ TODO — confirm/adjust. Defaults until specified otherwise:
   5. Apply standing rules from past feedback without being reminded, and keep the sheet in sync.
 - **Never write the word "visa" on any ad** (user, 2026-11-13). Describe the package without it
   (e.g. "Work Permit + Embassy Appointment included", "Ticket + Protector included").
+  Exception the user asked for (2026-11-13): on done-basis demands, "DONE BASIS – Pay After Visa" is allowed.
 - **Vary the design every time** (user, 2026-10-15: "all ads seem to be in same design and theme").
   Before building, read the last 3–4 rows of `output/design-log.md` and pick a different palette,
   layout family and hero treatment (e.g. full-bleed photo poster, magazine collage, split columns,
