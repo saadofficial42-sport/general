@@ -49,6 +49,16 @@ TODO — confirm/adjust. Defaults until specified otherwise:
 - All ad text must be large and high-contrast enough to read on a phone (body ≥ 17px, labels
   ≥ 14px on a 1080px canvas).
 - Never reuse photos from other agencies' ads (they are content sources only).
+- **Think before building every ad** (user, 2026-11-13: "Be very intelligent in creating ads"). Checklist:
+  1. Copy: only facts the user gave; no "visa", no guarantees, no costs/shares/rates, no employer names,
+     no invented documents or requirements; when the user's facts conflict with a reference ad, use the
+     user's facts and point out the difference.
+  2. Hierarchy: country + job titles + salary readable in 2 seconds on a phone; then benefits, processing
+     time, documents; contacts always complete (4 numbers + email).
+  3. Photos: real people doing the exact job, sharp, matching the audience (men-only where the user asks).
+  4. Design: different from the last ads in the design log; no overlapping or wrapped text; check the
+     render at phone size before sending.
+  5. Apply standing rules from past feedback without being reminded, and keep the sheet in sync.
 - **Never write the word "visa" on any ad** (user, 2026-11-13). Describe the package without it
   (e.g. "Work Permit + Embassy Appointment included", "Ticket + Protector included").
 - **Vary the design every time** (user, 2026-10-15: "all ads seem to be in same design and theme").
