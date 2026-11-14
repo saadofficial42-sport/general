@@ -35,3 +35,4 @@ teacher_man.jpg, teacher_woman.jpg: teacher photos supplied by the user (2026-11
 rslinks_worker_hero_blue.png — recoloured (green polo/cap -> royal blue) from rslinks_worker_hero.png, user request 2026-11-13
 gr_factory_ref.jpg, gr_waiters_ref.jpg, gr_acropolis_ref.jpg — cropped (2x upscaled) from the Greece "Jobs in Greece (Schengen)" reference ad the user sent 2026-11-13, user asked to use it as the reference and update our ad
 tr_istanbul_ref.jpg — cropped (3x) from the Turkey seasonal tourism & hospitality reference ad the user asked to convert, 2026-11-14
+tr_dishwasher.jpg, tr_cleaning_team.jpg — sent by user 2026-11-14 for the Turkey seasonal hospitality ad

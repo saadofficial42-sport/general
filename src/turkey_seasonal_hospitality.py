@@ -51,7 +51,7 @@ def build():
  <div style='font:400 64px Anton;color:{RED};line-height:.9'>50</div><div style='font:800 17px Archivo;color:{INK};letter-spacing:2px'>VACANCIES</div>
  <div style='width:120px;height:2px;background:{RED};margin:6px 0'></div><div style='font:800 15px Archivo;color:{TEAL};line-height:1.2'>FEBRUARY 2027<br>INTAKE</div></div>
 
-<div class='abs' style='top:360px;left:30px;right:30px;display:flex;gap:22px'>{photo(P("ksa_housekeeping_men.jpg"), "center 30%", "HOTEL HOUSEKEEPING &amp; CLEANING", 1.45)}{photo(P("sa_kitchen_helper_sharp.jpg"), "center 35%", "DISHWASHERS", 1)}</div>
+<div class='abs' style='top:360px;left:30px;right:30px;display:flex;gap:22px'>{photo(P("tr_cleaning_team.jpg"), "center 30%", "HOTEL CLEANING &amp; HOUSEKEEPING", 1.45)}{photo(P("tr_dishwasher.jpg"), "center 35%", "DISHWASHERS", 1)}</div>
 
 <div class='abs' style='top:640px;left:30px;width:560px;height:250px;border-radius:20px;background:linear-gradient(160deg,{TEAL},{TEAL2});padding:12px 22px;box-sizing:border-box;box-shadow:0 12px 24px #14232A40'>
  <div style='font:400 28px Anton;color:{GOLD};letter-spacing:2px;margin-bottom:4px'>JOB POSITIONS</div>{job_li}</div>
