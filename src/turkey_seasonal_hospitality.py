@@ -71,9 +71,9 @@ def build():
 
 <div class='abs' style='top:1222px;left:0;width:1080px;height:128px;background:linear-gradient(100deg,{TEAL2},{TEAL})'></div>
 <div class='abs' style='top:1216px;left:0;width:1080px;height:6px;background:{RED}'></div>
-<div class='abs' style='top:1240px;left:24px;display:grid;grid-template-columns:auto auto auto auto;gap:4px 18px'>{nums}</div>
-<div class='abs' style='top:1296px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center'>
- <span style='font:400 28px Anton;color:{GOLD};letter-spacing:1px'>SEND YOUR CV ON WHATSAPP</span>
+<div class='abs' style='top:1230px;left:24px;right:24px;display:grid;grid-template-columns:auto auto auto;justify-content:space-between;gap:4px 0'>{nums}</div>
+<div class='abs' style='top:1312px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center'>
+ <span style='font:400 25px Anton;color:{GOLD};letter-spacing:1px'>SEND YOUR CV ON WHATSAPP</span>
  <span style='display:flex;align-items:center;gap:8px'>{icon('mail', 20, '#fff', 2)}<span style='font:800 21px Archivo;color:#fff'>{EMAIL}</span></span></div>"""
     return (f"<!doctype html><html lang='en'><head><meta charset='utf-8'><style>{font_css()}html,body{{margin:0;width:1080px;height:1350px;overflow:hidden}}"
             f".abs{{position:absolute}}</style></head>"

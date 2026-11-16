@@ -54,7 +54,7 @@ TODO — confirm/adjust. Defaults until specified otherwise:
      no invented documents or requirements; when the user's facts conflict with a reference ad, use the
      user's facts and point out the difference.
   2. Hierarchy: country + job titles + salary readable in 2 seconds on a phone; then benefits, processing
-     time, documents; contacts always complete (4 numbers + email).
+     time, documents; contacts always complete (all 6 numbers + email).
   3. Photos: real people doing the exact job, sharp, matching the audience (men-only where the user asks).
   4. Design: different from the last ads in the design log; no overlapping or wrapped text; check the
      render at phone size before sending.
@@ -70,5 +70,6 @@ TODO — confirm/adjust. Defaults until specified otherwise:
 ## Contact details on every ad (RS Links)
 
 - WhatsApp / phone numbers, in this order: **+92 317 0363690**, **+92 371 9051589**, **+92 341 5087051**,
-  **+92 311 9435591** (the third added 2026-10-15, the fourth 2026-10-20, for all future ads). Use `common.PHONES`.
+  **+92 311 9435591**, **+92 313 9873964**, **+92 348 5158069** (the third added 2026-10-15, the fourth 2026-10-20,
+  the fifth and sixth 2026-11-16, for all future ads). Use `common.PHONES`.
 - Email: hr@rslinksconsultants.com
