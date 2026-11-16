@@ -1,6 +1,6 @@
 """Belarus — 120 workers, 7 trades, v6, English (2026-11-16). User: very attractive, different design, with the
 country's landscape. Facts as v5 (no "visa"). Design: "Minsk riverside" — full-bleed Minsk old-town riverside photo,
-big white title in the sky with red/green flag ribbon, four tilted polaroid trade photos (incl. women: production, bakery — user request) on the waterline, white
+big white title in the sky with red/green flag ribbon, five tilted polaroid trade photos (incl. women: production, bakery, cleaners — user request) on the waterline, white
 sheet with 7 trade rows as two-column salary cards, benefit icons, forest-green footer with red rule."""
 from common import PHONES, PHOTOS, flag, font_css, icon, logo_img, render, whatsapp_icon
 
@@ -13,9 +13,9 @@ JOBS = [("Machine Milking Operators", "M/F", "10", "Mogilev", "700 – 800"), ("
 
 
 def polaroid(src, pos, cap, rot):
-    return (f"<div style='width:240px;background:#fff;padding:10px 10px 0;box-sizing:border-box;transform:rotate({rot}deg);box-shadow:0 20px 34px #0007'>"
-            f"<div style='height:200px;overflow:hidden'><img src='{src}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'></div>"
-            f"<div style='font:800 17px Archivo;color:{INK};text-align:center;line-height:40px'>{cap}</div></div>")
+    return (f"<div style='width:202px;background:#fff;padding:10px 10px 0;box-sizing:border-box;transform:rotate({rot}deg);box-shadow:0 20px 34px #0007'>"
+            f"<div style='height:196px;overflow:hidden'><img src='{src}' style='width:100%;height:100%;object-fit:cover;object-position:{pos}'></div>"
+            f"<div style='font:800 17px Archivo;color:{INK};text-align:center;line-height:38px;white-space:nowrap'>{cap}</div></div>")
 
 
 def build():
@@ -39,8 +39,8 @@ def build():
  <div style='display:inline-block;background:{RED};color:#fff;font:800 19px Archivo;letter-spacing:5px;padding:7px 18px;border-radius:999px'>URGENT REQUIREMENT · 120 POSTS</div>
  <div style='font:400 124px Anton;color:#fff;line-height:.95;letter-spacing:4px;margin-top:12px;text-shadow:0 10px 30px #0008'>WORK IN BELARUS</div>
  <div style='display:inline-block;font:700 23px Archivo;color:#fff;margin-top:8px;background:#0F4430cc;padding:6px 18px;border-radius:10px'>3-year contract · Work permit · Net salary up to <b style='color:{GOLD}'>$1,600</b> / month</div></div>
-<div class='abs' style='top:384px;left:24px;right:24px;display:flex;justify-content:space-between'>
- {polaroid(P("by_woodworking.jpg"), '78% 35%', 'Woodworking', -5)}{polaroid(P("by_woman_production.jpg"), 'center 25%', 'Production', 3)}{polaroid(P("by_dairy.jpg"), '72% 30%', 'Dairy &amp; Milking', -2)}{polaroid(P("by_bakery.jpg"), '30% 45%', 'Bakery Production', 5)}</div>
+<div class='abs' style='top:388px;left:18px;right:18px;display:flex;justify-content:space-between'>
+ {polaroid(P("by_woodworking.jpg"), '78% 35%', 'Woodworking', -5)}{polaroid(P("by_woman_production.jpg"), 'center 25%', 'Production', 3)}{polaroid(P("by_dairy.jpg"), '72% 30%', 'Dairy &amp; Milking', -2)}{polaroid(P("by_bakery.jpg"), '30% 45%', 'Bakery', 4)}{polaroid(P("by_cleaners.jpg"), 'center 30%', 'Facility Cleaners', -4)}</div>
 
 <div class='abs' style='top:668px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px'>{cards}
  <div style='display:flex;align-items:center;justify-content:center;background:{GRN};border-radius:14px;height:62px;font:700 16px Archivo;color:#E3F1E9;text-align:center;line-height:1.25;padding:0 10px'>Net = after tax, paid monthly in BYN · USD indicative · Age 21–45 · 40 h/week</div></div>
