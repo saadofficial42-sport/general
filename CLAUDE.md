@@ -59,6 +59,12 @@ TODO — confirm/adjust. Defaults until specified otherwise:
   4. Design: different from the last ads in the design log; no overlapping or wrapped text; check the
      render at phone size before sending.
   5. Apply standing rules from past feedback without being reminded, and keep the sheet in sync.
+- **After every ad, write two short professional briefs** (user, 2026-11-17), ready to paste in WhatsApp:
+  1. *Management brief* (user, CEO, managers only): full job details + rate, candidate payment schedule,
+     partner/agency involved, host-country expense and partner payment schedule, each party's share / profit split.
+  2. *Staff brief*: job details, requirements, rate and candidate payment schedule only — no partners,
+     expenses, shares or profit.
+  Briefs are internal: give them in chat only, never on the ad.
 - **Never write the word "visa" on any ad** (user, 2026-11-13). Describe the package without it
   (e.g. "Work Permit + Embassy Appointment included", "Ticket + Protector included").
   Exception the user asked for (2026-11-13): on done-basis demands, "DONE BASIS – Pay After Visa" is allowed.
