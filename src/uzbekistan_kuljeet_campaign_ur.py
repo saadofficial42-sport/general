@@ -29,8 +29,8 @@ def build():
     c = card("انڈسٹریل پلانٹ", [("uz_pir_1_ref.jpg", "center 30%", "cover"), ("uz_pir_2_ref.jpg", "center 30%", "cover"), ("uz_pir_4_ref.jpg", "center 30%", "cover")],
              [(f"{N('PIR')}&nbsp; پینل کیمیکل ٹیکنالوجسٹ", "$1,500"), (f"{N('PIR')}&nbsp; پینل لائن آپریٹر", "$1,500"), ("بیسالٹ لائن آپریٹر", "$1,500"), ("بیسالٹ لائن مکینک", "$1,500")],
              CO, "#1E9E55", f"کم از کم {N(3)} سال تجربہ")
-    d = card("ٹیچرز", [("teacher_man.jpg", "center", "contain"), ("teacher_woman.jpg", "center 30%", "cover")],
-             [("ٹیچرز", "$3,000 – 5,000")], SELF, "#6B7280")
+    d = card("انگلش ٹیچرز", [("teacher_man.jpg", "center", "contain"), ("teacher_woman.jpg", "center 30%", "cover")],
+             [("انگلش ٹیچرز", "$3,000 – 5,000")], SELF, "#6B7280")
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(30)}<span style='font:400 28px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""<div dir='rtl'>
 <div class='abs' style='inset:0;background:{COB};background-image:{tile_bg()}'></div>

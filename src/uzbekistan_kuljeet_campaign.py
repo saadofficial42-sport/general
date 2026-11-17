@@ -44,8 +44,8 @@ def build():
     c = card("INDUSTRIAL PLANT", [("uz_pir_1_ref.jpg", "center 30%", "cover"), ("uz_pir_2_ref.jpg", "center 30%", "cover"), ("uz_pir_4_ref.jpg", "center 30%", "cover")],
              [("PIR Panel Chemical Technologist", "$1,500"), ("PIR Panel Line Operator", "$1,500"), ("Basalt Line Operator", "$1,500"), ("Basalt Line Mechanic", "$1,500")],
              "Accommodation &amp; food: by company", "#1E9E55", "Min. 3 yrs experience")
-    d = card("TEACHERS", [("teacher_man.jpg", "center", "contain"), ("teacher_woman.jpg", "center 30%", "cover")],
-             [("Teachers", "$3,000 – 5,000")], "Accommodation &amp; food: self", "#6B7280")
+    d = card("ENGLISH TEACHERS", [("teacher_man.jpg", "center", "contain"), ("teacher_woman.jpg", "center 30%", "cover")],
+             [("English Teachers", "$3,000 – 5,000")], "Accommodation &amp; food: self", "#6B7280")
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(30)}<span style='font:400 28px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""
 <div class='abs' style='inset:0;background:{COB};background-image:{tile_bg()}'></div>
