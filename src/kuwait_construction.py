@@ -11,6 +11,7 @@ from common import PHONES, PHOTOS, flag, font_css, icon, logo_img, render, whats
 
 NAVY, NAVY2, TEAL, GOLD, GOLD2, GRN, RED, INK = "#0B1E3A", "#06122A", "#0F5E6E", "#E9B44C", "#FFD98A", "#007A3D", "#CE1126", "#0B1E3A"
 EMAIL = "hr@rslinksconsultants.com"
+PKR = {'140': '1,26,000', '170': '1,53,000'}  # approx. at 1 KWD ≈ 900 PKR (user to confirm)
 JOBS = [("Assistant Carpenter (Shuttering)", "", "50", "140"), ("Mason – Bricks (Tabook / Block)", "", "100", "170"), ("Mason – Plaster", "", "100", "170"),
         ("Mason – Tiles Ceramic", "", "100", "170"), ("Mason – Tiles Marble", "", "75", "170"), ("Painters – External &amp; Internal", "Sigma paint experience preferred", "200", "170")]
 
@@ -24,10 +25,10 @@ def towers(col):
 
 def build():
     P = lambda f: (PHOTOS / f).as_uri()
-    rows = "".join(f"<div style='display:grid;grid-template-columns:1fr 110px 170px;align-items:center;min-height:53px;border-top:1px solid #ffffff1c'>"
+    rows = "".join(f"<div style='display:grid;grid-template-columns:1fr 90px 290px;align-items:center;min-height:53px;border-top:1px solid #ffffff1c'>"
                    f"<div><div style='font:800 23px Archivo;color:#fff'>{t}</div>{f'<div style=\"font:700 15px Archivo;color:{GOLD2}\">{n}</div>' if n else ''}</div>"
                    f"<span style='font:400 30px Anton;color:#fff;text-align:center'>{q}</span>"
-                   f"<span style='font:400 34px Anton;color:{GOLD};text-align:right'>{s} <span style='font-size:20px'>KWD</span></span></div>" for t, n, q, s in JOBS)
+                   f"<span style='text-align:right;line-height:1;white-space:nowrap'><span style='font:400 32px Anton;color:{GOLD}'>{PKR[s]}</span> <span style='font:400 18px Anton;color:{GOLD}'>PKR</span> <span style='font:700 15px Archivo;color:#B9C4D6'>({s} KWD)</span></span></div>" for t, n, q, s in JOBS)
     chips = [("clock", "8 hrs / day · 6 days / week"), ("calendar", "Friday holiday"), ("overtime", "Overtime paid after 8 hrs &amp; on holidays"),
              ("plane", "Ticket included"), ("doc", "1-year agreement"), ("check", "Other benefits per Kuwait labour law")]
     chip = "".join(f"<div style='display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:8px 12px;box-shadow:0 8px 16px #0004'>"
@@ -50,7 +51,7 @@ def build():
  <div style='flex:1.13'>{ph('ua_hero.png', 'center')}</div><div style='flex:2'>{ph('rs_plaster2.jpg', 'center')}</div><div style='flex:1.92'>{ph('rs_tile_mason.png', 'center')}</div></div>
 
 <div class='abs' style='top:666px;left:30px;right:30px;border-radius:22px;background:linear-gradient(180deg,#0A1830ee,#050C1Cee);border:2px solid {GOLD}66;padding:10px 26px 8px;box-sizing:border-box;box-shadow:0 16px 30px #0008'>
- <div style='display:grid;grid-template-columns:1fr 110px 170px;font:800 14px Archivo;color:{GOLD2};letter-spacing:2px;height:28px;align-items:center'><span>CATEGORY</span><span style='text-align:center'>POSTS</span><span style='text-align:right'>SALARY / MONTH</span></div>{rows}</div>
+ <div style='display:grid;grid-template-columns:1fr 90px 290px;font:800 14px Archivo;color:{GOLD2};letter-spacing:2px;height:28px;align-items:center'><span>CATEGORY</span><span style='text-align:center'>POSTS</span><span style='text-align:right'>SALARY / MONTH (APPROX.)</span></div>{rows}</div>
 
 <div class='abs' style='top:1050px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px'>{chip}</div>
 

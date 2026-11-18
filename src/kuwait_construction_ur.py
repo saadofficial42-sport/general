@@ -5,16 +5,17 @@ from kuwait_construction import NAVY, NAVY2, TEAL, GOLD, GOLD2, GRN, RED, INK, E
 
 N = lambda v: f"<span class='num'>{v}</span>"
 T = lambda s, px, c, extra="", lh=1.8: f"<div class='t' style='font-size:{px}px;color:{c};line-height:{lh};{extra}'>{s}</div>"
+PKR = {'140': '1,26,000', '170': '1,53,000'}  # approx. at 1 KWD ≈ 900 PKR (user to confirm)
 JOBS = [("اسسٹنٹ کارپینٹر (شٹرنگ)", "", "50", "140"), ("میسن – برک (طابوق / بلاک)", "", "100", "170"), ("میسن – پلستر", "", "100", "170"),
         ("میسن – سرامک ٹائلز", "", "100", "170"), ("میسن – ماربل ٹائلز", "", "75", "170"), ("پینٹرز – ایکسٹرنل و انٹرنل", "سگما پینٹ کا تجربہ رکھنے والوں کو ترجیح", "200", "170")]
 
 
 def build():
     P = lambda f: (PHOTOS / f).as_uri()
-    rows = "".join(f"<div style='display:grid;grid-template-columns:1fr 110px 170px;align-items:center;min-height:56px;border-top:1px solid #ffffff1c'>"
+    rows = "".join(f"<div style='display:grid;grid-template-columns:1fr 90px 290px;align-items:center;min-height:56px;border-top:1px solid #ffffff1c'>"
                    f"<div>{T(t, 25, '#fff', 'font-weight:700', 1.75)}{T(n, 15, GOLD2, 'font-weight:700;margin-top:10px', 1.4) if n else ''}</div>"
                    f"<span style='font:400 30px Anton;color:#fff;text-align:center'>{q}</span>"
-                   f"<span style='font:400 34px Anton;color:{GOLD};text-align:left;direction:ltr'>{s} <span style='font-size:20px'>KWD</span></span></div>" for t, n, q, s in JOBS)
+                   f"<span style='text-align:left;direction:ltr;line-height:1;white-space:nowrap'><span style='font:400 32px Anton;color:{GOLD}'>{PKR[s]}</span> <span style='font:400 18px Anton;color:{GOLD}'>PKR</span> <span style='font:700 15px Archivo;color:#B9C4D6'>({s} KWD)</span></span></div>" for t, n, q, s in JOBS)
     chips = [("clock", f"ڈیوٹی {N(8)} گھنٹے · ہفتے میں {N(6)} دن"), ("calendar", "جمعہ چھٹی"), ("overtime", f"{N(8)} گھنٹے کے بعد اور چھٹی پر اوور ٹائم"),
              ("plane", "ٹکٹ شامل"), ("doc", f"{N(1)} سال کا معاہدہ"), ("check", "دیگر مراعات کویت لیبر لاء کے مطابق")]
     chip = "".join(f"<div style='display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:4px 12px;box-shadow:0 8px 16px #0004'>"
@@ -37,9 +38,9 @@ def build():
  <div style='flex:1.13'>{ph('ua_hero.png', 'center')}</div><div style='flex:2'>{ph('rs_plaster2.jpg', 'center')}</div><div style='flex:1.92'>{ph('rs_tile_mason.png', 'center')}</div></div>
 
 <div class='abs' style='top:666px;left:30px;right:30px;border-radius:22px;background:linear-gradient(180deg,#0A1830ee,#050C1Cee);border:2px solid {GOLD}66;padding:6px 26px 8px;box-sizing:border-box;box-shadow:0 16px 30px #0008'>
- <div style='display:grid;grid-template-columns:1fr 110px 170px;height:36px;align-items:center'>{T('شعبہ', 18, GOLD2, 'font-weight:700', 1.6)}{T('آسامیاں', 18, GOLD2, 'font-weight:700;text-align:center', 1.6)}{T('ماہانہ تنخواہ', 18, GOLD2, 'font-weight:700;text-align:left', 1.6)}</div>{rows}</div>
+ <div style='display:grid;grid-template-columns:1fr 90px 290px;height:36px;align-items:center'>{T('شعبہ', 18, GOLD2, 'font-weight:700', 1.6)}{T('آسامیاں', 18, GOLD2, 'font-weight:700;text-align:center', 1.6)}{T('ماہانہ تنخواہ (تقریباً)', 18, GOLD2, 'font-weight:700;text-align:left', 1.6)}</div>{rows}</div>
 
-<div class='abs' style='top:1074px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px'>{chip}</div>
+<div class='abs' style='top:1084px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px'>{chip}</div>
 
 <div class='abs' style='top:1214px;left:0;width:1080px;height:136px;background:linear-gradient(100deg,#005A2D,{GRN})'></div>
 <div class='abs' style='top:1208px;left:0;width:1080px;height:6px;background:{GOLD}'></div>
