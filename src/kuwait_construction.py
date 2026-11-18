@@ -46,8 +46,8 @@ def build():
  <div style='font:400 96px Anton;color:#fff;line-height:.95;letter-spacing:2px;margin-top:12px;text-shadow:0 8px 24px #0008'>CONSTRUCTION<br>JOBS IN <span style='color:{GOLD2}'>KUWAIT</span></div>
  <div style='font:800 23px Archivo;color:#F6E7C8;margin-top:10px'>625 posts · Skilled &amp; unskilled · 1-year agreement</div></div>
 
-<div class='abs' style='top:430px;left:30px;right:30px;height:220px;display:grid;grid-template-columns:1fr 1.25fr 1.25fr;gap:14px'>
- {ph('rslinks_construction_engineer.png', 'center 30%')}{ph('rs_plaster2.jpg', '30% 30%')}{ph('rs_tile2.jpg', '45% 30%')}</div>
+<div class='abs' style='top:440px;left:30px;right:30px;height:200px;display:flex;gap:10px'>
+ <div style='flex:1.13'>{ph('ua_hero.png', 'center')}</div><div style='flex:2'>{ph('rs_plaster2.jpg', 'center')}</div><div style='flex:1.92'>{ph('rs_tile_mason.png', 'center')}</div></div>
 
 <div class='abs' style='top:666px;left:30px;right:30px;border-radius:22px;background:linear-gradient(180deg,#0A1830ee,#050C1Cee);border:2px solid {GOLD}66;padding:10px 26px 8px;box-sizing:border-box;box-shadow:0 16px 30px #0008'>
  <div style='display:grid;grid-template-columns:1fr 110px 170px;font:800 14px Archivo;color:{GOLD2};letter-spacing:2px;height:28px;align-items:center'><span>CATEGORY</span><span style='text-align:center'>POSTS</span><span style='text-align:right'>SALARY / MONTH</span></div>{rows}</div>

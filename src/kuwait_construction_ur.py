@@ -30,11 +30,11 @@ def build():
 <div class='abs' style='top:30px;left:30px;filter:drop-shadow(0 6px 10px #0007)'>{flag('kw', 120, True, 'kwcu')}</div>
 <div class='abs' style='top:120px;right:40px;width:760px'>
  <div style='display:inline-block;background:{RED};border-radius:8px;padding:0 18px'>{T('فوری ضرورت برائے کویت', 28, '#fff', 'font-weight:700', 1.7)}</div>
- {T(f"کویت میں <span style='color:{GOLD2}'>کنسٹرکشن</span> جابز", 70, '#fff', 'font-weight:700;margin-top:6px;white-space:nowrap;text-shadow:0 8px 24px #0008', 1.75)}
+ {T(f"کویت میں <span style='color:{GOLD2}'>تعمیراتی</span> ملازمتیں", 70, '#fff', 'font-weight:700;margin-top:6px;white-space:nowrap;text-shadow:0 8px 24px #0008', 1.75)}
  {T(f"{N(625)} آسامیاں · ہنرمند اور غیر ہنرمند · {N(1)} سال کا معاہدہ", 24, '#F6E7C8', 'font-weight:700;margin-top:2px', 1.75)}</div>
 
-<div class='abs' style='top:430px;left:30px;right:30px;height:220px;display:grid;grid-template-columns:1.25fr 1.25fr 1fr;gap:14px'>
- {ph('rslinks_construction_engineer.png', 'center 30%')}{ph('rs_plaster2.jpg', '30% 30%')}{ph('rs_tile2.jpg', '45% 30%')}</div>
+<div class='abs' style='top:440px;left:30px;right:30px;height:200px;display:flex;gap:10px'>
+ <div style='flex:1.13'>{ph('ua_hero.png', 'center')}</div><div style='flex:2'>{ph('rs_plaster2.jpg', 'center')}</div><div style='flex:1.92'>{ph('rs_tile_mason.png', 'center')}</div></div>
 
 <div class='abs' style='top:666px;left:30px;right:30px;border-radius:22px;background:linear-gradient(180deg,#0A1830ee,#050C1Cee);border:2px solid {GOLD}66;padding:6px 26px 8px;box-sizing:border-box;box-shadow:0 16px 30px #0008'>
  <div style='display:grid;grid-template-columns:1fr 110px 170px;height:36px;align-items:center'>{T('شعبہ', 18, GOLD2, 'font-weight:700', 1.6)}{T('آسامیاں', 18, GOLD2, 'font-weight:700;text-align:center', 1.6)}{T('ماہانہ تنخواہ', 18, GOLD2, 'font-weight:700;text-align:left', 1.6)}</div>{rows}</div>
