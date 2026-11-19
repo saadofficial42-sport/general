@@ -1,7 +1,6 @@
 """RS Links A4 letterhead — purple version (2026-11-19). User supplied details (marketing contact card): call/WhatsApp
 +92 325 5547027, rslinksmarketing@gmail.com, office Foundation University Incubation Centre, New Lalazar, Rawalpindi;
-plus website and official email hr@rslinksconsultants.com. Purple round logo, deep-violet curved header band with
-lavender sparkle, services line, violet wave footer. Outputs output/letterhead-purple/ (PDF/AI/EPS/PNG/DOCX)."""
+plus website and official email hr@rslinksconsultants.com. Purple round logo, deep-violet curved header band (no sparkles, user), services line, violet wave footer. Outputs output/letterhead-purple/ (PDF/AI/EPS/PNG/DOCX)."""
 import shutil
 import subprocess
 
@@ -21,8 +20,7 @@ HEAD_H, FOOT_H = 150, 150
 def header(w=W):
     return f"""<div style='position:absolute;left:0;top:0;width:{w}px;height:{HEAD_H}px;overflow:hidden'>
 <svg style='position:absolute;right:0;top:0' width='420' height='{HEAD_H}'><defs><linearGradient id='hv' x1='0' x2='1'><stop offset='0' stop-color='{VIO}'/><stop offset='1' stop-color='{VIO3}'/></linearGradient></defs>
- <path d='M120 0 H420 V{HEAD_H} H300 C200 {HEAD_H} 170 60 120 0Z' fill='url(#hv)'/><path d='M60 0 C120 50 150 110 250 {HEAD_H}' stroke='{LAV}' stroke-width='3' fill='none' opacity='.7'/>
- <path d='M340 40 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z' fill='#fff'/><path d='M385 95 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z' fill='{LAV}'/></svg>
+ <path d='M120 0 H420 V{HEAD_H} H300 C200 {HEAD_H} 170 60 120 0Z' fill='url(#hv)'/><path d='M60 0 C120 50 150 110 250 {HEAD_H}' stroke='{LAV}' stroke-width='3' fill='none' opacity='.7'/></svg>
 <div style='position:absolute;left:44px;top:28px;display:flex;align-items:center;gap:14px'>
  <img src='{LOGO}' style='width:88px;height:88px'>
  <div><div style='font-family:Anton;font-size:30px;color:{VIO};letter-spacing:.5px;line-height:1'>RS LINKS CONSULTANTS</div>
