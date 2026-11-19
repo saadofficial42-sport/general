@@ -11,7 +11,7 @@ from office_banners import WEBSITE
 
 VIO, VIO2, VIO3, LAV, INK = "#5B2A86", "#3A1663", "#2A0E4A", "#B79BE0", "#2A0E4A"
 PHONE = "+92 325 5547027"
-EMAILS = ("hr@rslinksconsultants.com", "rslinksmarketing@gmail.com")
+EMAILS = ("info@rslinksconsultants.com", "rslinksmarketing@gmail.com")
 ADDRESS = "Foundation University, Incubation Centre, New Lalazar, Rawalpindi, Pakistan"
 SERVICES = "Branding | Social | Content | Ads | Web | SEO | Strategy | Influence | E-commerce"
 LOGO = (OUTPUT / "logo-vector" / "RS-Links-Round-Logo-Purple_2000px.png").as_uri()
