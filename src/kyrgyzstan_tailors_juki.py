@@ -25,7 +25,7 @@ def build():
     fac_li = "".join(f"<div style='display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:2px dashed #F2C9CF'>"
                      f"<span style='width:46px;height:46px;border-radius:50%;background:{RED};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 24, '#fff', 2.3)}</span>"
                      f"<span style='font:800 21px Archivo;color:{INK}'>{t}</span></div>" for ic, t in fac)
-    stats = [("calendar", "30 DAYS", "Processing"), ("user", "21 – 40", "Age (years)"), ("clock", "10 HRS", "Daily duty"), ("visa", "1 YEAR", "Visa, extendable*")]
+    stats = [("calendar", "30 DAYS", "Processing"), ("user", "21 – 40", "Age (years)"), ("clock", "10 HRS", "Daily duty"), ("visa", "1 YEAR", "Contract, extendable*")]
     stat = "".join(f"<div style='background:#fff;border-radius:18px;{stitch};display:flex;flex-direction:column;align-items:center;justify-content:center'>"
                    f"{icon(ic, 30, RED, 2.3)}<div style='font:400 30px Anton;color:{INK};margin-top:4px'>{v}</div><div style='font:700 14px Archivo;color:#7A5A5E'>{l}</div></div>" for ic, v, l in stats)
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(32)}<span style='font:400 29px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
@@ -52,7 +52,7 @@ def build():
  <span style='width:92px;height:92px;border-radius:50%;background:{SUN};display:flex;align-items:center;justify-content:center;flex:none'>{icon('video', 48, RED2, 2.2)}</span>
  <div><div style='font:400 40px Anton;color:#fff;letter-spacing:1px;line-height:1.05'>SELECTION THROUGH WORKING VIDEO</div>
  <div style='font:700 19px Archivo;color:#FFE3E6;margin-top:6px'>Send a video of yourself working on a JUKI machine</div></div></div>
-<div class='abs' style='top:1128px;left:36px;right:36px;font:600 13px Archivo;color:#7A5A5E'>*1-year visa, extendable on the basis of performance.</div>
+<div class='abs' style='top:1128px;left:36px;right:36px;font:600 13px Archivo;color:#7A5A5E'>*1-year contract, extendable on the basis of performance.</div>
 
 <div class='abs' style='top:1156px;left:0;width:1080px;height:194px;background:{INK};border-top:5px dashed {SUN}'></div>
 <div class='abs' style='top:1188px;left:36px;display:grid;grid-template-columns:auto auto;gap:14px 30px'>{nums}</div>

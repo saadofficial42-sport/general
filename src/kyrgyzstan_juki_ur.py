@@ -27,7 +27,7 @@ def build():
     fac_li = "".join(f"<div style='display:flex;align-items:center;gap:12px;padding:2px 0;border-bottom:2px dashed #F2C9CF'>"
                      f"<span style='width:46px;height:46px;border-radius:50%;background:{RED};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 24, '#fff', 2.3)}</span>"
                      f"{T(t.replace('2', N(2)), 25, INK, 'font-weight:700', 1.85)}</div>" for ic, t in fac)
-    stats = [("calendar", f"{N(30)} دن", "پروسیسنگ"), ("user", f"{N('21 – 40')} سال", "عمر کی حد"), ("clock", f"{N(10)} گھنٹے", "روزانہ ڈیوٹی"), ("visa", f"{N(1)} سال", "ویزا (قابلِ توسیع)*")]
+    stats = [("calendar", f"{N(30)} دن", "پروسیسنگ"), ("user", f"{N('21 – 40')} سال", "عمر کی حد"), ("clock", f"{N(10)} گھنٹے", "روزانہ ڈیوٹی"), ("visa", f"{N(1)} سال", "معاہدہ (قابلِ توسیع)*")]
     stat = "".join(f"<div style='background:#fff;border-radius:18px;{stitch};display:flex;flex-direction:column;align-items:center;justify-content:center'>"
                    f"{icon(ic, 30, RED, 2.3)}{T(v, 28, INK, 'font-weight:700;margin-top:2px', 1.6)}{T(l, 17, '#7A5A5E', 'font-weight:700;margin-top:12px', 1.4)}</div>" for ic, v, l in stats)
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(32)}<span style='font:400 29px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
@@ -54,7 +54,7 @@ def build():
  <span style='width:92px;height:92px;border-radius:50%;background:{SUN};display:flex;align-items:center;justify-content:center;flex:none'>{icon('video', 48, RED2, 2.2)}</span>
  <div>{T('سلیکشن ورکنگ ویڈیو کے ذریعے', 38, '#fff', 'font-weight:700;margin-bottom:10px', 1.6)}
  {T('جوکی مشین پر کام کرتے ہوئے اپنی ویڈیو بھیجیں', 22, '#FFE3E6', 'font-weight:700', 1.7)}</div></div>
-<div class='abs' style='top:1124px;right:36px;left:36px;text-align:right'>{T(f"* {N(1)} سال کا ویزا، کارکردگی کی بنیاد پر قابلِ توسیع", 16, '#7A5A5E', 'font-weight:700', 1.6)}</div>
+<div class='abs' style='top:1124px;right:36px;left:36px;text-align:right'>{T(f"* {N(1)} سال کا معاہدہ، کارکردگی کی بنیاد پر قابلِ توسیع", 16, '#7A5A5E', 'font-weight:700', 1.6)}</div>
 
 <div class='abs' style='top:1166px;left:0;width:1080px;height:184px;background:{INK};border-top:5px dashed {SUN}'></div>
 <div class='abs' style='top:1194px;left:36px;display:grid;grid-template-columns:auto auto;gap:14px 30px;direction:ltr'>{nums}</div>
