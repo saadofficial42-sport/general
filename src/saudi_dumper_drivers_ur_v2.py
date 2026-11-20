@@ -21,25 +21,27 @@ def build():
     nums = "".join(f"<div style='display:flex;align-items:center;gap:8px'>{whatsapp_icon(30)}<span style='font:400 28px Anton;color:#fff;letter-spacing:.5px'>{n}</span></div>" for n in PHONES)
     body = f"""<div dir='rtl'>
 <div class='abs' style='inset:0;background:#fff'></div>
-<div class='abs' style='top:0;left:0;width:1080px;height:720px;overflow:hidden'><img src='{P("rslinks_construction_engineer.png")}' style='width:100%;height:100%;object-fit:cover;object-position:center 25%'>
- <div style='position:absolute;inset:0;background:linear-gradient(180deg,#000a 0%,#0006 40%,#0000 65%)'></div></div>
-<svg class='abs' style='top:600px;left:0' width='1080' height='140'><path d='M0 140 L1080 20 V140Z' fill='#fff'/><path d='M0 120 L1080 0 V24 L0 144Z' fill='{GRN}'/></svg>
+<div class='abs' style='top:0;left:0;width:1080px;height:330px;background:linear-gradient(120deg,{GRN2},{GRN})'></div>
+<div class='abs' style='top:0;left:0;width:1080px;height:330px;background:repeating-linear-gradient(-45deg,#ffffff08 0 30px,transparent 30px 60px)'></div>
 <div class='abs' style='top:24px;right:30px;background:#fff;border-radius:14px;padding:2px 12px'>{logo_img('logo-horizontal-light', 'width:250px;height:64px;object-position:right')}</div>
 <div class='abs' style='top:26px;left:30px;filter:drop-shadow(0 6px 10px #0008)'>{flag('saudi', 120, True, 'sad2')}</div>
-<div class='abs' style='top:126px;right:44px;width:700px'>
- <div style='display:inline-block;background:{GRN};border-radius:10px;padding:0 22px'>{T('فوری ضرورت برائے سعودی عرب', 30, '#fff', 'font-weight:700', 1.75)}</div>
- {T('ڈمپر ڈرائیورز', 118, '#fff', 'font-weight:700;margin-top:4px;text-shadow:0 10px 30px #000', 1.7)}
- <div style='text-align:right;margin-top:6px'><span style='display:inline-block;background:#000a;font:400 28px Anton;color:{YEL2};letter-spacing:5px;direction:ltr;padding:4px 14px;border-radius:8px'>DUMPER DRIVERS – RIYADH</span></div>
- {T('سعودیہ کی معروف کمپنی کے لیے', 26, '#fff', 'font-weight:700;margin-top:8px;text-shadow:0 3px 10px #000', 1.8)}</div>
-<div class='abs' style='top:470px;left:40px;width:290px;height:220px;border-radius:18px;overflow:hidden;border:6px solid #fff;transform:rotate(-3deg);box-shadow:0 16px 30px #0009'><img src='{P("ua_hero.png")}' style='width:100%;height:100%;object-fit:cover;object-position:center 30%'></div>
-<div class='abs' style='top:560px;right:60px;width:270px;height:270px;border-radius:50%;background:radial-gradient(circle at 35% 30%,{YEL2},{YEL} 60%,#E0A000);border:7px solid #fff;box-shadow:0 18px 34px #0007;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)'>
- {T('ماہانہ تنخواہ', 24, INK, 'font-weight:700', 1.5)}
- <div style='font:400 84px Anton;color:{INK};line-height:1;direction:ltr'>1700</div>
- <div style='font:400 26px Anton;color:{INK};direction:ltr;letter-spacing:2px'>SAR</div>
- {T('+ ٹرپ اوور ٹائم', 24, GRN2, 'font-weight:700', 1.6)}</div>
+<div class='abs' style='top:106px;right:44px;width:1000px'>
+ <div style='display:inline-block;background:{YEL};border-radius:10px;padding:0 22px'>{T('فوری ضرورت برائے سعودی عرب', 28, INK, 'font-weight:700', 1.75)}</div>
+ {T('ڈمپر ڈرائیورز', 104, '#fff', 'font-weight:700;margin-top:0', 1.7)}</div>
+<div class='abs' style='top:150px;left:44px;text-align:left'>
+ <div style='font:400 34px Anton;color:{YEL2};letter-spacing:5px'>DUMPER DRIVERS</div>
+ <div style='font:400 26px Anton;color:#fff;letter-spacing:6px;margin-top:4px'>RIYADH · SAUDI ARABIA</div>
+ <div style='margin-top:8px'>{T('سعودیہ کی معروف کمپنی کے لیے', 22, '#DDEFE3', 'font-weight:700;text-align:left', 1.8)}</div></div>
+<div class='abs' style='top:330px;left:0;width:1080px;height:500px;overflow:hidden'><img src='{P("sa_dumper_truck.jpg")}' style='width:100%;height:100%;object-fit:cover;object-position:center 55%'></div>
+<div class='abs' style='top:322px;left:0;width:1080px;height:8px;background:{YEL}'></div>
+<div class='abs' style='top:350px;left:40px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle at 35% 30%,{YEL2},{YEL} 60%,#E0A000);border:7px solid #fff;box-shadow:0 18px 34px #0007;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)'>
+ {T('ماہانہ تنخواہ', 22, INK, 'font-weight:700', 1.5)}
+ <div style='font:400 78px Anton;color:{INK};line-height:1;direction:ltr'>1700</div>
+ <div style='font:400 24px Anton;color:{INK};direction:ltr;letter-spacing:2px'>SAR</div>
+ {T('+ ٹرپ اوور ٹائم', 22, GRN2, 'font-weight:700', 1.6)}</div>
 
-<div class='abs' style='top:850px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px'>{rows}</div>
-<div class='abs' style='top:1100px;left:0;width:1080px;text-align:center'>{T('ابھی رابطہ کریں!', 40, GRN, 'font-weight:700', 1.7)}</div>
+<div class='abs' style='top:852px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px'>{rows}</div>
+<div class='abs' style='top:1094px;left:0;width:1080px;text-align:center'>{T('ابھی رابطہ کریں!', 40, GRN, 'font-weight:700', 1.7)}</div>
 
 <div class='abs' style='top:1190px;left:0;width:1080px;height:160px;background:linear-gradient(100deg,{GRN2},{GRN})'></div>
 <div class='abs' style='top:1184px;left:0;width:1080px;height:6px;background:{YEL}'></div>
