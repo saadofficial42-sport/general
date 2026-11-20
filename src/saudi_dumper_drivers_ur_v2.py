@@ -14,7 +14,7 @@ T = lambda s, px, c, extra="", lh=1.8: f"<div class='t' style='font-size:{px}px;
 def build():
     P = lambda f: (PHOTOS / f).as_uri()
     facts = [("pin", "شہر: ریاض"), ("user", f"{N(20)} فریش پاکستانی ڈرائیورز"), ("calendar", f"معاہدہ {N(2)} سال"),
-             ("home", "رہائش فراہم"), ("check", "دیگر مراعات سعودی لیبر لاء کے مطابق"), ("doc", f"اپنی {N('CV')} واٹس ایپ کریں")]
+             ("home", "رہائش فراہم"), ("check", "دیگر مراعات سعودی لیبر لاء کے مطابق"), ("plane", "ٹکٹ اور پروٹیکٹر شامل")]
     rows = "".join(f"<div style='display:flex;align-items:center;gap:12px;background:#F4F8F5;border-radius:14px;padding:0 14px;height:68px;border-right:6px solid {GRN if i % 2 == 0 else YEL}'>"
                    f"<span style='width:44px;height:44px;border-radius:50%;background:{GRN};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 24, '#fff', 2.2)}</span>"
                    f"{T(t, 23, INK, 'font-weight:700;white-space:nowrap', 1.8)}</div>" for i, (ic, t) in enumerate(facts))
@@ -41,7 +41,7 @@ def build():
  {T('+ ٹرپ اوور ٹائم', 22, GRN2, 'font-weight:700', 1.6)}</div>
 
 <div class='abs' style='top:852px;left:30px;right:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px'>{rows}</div>
-<div class='abs' style='top:1094px;left:0;width:1080px;text-align:center'>{T('ابھی رابطہ کریں!', 40, GRN, 'font-weight:700', 1.7)}</div>
+<div class='abs' style='top:1094px;left:0;width:1080px;text-align:center'>{T(f"اپنی {N('CV')} واٹس ایپ کریں — ابھی رابطہ کریں!", 36, GRN, 'font-weight:700', 1.75)}</div>
 
 <div class='abs' style='top:1190px;left:0;width:1080px;height:160px;background:linear-gradient(100deg,{GRN2},{GRN})'></div>
 <div class='abs' style='top:1184px;left:0;width:1080px;height:6px;background:{YEL}'></div>
