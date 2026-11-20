@@ -16,7 +16,7 @@ T = lambda s, px, c, extra="", lh=1.8: f"<div class='t' style='font-size:{px}px;
 
 def build():
     P = lambda f: (PHOTOS / f).as_uri()
-    ben = [("home", SKY2, "رہائش کمپنی کی طرف سے"), ("plane", GRN2, "ٹکٹ کمپنی کی طرف سے"), ("check", RED, "پروٹیکٹر شامل"), ("food", NAVY, "دیگر ضروری سہولیات کمپنی کی طرف سے")]
+    ben = [("home", SKY2, "رہائش فراہم"), ("food", GRN2, "کھانا فراہم"), ("plane", RED, "ٹکٹ اور پروٹیکٹر شامل"), ("check", NAVY, "دیگر ضروری سہولیات فراہم")]
     rows = "".join(f"<div style='display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;height:74px;box-shadow:0 8px 16px #0B254514;overflow:hidden'>"
                    f"<span style='width:78px;height:100%;background:{c};display:flex;align-items:center;justify-content:center;flex:none'>{icon(ic, 36, '#fff', 2.2)}</span>"
                    f"{T(t, 27, INK, 'font-weight:700', 1.9)}</div>" for ic, c, t in ben)
